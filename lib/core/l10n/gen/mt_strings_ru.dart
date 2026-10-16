@@ -1045,4 +1045,746 @@ class MtStringsRu extends MtStrings {
 
   @override
   String get smAppNotesLabel => 'Заметки';
+
+  @override
+  String get fmAppSearchPh => 'Поиск сайтов…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => 'Новый сайт';
+
+  @override
+  String get fmAppSettings => 'Настройки';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return 'Сайтов: $c · папок: $f';
+  }
+
+  @override
+  String get fmAppWelcome => 'Добро пожаловать';
+
+  @override
+  String fmAppResults(String q) {
+    return 'Результаты по запросу «$q»';
+  }
+
+  @override
+  String get fmAppAll => 'Все сайты';
+
+  @override
+  String get fmAppWelcomeHint =>
+      'Создайте свой первый FTP / SFTP сайт.<br>Укажите данные сервера, проверьте подключение и сохраните.';
+
+  @override
+  String get fmAppFolders => 'Папки';
+
+  @override
+  String get fmAppConnections => 'Сайты';
+
+  @override
+  String get fmAppDblHint => 'Дважды щёлкните карточку, чтобы подключиться';
+
+  @override
+  String get fmAppNoMatch => 'Подходящих сайтов нет.';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return 'Сайтов: $n';
+  }
+
+  @override
+  String get fmAppNewConnHere => 'Новый сайт в этой папке';
+
+  @override
+  String get fmAppNewSubfolder => 'Новая подпапка';
+
+  @override
+  String get fmAppKeyTag => 'Ключ';
+
+  @override
+  String get fmAppLastDir => 'Последняя папка';
+
+  @override
+  String get fmAppLastDirTag => 'последняя папка';
+
+  @override
+  String get fmAppDuplicate => 'Дублировать';
+
+  @override
+  String get fmAppMoveToFolder => 'Переместить в папку…';
+
+  @override
+  String get fmAppResetLastDir => 'Сбросить последнюю папку';
+
+  @override
+  String get fmAppConnMoved => 'Сайт перемещён';
+
+  @override
+  String get fmAppFolderIntoSelf => 'Папку нельзя переместить в саму себя';
+
+  @override
+  String get fmAppFolderPh => 'напр. Клиенты';
+
+  @override
+  String get fmAppRenameFolder => 'Переименовать папку';
+
+  @override
+  String get fmAppDeleteFolder => 'Удалить папку';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return 'Удалить папку <b>$name</b>?';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>Сайты из неё ($n) будут перемещены в родительскую папку.';
+  }
+
+  @override
+  String get fmAppRootFolder => 'Верхний уровень (без папки)';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return 'Переместить «$name»';
+  }
+
+  @override
+  String get fmAppTargetFolder => 'Целевая папка';
+
+  @override
+  String get fmAppDeleteConn => 'Удалить сайт';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return 'Удалить сайт <b>$name</b> ($target)?';
+  }
+
+  @override
+  String get fmFormTitleNew => 'Новый сайт';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return 'Свойства сайта: $name';
+  }
+
+  @override
+  String get fmFormTabGeneral => 'Общие';
+
+  @override
+  String get fmFormTabActions => 'Действия';
+
+  @override
+  String get fmFormTabType => 'Тип';
+
+  @override
+  String get fmFormTabOptions => 'Параметры';
+
+  @override
+  String get fmFormName => 'Название';
+
+  @override
+  String get fmFormNamePh => 'напр. Сайт компании';
+
+  @override
+  String get fmFormHost => 'Адрес хоста';
+
+  @override
+  String get fmFormHostPh => 'ftp.example.com или 192.168.1.10';
+
+  @override
+  String get fmFormPort => 'Порт';
+
+  @override
+  String get fmFormUser => 'Имя пользователя';
+
+  @override
+  String get fmFormPassword => 'Пароль';
+
+  @override
+  String get fmFormPwSaved => '•••••••• (сохранён, введите для изменения)';
+
+  @override
+  String get fmFormLoginMethod => 'Способ входа';
+
+  @override
+  String get fmFormLoginNormal => 'Обычный';
+
+  @override
+  String get fmFormLoginAnon => 'Анонимный';
+
+  @override
+  String get fmFormAuth => 'Аутентификация SFTP';
+
+  @override
+  String get fmFormPrivateKey => 'Закрытый ключ';
+
+  @override
+  String get fmFormKeyFile => 'Файл закрытого ключа';
+
+  @override
+  String get fmFormPassphrase => 'Парольная фраза ключа';
+
+  @override
+  String get fmFormPassSaved => '(сохранена)';
+
+  @override
+  String get fmFormPassEmpty => 'Оставьте пустым, если её нет';
+
+  @override
+  String get fmFormFolder => 'Папка';
+
+  @override
+  String get fmFormColor => 'Цвет';
+
+  @override
+  String get fmFormComments => 'Комментарии';
+
+  @override
+  String get fmFormRemoteDir =>
+      'После подключения перейти в эту папку на сервере';
+
+  @override
+  String get fmFormLocalDir =>
+      'После подключения перейти в эту локальную папку';
+
+  @override
+  String get fmFormLocalDirPh => 'напр. C:\\Projects\\site';
+
+  @override
+  String get fmFormLastDir => 'Открывать папку, где я остановился';
+
+  @override
+  String get fmFormLastDirHint =>
+      'Если включено, сайт открывается в папках сервера и компьютера, где вы работали в последний раз (вместо указанных выше).';
+
+  @override
+  String get fmFormLastDirNow => 'Сейчас:';
+
+  @override
+  String get fmFormCache => 'Кэширование при навигации';
+
+  @override
+  String get fmFormCacheSession => 'Использовать кэш в течение сеанса';
+
+  @override
+  String get fmFormCacheAlways =>
+      'Всегда использовать кэш (пока приложение открыто)';
+
+  @override
+  String get fmFormCacheNever =>
+      'Не использовать кэш (всегда загружать список заново)';
+
+  @override
+  String get fmFormUploadCase =>
+      'При загрузке на сервер применять к именам файлов и папок';
+
+  @override
+  String get fmFormCasePreserve => 'Сохранять регистр';
+
+  @override
+  String get fmFormCaseLower => 'Строчные буквы';
+
+  @override
+  String get fmFormCaseUpper => 'Прописные буквы';
+
+  @override
+  String get fmFormTest => 'Проверить подключение';
+
+  @override
+  String get fmFormSaveConnect => 'Сохранить и подключиться';
+
+  @override
+  String get fmFormConnecting => 'Подключение…';
+
+  @override
+  String get fmFormTestOk => 'Подключение успешно';
+
+  @override
+  String get fmFormTestFail => 'Не удалось подключиться';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return 'Начальная папка: $dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing =>
+      'Внимание: не удалось открыть папку на сервере.';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'Ключ хоста SSH (SHA256): $fp';
+  }
+
+  @override
+  String get fmFormSaved => 'Сайт сохранён';
+
+  @override
+  String get fmFormChangesSaved => 'Изменения сохранены';
+
+  @override
+  String get fmTypeProtocol => 'Протокол';
+
+  @override
+  String get fmTypeFtp => 'FTP (стандартный протокол передачи файлов)';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP через TLS/SSL (неявный, порт 990)';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP через SSL (AUTH SSL, явный)';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP через TLS/SSL (AUTH TLS, явный)';
+
+  @override
+  String get fmTypeSftp => 'SFTP через SSH2 (Secure Shell)';
+
+  @override
+  String get fmTypeNoteFtp =>
+      'Использует стандартный протокол FTP для команд и данных без шифрования (открытым текстом).';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      'Соединение шифруется TLS/SSL с самого начала (обычно порт 990). Команды и данные защищены.';
+
+  @override
+  String get fmTypeNoteFtpsSsl =>
+      'Подключается по обычному FTP и переходит к зашифрованному сеансу с помощью AUTH SSL. Команды и данные защищены.';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      'Подключается по обычному FTP и переходит к зашифрованному сеансу с помощью AUTH TLS (самый распространённый вариант FTPS).';
+
+  @override
+  String get fmTypeNoteSftp =>
+      'Зашифрованная передача файлов по SSH (порт 22). Вход по паролю или закрытому ключу; ключ хоста сохраняется при первом подключении.';
+
+  @override
+  String get fmTypeTransferType => 'Тип передачи';
+
+  @override
+  String get fmTypeBinary => 'Двоичный';
+
+  @override
+  String get fmTypeAscii => 'ASCII (текст)';
+
+  @override
+  String get fmTypeAuto => 'Авто (текстовые файлы как ASCII)';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return 'Использовать общую настройку ($v)';
+  }
+
+  @override
+  String get fmTypeDataConn => 'Соединение для данных';
+
+  @override
+  String get fmTypePassive => 'Пассивное (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => 'Смещение часового пояса сервера';
+
+  @override
+  String get fmTypeTzNone => 'Без смещения';
+
+  @override
+  String get fmTypeTzHours => 'ч';
+
+  @override
+  String get fmTypeTimezoneHint =>
+      'Время файлов в списке сервера сдвигается на эту величину.';
+
+  @override
+  String get fmOptSiteOptions => 'Параметры сайта';
+
+  @override
+  String get fmOptUseGlobal =>
+      'Использовать общие настройки для всех параметров';
+
+  @override
+  String get fmOptCustom => 'Использовать собственные настройки сайта';
+
+  @override
+  String get fmOptRetry => 'Число повторных попыток';
+
+  @override
+  String get fmOptRetryDelay => 'Пауза между попытками (с)';
+
+  @override
+  String get fmOptMaxConcurrent => 'Макс. одновременных передач';
+
+  @override
+  String get fmOptConflict => 'Если файл с таким именем существует';
+
+  @override
+  String get fmOptConflictOverwrite => 'Перезаписать';
+
+  @override
+  String get fmOptConflictRename => 'Переименовать (имя (1).ext)';
+
+  @override
+  String get fmOptConflictSkip => 'Пропустить';
+
+  @override
+  String get fmOptEncoding => 'Кодировка имён файлов';
+
+  @override
+  String get fmOptEncAuto => 'Авто';
+
+  @override
+  String get fmSiteLocal => 'Мой компьютер';
+
+  @override
+  String get fmSiteRemote => 'Сервер';
+
+  @override
+  String get fmSiteTransfers => 'Передачи';
+
+  @override
+  String get fmSiteToggleLocal => 'Показать/скрыть «Мой компьютер» (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers => 'Показать/скрыть «Передачи» (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => 'Переподключиться';
+
+  @override
+  String get fmSitePlaces => 'Быстрый доступ и диски';
+
+  @override
+  String get fmSiteUp => 'Родительская папка (Backspace)';
+
+  @override
+  String get fmSiteHome => 'Начальная папка';
+
+  @override
+  String get fmSiteColName => 'Имя';
+
+  @override
+  String get fmSiteColSize => 'Размер';
+
+  @override
+  String get fmSiteColDate => 'Изменён';
+
+  @override
+  String get fmSiteLoading => 'Загрузка…';
+
+  @override
+  String get fmSiteEmptyDir => 'Эта папка пуста';
+
+  @override
+  String get fmSiteDesktop => 'Рабочий стол';
+
+  @override
+  String get fmSiteDownloads => 'Загрузки';
+
+  @override
+  String get fmSiteDocuments => 'Документы';
+
+  @override
+  String get fmSiteHomeDir => 'Папка пользователя';
+
+  @override
+  String get fmSiteOpenExplorer => 'Открыть в Проводнике';
+
+  @override
+  String get fmSiteOpenFile => 'Открыть в программе по умолчанию';
+
+  @override
+  String get fmSiteShowExplorer => 'Показать в Проводнике';
+
+  @override
+  String get fmSiteUpload => 'Загрузить на сервер';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return 'Загрузить на сервер (элементов: $n)';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return 'Куда: $dir';
+  }
+
+  @override
+  String get fmSiteDownload => 'Скачать';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return 'Скачать (элементов: $n)';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return 'Куда: $dir';
+  }
+
+  @override
+  String get fmSiteTrash => 'Переместить в корзину';
+
+  @override
+  String get fmSiteTrashOk => 'Переместить';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return 'Переместить <b>$name</b> в корзину?';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return 'Переместить в корзину элементы ($n)?';
+  }
+
+  @override
+  String get fmSiteMkdirFail => 'Не удалось создать папку';
+
+  @override
+  String get fmSiteRenameFail => 'Не удалось переименовать';
+
+  @override
+  String get fmSiteDeleteFail => 'Не удалось удалить';
+
+  @override
+  String get fmSiteDeleteTitle => 'Удаление с сервера';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return 'Безвозвратно удалить файл <b>$name</b> с сервера?';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return 'Безвозвратно удалить папку <b>$name</b> со всем содержимым с сервера?';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return 'Безвозвратно удалить с сервера элементы ($n), включая папки со всем содержимым?';
+  }
+
+  @override
+  String get fmSiteDeleting => 'Удаление…';
+
+  @override
+  String get fmSiteDeleted => 'Удалено';
+
+  @override
+  String fmSiteItems(String n) {
+    return 'Элементов: $n';
+  }
+
+  @override
+  String get fmSiteOffline => 'Нет подключения';
+
+  @override
+  String fmSiteLimit(String v) {
+    return 'Ограничение скорости: $v';
+  }
+
+  @override
+  String get fmSiteNoLimit => 'Без ограничения скорости';
+
+  @override
+  String get fmSiteLimitTitle => 'Задать ограничение скорости';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return 'Не удалось подключиться к серверу: $msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => 'Ошибка подключения';
+
+  @override
+  String get fmSiteStateConnected => 'Подключено';
+
+  @override
+  String get fmSiteStateConnecting => 'Подключение…';
+
+  @override
+  String get fmSiteStateDisconnected => 'Отключено';
+
+  @override
+  String get fmTrColName => 'Имя';
+
+  @override
+  String get fmTrColSize => 'Размер';
+
+  @override
+  String get fmTrColProgress => 'Ход выполнения';
+
+  @override
+  String get fmTrColStatus => 'Состояние';
+
+  @override
+  String get fmTrEmpty =>
+      'Передач пока нет.\nЩёлкните файл или папку правой кнопкой и выберите «Скачать» / «Загрузить на сервер» или перетащите их между панелями.';
+
+  @override
+  String get fmTrQueued => 'В очереди';
+
+  @override
+  String get fmTrActive => 'Передаётся';
+
+  @override
+  String get fmTrDone => 'Завершено';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return 'Завершено файлов: $n';
+  }
+
+  @override
+  String get fmTrError => 'Ошибка';
+
+  @override
+  String get fmTrCancelled => 'Отменено';
+
+  @override
+  String get fmTrSkipped => 'Пропущено (существует)';
+
+  @override
+  String fmTrScanning(String n) {
+    return 'Сканирование… файлов: $n';
+  }
+
+  @override
+  String get fmTrRetrying => 'Повторная попытка…';
+
+  @override
+  String get fmTrCancel => 'Отменить';
+
+  @override
+  String get fmTrCancelDir => 'Отменить передачу папки';
+
+  @override
+  String get fmTrCancelAll => 'Отменить все передачи';
+
+  @override
+  String get fmTrCancelAllMsg =>
+      'Отменить все выполняемые и ожидающие передачи?';
+
+  @override
+  String get fmTrCancelAllOk => 'Отменить все';
+
+  @override
+  String get fmTrRetry => 'Повторить';
+
+  @override
+  String get fmTrShowLocal => 'Показать в Проводнике';
+
+  @override
+  String get fmTrShowRemote => 'Показать на сервере';
+
+  @override
+  String get fmTrCopyError => 'Копировать текст ошибки';
+
+  @override
+  String get fmTrRemove => 'Удалить из списка';
+
+  @override
+  String get fmTrRemoveRoot => 'Удалить эту передачу из списка';
+
+  @override
+  String get fmTrClearDone => 'Очистить завершённые';
+
+  @override
+  String fmTrActiveN(String n) {
+    return 'Выполняется передач: $n';
+  }
+
+  @override
+  String get fmTrDownloadDone => 'Скачивание завершено';
+
+  @override
+  String get fmTrUploadDone => 'Загрузка на сервер завершена';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return 'Скачивание не завершено: $name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return 'Загрузка на сервер не завершена: $name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return 'Файлов с ошибкой: $n';
+  }
+
+  @override
+  String get fmMainErrAuth =>
+      'Ошибка входа: неверное имя пользователя или пароль.';
+
+  @override
+  String get fmMainErrRefused =>
+      'В подключении отказано: порт закрыт или сервер не запущен.';
+
+  @override
+  String get fmMainErrTimeout => 'Время ожидания истекло: сервер недоступен.';
+
+  @override
+  String get fmMainErrDns => 'Не удалось разрешить имя хоста (DNS).';
+
+  @override
+  String get fmMainErrUnreach => 'Сервер недоступен в сети.';
+
+  @override
+  String get fmMainErrReset => 'Сервер закрыл соединение.';
+
+  @override
+  String get fmMainErrNotFound => 'Файл или папка не найдены.';
+
+  @override
+  String get fmMainErrPerm => 'Доступ запрещён.';
+
+  @override
+  String fmMainErr550(String msg) {
+    return 'Сервер отклонил операцию (550): $msg';
+  }
+
+  @override
+  String get fmMainErr553 => 'Сервер не принял имя файла (553).';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'Ошибка TLS/SSL — проверьте протокол или порт. ($msg)';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return 'Ключ хоста сервера изменился! Сохранённый: $oldVal, полученный: $newVal. Подключение отклонено в целях безопасности.';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => 'Сайт не найден';
+
+  @override
+  String get fmMainErrNoSession => 'Нет подключения к серверу';
+
+  @override
+  String get fmMainErrHost => 'Укажите адрес хоста.';
+
+  @override
+  String get fmMainErrUser =>
+      'Укажите имя пользователя (или выберите анонимный вход).';
+
+  @override
+  String get fmMainPickKey => 'Выберите файл закрытого ключа';
+
+  @override
+  String get fmMainCopySuffix => ' (копия)';
+
+  @override
+  String get fmMainCloseActive =>
+      'Передачи ещё выполняются. Если закрыть это окно, они будут отменены.';
+
+  @override
+  String get fmMainCloseAnyway => 'Всё равно закрыть';
 }

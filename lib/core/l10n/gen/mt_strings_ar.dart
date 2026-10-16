@@ -1036,4 +1036,741 @@ class MtStringsAr extends MtStrings {
 
   @override
   String get smAppNotesLabel => 'ملاحظات';
+
+  @override
+  String get fmAppSearchPh => 'ابحث في المواقع…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => 'موقع جديد';
+
+  @override
+  String get fmAppSettings => 'الإعدادات';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return '$c موقع · $f مجلد';
+  }
+
+  @override
+  String get fmAppWelcome => 'مرحبًا';
+
+  @override
+  String fmAppResults(String q) {
+    return 'نتائج «$q»';
+  }
+
+  @override
+  String get fmAppAll => 'كل المواقع';
+
+  @override
+  String get fmAppWelcomeHint =>
+      'أنشئ أول موقع FTP / SFTP لك.<br>أدخل بيانات الخادم ثم اختبر الاتصال واحفظه.';
+
+  @override
+  String get fmAppFolders => 'المجلدات';
+
+  @override
+  String get fmAppConnections => 'المواقع';
+
+  @override
+  String get fmAppDblHint => 'انقر نقرًا مزدوجًا على البطاقة للاتصال';
+
+  @override
+  String get fmAppNoMatch => 'لا توجد مواقع مطابقة.';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return '$n موقع';
+  }
+
+  @override
+  String get fmAppNewConnHere => 'موقع جديد في هذا المجلد';
+
+  @override
+  String get fmAppNewSubfolder => 'مجلد فرعي جديد';
+
+  @override
+  String get fmAppKeyTag => 'مفتاح';
+
+  @override
+  String get fmAppLastDir => 'آخر مجلد';
+
+  @override
+  String get fmAppLastDirTag => 'آخر مجلد';
+
+  @override
+  String get fmAppDuplicate => 'إنشاء نسخة';
+
+  @override
+  String get fmAppMoveToFolder => 'نقل إلى مجلد…';
+
+  @override
+  String get fmAppResetLastDir => 'إعادة تعيين آخر مجلد';
+
+  @override
+  String get fmAppConnMoved => 'تم نقل الموقع';
+
+  @override
+  String get fmAppFolderIntoSelf => 'لا يمكن نقل مجلد إلى داخل نفسه';
+
+  @override
+  String get fmAppFolderPh => 'مثال: العملاء';
+
+  @override
+  String get fmAppRenameFolder => 'إعادة تسمية المجلد';
+
+  @override
+  String get fmAppDeleteFolder => 'حذف المجلد';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return 'هل تريد حذف المجلد <b>$name</b>؟';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>ستُنقل مواقعه الـ$n إلى المجلد الأعلى.';
+  }
+
+  @override
+  String get fmAppRootFolder => 'المستوى الأعلى (بدون مجلد)';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return 'نقل «$name»';
+  }
+
+  @override
+  String get fmAppTargetFolder => 'المجلد الهدف';
+
+  @override
+  String get fmAppDeleteConn => 'حذف الموقع';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return 'هل تريد حذف الموقع <b>$name</b> ($target)؟';
+  }
+
+  @override
+  String get fmFormTitleNew => 'موقع جديد';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return 'خصائص الموقع: $name';
+  }
+
+  @override
+  String get fmFormTabGeneral => 'عام';
+
+  @override
+  String get fmFormTabActions => 'الإجراءات';
+
+  @override
+  String get fmFormTabType => 'النوع';
+
+  @override
+  String get fmFormTabOptions => 'الخيارات';
+
+  @override
+  String get fmFormName => 'التسمية';
+
+  @override
+  String get fmFormNamePh => 'مثال: موقع الشركة';
+
+  @override
+  String get fmFormHost => 'عنوان المضيف';
+
+  @override
+  String get fmFormHostPh => 'ftp.example.com أو 192.168.1.10';
+
+  @override
+  String get fmFormPort => 'المنفذ';
+
+  @override
+  String get fmFormUser => 'اسم المستخدم';
+
+  @override
+  String get fmFormPassword => 'كلمة المرور';
+
+  @override
+  String get fmFormPwSaved => '•••••••• (محفوظة، اكتب لتغييرها)';
+
+  @override
+  String get fmFormLoginMethod => 'طريقة تسجيل الدخول';
+
+  @override
+  String get fmFormLoginNormal => 'عادية';
+
+  @override
+  String get fmFormLoginAnon => 'مجهول الهوية';
+
+  @override
+  String get fmFormAuth => 'مصادقة SFTP';
+
+  @override
+  String get fmFormPrivateKey => 'مفتاح خاص';
+
+  @override
+  String get fmFormKeyFile => 'ملف المفتاح الخاص';
+
+  @override
+  String get fmFormPassphrase => 'عبارة مرور المفتاح';
+
+  @override
+  String get fmFormPassSaved => '(محفوظة)';
+
+  @override
+  String get fmFormPassEmpty => 'اتركها فارغة إن لم توجد';
+
+  @override
+  String get fmFormFolder => 'المجلد';
+
+  @override
+  String get fmFormColor => 'اللون';
+
+  @override
+  String get fmFormComments => 'ملاحظات';
+
+  @override
+  String get fmFormRemoteDir => 'عند الاتصال، انتقل إلى هذا المجلد على الخادم';
+
+  @override
+  String get fmFormLocalDir => 'عند الاتصال، انتقل إلى هذا المجلد المحلي';
+
+  @override
+  String get fmFormLocalDirPh => 'مثال: C:\\Projects\\site';
+
+  @override
+  String get fmFormLastDir => 'الانتقال إلى آخر مجلد عملت فيه';
+
+  @override
+  String get fmFormLastDirHint =>
+      'عند التفعيل، يُفتح الموقع في آخر مجلدين عملت فيهما على الخادم والكمبيوتر (بدلًا من المجلدات أعلاه).';
+
+  @override
+  String get fmFormLastDirNow => 'حاليًا:';
+
+  @override
+  String get fmFormCache => 'التخزين المؤقت للتصفح';
+
+  @override
+  String get fmFormCacheSession => 'استخدام ذاكرة التخزين المؤقت أثناء الجلسة';
+
+  @override
+  String get fmFormCacheAlways =>
+      'استخدام ذاكرة التخزين المؤقت دائمًا (طالما التطبيق مفتوح)';
+
+  @override
+  String get fmFormCacheNever =>
+      'عدم استخدام ذاكرة التخزين المؤقت (إعادة السرد دائمًا)';
+
+  @override
+  String get fmFormUploadCase =>
+      'عند الرفع، طبّق هذه القاعدة على أسماء الملفات والمجلدات';
+
+  @override
+  String get fmFormCasePreserve => 'الإبقاء على حالة الأحرف';
+
+  @override
+  String get fmFormCaseLower => 'أحرف صغيرة';
+
+  @override
+  String get fmFormCaseUpper => 'أحرف كبيرة';
+
+  @override
+  String get fmFormTest => 'اختبار الاتصال';
+
+  @override
+  String get fmFormSaveConnect => 'حفظ واتصال';
+
+  @override
+  String get fmFormConnecting => 'جارٍ الاتصال…';
+
+  @override
+  String get fmFormTestOk => 'نجح الاتصال';
+
+  @override
+  String get fmFormTestFail => 'تعذّر الاتصال';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return 'مجلد البدء: $dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing => 'تحذير: تعذّر فتح المجلد على الخادم.';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'مفتاح مضيف SSH (SHA256): $fp';
+  }
+
+  @override
+  String get fmFormSaved => 'تم حفظ الموقع';
+
+  @override
+  String get fmFormChangesSaved => 'تم حفظ التغييرات';
+
+  @override
+  String get fmTypeProtocol => 'البروتوكول';
+
+  @override
+  String get fmTypeFtp => 'FTP (بروتوكول نقل الملفات القياسي)';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP مع TLS/SSL (ضمني، المنفذ 990)';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP مع SSL (AUTH SSL، صريح)';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP مع TLS/SSL (AUTH TLS، صريح)';
+
+  @override
+  String get fmTypeSftp => 'SFTP عبر SSH2 (الصدفة الآمنة)';
+
+  @override
+  String get fmTypeNoteFtp =>
+      'يستخدم بروتوكول FTP القياسي لاتصالَي الأوامر والبيانات بشكل غير آمن (نص عادي).';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      'يُشفَّر الاتصال بـ TLS/SSL منذ البداية (عادةً المنفذ 990). الأوامر والبيانات محمية.';
+
+  @override
+  String get fmTypeNoteFtpsSsl =>
+      'يتصل عبر FTP عادي ثم ينتقل إلى جلسة مشفّرة باستخدام AUTH SSL. الأوامر والبيانات محمية.';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      'يتصل عبر FTP عادي ثم ينتقل إلى جلسة مشفّرة باستخدام AUTH TLS (نوع FTPS الأكثر شيوعًا).';
+
+  @override
+  String get fmTypeNoteSftp =>
+      'نقل ملفات مشفّر عبر SSH (المنفذ 22). سجّل الدخول بكلمة مرور أو مفتاح خاص؛ يُحفظ مفتاح المضيف عند أول اتصال.';
+
+  @override
+  String get fmTypeTransferType => 'نوع النقل';
+
+  @override
+  String get fmTypeBinary => 'ثنائي';
+
+  @override
+  String get fmTypeAscii => 'ASCII (نص)';
+
+  @override
+  String get fmTypeAuto => 'تلقائي (الملفات النصية كـ ASCII)';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return 'استخدام الإعداد العام ($v)';
+  }
+
+  @override
+  String get fmTypeDataConn => 'اتصال البيانات';
+
+  @override
+  String get fmTypePassive => 'سلبي (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => 'فرق المنطقة الزمنية للخادم';
+
+  @override
+  String get fmTypeTzNone => 'بدون فرق';
+
+  @override
+  String get fmTypeTzHours => 'ساعات';
+
+  @override
+  String get fmTypeTimezoneHint =>
+      'تُزاح أوقات الملفات التي يعرضها الخادم بهذا المقدار.';
+
+  @override
+  String get fmOptSiteOptions => 'خيارات خاصة بالموقع';
+
+  @override
+  String get fmOptUseGlobal => 'استخدام الإعدادات العامة لكل الخيارات';
+
+  @override
+  String get fmOptCustom => 'استخدام إعدادات خاصة بهذا الموقع';
+
+  @override
+  String get fmOptRetry => 'عدد محاولات الإعادة';
+
+  @override
+  String get fmOptRetryDelay => 'المهلة بين المحاولات (ث)';
+
+  @override
+  String get fmOptMaxConcurrent => 'الحد الأقصى لعمليات النقل المتزامنة';
+
+  @override
+  String get fmOptConflict => 'إذا وُجد ملف بالاسم نفسه';
+
+  @override
+  String get fmOptConflictOverwrite => 'استبدال';
+
+  @override
+  String get fmOptConflictRename => 'إعادة تسمية تلقائية (name (1).ext)';
+
+  @override
+  String get fmOptConflictSkip => 'تخطٍّ';
+
+  @override
+  String get fmOptEncoding => 'ترميز أسماء الملفات';
+
+  @override
+  String get fmOptEncAuto => 'تلقائي';
+
+  @override
+  String get fmSiteLocal => 'جهاز الكمبيوتر';
+
+  @override
+  String get fmSiteRemote => 'الخادم';
+
+  @override
+  String get fmSiteTransfers => 'عمليات النقل';
+
+  @override
+  String get fmSiteToggleLocal => 'إظهار/إخفاء جهاز الكمبيوتر (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers => 'إظهار/إخفاء عمليات النقل (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => 'إعادة الاتصال';
+
+  @override
+  String get fmSitePlaces => 'الوصول السريع ومحركات الأقراص';
+
+  @override
+  String get fmSiteUp => 'المجلد الأعلى (Backspace)';
+
+  @override
+  String get fmSiteHome => 'مجلد البدء';
+
+  @override
+  String get fmSiteColName => 'الاسم';
+
+  @override
+  String get fmSiteColSize => 'الحجم';
+
+  @override
+  String get fmSiteColDate => 'تاريخ التعديل';
+
+  @override
+  String get fmSiteLoading => 'جارٍ التحميل…';
+
+  @override
+  String get fmSiteEmptyDir => 'هذا المجلد فارغ';
+
+  @override
+  String get fmSiteDesktop => 'سطح المكتب';
+
+  @override
+  String get fmSiteDownloads => 'التنزيلات';
+
+  @override
+  String get fmSiteDocuments => 'المستندات';
+
+  @override
+  String get fmSiteHomeDir => 'مجلد المستخدم';
+
+  @override
+  String get fmSiteOpenExplorer => 'فتح في المستكشف';
+
+  @override
+  String get fmSiteOpenFile => 'فتح بالتطبيق الافتراضي';
+
+  @override
+  String get fmSiteShowExplorer => 'إظهار في المستكشف';
+
+  @override
+  String get fmSiteUpload => 'رفع';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return 'رفع $n عناصر';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return 'الوجهة: $dir';
+  }
+
+  @override
+  String get fmSiteDownload => 'تنزيل';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return 'تنزيل $n عناصر';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return 'الوجهة: $dir';
+  }
+
+  @override
+  String get fmSiteTrash => 'نقل إلى سلة المحذوفات';
+
+  @override
+  String get fmSiteTrashOk => 'نقل';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return 'هل تريد نقل <b>$name</b> إلى سلة المحذوفات؟';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return 'هل تريد نقل $n عناصر إلى سلة المحذوفات؟';
+  }
+
+  @override
+  String get fmSiteMkdirFail => 'تعذّر إنشاء المجلد';
+
+  @override
+  String get fmSiteRenameFail => 'تعذّرت إعادة التسمية';
+
+  @override
+  String get fmSiteDeleteFail => 'تعذّر الحذف';
+
+  @override
+  String get fmSiteDeleteTitle => 'حذف من الخادم';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return 'هل تريد حذف الملف <b>$name</b> من الخادم نهائيًا؟';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return 'هل تريد حذف المجلد <b>$name</b> وكل محتوياته من الخادم نهائيًا؟';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return 'هل تريد حذف $n عناصر (المجلدات مع كل محتوياتها) من الخادم نهائيًا؟';
+  }
+
+  @override
+  String get fmSiteDeleting => 'جارٍ الحذف…';
+
+  @override
+  String get fmSiteDeleted => 'تم الحذف';
+
+  @override
+  String fmSiteItems(String n) {
+    return '$n عناصر';
+  }
+
+  @override
+  String get fmSiteOffline => 'غير متصل';
+
+  @override
+  String fmSiteLimit(String v) {
+    return 'حد السرعة: $v';
+  }
+
+  @override
+  String get fmSiteNoLimit => 'بلا حد للسرعة';
+
+  @override
+  String get fmSiteLimitTitle => 'تعيين حد السرعة';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return 'تعذّر الاتصال بالخادم: $msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => 'فشل الاتصال';
+
+  @override
+  String get fmSiteStateConnected => 'متصل';
+
+  @override
+  String get fmSiteStateConnecting => 'جارٍ الاتصال…';
+
+  @override
+  String get fmSiteStateDisconnected => 'انقطع الاتصال';
+
+  @override
+  String get fmTrColName => 'الاسم';
+
+  @override
+  String get fmTrColSize => 'الحجم';
+
+  @override
+  String get fmTrColProgress => 'التقدم';
+
+  @override
+  String get fmTrColStatus => 'الحالة';
+
+  @override
+  String get fmTrEmpty =>
+      'لا توجد عمليات نقل بعد.\nانقر بزر الماوس الأيمن على ملف أو مجلد واختر تنزيل / رفع، أو اسحبه بين اللوحتين.';
+
+  @override
+  String get fmTrQueued => 'في الانتظار';
+
+  @override
+  String get fmTrActive => 'جارٍ النقل';
+
+  @override
+  String get fmTrDone => 'اكتمل';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return 'اكتمل $n ملف';
+  }
+
+  @override
+  String get fmTrError => 'خطأ';
+
+  @override
+  String get fmTrCancelled => 'أُلغي';
+
+  @override
+  String get fmTrSkipped => 'تم التخطي (موجود)';
+
+  @override
+  String fmTrScanning(String n) {
+    return 'جارٍ الفحص… $n ملف';
+  }
+
+  @override
+  String get fmTrRetrying => 'ستُعاد المحاولة…';
+
+  @override
+  String get fmTrCancel => 'إلغاء';
+
+  @override
+  String get fmTrCancelDir => 'إلغاء نقل المجلد';
+
+  @override
+  String get fmTrCancelAll => 'إلغاء كل عمليات النقل';
+
+  @override
+  String get fmTrCancelAllMsg =>
+      'هل تريد إلغاء كل عمليات النقل الجارية والمنتظرة؟';
+
+  @override
+  String get fmTrCancelAllOk => 'إلغاء الكل';
+
+  @override
+  String get fmTrRetry => 'إعادة المحاولة';
+
+  @override
+  String get fmTrShowLocal => 'إظهار في المستكشف';
+
+  @override
+  String get fmTrShowRemote => 'إظهار على الخادم';
+
+  @override
+  String get fmTrCopyError => 'نسخ رسالة الخطأ';
+
+  @override
+  String get fmTrRemove => 'إزالة من القائمة';
+
+  @override
+  String get fmTrRemoveRoot => 'إزالة عملية النقل هذه من القائمة';
+
+  @override
+  String get fmTrClearDone => 'مسح المكتملة';
+
+  @override
+  String fmTrActiveN(String n) {
+    return '$n عمليات نقل جارية';
+  }
+
+  @override
+  String get fmTrDownloadDone => 'اكتمل التنزيل';
+
+  @override
+  String get fmTrUploadDone => 'اكتمل الرفع';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return 'لم يكتمل التنزيل: $name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return 'لم يكتمل الرفع: $name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return 'فشل $n ملف';
+  }
+
+  @override
+  String get fmMainErrAuth =>
+      'فشل تسجيل الدخول: اسم المستخدم أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get fmMainErrRefused => 'رُفض الاتصال: المنفذ مغلق أو الخادم لا يعمل.';
+
+  @override
+  String get fmMainErrTimeout => 'انتهت المهلة: تعذّر الوصول إلى الخادم.';
+
+  @override
+  String get fmMainErrDns => 'تعذّر تحليل اسم المضيف (DNS).';
+
+  @override
+  String get fmMainErrUnreach => 'لا يمكن الوصول إلى الخادم عبر الشبكة.';
+
+  @override
+  String get fmMainErrReset => 'أغلق الخادم الاتصال.';
+
+  @override
+  String get fmMainErrNotFound => 'لم يُعثر على الملف أو المجلد.';
+
+  @override
+  String get fmMainErrPerm => 'تم رفض الإذن.';
+
+  @override
+  String fmMainErr550(String msg) {
+    return 'رفض الخادم العملية (550): $msg';
+  }
+
+  @override
+  String get fmMainErr553 => 'لم يقبل الخادم اسم الملف (553).';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'خطأ TLS/SSL — تحقّق من البروتوكول أو المنفذ. ($msg)';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return 'تغيّر مفتاح مضيف الخادم! المحفوظ: $oldVal، المستلم: $newVal. رُفض الاتصال لأسباب أمنية.';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => 'لم يُعثر على الموقع';
+
+  @override
+  String get fmMainErrNoSession => 'غير متصل بالخادم';
+
+  @override
+  String get fmMainErrHost => 'عنوان المضيف مطلوب.';
+
+  @override
+  String get fmMainErrUser =>
+      'اسم المستخدم مطلوب (أو اختر تسجيل الدخول المجهول).';
+
+  @override
+  String get fmMainPickKey => 'اختر ملف مفتاح خاص';
+
+  @override
+  String get fmMainCopySuffix => ' (نسخة)';
+
+  @override
+  String get fmMainCloseActive =>
+      'لا تزال هناك عمليات نقل جارية. سيتم إلغاؤها إذا أغلقت هذه النافذة.';
+
+  @override
+  String get fmMainCloseAnyway => 'إغلاق على أي حال';
 }

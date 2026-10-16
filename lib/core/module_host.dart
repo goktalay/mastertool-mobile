@@ -10,12 +10,12 @@ class ModuleHost {
   final _engines = HashMap<String, SyncEngine>();
 
   /// Modülün kitaplığını açar (ilk çağrıda dosyadan yükler ve senkronu başlatır).
-  Future<SyncEngine> open(String app, {bool hasSettings = false, int maxBytes = kMaxBlobBytes}) async {
+  Future<SyncEngine> open(String app, {bool hasSettings = false, int maxBytes = kMaxBlobBytes, Set<String> localOnly = const {}}) async {
     final e = _engines[app];
     if (e != null) return e;
     final lib = LocalLibrary(app, await account.deviceKey());
     await lib.load();
-    final engine = SyncEngine(account: account, app: app, library: lib, deviceId: await account.deviceId(), hasSettings: hasSettings, maxBytes: maxBytes);
+    final engine = SyncEngine(account: account, app: app, library: lib, deviceId: await account.deviceId(), hasSettings: hasSettings, maxBytes: maxBytes, localOnly: localOnly);
     _engines[app] = engine;
     engine.start();
     return engine;

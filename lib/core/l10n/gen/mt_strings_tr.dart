@@ -1041,4 +1041,744 @@ class MtStringsTr extends MtStrings {
 
   @override
   String get smAppNotesLabel => 'Notlar';
+
+  @override
+  String get fmAppSearchPh => 'Sitelerde ara…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => 'Yeni site';
+
+  @override
+  String get fmAppSettings => 'Ayarlar';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return '$c site · $f klasör';
+  }
+
+  @override
+  String get fmAppWelcome => 'Hoş geldiniz';
+
+  @override
+  String fmAppResults(String q) {
+    return '“$q” için sonuçlar';
+  }
+
+  @override
+  String get fmAppAll => 'Tüm siteler';
+
+  @override
+  String get fmAppWelcomeHint =>
+      'İlk FTP / SFTP sitenizi oluşturun.<br>Sunucu bilgilerini girin, bağlantıyı test edin ve kaydedin.';
+
+  @override
+  String get fmAppFolders => 'Klasörler';
+
+  @override
+  String get fmAppConnections => 'Siteler';
+
+  @override
+  String get fmAppDblHint => 'Bağlanmak için karta çift tıklayın';
+
+  @override
+  String get fmAppNoMatch => 'Eşleşen site bulunamadı.';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return '$n site';
+  }
+
+  @override
+  String get fmAppNewConnHere => 'Bu klasörde yeni site';
+
+  @override
+  String get fmAppNewSubfolder => 'Alt klasör oluştur';
+
+  @override
+  String get fmAppKeyTag => 'Anahtar';
+
+  @override
+  String get fmAppLastDir => 'Son klasör';
+
+  @override
+  String get fmAppLastDirTag => 'son klasör';
+
+  @override
+  String get fmAppDuplicate => 'Kopyasını oluştur';
+
+  @override
+  String get fmAppMoveToFolder => 'Klasöre taşı…';
+
+  @override
+  String get fmAppResetLastDir => 'Son klasörü sıfırla';
+
+  @override
+  String get fmAppConnMoved => 'Site taşındı';
+
+  @override
+  String get fmAppFolderIntoSelf => 'Klasör kendi içine taşınamaz';
+
+  @override
+  String get fmAppFolderPh => 'Örn. Müşteriler';
+
+  @override
+  String get fmAppRenameFolder => 'Klasörü yeniden adlandır';
+
+  @override
+  String get fmAppDeleteFolder => 'Klasörü sil';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return '<b>$name</b> klasörü silinsin mi?';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>İçindeki $n site üst klasöre taşınacak.';
+  }
+
+  @override
+  String get fmAppRootFolder => 'Ana dizin (klasörsüz)';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return '“$name” taşı';
+  }
+
+  @override
+  String get fmAppTargetFolder => 'Hedef klasör';
+
+  @override
+  String get fmAppDeleteConn => 'Siteyi sil';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return '<b>$name</b> ($target) sitesi silinsin mi?';
+  }
+
+  @override
+  String get fmFormTitleNew => 'Yeni site';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return 'Site özellikleri: $name';
+  }
+
+  @override
+  String get fmFormTabGeneral => 'Genel';
+
+  @override
+  String get fmFormTabActions => 'Eylemler';
+
+  @override
+  String get fmFormTabType => 'Tür';
+
+  @override
+  String get fmFormTabOptions => 'Seçenekler';
+
+  @override
+  String get fmFormName => 'Etiket (görünen ad)';
+
+  @override
+  String get fmFormNamePh => 'Örn. Şirket web sitesi';
+
+  @override
+  String get fmFormHost => 'Sunucu adresi';
+
+  @override
+  String get fmFormHostPh => 'ftp.ornek.com veya 192.168.1.10';
+
+  @override
+  String get fmFormPort => 'Port';
+
+  @override
+  String get fmFormUser => 'Kullanıcı adı';
+
+  @override
+  String get fmFormPassword => 'Şifre';
+
+  @override
+  String get fmFormPwSaved => '•••••••• (kayıtlı, değiştirmek için yazın)';
+
+  @override
+  String get fmFormLoginMethod => 'Giriş yöntemi';
+
+  @override
+  String get fmFormLoginNormal => 'Normal';
+
+  @override
+  String get fmFormLoginAnon => 'Anonim';
+
+  @override
+  String get fmFormAuth => 'SFTP kimlik doğrulama';
+
+  @override
+  String get fmFormPrivateKey => 'Özel anahtar';
+
+  @override
+  String get fmFormKeyFile => 'Özel anahtar dosyası';
+
+  @override
+  String get fmFormPassphrase => 'Anahtar parolası';
+
+  @override
+  String get fmFormPassSaved => '(kayıtlı)';
+
+  @override
+  String get fmFormPassEmpty => 'Yoksa boş bırakın';
+
+  @override
+  String get fmFormFolder => 'Klasör';
+
+  @override
+  String get fmFormColor => 'Renk';
+
+  @override
+  String get fmFormComments => 'Notlar';
+
+  @override
+  String get fmFormRemoteDir => 'Bağlanınca bu uzak klasöre geç';
+
+  @override
+  String get fmFormLocalDir => 'Bağlanınca bu yerel klasöre geç';
+
+  @override
+  String get fmFormLocalDirPh => 'Örn. C:\\Projeler\\site';
+
+  @override
+  String get fmFormLastDir => 'Son kaldığım klasöre git';
+
+  @override
+  String get fmFormLastDirHint =>
+      'Açıkken site, en son çalıştığınız sunucu ve bilgisayar klasörleriyle açılır (yukarıdaki klasörlerin yerine).';
+
+  @override
+  String get fmFormLastDirNow => 'Şu an:';
+
+  @override
+  String get fmFormCache => 'Gezinmede önbellek kullanımı';
+
+  @override
+  String get fmFormCacheSession => 'Oturum boyunca önbellek kullan';
+
+  @override
+  String get fmFormCacheAlways =>
+      'Her zaman önbellek kullan (uygulama açık kaldıkça)';
+
+  @override
+  String get fmFormCacheNever =>
+      'Önbellek kullanma (her seferinde yeniden listele)';
+
+  @override
+  String get fmFormUploadCase =>
+      'Yüklerken dosya ve klasör adlarına uygulanacak kural';
+
+  @override
+  String get fmFormCasePreserve => 'Büyük/küçük harfi koru';
+
+  @override
+  String get fmFormCaseLower => 'Küçük harfe çevir';
+
+  @override
+  String get fmFormCaseUpper => 'Büyük harfe çevir';
+
+  @override
+  String get fmFormTest => 'Bağlantıyı dene';
+
+  @override
+  String get fmFormSaveConnect => 'Kaydet ve bağlan';
+
+  @override
+  String get fmFormConnecting => 'Bağlanılıyor…';
+
+  @override
+  String get fmFormTestOk => 'Bağlantı başarılı';
+
+  @override
+  String get fmFormTestFail => 'Bağlantı kurulamadı';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return 'Başlangıç klasörü: $dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing =>
+      'Uyarı: belirtilen uzak klasör açılamadı.';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'SSH host anahtarı (SHA256): $fp';
+  }
+
+  @override
+  String get fmFormSaved => 'Site kaydedildi';
+
+  @override
+  String get fmFormChangesSaved => 'Değişiklikler kaydedildi';
+
+  @override
+  String get fmTypeProtocol => 'Protokol';
+
+  @override
+  String get fmTypeFtp => 'FTP (standart dosya aktarım protokolü)';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP — TLS/SSL (Implicit, port 990)';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP — SSL (AUTH SSL, Explicit)';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP — TLS/SSL (AUTH TLS, Explicit)';
+
+  @override
+  String get fmTypeSftp => 'SFTP — SSH2 (Güvenli Kabuk)';
+
+  @override
+  String get fmTypeNoteFtp =>
+      'Komut ve veri bağlantıları için standart FTP kullanılır; şifre ve dosyalar şifrelenmeden (düz metin) gönderilir.';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      'Bağlantı en baştan TLS/SSL ile şifrelenir (genellikle port 990). Komutlar ve veriler korunur.';
+
+  @override
+  String get fmTypeNoteFtpsSsl =>
+      'Düz FTP ile bağlanıp AUTH SSL komutuyla şifreli oturuma geçilir. Komutlar ve veriler korunur.';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      'Düz FTP ile bağlanıp AUTH TLS komutuyla şifreli oturuma geçilir (en yaygın FTPS türü).';
+
+  @override
+  String get fmTypeNoteSftp =>
+      'SSH üzerinden şifreli dosya aktarımı (port 22). Şifre veya özel anahtarla giriş yapılır; sunucu host anahtarı ilk bağlantıda kaydedilir.';
+
+  @override
+  String get fmTypeTransferType => 'Aktarım türü';
+
+  @override
+  String get fmTypeBinary => 'İkili (Binary)';
+
+  @override
+  String get fmTypeAscii => 'ASCII (metin)';
+
+  @override
+  String get fmTypeAuto => 'Otomatik (metin dosyaları ASCII)';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return 'Genel ayarı kullan ($v)';
+  }
+
+  @override
+  String get fmTypeDataConn => 'Veri bağlantısı';
+
+  @override
+  String get fmTypePassive => 'Pasif (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => 'Sunucu saat dilimi farkı';
+
+  @override
+  String get fmTypeTzNone => 'Fark yok';
+
+  @override
+  String get fmTypeTzHours => 'saat';
+
+  @override
+  String get fmTypeTimezoneHint =>
+      'Sunucunun listelediği dosya saatleri bu kadar kaydırılarak gösterilir.';
+
+  @override
+  String get fmOptSiteOptions => 'Siteye özel ayarlar';
+
+  @override
+  String get fmOptUseGlobal => 'Tüm seçenekler için genel ayarları kullan';
+
+  @override
+  String get fmOptCustom => 'Bu siteye özel ayarlar kullan';
+
+  @override
+  String get fmOptRetry => 'Tekrar deneme sayısı';
+
+  @override
+  String get fmOptRetryDelay => 'Denemeler arası bekleme (sn)';
+
+  @override
+  String get fmOptMaxConcurrent => 'Aynı anda en fazla aktarım';
+
+  @override
+  String get fmOptConflict => 'Hedefte aynı adlı dosya varsa';
+
+  @override
+  String get fmOptConflictOverwrite => 'Üzerine yaz';
+
+  @override
+  String get fmOptConflictRename => 'Otomatik yeniden adlandır (ad (1).uzantı)';
+
+  @override
+  String get fmOptConflictSkip => 'Atla';
+
+  @override
+  String get fmOptEncoding => 'Dosya adı kodlaması';
+
+  @override
+  String get fmOptEncAuto => 'Otomatik';
+
+  @override
+  String get fmSiteLocal => 'Bilgisayarım';
+
+  @override
+  String get fmSiteRemote => 'Sunucu';
+
+  @override
+  String get fmSiteTransfers => 'Aktarımlar';
+
+  @override
+  String get fmSiteToggleLocal => 'Bilgisayarım panelini aç/kapat (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers => 'Aktarımlar panelini aç/kapat (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => 'Yeniden bağlan';
+
+  @override
+  String get fmSitePlaces => 'Hızlı erişim ve sürücüler';
+
+  @override
+  String get fmSiteUp => 'Üst klasör (Backspace)';
+
+  @override
+  String get fmSiteHome => 'Başlangıç klasörü';
+
+  @override
+  String get fmSiteColName => 'Ad';
+
+  @override
+  String get fmSiteColSize => 'Boyut';
+
+  @override
+  String get fmSiteColDate => 'Değiştirilme';
+
+  @override
+  String get fmSiteLoading => 'Yükleniyor…';
+
+  @override
+  String get fmSiteEmptyDir => 'Bu klasör boş';
+
+  @override
+  String get fmSiteDesktop => 'Masaüstü';
+
+  @override
+  String get fmSiteDownloads => 'İndirilenler';
+
+  @override
+  String get fmSiteDocuments => 'Belgeler';
+
+  @override
+  String get fmSiteHomeDir => 'Kullanıcı klasörü';
+
+  @override
+  String get fmSiteOpenExplorer => 'Gezgin\'de aç';
+
+  @override
+  String get fmSiteOpenFile => 'Varsayılan uygulamayla aç';
+
+  @override
+  String get fmSiteShowExplorer => 'Gezgin\'de göster';
+
+  @override
+  String get fmSiteUpload => 'Yükle (Upload)';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return '$n öğeyi yükle (Upload)';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return 'Hedef: $dir';
+  }
+
+  @override
+  String get fmSiteDownload => 'İndir (Download)';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return '$n öğeyi indir (Download)';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return 'Hedef: $dir';
+  }
+
+  @override
+  String get fmSiteTrash => 'Geri Dönüşüm Kutusu\'na taşı';
+
+  @override
+  String get fmSiteTrashOk => 'Taşı';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return '<b>$name</b> Geri Dönüşüm Kutusu\'na taşınsın mı?';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return '$n öğe Geri Dönüşüm Kutusu\'na taşınsın mı?';
+  }
+
+  @override
+  String get fmSiteMkdirFail => 'Klasör oluşturulamadı';
+
+  @override
+  String get fmSiteRenameFail => 'Yeniden adlandırılamadı';
+
+  @override
+  String get fmSiteDeleteFail => 'Silinemedi';
+
+  @override
+  String get fmSiteDeleteTitle => 'Sunucudan sil';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return '<b>$name</b> dosyası sunucudan kalıcı olarak silinsin mi?';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return '<b>$name</b> klasörü ve tüm içeriği sunucudan kalıcı olarak silinsin mi?';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return '$n öğe (klasörler tüm içerikleriyle) sunucudan kalıcı olarak silinsin mi?';
+  }
+
+  @override
+  String get fmSiteDeleting => 'Siliniyor…';
+
+  @override
+  String get fmSiteDeleted => 'Silindi';
+
+  @override
+  String fmSiteItems(String n) {
+    return '$n öğe';
+  }
+
+  @override
+  String get fmSiteOffline => 'Bağlı değil';
+
+  @override
+  String fmSiteLimit(String v) {
+    return 'Hız sınırı: $v';
+  }
+
+  @override
+  String get fmSiteNoLimit => 'Hız sınırı yok';
+
+  @override
+  String get fmSiteLimitTitle => 'Hız sınırını ayarla';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return 'Sunucuya bağlanılamadı: $msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => 'Bağlantı kurulamadı';
+
+  @override
+  String get fmSiteStateConnected => 'Bağlı';
+
+  @override
+  String get fmSiteStateConnecting => 'Bağlanılıyor…';
+
+  @override
+  String get fmSiteStateDisconnected => 'Bağlantı yok';
+
+  @override
+  String get fmTrColName => 'Ad';
+
+  @override
+  String get fmTrColSize => 'Boyut';
+
+  @override
+  String get fmTrColProgress => 'İlerleme';
+
+  @override
+  String get fmTrColStatus => 'Durum';
+
+  @override
+  String get fmTrEmpty =>
+      'Henüz aktarım yok.\nBir dosyaya veya klasöre sağ tıklayıp İndir / Yükle seçin ya da paneller arasında sürükleyin.';
+
+  @override
+  String get fmTrQueued => 'Sırada';
+
+  @override
+  String get fmTrActive => 'Aktarılıyor';
+
+  @override
+  String get fmTrDone => 'Tamamlandı';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return '$n dosya tamam';
+  }
+
+  @override
+  String get fmTrError => 'Hata';
+
+  @override
+  String get fmTrCancelled => 'İptal edildi';
+
+  @override
+  String get fmTrSkipped => 'Atlandı (mevcut)';
+
+  @override
+  String fmTrScanning(String n) {
+    return 'Taranıyor… $n dosya';
+  }
+
+  @override
+  String get fmTrRetrying => 'Tekrar denenecek…';
+
+  @override
+  String get fmTrCancel => 'İptal et';
+
+  @override
+  String get fmTrCancelDir => 'Klasör aktarımını iptal et';
+
+  @override
+  String get fmTrCancelAll => 'Tüm aktarımları iptal et';
+
+  @override
+  String get fmTrCancelAllMsg =>
+      'Süren ve sıradaki tüm aktarımlar iptal edilsin mi?';
+
+  @override
+  String get fmTrCancelAllOk => 'Tümünü iptal et';
+
+  @override
+  String get fmTrRetry => 'Yeniden dene';
+
+  @override
+  String get fmTrShowLocal => 'Gezgin\'de göster';
+
+  @override
+  String get fmTrShowRemote => 'Sunucuda göster';
+
+  @override
+  String get fmTrCopyError => 'Hata mesajını kopyala';
+
+  @override
+  String get fmTrRemove => 'Listeden kaldır';
+
+  @override
+  String get fmTrRemoveRoot => 'Bu aktarımı listeden kaldır';
+
+  @override
+  String get fmTrClearDone => 'Bitenleri temizle';
+
+  @override
+  String fmTrActiveN(String n) {
+    return '$n aktarım sürüyor';
+  }
+
+  @override
+  String get fmTrDownloadDone => 'İndirme tamamlandı';
+
+  @override
+  String get fmTrUploadDone => 'Yükleme tamamlandı';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return 'İndirme tamamlanamadı: $name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return 'Yükleme tamamlanamadı: $name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return '$n dosya aktarılamadı';
+  }
+
+  @override
+  String get fmMainErrAuth =>
+      'Giriş başarısız: kullanıcı adı veya şifre hatalı.';
+
+  @override
+  String get fmMainErrRefused =>
+      'Bağlantı reddedildi: port kapalı veya sunucu çalışmıyor.';
+
+  @override
+  String get fmMainErrTimeout => 'Zaman aşımı: sunucuya ulaşılamadı.';
+
+  @override
+  String get fmMainErrDns => 'Sunucu adresi çözümlenemedi (DNS).';
+
+  @override
+  String get fmMainErrUnreach => 'Sunucuya ağ üzerinden erişilemiyor.';
+
+  @override
+  String get fmMainErrReset => 'Sunucu bağlantıyı kapattı.';
+
+  @override
+  String get fmMainErrNotFound => 'Dosya veya klasör bulunamadı.';
+
+  @override
+  String get fmMainErrPerm => 'Erişim izni yok.';
+
+  @override
+  String fmMainErr550(String msg) {
+    return 'Sunucu işlemi reddetti (550): $msg';
+  }
+
+  @override
+  String get fmMainErr553 =>
+      'Dosya adı sunucu tarafından kabul edilmedi (553).';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'TLS/SSL hatası — protokolü veya portu kontrol edin. ($msg)';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return 'Sunucunun host anahtarı değişmiş! Kayıtlı: $oldVal, gelen: $newVal. Güvenlik için bağlantı reddedildi.';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => 'Site bulunamadı';
+
+  @override
+  String get fmMainErrNoSession => 'Sunucuya bağlı değil';
+
+  @override
+  String get fmMainErrHost => 'Sunucu adresi gerekli.';
+
+  @override
+  String get fmMainErrUser =>
+      'Kullanıcı adı gerekli (veya Anonim girişi seçin).';
+
+  @override
+  String get fmMainPickKey => 'Özel anahtar dosyası seçin';
+
+  @override
+  String get fmMainCopySuffix => ' (kopya)';
+
+  @override
+  String get fmMainCloseActive =>
+      'Süren aktarımlar var. Pencere kapatılırsa iptal edilecekler.';
+
+  @override
+  String get fmMainCloseAnyway => 'Yine de kapat';
 }

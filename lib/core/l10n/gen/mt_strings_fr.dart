@@ -1051,4 +1051,748 @@ class MtStringsFr extends MtStrings {
 
   @override
   String get smAppNotesLabel => 'Notes';
+
+  @override
+  String get fmAppSearchPh => 'Rechercher des sites…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => 'Nouveau site';
+
+  @override
+  String get fmAppSettings => 'Paramètres';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return '$c sites · $f dossiers';
+  }
+
+  @override
+  String get fmAppWelcome => 'Bienvenue';
+
+  @override
+  String fmAppResults(String q) {
+    return 'Résultats pour “$q”';
+  }
+
+  @override
+  String get fmAppAll => 'Tous les sites';
+
+  @override
+  String get fmAppWelcomeHint =>
+      'Créez votre premier site FTP / SFTP.<br>Saisissez les informations du serveur, testez la connexion et enregistrez.';
+
+  @override
+  String get fmAppFolders => 'Dossiers';
+
+  @override
+  String get fmAppConnections => 'Sites';
+
+  @override
+  String get fmAppDblHint => 'Double-cliquez sur une carte pour vous connecter';
+
+  @override
+  String get fmAppNoMatch => 'Aucun site correspondant.';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return '$n sites';
+  }
+
+  @override
+  String get fmAppNewConnHere => 'Nouveau site dans ce dossier';
+
+  @override
+  String get fmAppNewSubfolder => 'Nouveau sous-dossier';
+
+  @override
+  String get fmAppKeyTag => 'Clé';
+
+  @override
+  String get fmAppLastDir => 'Dernier dossier';
+
+  @override
+  String get fmAppLastDirTag => 'dernier dossier';
+
+  @override
+  String get fmAppDuplicate => 'Dupliquer';
+
+  @override
+  String get fmAppMoveToFolder => 'Déplacer vers un dossier…';
+
+  @override
+  String get fmAppResetLastDir => 'Réinitialiser le dernier dossier';
+
+  @override
+  String get fmAppConnMoved => 'Site déplacé';
+
+  @override
+  String get fmAppFolderIntoSelf =>
+      'Un dossier ne peut pas être déplacé dans lui-même';
+
+  @override
+  String get fmAppFolderPh => 'ex. Clients';
+
+  @override
+  String get fmAppRenameFolder => 'Renommer le dossier';
+
+  @override
+  String get fmAppDeleteFolder => 'Supprimer le dossier';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return 'Supprimer le dossier <b>$name</b> ?';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>Ses $n sites seront déplacés vers le dossier parent.';
+  }
+
+  @override
+  String get fmAppRootFolder => 'Niveau supérieur (aucun dossier)';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return 'Déplacer “$name”';
+  }
+
+  @override
+  String get fmAppTargetFolder => 'Dossier cible';
+
+  @override
+  String get fmAppDeleteConn => 'Supprimer le site';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return 'Supprimer le site <b>$name</b> ($target) ?';
+  }
+
+  @override
+  String get fmFormTitleNew => 'Nouveau site';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return 'Propriétés du site : $name';
+  }
+
+  @override
+  String get fmFormTabGeneral => 'Général';
+
+  @override
+  String get fmFormTabActions => 'Actions';
+
+  @override
+  String get fmFormTabType => 'Type';
+
+  @override
+  String get fmFormTabOptions => 'Options';
+
+  @override
+  String get fmFormName => 'Libellé';
+
+  @override
+  String get fmFormNamePh => 'ex. Site web de l’entreprise';
+
+  @override
+  String get fmFormHost => 'Adresse de l’hôte';
+
+  @override
+  String get fmFormHostPh => 'ftp.example.com ou 192.168.1.10';
+
+  @override
+  String get fmFormPort => 'Port';
+
+  @override
+  String get fmFormUser => 'Nom d’utilisateur';
+
+  @override
+  String get fmFormPassword => 'Mot de passe';
+
+  @override
+  String get fmFormPwSaved => '•••••••• (enregistré, saisissez pour modifier)';
+
+  @override
+  String get fmFormLoginMethod => 'Méthode de connexion';
+
+  @override
+  String get fmFormLoginNormal => 'Normale';
+
+  @override
+  String get fmFormLoginAnon => 'Anonyme';
+
+  @override
+  String get fmFormAuth => 'Authentification SFTP';
+
+  @override
+  String get fmFormPrivateKey => 'Clé privée';
+
+  @override
+  String get fmFormKeyFile => 'Fichier de clé privée';
+
+  @override
+  String get fmFormPassphrase => 'Phrase secrète de la clé';
+
+  @override
+  String get fmFormPassSaved => '(enregistrée)';
+
+  @override
+  String get fmFormPassEmpty => 'Laissez vide s’il n’y en a pas';
+
+  @override
+  String get fmFormFolder => 'Dossier';
+
+  @override
+  String get fmFormColor => 'Couleur';
+
+  @override
+  String get fmFormComments => 'Commentaires';
+
+  @override
+  String get fmFormRemoteDir =>
+      'Une fois connecté, aller dans ce dossier distant';
+
+  @override
+  String get fmFormLocalDir => 'Une fois connecté, aller dans ce dossier local';
+
+  @override
+  String get fmFormLocalDirPh => 'ex. C:\\Projets\\site';
+
+  @override
+  String get fmFormLastDir => 'Reprendre dans le dossier où je me suis arrêté';
+
+  @override
+  String get fmFormLastDirHint =>
+      'Si activé, le site s’ouvre dans les derniers dossiers du serveur et de l’ordinateur où vous avez travaillé (au lieu des dossiers ci-dessus).';
+
+  @override
+  String get fmFormLastDirNow => 'Actuellement :';
+
+  @override
+  String get fmFormCache => 'Cache pour la navigation';
+
+  @override
+  String get fmFormCacheSession => 'Utiliser le cache pendant la session';
+
+  @override
+  String get fmFormCacheAlways =>
+      'Toujours utiliser le cache (tant que l’application est ouverte)';
+
+  @override
+  String get fmFormCacheNever =>
+      'Ne jamais utiliser le cache (toujours relister)';
+
+  @override
+  String get fmFormUploadCase =>
+      'Lors de l’envoi, appliquer cette règle aux noms de fichiers et de dossiers';
+
+  @override
+  String get fmFormCasePreserve => 'Conserver la casse';
+
+  @override
+  String get fmFormCaseLower => 'Minuscules';
+
+  @override
+  String get fmFormCaseUpper => 'Majuscules';
+
+  @override
+  String get fmFormTest => 'Tester la connexion';
+
+  @override
+  String get fmFormSaveConnect => 'Enregistrer et se connecter';
+
+  @override
+  String get fmFormConnecting => 'Connexion…';
+
+  @override
+  String get fmFormTestOk => 'Connexion réussie';
+
+  @override
+  String get fmFormTestFail => 'Connexion impossible';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return 'Dossier de départ : $dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing =>
+      'Attention : le dossier distant n’a pas pu être ouvert.';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'Clé d’hôte SSH (SHA256) : $fp';
+  }
+
+  @override
+  String get fmFormSaved => 'Site enregistré';
+
+  @override
+  String get fmFormChangesSaved => 'Modifications enregistrées';
+
+  @override
+  String get fmTypeProtocol => 'Protocole';
+
+  @override
+  String get fmTypeFtp => 'FTP (protocole de transfert de fichiers standard)';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP avec TLS/SSL (implicite, port 990)';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP avec SSL (AUTH SSL, explicite)';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP avec TLS/SSL (AUTH TLS, explicite)';
+
+  @override
+  String get fmTypeSftp => 'SFTP via SSH2 (Secure Shell)';
+
+  @override
+  String get fmTypeNoteFtp =>
+      'Utilise le protocole FTP standard pour les connexions de commande et de données, sans sécurité (en texte clair).';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      'La connexion est chiffrée en TLS/SSL dès le départ (généralement port 990). Les commandes et les données sont protégées.';
+
+  @override
+  String get fmTypeNoteFtpsSsl =>
+      'Se connecte en FTP simple puis passe à une session chiffrée avec AUTH SSL. Les commandes et les données sont protégées.';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      'Se connecte en FTP simple puis passe à une session chiffrée avec AUTH TLS (le type FTPS le plus courant).';
+
+  @override
+  String get fmTypeNoteSftp =>
+      'Transfert de fichiers chiffré via SSH (port 22). Connexion par mot de passe ou clé privée ; la clé d’hôte est enregistrée à la première connexion.';
+
+  @override
+  String get fmTypeTransferType => 'Type de transfert';
+
+  @override
+  String get fmTypeBinary => 'Binaire';
+
+  @override
+  String get fmTypeAscii => 'ASCII (texte)';
+
+  @override
+  String get fmTypeAuto => 'Auto (fichiers texte en ASCII)';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return 'Utiliser le paramètre global ($v)';
+  }
+
+  @override
+  String get fmTypeDataConn => 'Connexion de données';
+
+  @override
+  String get fmTypePassive => 'Passive (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => 'Décalage horaire du serveur';
+
+  @override
+  String get fmTypeTzNone => 'Aucun décalage';
+
+  @override
+  String get fmTypeTzHours => 'heures';
+
+  @override
+  String get fmTypeTimezoneHint =>
+      'Les heures des fichiers listées par le serveur sont décalées de cette valeur.';
+
+  @override
+  String get fmOptSiteOptions => 'Options propres au site';
+
+  @override
+  String get fmOptUseGlobal =>
+      'Utiliser les paramètres globaux pour toutes les options';
+
+  @override
+  String get fmOptCustom => 'Utiliser des paramètres propres à ce site';
+
+  @override
+  String get fmOptRetry => 'Nombre de tentatives';
+
+  @override
+  String get fmOptRetryDelay => 'Délai entre les tentatives (s)';
+
+  @override
+  String get fmOptMaxConcurrent => 'Transferts simultanés max.';
+
+  @override
+  String get fmOptConflict => 'Si un fichier du même nom existe';
+
+  @override
+  String get fmOptConflictOverwrite => 'Remplacer';
+
+  @override
+  String get fmOptConflictRename => 'Renommer automatiquement (nom (1).ext)';
+
+  @override
+  String get fmOptConflictSkip => 'Ignorer';
+
+  @override
+  String get fmOptEncoding => 'Encodage des noms de fichiers';
+
+  @override
+  String get fmOptEncAuto => 'Auto';
+
+  @override
+  String get fmSiteLocal => 'Mon ordinateur';
+
+  @override
+  String get fmSiteRemote => 'Serveur';
+
+  @override
+  String get fmSiteTransfers => 'Transferts';
+
+  @override
+  String get fmSiteToggleLocal => 'Afficher/masquer Mon ordinateur (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers =>
+      'Afficher/masquer les transferts (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => 'Se reconnecter';
+
+  @override
+  String get fmSitePlaces => 'Accès rapide et lecteurs';
+
+  @override
+  String get fmSiteUp => 'Dossier parent (Backspace)';
+
+  @override
+  String get fmSiteHome => 'Dossier de départ';
+
+  @override
+  String get fmSiteColName => 'Nom';
+
+  @override
+  String get fmSiteColSize => 'Taille';
+
+  @override
+  String get fmSiteColDate => 'Modifié';
+
+  @override
+  String get fmSiteLoading => 'Chargement…';
+
+  @override
+  String get fmSiteEmptyDir => 'Ce dossier est vide';
+
+  @override
+  String get fmSiteDesktop => 'Bureau';
+
+  @override
+  String get fmSiteDownloads => 'Téléchargements';
+
+  @override
+  String get fmSiteDocuments => 'Documents';
+
+  @override
+  String get fmSiteHomeDir => 'Dossier utilisateur';
+
+  @override
+  String get fmSiteOpenExplorer => 'Ouvrir dans l’Explorateur';
+
+  @override
+  String get fmSiteOpenFile => 'Ouvrir avec l’application par défaut';
+
+  @override
+  String get fmSiteShowExplorer => 'Afficher dans l’Explorateur';
+
+  @override
+  String get fmSiteUpload => 'Envoyer';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return 'Envoyer $n éléments';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return 'Cible : $dir';
+  }
+
+  @override
+  String get fmSiteDownload => 'Télécharger';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return 'Télécharger $n éléments';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return 'Cible : $dir';
+  }
+
+  @override
+  String get fmSiteTrash => 'Placer dans la Corbeille';
+
+  @override
+  String get fmSiteTrashOk => 'Déplacer';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return 'Placer <b>$name</b> dans la Corbeille ?';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return 'Placer $n éléments dans la Corbeille ?';
+  }
+
+  @override
+  String get fmSiteMkdirFail => 'Impossible de créer le dossier';
+
+  @override
+  String get fmSiteRenameFail => 'Impossible de renommer';
+
+  @override
+  String get fmSiteDeleteFail => 'Impossible de supprimer';
+
+  @override
+  String get fmSiteDeleteTitle => 'Supprimer du serveur';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return 'Supprimer définitivement le fichier <b>$name</b> du serveur ?';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return 'Supprimer définitivement le dossier <b>$name</b> et tout son contenu du serveur ?';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return 'Supprimer définitivement $n éléments (dossiers avec tout leur contenu) du serveur ?';
+  }
+
+  @override
+  String get fmSiteDeleting => 'Suppression…';
+
+  @override
+  String get fmSiteDeleted => 'Supprimé';
+
+  @override
+  String fmSiteItems(String n) {
+    return '$n éléments';
+  }
+
+  @override
+  String get fmSiteOffline => 'Non connecté';
+
+  @override
+  String fmSiteLimit(String v) {
+    return 'Limite de vitesse : $v';
+  }
+
+  @override
+  String get fmSiteNoLimit => 'Aucune limite de vitesse';
+
+  @override
+  String get fmSiteLimitTitle => 'Définir la limite de vitesse';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return 'Impossible de se connecter au serveur : $msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => 'Échec de la connexion';
+
+  @override
+  String get fmSiteStateConnected => 'Connecté';
+
+  @override
+  String get fmSiteStateConnecting => 'Connexion…';
+
+  @override
+  String get fmSiteStateDisconnected => 'Déconnecté';
+
+  @override
+  String get fmTrColName => 'Nom';
+
+  @override
+  String get fmTrColSize => 'Taille';
+
+  @override
+  String get fmTrColProgress => 'Progression';
+
+  @override
+  String get fmTrColStatus => 'État';
+
+  @override
+  String get fmTrEmpty =>
+      'Aucun transfert pour l’instant.\nFaites un clic droit sur un fichier ou un dossier et choisissez Télécharger / Envoyer, ou faites glisser entre les panneaux.';
+
+  @override
+  String get fmTrQueued => 'En attente';
+
+  @override
+  String get fmTrActive => 'Transfert en cours';
+
+  @override
+  String get fmTrDone => 'Terminé';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return '$n fichiers terminés';
+  }
+
+  @override
+  String get fmTrError => 'Erreur';
+
+  @override
+  String get fmTrCancelled => 'Annulé';
+
+  @override
+  String get fmTrSkipped => 'Ignoré (existe déjà)';
+
+  @override
+  String fmTrScanning(String n) {
+    return 'Analyse… $n fichiers';
+  }
+
+  @override
+  String get fmTrRetrying => 'Nouvelle tentative…';
+
+  @override
+  String get fmTrCancel => 'Annuler';
+
+  @override
+  String get fmTrCancelDir => 'Annuler le transfert du dossier';
+
+  @override
+  String get fmTrCancelAll => 'Annuler tous les transferts';
+
+  @override
+  String get fmTrCancelAllMsg =>
+      'Annuler tous les transferts en cours et en attente ?';
+
+  @override
+  String get fmTrCancelAllOk => 'Tout annuler';
+
+  @override
+  String get fmTrRetry => 'Réessayer';
+
+  @override
+  String get fmTrShowLocal => 'Afficher dans l’Explorateur';
+
+  @override
+  String get fmTrShowRemote => 'Afficher sur le serveur';
+
+  @override
+  String get fmTrCopyError => 'Copier le message d’erreur';
+
+  @override
+  String get fmTrRemove => 'Retirer de la liste';
+
+  @override
+  String get fmTrRemoveRoot => 'Retirer ce transfert de la liste';
+
+  @override
+  String get fmTrClearDone => 'Effacer les terminés';
+
+  @override
+  String fmTrActiveN(String n) {
+    return '$n transferts en cours';
+  }
+
+  @override
+  String get fmTrDownloadDone => 'Téléchargement terminé';
+
+  @override
+  String get fmTrUploadDone => 'Envoi terminé';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return 'Téléchargement incomplet : $name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return 'Envoi incomplet : $name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return '$n fichiers en échec';
+  }
+
+  @override
+  String get fmMainErrAuth =>
+      'Échec de l’authentification : nom d’utilisateur ou mot de passe incorrect.';
+
+  @override
+  String get fmMainErrRefused =>
+      'Connexion refusée : le port est fermé ou le serveur n’est pas démarré.';
+
+  @override
+  String get fmMainErrTimeout => 'Délai dépassé : serveur injoignable.';
+
+  @override
+  String get fmMainErrDns => 'Impossible de résoudre le nom d’hôte (DNS).';
+
+  @override
+  String get fmMainErrUnreach => 'Le serveur est injoignable sur le réseau.';
+
+  @override
+  String get fmMainErrReset => 'Le serveur a fermé la connexion.';
+
+  @override
+  String get fmMainErrNotFound => 'Fichier ou dossier introuvable.';
+
+  @override
+  String get fmMainErrPerm => 'Autorisation refusée.';
+
+  @override
+  String fmMainErr550(String msg) {
+    return 'Le serveur a refusé l’opération (550) : $msg';
+  }
+
+  @override
+  String get fmMainErr553 =>
+      'Le serveur n’a pas accepté le nom de fichier (553).';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'Erreur TLS/SSL — vérifiez le protocole ou le port. ($msg)';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return 'La clé d’hôte du serveur a changé ! Enregistrée : $oldVal, reçue : $newVal. Connexion refusée par sécurité.';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => 'Site introuvable';
+
+  @override
+  String get fmMainErrNoSession => 'Non connecté au serveur';
+
+  @override
+  String get fmMainErrHost => 'L’adresse de l’hôte est requise.';
+
+  @override
+  String get fmMainErrUser =>
+      'Le nom d’utilisateur est requis (ou choisissez la connexion anonyme).';
+
+  @override
+  String get fmMainPickKey => 'Choisir un fichier de clé privée';
+
+  @override
+  String get fmMainCopySuffix => ' (copie)';
+
+  @override
+  String get fmMainCloseActive =>
+      'Des transferts sont encore en cours. Ils seront annulés si vous fermez cette fenêtre.';
+
+  @override
+  String get fmMainCloseAnyway => 'Fermer quand même';
 }

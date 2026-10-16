@@ -1050,4 +1050,751 @@ class MtStringsDe extends MtStrings {
 
   @override
   String get smAppNotesLabel => 'Notizen';
+
+  @override
+  String get fmAppSearchPh => 'Verbindungen durchsuchen…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => 'Neue Verbindung';
+
+  @override
+  String get fmAppSettings => 'Einstellungen';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return '$c Verbindungen · $f Ordner';
+  }
+
+  @override
+  String get fmAppWelcome => 'Willkommen';
+
+  @override
+  String fmAppResults(String q) {
+    return 'Ergebnisse für „$q“';
+  }
+
+  @override
+  String get fmAppAll => 'Alle Verbindungen';
+
+  @override
+  String get fmAppWelcomeHint =>
+      'Erstellen Sie Ihre erste FTP-/SFTP-Verbindung.<br>Serverdaten eingeben, Verbindung testen und speichern.';
+
+  @override
+  String get fmAppFolders => 'Ordner';
+
+  @override
+  String get fmAppConnections => 'Verbindungen';
+
+  @override
+  String get fmAppDblHint => 'Zum Verbinden auf eine Karte doppelklicken';
+
+  @override
+  String get fmAppNoMatch => 'Keine passenden Verbindungen.';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return '$n Verbindungen';
+  }
+
+  @override
+  String get fmAppNewConnHere => 'Neue Verbindung in diesem Ordner';
+
+  @override
+  String get fmAppNewSubfolder => 'Neuer Unterordner';
+
+  @override
+  String get fmAppKeyTag => 'Schlüssel';
+
+  @override
+  String get fmAppLastDir => 'Letzter Ordner';
+
+  @override
+  String get fmAppLastDirTag => 'letzter Ordner';
+
+  @override
+  String get fmAppDuplicate => 'Duplizieren';
+
+  @override
+  String get fmAppMoveToFolder => 'In Ordner verschieben…';
+
+  @override
+  String get fmAppResetLastDir => 'Letzten Ordner zurücksetzen';
+
+  @override
+  String get fmAppConnMoved => 'Verbindung verschoben';
+
+  @override
+  String get fmAppFolderIntoSelf =>
+      'Ein Ordner kann nicht in sich selbst verschoben werden';
+
+  @override
+  String get fmAppFolderPh => 'z. B. Kunden';
+
+  @override
+  String get fmAppRenameFolder => 'Ordner umbenennen';
+
+  @override
+  String get fmAppDeleteFolder => 'Ordner löschen';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return 'Ordner <b>$name</b> löschen?';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>Seine $n Verbindungen werden in den übergeordneten Ordner verschoben.';
+  }
+
+  @override
+  String get fmAppRootFolder => 'Oberste Ebene (kein Ordner)';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return '„$name“ verschieben';
+  }
+
+  @override
+  String get fmAppTargetFolder => 'Zielordner';
+
+  @override
+  String get fmAppDeleteConn => 'Verbindung löschen';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return 'Verbindung <b>$name</b> ($target) löschen?';
+  }
+
+  @override
+  String get fmFormTitleNew => 'Neue Verbindung';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return 'Verbindungseigenschaften: $name';
+  }
+
+  @override
+  String get fmFormTabGeneral => 'Allgemein';
+
+  @override
+  String get fmFormTabActions => 'Aktionen';
+
+  @override
+  String get fmFormTabType => 'Typ';
+
+  @override
+  String get fmFormTabOptions => 'Optionen';
+
+  @override
+  String get fmFormName => 'Bezeichnung';
+
+  @override
+  String get fmFormNamePh => 'z. B. Firmenwebsite';
+
+  @override
+  String get fmFormHost => 'Hostadresse';
+
+  @override
+  String get fmFormHostPh => 'ftp.example.com oder 192.168.1.10';
+
+  @override
+  String get fmFormPort => 'Port';
+
+  @override
+  String get fmFormUser => 'Benutzername';
+
+  @override
+  String get fmFormPassword => 'Passwort';
+
+  @override
+  String get fmFormPwSaved => '•••••••• (gespeichert, zum Ändern eingeben)';
+
+  @override
+  String get fmFormLoginMethod => 'Anmeldeart';
+
+  @override
+  String get fmFormLoginNormal => 'Normal';
+
+  @override
+  String get fmFormLoginAnon => 'Anonym';
+
+  @override
+  String get fmFormAuth => 'SFTP-Authentifizierung';
+
+  @override
+  String get fmFormPrivateKey => 'Privater Schlüssel';
+
+  @override
+  String get fmFormKeyFile => 'Private Schlüsseldatei';
+
+  @override
+  String get fmFormPassphrase => 'Schlüssel-Passphrase';
+
+  @override
+  String get fmFormPassSaved => '(gespeichert)';
+
+  @override
+  String get fmFormPassEmpty => 'Leer lassen, falls keine';
+
+  @override
+  String get fmFormFolder => 'Ordner';
+
+  @override
+  String get fmFormColor => 'Farbe';
+
+  @override
+  String get fmFormComments => 'Kommentare';
+
+  @override
+  String get fmFormRemoteDir =>
+      'Nach dem Verbinden zu diesem Serverordner wechseln';
+
+  @override
+  String get fmFormLocalDir =>
+      'Nach dem Verbinden zu diesem lokalen Ordner wechseln';
+
+  @override
+  String get fmFormLocalDirPh => 'z. B. C:\\Projekte\\site';
+
+  @override
+  String get fmFormLastDir => 'Zum zuletzt verwendeten Ordner wechseln';
+
+  @override
+  String get fmFormLastDirHint =>
+      'Wenn aktiviert, öffnet sich die Verbindung in den zuletzt verwendeten Server- und Computerordnern (statt in den oben angegebenen Ordnern).';
+
+  @override
+  String get fmFormLastDirNow => 'Aktuell:';
+
+  @override
+  String get fmFormCache => 'Zwischenspeicher für die Navigation';
+
+  @override
+  String get fmFormCacheSession =>
+      'Zwischenspeicher während der Sitzung verwenden';
+
+  @override
+  String get fmFormCacheAlways =>
+      'Zwischenspeicher immer verwenden (solange die App geöffnet ist)';
+
+  @override
+  String get fmFormCacheNever =>
+      'Zwischenspeicher nie verwenden (immer neu auflisten)';
+
+  @override
+  String get fmFormUploadCase =>
+      'Beim Hochladen diese Regel auf Datei- und Ordnernamen anwenden';
+
+  @override
+  String get fmFormCasePreserve => 'Groß-/Kleinschreibung beibehalten';
+
+  @override
+  String get fmFormCaseLower => 'Kleinbuchstaben';
+
+  @override
+  String get fmFormCaseUpper => 'Großbuchstaben';
+
+  @override
+  String get fmFormTest => 'Verbindung testen';
+
+  @override
+  String get fmFormSaveConnect => 'Speichern und verbinden';
+
+  @override
+  String get fmFormConnecting => 'Verbinde…';
+
+  @override
+  String get fmFormTestOk => 'Verbindung erfolgreich';
+
+  @override
+  String get fmFormTestFail => 'Verbindung nicht möglich';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return 'Startordner: $dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing =>
+      'Warnung: Der Serverordner konnte nicht geöffnet werden.';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'SSH-Host-Schlüssel (SHA256): $fp';
+  }
+
+  @override
+  String get fmFormSaved => 'Verbindung gespeichert';
+
+  @override
+  String get fmFormChangesSaved => 'Änderungen gespeichert';
+
+  @override
+  String get fmTypeProtocol => 'Protokoll';
+
+  @override
+  String get fmTypeFtp => 'FTP (Standard-Dateiübertragungsprotokoll)';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP mit TLS/SSL (implizit, Port 990)';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP mit SSL (AUTH SSL, explizit)';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP mit TLS/SSL (AUTH TLS, explizit)';
+
+  @override
+  String get fmTypeSftp => 'SFTP über SSH2 (Secure Shell)';
+
+  @override
+  String get fmTypeNoteFtp =>
+      'Verwendet das Standardprotokoll FTP für Befehls- und Datenverbindungen unverschlüsselt (Klartext).';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      'Die Verbindung ist von Anfang an mit TLS/SSL verschlüsselt (meist Port 990). Befehle und Daten sind geschützt.';
+
+  @override
+  String get fmTypeNoteFtpsSsl =>
+      'Verbindet per einfachem FTP und wechselt mit AUTH SSL zu einer verschlüsselten Sitzung. Befehle und Daten sind geschützt.';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      'Verbindet per einfachem FTP und wechselt mit AUTH TLS zu einer verschlüsselten Sitzung (der gängigste FTPS-Typ).';
+
+  @override
+  String get fmTypeNoteSftp =>
+      'Verschlüsselte Dateiübertragung über SSH (Port 22). Anmeldung per Passwort oder privatem Schlüssel; der Host-Schlüssel wird bei der ersten Verbindung gespeichert.';
+
+  @override
+  String get fmTypeTransferType => 'Übertragungsart';
+
+  @override
+  String get fmTypeBinary => 'Binär';
+
+  @override
+  String get fmTypeAscii => 'ASCII (Text)';
+
+  @override
+  String get fmTypeAuto => 'Automatisch (Textdateien als ASCII)';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return 'Globale Einstellung verwenden ($v)';
+  }
+
+  @override
+  String get fmTypeDataConn => 'Datenverbindung';
+
+  @override
+  String get fmTypePassive => 'Passiv (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => 'Zeitzonenversatz des Servers';
+
+  @override
+  String get fmTypeTzNone => 'Kein Versatz';
+
+  @override
+  String get fmTypeTzHours => 'Stunden';
+
+  @override
+  String get fmTypeTimezoneHint =>
+      'Die vom Server gemeldeten Dateizeiten werden um diesen Wert verschoben.';
+
+  @override
+  String get fmOptSiteOptions => 'Verbindungsspezifische Optionen';
+
+  @override
+  String get fmOptUseGlobal =>
+      'Globale Einstellungen für alle Optionen verwenden';
+
+  @override
+  String get fmOptCustom =>
+      'Eigene Einstellungen für diese Verbindung verwenden';
+
+  @override
+  String get fmOptRetry => 'Wiederholungsversuche';
+
+  @override
+  String get fmOptRetryDelay => 'Pause zwischen Versuchen (s)';
+
+  @override
+  String get fmOptMaxConcurrent => 'Max. gleichzeitige Übertragungen';
+
+  @override
+  String get fmOptConflict => 'Wenn eine Datei mit gleichem Namen existiert';
+
+  @override
+  String get fmOptConflictOverwrite => 'Überschreiben';
+
+  @override
+  String get fmOptConflictRename => 'Automatisch umbenennen (Name (1).ext)';
+
+  @override
+  String get fmOptConflictSkip => 'Überspringen';
+
+  @override
+  String get fmOptEncoding => 'Dateinamen-Kodierung';
+
+  @override
+  String get fmOptEncAuto => 'Automatisch';
+
+  @override
+  String get fmSiteLocal => 'Mein Computer';
+
+  @override
+  String get fmSiteRemote => 'Server';
+
+  @override
+  String get fmSiteTransfers => 'Übertragungen';
+
+  @override
+  String get fmSiteToggleLocal => 'Mein Computer ein-/ausblenden (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers => 'Übertragungen ein-/ausblenden (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => 'Neu verbinden';
+
+  @override
+  String get fmSitePlaces => 'Schnellzugriff und Laufwerke';
+
+  @override
+  String get fmSiteUp => 'Übergeordneter Ordner (Backspace)';
+
+  @override
+  String get fmSiteHome => 'Startordner';
+
+  @override
+  String get fmSiteColName => 'Name';
+
+  @override
+  String get fmSiteColSize => 'Größe';
+
+  @override
+  String get fmSiteColDate => 'Geändert';
+
+  @override
+  String get fmSiteLoading => 'Wird geladen…';
+
+  @override
+  String get fmSiteEmptyDir => 'Dieser Ordner ist leer';
+
+  @override
+  String get fmSiteDesktop => 'Desktop';
+
+  @override
+  String get fmSiteDownloads => 'Downloads';
+
+  @override
+  String get fmSiteDocuments => 'Dokumente';
+
+  @override
+  String get fmSiteHomeDir => 'Benutzerordner';
+
+  @override
+  String get fmSiteOpenExplorer => 'Im Explorer öffnen';
+
+  @override
+  String get fmSiteOpenFile => 'Mit Standard-App öffnen';
+
+  @override
+  String get fmSiteShowExplorer => 'Im Explorer anzeigen';
+
+  @override
+  String get fmSiteUpload => 'Hochladen';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return '$n Elemente hochladen';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return 'Ziel: $dir';
+  }
+
+  @override
+  String get fmSiteDownload => 'Herunterladen';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return '$n Elemente herunterladen';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return 'Ziel: $dir';
+  }
+
+  @override
+  String get fmSiteTrash => 'In den Papierkorb verschieben';
+
+  @override
+  String get fmSiteTrashOk => 'Verschieben';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return '<b>$name</b> in den Papierkorb verschieben?';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return '$n Elemente in den Papierkorb verschieben?';
+  }
+
+  @override
+  String get fmSiteMkdirFail => 'Ordner konnte nicht erstellt werden';
+
+  @override
+  String get fmSiteRenameFail => 'Umbenennen nicht möglich';
+
+  @override
+  String get fmSiteDeleteFail => 'Löschen nicht möglich';
+
+  @override
+  String get fmSiteDeleteTitle => 'Vom Server löschen';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return 'Datei <b>$name</b> endgültig vom Server löschen?';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return 'Ordner <b>$name</b> samt Inhalt endgültig vom Server löschen?';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return '$n Elemente (Ordner mit ihrem gesamten Inhalt) endgültig vom Server löschen?';
+  }
+
+  @override
+  String get fmSiteDeleting => 'Wird gelöscht…';
+
+  @override
+  String get fmSiteDeleted => 'Gelöscht';
+
+  @override
+  String fmSiteItems(String n) {
+    return '$n Elemente';
+  }
+
+  @override
+  String get fmSiteOffline => 'Nicht verbunden';
+
+  @override
+  String fmSiteLimit(String v) {
+    return 'Geschwindigkeitslimit: $v';
+  }
+
+  @override
+  String get fmSiteNoLimit => 'Kein Geschwindigkeitslimit';
+
+  @override
+  String get fmSiteLimitTitle => 'Geschwindigkeitslimit festlegen';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return 'Verbindung zum Server nicht möglich: $msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => 'Verbindung fehlgeschlagen';
+
+  @override
+  String get fmSiteStateConnected => 'Verbunden';
+
+  @override
+  String get fmSiteStateConnecting => 'Verbinde…';
+
+  @override
+  String get fmSiteStateDisconnected => 'Getrennt';
+
+  @override
+  String get fmTrColName => 'Name';
+
+  @override
+  String get fmTrColSize => 'Größe';
+
+  @override
+  String get fmTrColProgress => 'Fortschritt';
+
+  @override
+  String get fmTrColStatus => 'Status';
+
+  @override
+  String get fmTrEmpty =>
+      'Noch keine Übertragungen.\nKlicken Sie mit der rechten Maustaste auf eine Datei oder einen Ordner und wählen Sie Herunterladen / Hochladen, oder ziehen Sie Elemente zwischen den Bereichen.';
+
+  @override
+  String get fmTrQueued => 'In Warteschlange';
+
+  @override
+  String get fmTrActive => 'Wird übertragen';
+
+  @override
+  String get fmTrDone => 'Abgeschlossen';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return '$n Dateien abgeschlossen';
+  }
+
+  @override
+  String get fmTrError => 'Fehler';
+
+  @override
+  String get fmTrCancelled => 'Abgebrochen';
+
+  @override
+  String get fmTrSkipped => 'Übersprungen (vorhanden)';
+
+  @override
+  String fmTrScanning(String n) {
+    return 'Wird gescannt… $n Dateien';
+  }
+
+  @override
+  String get fmTrRetrying => 'Neuer Versuch folgt…';
+
+  @override
+  String get fmTrCancel => 'Abbrechen';
+
+  @override
+  String get fmTrCancelDir => 'Ordnerübertragung abbrechen';
+
+  @override
+  String get fmTrCancelAll => 'Alle Übertragungen abbrechen';
+
+  @override
+  String get fmTrCancelAllMsg =>
+      'Alle laufenden und wartenden Übertragungen abbrechen?';
+
+  @override
+  String get fmTrCancelAllOk => 'Alle abbrechen';
+
+  @override
+  String get fmTrRetry => 'Wiederholen';
+
+  @override
+  String get fmTrShowLocal => 'Im Explorer anzeigen';
+
+  @override
+  String get fmTrShowRemote => 'Auf dem Server anzeigen';
+
+  @override
+  String get fmTrCopyError => 'Fehlermeldung kopieren';
+
+  @override
+  String get fmTrRemove => 'Aus der Liste entfernen';
+
+  @override
+  String get fmTrRemoveRoot => 'Diese Übertragung aus der Liste entfernen';
+
+  @override
+  String get fmTrClearDone => 'Abgeschlossene entfernen';
+
+  @override
+  String fmTrActiveN(String n) {
+    return '$n Übertragungen laufen';
+  }
+
+  @override
+  String get fmTrDownloadDone => 'Download abgeschlossen';
+
+  @override
+  String get fmTrUploadDone => 'Upload abgeschlossen';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return 'Download unvollständig: $name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return 'Upload unvollständig: $name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return '$n Dateien fehlgeschlagen';
+  }
+
+  @override
+  String get fmMainErrAuth =>
+      'Anmeldung fehlgeschlagen: Benutzername oder Passwort falsch.';
+
+  @override
+  String get fmMainErrRefused =>
+      'Verbindung abgelehnt: Port geschlossen oder Server läuft nicht.';
+
+  @override
+  String get fmMainErrTimeout => 'Zeitüberschreitung: Server nicht erreichbar.';
+
+  @override
+  String get fmMainErrDns => 'Hostname konnte nicht aufgelöst werden (DNS).';
+
+  @override
+  String get fmMainErrUnreach =>
+      'Server ist über das Netzwerk nicht erreichbar.';
+
+  @override
+  String get fmMainErrReset => 'Der Server hat die Verbindung geschlossen.';
+
+  @override
+  String get fmMainErrNotFound => 'Datei oder Ordner nicht gefunden.';
+
+  @override
+  String get fmMainErrPerm => 'Zugriff verweigert.';
+
+  @override
+  String fmMainErr550(String msg) {
+    return 'Der Server hat den Vorgang abgelehnt (550): $msg';
+  }
+
+  @override
+  String get fmMainErr553 =>
+      'Der Server hat den Dateinamen nicht akzeptiert (553).';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'TLS/SSL-Fehler — prüfen Sie Protokoll oder Port. ($msg)';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return 'Der Host-Schlüssel des Servers hat sich geändert! Gespeichert: $oldVal, empfangen: $newVal. Verbindung aus Sicherheitsgründen abgelehnt.';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => 'Verbindung nicht gefunden';
+
+  @override
+  String get fmMainErrNoSession => 'Keine Verbindung zum Server';
+
+  @override
+  String get fmMainErrHost => 'Hostadresse ist erforderlich.';
+
+  @override
+  String get fmMainErrUser =>
+      'Benutzername ist erforderlich (oder wählen Sie die anonyme Anmeldung).';
+
+  @override
+  String get fmMainPickKey => 'Private Schlüsseldatei wählen';
+
+  @override
+  String get fmMainCopySuffix => ' (Kopie)';
+
+  @override
+  String get fmMainCloseActive =>
+      'Es laufen noch Übertragungen. Sie werden abgebrochen, wenn Sie dieses Fenster schließen.';
+
+  @override
+  String get fmMainCloseAnyway => 'Trotzdem schließen';
 }

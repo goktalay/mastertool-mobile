@@ -1938,6 +1938,1320 @@ abstract class MtStrings {
   /// In tr, this message translates to:
   /// **'Notlar'**
   String get smAppNotesLabel;
+
+  /// No description provided for @fmAppSearchPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sitelerde ara…  (Ctrl+F)'**
+  String get fmAppSearchPh;
+
+  /// No description provided for @fmAppNewConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni site'**
+  String get fmAppNewConn;
+
+  /// No description provided for @fmAppSettings.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ayarlar'**
+  String get fmAppSettings;
+
+  /// No description provided for @fmAppStats.
+  ///
+  /// In tr, this message translates to:
+  /// **'{c} site · {f} klasör'**
+  String fmAppStats(String c, String f);
+
+  /// No description provided for @fmAppWelcome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hoş geldiniz'**
+  String get fmAppWelcome;
+
+  /// No description provided for @fmAppResults.
+  ///
+  /// In tr, this message translates to:
+  /// **'“{q}” için sonuçlar'**
+  String fmAppResults(String q);
+
+  /// No description provided for @fmAppAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm siteler'**
+  String get fmAppAll;
+
+  /// No description provided for @fmAppWelcomeHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlk FTP / SFTP sitenizi oluşturun.<br>Sunucu bilgilerini girin, bağlantıyı test edin ve kaydedin.'**
+  String get fmAppWelcomeHint;
+
+  /// No description provided for @fmAppFolders.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörler'**
+  String get fmAppFolders;
+
+  /// No description provided for @fmAppConnections.
+  ///
+  /// In tr, this message translates to:
+  /// **'Siteler'**
+  String get fmAppConnections;
+
+  /// No description provided for @fmAppDblHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanmak için karta çift tıklayın'**
+  String get fmAppDblHint;
+
+  /// No description provided for @fmAppNoMatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşleşen site bulunamadı.'**
+  String get fmAppNoMatch;
+
+  /// No description provided for @fmAppFolderCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} site'**
+  String fmAppFolderCount(String n);
+
+  /// No description provided for @fmAppNewConnHere.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu klasörde yeni site'**
+  String get fmAppNewConnHere;
+
+  /// No description provided for @fmAppNewSubfolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alt klasör oluştur'**
+  String get fmAppNewSubfolder;
+
+  /// No description provided for @fmAppKeyTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar'**
+  String get fmAppKeyTag;
+
+  /// No description provided for @fmAppLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son klasör'**
+  String get fmAppLastDir;
+
+  /// No description provided for @fmAppLastDirTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'son klasör'**
+  String get fmAppLastDirTag;
+
+  /// No description provided for @fmAppDuplicate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyasını oluştur'**
+  String get fmAppDuplicate;
+
+  /// No description provided for @fmAppMoveToFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasöre taşı…'**
+  String get fmAppMoveToFolder;
+
+  /// No description provided for @fmAppResetLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son klasörü sıfırla'**
+  String get fmAppResetLastDir;
+
+  /// No description provided for @fmAppConnMoved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Site taşındı'**
+  String get fmAppConnMoved;
+
+  /// No description provided for @fmAppFolderIntoSelf.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör kendi içine taşınamaz'**
+  String get fmAppFolderIntoSelf;
+
+  /// No description provided for @fmAppFolderPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örn. Müşteriler'**
+  String get fmAppFolderPh;
+
+  /// No description provided for @fmAppRenameFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörü yeniden adlandır'**
+  String get fmAppRenameFolder;
+
+  /// No description provided for @fmAppDeleteFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörü sil'**
+  String get fmAppDeleteFolder;
+
+  /// No description provided for @fmAppDeleteFolderMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> klasörü silinsin mi?'**
+  String fmAppDeleteFolderMsg(String name);
+
+  /// No description provided for @fmAppDeleteFolderConns.
+  ///
+  /// In tr, this message translates to:
+  /// **'<br>İçindeki {n} site üst klasöre taşınacak.'**
+  String fmAppDeleteFolderConns(String n);
+
+  /// No description provided for @fmAppRootFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ana dizin (klasörsüz)'**
+  String get fmAppRootFolder;
+
+  /// No description provided for @fmAppMoveTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'“{name}” taşı'**
+  String fmAppMoveTitle(String name);
+
+  /// No description provided for @fmAppTargetFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef klasör'**
+  String get fmAppTargetFolder;
+
+  /// No description provided for @fmAppDeleteConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Siteyi sil'**
+  String get fmAppDeleteConn;
+
+  /// No description provided for @fmAppDeleteConnMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> ({target}) sitesi silinsin mi?'**
+  String fmAppDeleteConnMsg(String name, String target);
+
+  /// No description provided for @fmFormTitleNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni site'**
+  String get fmFormTitleNew;
+
+  /// No description provided for @fmFormTitleEdit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Site özellikleri: {name}'**
+  String fmFormTitleEdit(String name);
+
+  /// No description provided for @fmFormTabGeneral.
+  ///
+  /// In tr, this message translates to:
+  /// **'Genel'**
+  String get fmFormTabGeneral;
+
+  /// No description provided for @fmFormTabActions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eylemler'**
+  String get fmFormTabActions;
+
+  /// No description provided for @fmFormTabType.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tür'**
+  String get fmFormTabType;
+
+  /// No description provided for @fmFormTabOptions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçenekler'**
+  String get fmFormTabOptions;
+
+  /// No description provided for @fmFormName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Etiket (görünen ad)'**
+  String get fmFormName;
+
+  /// No description provided for @fmFormNamePh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örn. Şirket web sitesi'**
+  String get fmFormNamePh;
+
+  /// No description provided for @fmFormHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adresi'**
+  String get fmFormHost;
+
+  /// No description provided for @fmFormHostPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'ftp.ornek.com veya 192.168.1.10'**
+  String get fmFormHostPh;
+
+  /// No description provided for @fmFormPort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Port'**
+  String get fmFormPort;
+
+  /// No description provided for @fmFormUser.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı adı'**
+  String get fmFormUser;
+
+  /// No description provided for @fmFormPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre'**
+  String get fmFormPassword;
+
+  /// No description provided for @fmFormPwSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'•••••••• (kayıtlı, değiştirmek için yazın)'**
+  String get fmFormPwSaved;
+
+  /// No description provided for @fmFormLoginMethod.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş yöntemi'**
+  String get fmFormLoginMethod;
+
+  /// No description provided for @fmFormLoginNormal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Normal'**
+  String get fmFormLoginNormal;
+
+  /// No description provided for @fmFormLoginAnon.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anonim'**
+  String get fmFormLoginAnon;
+
+  /// No description provided for @fmFormAuth.
+  ///
+  /// In tr, this message translates to:
+  /// **'SFTP kimlik doğrulama'**
+  String get fmFormAuth;
+
+  /// No description provided for @fmFormPrivateKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Özel anahtar'**
+  String get fmFormPrivateKey;
+
+  /// No description provided for @fmFormKeyFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Özel anahtar dosyası'**
+  String get fmFormKeyFile;
+
+  /// No description provided for @fmFormPassphrase.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar parolası'**
+  String get fmFormPassphrase;
+
+  /// No description provided for @fmFormPassSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'(kayıtlı)'**
+  String get fmFormPassSaved;
+
+  /// No description provided for @fmFormPassEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yoksa boş bırakın'**
+  String get fmFormPassEmpty;
+
+  /// No description provided for @fmFormFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör'**
+  String get fmFormFolder;
+
+  /// No description provided for @fmFormColor.
+  ///
+  /// In tr, this message translates to:
+  /// **'Renk'**
+  String get fmFormColor;
+
+  /// No description provided for @fmFormComments.
+  ///
+  /// In tr, this message translates to:
+  /// **'Notlar'**
+  String get fmFormComments;
+
+  /// No description provided for @fmFormRemoteDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanınca bu uzak klasöre geç'**
+  String get fmFormRemoteDir;
+
+  /// No description provided for @fmFormLocalDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanınca bu yerel klasöre geç'**
+  String get fmFormLocalDir;
+
+  /// No description provided for @fmFormLocalDirPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Örn. C:\\Projeler\\site'**
+  String get fmFormLocalDirPh;
+
+  /// No description provided for @fmFormLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son kaldığım klasöre git'**
+  String get fmFormLastDir;
+
+  /// No description provided for @fmFormLastDirHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açıkken site, en son çalıştığınız sunucu ve bilgisayar klasörleriyle açılır (yukarıdaki klasörlerin yerine).'**
+  String get fmFormLastDirHint;
+
+  /// No description provided for @fmFormLastDirNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu an:'**
+  String get fmFormLastDirNow;
+
+  /// No description provided for @fmFormCache.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezinmede önbellek kullanımı'**
+  String get fmFormCache;
+
+  /// No description provided for @fmFormCacheSession.
+  ///
+  /// In tr, this message translates to:
+  /// **'Oturum boyunca önbellek kullan'**
+  String get fmFormCacheSession;
+
+  /// No description provided for @fmFormCacheAlways.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her zaman önbellek kullan (uygulama açık kaldıkça)'**
+  String get fmFormCacheAlways;
+
+  /// No description provided for @fmFormCacheNever.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önbellek kullanma (her seferinde yeniden listele)'**
+  String get fmFormCacheNever;
+
+  /// No description provided for @fmFormUploadCase.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yüklerken dosya ve klasör adlarına uygulanacak kural'**
+  String get fmFormUploadCase;
+
+  /// No description provided for @fmFormCasePreserve.
+  ///
+  /// In tr, this message translates to:
+  /// **'Büyük/küçük harfi koru'**
+  String get fmFormCasePreserve;
+
+  /// No description provided for @fmFormCaseLower.
+  ///
+  /// In tr, this message translates to:
+  /// **'Küçük harfe çevir'**
+  String get fmFormCaseLower;
+
+  /// No description provided for @fmFormCaseUpper.
+  ///
+  /// In tr, this message translates to:
+  /// **'Büyük harfe çevir'**
+  String get fmFormCaseUpper;
+
+  /// No description provided for @fmFormTest.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantıyı dene'**
+  String get fmFormTest;
+
+  /// No description provided for @fmFormSaveConnect.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydet ve bağlan'**
+  String get fmFormSaveConnect;
+
+  /// No description provided for @fmFormConnecting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanılıyor…'**
+  String get fmFormConnecting;
+
+  /// No description provided for @fmFormTestOk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı başarılı'**
+  String get fmFormTestOk;
+
+  /// No description provided for @fmFormTestFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kurulamadı'**
+  String get fmFormTestFail;
+
+  /// No description provided for @fmFormHomeDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başlangıç klasörü: {dir}'**
+  String fmFormHomeDir(String dir);
+
+  /// No description provided for @fmFormRemoteDirMissing.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyarı: belirtilen uzak klasör açılamadı.'**
+  String get fmFormRemoteDirMissing;
+
+  /// No description provided for @fmFormHostKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH host anahtarı (SHA256): {fp}'**
+  String fmFormHostKey(String fp);
+
+  /// No description provided for @fmFormSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Site kaydedildi'**
+  String get fmFormSaved;
+
+  /// No description provided for @fmFormChangesSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değişiklikler kaydedildi'**
+  String get fmFormChangesSaved;
+
+  /// No description provided for @fmTypeProtocol.
+  ///
+  /// In tr, this message translates to:
+  /// **'Protokol'**
+  String get fmTypeProtocol;
+
+  /// No description provided for @fmTypeFtp.
+  ///
+  /// In tr, this message translates to:
+  /// **'FTP (standart dosya aktarım protokolü)'**
+  String get fmTypeFtp;
+
+  /// No description provided for @fmTypeFtpsImplicit.
+  ///
+  /// In tr, this message translates to:
+  /// **'FTP — TLS/SSL (Implicit, port 990)'**
+  String get fmTypeFtpsImplicit;
+
+  /// No description provided for @fmTypeFtpsSsl.
+  ///
+  /// In tr, this message translates to:
+  /// **'FTP — SSL (AUTH SSL, Explicit)'**
+  String get fmTypeFtpsSsl;
+
+  /// No description provided for @fmTypeFtpsTls.
+  ///
+  /// In tr, this message translates to:
+  /// **'FTP — TLS/SSL (AUTH TLS, Explicit)'**
+  String get fmTypeFtpsTls;
+
+  /// No description provided for @fmTypeSftp.
+  ///
+  /// In tr, this message translates to:
+  /// **'SFTP — SSH2 (Güvenli Kabuk)'**
+  String get fmTypeSftp;
+
+  /// No description provided for @fmTypeNoteFtp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Komut ve veri bağlantıları için standart FTP kullanılır; şifre ve dosyalar şifrelenmeden (düz metin) gönderilir.'**
+  String get fmTypeNoteFtp;
+
+  /// No description provided for @fmTypeNoteFtpsImplicit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı en baştan TLS/SSL ile şifrelenir (genellikle port 990). Komutlar ve veriler korunur.'**
+  String get fmTypeNoteFtpsImplicit;
+
+  /// No description provided for @fmTypeNoteFtpsSsl.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düz FTP ile bağlanıp AUTH SSL komutuyla şifreli oturuma geçilir. Komutlar ve veriler korunur.'**
+  String get fmTypeNoteFtpsSsl;
+
+  /// No description provided for @fmTypeNoteFtpsTls.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düz FTP ile bağlanıp AUTH TLS komutuyla şifreli oturuma geçilir (en yaygın FTPS türü).'**
+  String get fmTypeNoteFtpsTls;
+
+  /// No description provided for @fmTypeNoteSftp.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH üzerinden şifreli dosya aktarımı (port 22). Şifre veya özel anahtarla giriş yapılır; sunucu host anahtarı ilk bağlantıda kaydedilir.'**
+  String get fmTypeNoteSftp;
+
+  /// No description provided for @fmTypeTransferType.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarım türü'**
+  String get fmTypeTransferType;
+
+  /// No description provided for @fmTypeBinary.
+  ///
+  /// In tr, this message translates to:
+  /// **'İkili (Binary)'**
+  String get fmTypeBinary;
+
+  /// No description provided for @fmTypeAscii.
+  ///
+  /// In tr, this message translates to:
+  /// **'ASCII (metin)'**
+  String get fmTypeAscii;
+
+  /// No description provided for @fmTypeAuto.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomatik (metin dosyaları ASCII)'**
+  String get fmTypeAuto;
+
+  /// No description provided for @fmTypeUseGlobal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Genel ayarı kullan ({v})'**
+  String fmTypeUseGlobal(String v);
+
+  /// No description provided for @fmTypeDataConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Veri bağlantısı'**
+  String get fmTypeDataConn;
+
+  /// No description provided for @fmTypePassive.
+  ///
+  /// In tr, this message translates to:
+  /// **'Pasif (PASV / EPSV)'**
+  String get fmTypePassive;
+
+  /// No description provided for @fmTypeTimezone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu saat dilimi farkı'**
+  String get fmTypeTimezone;
+
+  /// No description provided for @fmTypeTzNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fark yok'**
+  String get fmTypeTzNone;
+
+  /// No description provided for @fmTypeTzHours.
+  ///
+  /// In tr, this message translates to:
+  /// **'saat'**
+  String get fmTypeTzHours;
+
+  /// No description provided for @fmTypeTimezoneHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucunun listelediği dosya saatleri bu kadar kaydırılarak gösterilir.'**
+  String get fmTypeTimezoneHint;
+
+  /// No description provided for @fmOptSiteOptions.
+  ///
+  /// In tr, this message translates to:
+  /// **'Siteye özel ayarlar'**
+  String get fmOptSiteOptions;
+
+  /// No description provided for @fmOptUseGlobal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm seçenekler için genel ayarları kullan'**
+  String get fmOptUseGlobal;
+
+  /// No description provided for @fmOptCustom.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu siteye özel ayarlar kullan'**
+  String get fmOptCustom;
+
+  /// No description provided for @fmOptRetry.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tekrar deneme sayısı'**
+  String get fmOptRetry;
+
+  /// No description provided for @fmOptRetryDelay.
+  ///
+  /// In tr, this message translates to:
+  /// **'Denemeler arası bekleme (sn)'**
+  String get fmOptRetryDelay;
+
+  /// No description provided for @fmOptMaxConcurrent.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aynı anda en fazla aktarım'**
+  String get fmOptMaxConcurrent;
+
+  /// No description provided for @fmOptConflict.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefte aynı adlı dosya varsa'**
+  String get fmOptConflict;
+
+  /// No description provided for @fmOptConflictOverwrite.
+  ///
+  /// In tr, this message translates to:
+  /// **'Üzerine yaz'**
+  String get fmOptConflictOverwrite;
+
+  /// No description provided for @fmOptConflictRename.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomatik yeniden adlandır (ad (1).uzantı)'**
+  String get fmOptConflictRename;
+
+  /// No description provided for @fmOptConflictSkip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Atla'**
+  String get fmOptConflictSkip;
+
+  /// No description provided for @fmOptEncoding.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya adı kodlaması'**
+  String get fmOptEncoding;
+
+  /// No description provided for @fmOptEncAuto.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomatik'**
+  String get fmOptEncAuto;
+
+  /// No description provided for @fmSiteLocal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilgisayarım'**
+  String get fmSiteLocal;
+
+  /// No description provided for @fmSiteRemote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu'**
+  String get fmSiteRemote;
+
+  /// No description provided for @fmSiteTransfers.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarımlar'**
+  String get fmSiteTransfers;
+
+  /// No description provided for @fmSiteToggleLocal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilgisayarım panelini aç/kapat (Ctrl+B)'**
+  String get fmSiteToggleLocal;
+
+  /// No description provided for @fmSiteToggleTransfers.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarımlar panelini aç/kapat (Ctrl+J)'**
+  String get fmSiteToggleTransfers;
+
+  /// No description provided for @fmSiteReconnect.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden bağlan'**
+  String get fmSiteReconnect;
+
+  /// No description provided for @fmSitePlaces.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hızlı erişim ve sürücüler'**
+  String get fmSitePlaces;
+
+  /// No description provided for @fmSiteUp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Üst klasör (Backspace)'**
+  String get fmSiteUp;
+
+  /// No description provided for @fmSiteHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başlangıç klasörü'**
+  String get fmSiteHome;
+
+  /// No description provided for @fmSiteColName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad'**
+  String get fmSiteColName;
+
+  /// No description provided for @fmSiteColSize.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boyut'**
+  String get fmSiteColSize;
+
+  /// No description provided for @fmSiteColDate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değiştirilme'**
+  String get fmSiteColDate;
+
+  /// No description provided for @fmSiteLoading.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleniyor…'**
+  String get fmSiteLoading;
+
+  /// No description provided for @fmSiteEmptyDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu klasör boş'**
+  String get fmSiteEmptyDir;
+
+  /// No description provided for @fmSiteDesktop.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masaüstü'**
+  String get fmSiteDesktop;
+
+  /// No description provided for @fmSiteDownloads.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirilenler'**
+  String get fmSiteDownloads;
+
+  /// No description provided for @fmSiteDocuments.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belgeler'**
+  String get fmSiteDocuments;
+
+  /// No description provided for @fmSiteHomeDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı klasörü'**
+  String get fmSiteHomeDir;
+
+  /// No description provided for @fmSiteOpenExplorer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezgin\'de aç'**
+  String get fmSiteOpenExplorer;
+
+  /// No description provided for @fmSiteOpenFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Varsayılan uygulamayla aç'**
+  String get fmSiteOpenFile;
+
+  /// No description provided for @fmSiteShowExplorer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezgin\'de göster'**
+  String get fmSiteShowExplorer;
+
+  /// No description provided for @fmSiteUpload.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükle (Upload)'**
+  String get fmSiteUpload;
+
+  /// No description provided for @fmSiteUploadN.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğeyi yükle (Upload)'**
+  String fmSiteUploadN(String n);
+
+  /// No description provided for @fmSiteUploadTo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef: {dir}'**
+  String fmSiteUploadTo(String dir);
+
+  /// No description provided for @fmSiteDownload.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndir (Download)'**
+  String get fmSiteDownload;
+
+  /// No description provided for @fmSiteDownloadN.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğeyi indir (Download)'**
+  String fmSiteDownloadN(String n);
+
+  /// No description provided for @fmSiteDownloadTo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef: {dir}'**
+  String fmSiteDownloadTo(String dir);
+
+  /// No description provided for @fmSiteTrash.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geri Dönüşüm Kutusu\'na taşı'**
+  String get fmSiteTrash;
+
+  /// No description provided for @fmSiteTrashOk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Taşı'**
+  String get fmSiteTrashOk;
+
+  /// No description provided for @fmSiteTrashOne.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> Geri Dönüşüm Kutusu\'na taşınsın mı?'**
+  String fmSiteTrashOne(String name);
+
+  /// No description provided for @fmSiteTrashMany.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğe Geri Dönüşüm Kutusu\'na taşınsın mı?'**
+  String fmSiteTrashMany(String n);
+
+  /// No description provided for @fmSiteMkdirFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör oluşturulamadı'**
+  String get fmSiteMkdirFail;
+
+  /// No description provided for @fmSiteRenameFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden adlandırılamadı'**
+  String get fmSiteRenameFail;
+
+  /// No description provided for @fmSiteDeleteFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Silinemedi'**
+  String get fmSiteDeleteFail;
+
+  /// No description provided for @fmSiteDeleteTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucudan sil'**
+  String get fmSiteDeleteTitle;
+
+  /// No description provided for @fmSiteDelOne.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> dosyası sunucudan kalıcı olarak silinsin mi?'**
+  String fmSiteDelOne(String name);
+
+  /// No description provided for @fmSiteDelDirOne.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> klasörü ve tüm içeriği sunucudan kalıcı olarak silinsin mi?'**
+  String fmSiteDelDirOne(String name);
+
+  /// No description provided for @fmSiteDelMany.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğe (klasörler tüm içerikleriyle) sunucudan kalıcı olarak silinsin mi?'**
+  String fmSiteDelMany(String n);
+
+  /// No description provided for @fmSiteDeleting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Siliniyor…'**
+  String get fmSiteDeleting;
+
+  /// No description provided for @fmSiteDeleted.
+  ///
+  /// In tr, this message translates to:
+  /// **'Silindi'**
+  String get fmSiteDeleted;
+
+  /// No description provided for @fmSiteItems.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğe'**
+  String fmSiteItems(String n);
+
+  /// No description provided for @fmSiteOffline.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlı değil'**
+  String get fmSiteOffline;
+
+  /// No description provided for @fmSiteLimit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hız sınırı: {v}'**
+  String fmSiteLimit(String v);
+
+  /// No description provided for @fmSiteNoLimit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hız sınırı yok'**
+  String get fmSiteNoLimit;
+
+  /// No description provided for @fmSiteLimitTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hız sınırını ayarla'**
+  String get fmSiteLimitTitle;
+
+  /// No description provided for @fmSiteConnectFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya bağlanılamadı: {msg}'**
+  String fmSiteConnectFail(String msg);
+
+  /// No description provided for @fmSiteConnectFailTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kurulamadı'**
+  String get fmSiteConnectFailTitle;
+
+  /// No description provided for @fmSiteStateConnected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlı'**
+  String get fmSiteStateConnected;
+
+  /// No description provided for @fmSiteStateConnecting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanılıyor…'**
+  String get fmSiteStateConnecting;
+
+  /// No description provided for @fmSiteStateDisconnected.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı yok'**
+  String get fmSiteStateDisconnected;
+
+  /// No description provided for @fmTrColName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad'**
+  String get fmTrColName;
+
+  /// No description provided for @fmTrColSize.
+  ///
+  /// In tr, this message translates to:
+  /// **'Boyut'**
+  String get fmTrColSize;
+
+  /// No description provided for @fmTrColProgress.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlerleme'**
+  String get fmTrColProgress;
+
+  /// No description provided for @fmTrColStatus.
+  ///
+  /// In tr, this message translates to:
+  /// **'Durum'**
+  String get fmTrColStatus;
+
+  /// No description provided for @fmTrEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz aktarım yok.\nBir dosyaya veya klasöre sağ tıklayıp İndir / Yükle seçin ya da paneller arasında sürükleyin.'**
+  String get fmTrEmpty;
+
+  /// No description provided for @fmTrQueued.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sırada'**
+  String get fmTrQueued;
+
+  /// No description provided for @fmTrActive.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarılıyor'**
+  String get fmTrActive;
+
+  /// No description provided for @fmTrDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tamamlandı'**
+  String get fmTrDone;
+
+  /// No description provided for @fmTrDoneFiles.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dosya tamam'**
+  String fmTrDoneFiles(String n);
+
+  /// No description provided for @fmTrError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hata'**
+  String get fmTrError;
+
+  /// No description provided for @fmTrCancelled.
+  ///
+  /// In tr, this message translates to:
+  /// **'İptal edildi'**
+  String get fmTrCancelled;
+
+  /// No description provided for @fmTrSkipped.
+  ///
+  /// In tr, this message translates to:
+  /// **'Atlandı (mevcut)'**
+  String get fmTrSkipped;
+
+  /// No description provided for @fmTrScanning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Taranıyor… {n} dosya'**
+  String fmTrScanning(String n);
+
+  /// No description provided for @fmTrRetrying.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tekrar denenecek…'**
+  String get fmTrRetrying;
+
+  /// No description provided for @fmTrCancel.
+  ///
+  /// In tr, this message translates to:
+  /// **'İptal et'**
+  String get fmTrCancel;
+
+  /// No description provided for @fmTrCancelDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör aktarımını iptal et'**
+  String get fmTrCancelDir;
+
+  /// No description provided for @fmTrCancelAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm aktarımları iptal et'**
+  String get fmTrCancelAll;
+
+  /// No description provided for @fmTrCancelAllMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süren ve sıradaki tüm aktarımlar iptal edilsin mi?'**
+  String get fmTrCancelAllMsg;
+
+  /// No description provided for @fmTrCancelAllOk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tümünü iptal et'**
+  String get fmTrCancelAllOk;
+
+  /// No description provided for @fmTrRetry.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden dene'**
+  String get fmTrRetry;
+
+  /// No description provided for @fmTrShowLocal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezgin\'de göster'**
+  String get fmTrShowLocal;
+
+  /// No description provided for @fmTrShowRemote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuda göster'**
+  String get fmTrShowRemote;
+
+  /// No description provided for @fmTrCopyError.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hata mesajını kopyala'**
+  String get fmTrCopyError;
+
+  /// No description provided for @fmTrRemove.
+  ///
+  /// In tr, this message translates to:
+  /// **'Listeden kaldır'**
+  String get fmTrRemove;
+
+  /// No description provided for @fmTrRemoveRoot.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu aktarımı listeden kaldır'**
+  String get fmTrRemoveRoot;
+
+  /// No description provided for @fmTrClearDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitenleri temizle'**
+  String get fmTrClearDone;
+
+  /// No description provided for @fmTrActiveN.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} aktarım sürüyor'**
+  String fmTrActiveN(String n);
+
+  /// No description provided for @fmTrDownloadDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme tamamlandı'**
+  String get fmTrDownloadDone;
+
+  /// No description provided for @fmTrUploadDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme tamamlandı'**
+  String get fmTrUploadDone;
+
+  /// No description provided for @fmTrDownloadFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme tamamlanamadı: {name}'**
+  String fmTrDownloadFailed(String name);
+
+  /// No description provided for @fmTrUploadFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme tamamlanamadı: {name}'**
+  String fmTrUploadFailed(String name);
+
+  /// No description provided for @fmTrFailedFiles.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dosya aktarılamadı'**
+  String fmTrFailedFiles(String n);
+
+  /// No description provided for @fmMainErrAuth.
+  ///
+  /// In tr, this message translates to:
+  /// **'Giriş başarısız: kullanıcı adı veya şifre hatalı.'**
+  String get fmMainErrAuth;
+
+  /// No description provided for @fmMainErrRefused.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı reddedildi: port kapalı veya sunucu çalışmıyor.'**
+  String get fmMainErrRefused;
+
+  /// No description provided for @fmMainErrTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zaman aşımı: sunucuya ulaşılamadı.'**
+  String get fmMainErrTimeout;
+
+  /// No description provided for @fmMainErrDns.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adresi çözümlenemedi (DNS).'**
+  String get fmMainErrDns;
+
+  /// No description provided for @fmMainErrUnreach.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya ağ üzerinden erişilemiyor.'**
+  String get fmMainErrUnreach;
+
+  /// No description provided for @fmMainErrReset.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu bağlantıyı kapattı.'**
+  String get fmMainErrReset;
+
+  /// No description provided for @fmMainErrNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya veya klasör bulunamadı.'**
+  String get fmMainErrNotFound;
+
+  /// No description provided for @fmMainErrPerm.
+  ///
+  /// In tr, this message translates to:
+  /// **'Erişim izni yok.'**
+  String get fmMainErrPerm;
+
+  /// No description provided for @fmMainErr550.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu işlemi reddetti (550): {msg}'**
+  String fmMainErr550(String msg);
+
+  /// No description provided for @fmMainErr553.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya adı sunucu tarafından kabul edilmedi (553).'**
+  String get fmMainErr553;
+
+  /// No description provided for @fmMainErrTls.
+  ///
+  /// In tr, this message translates to:
+  /// **'TLS/SSL hatası — protokolü veya portu kontrol edin. ({msg})'**
+  String fmMainErrTls(String msg);
+
+  /// No description provided for @fmMainErrHostKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucunun host anahtarı değişmiş! Kayıtlı: {oldVal}, gelen: {newVal}. Güvenlik için bağlantı reddedildi.'**
+  String fmMainErrHostKey(String newVal, String oldVal);
+
+  /// No description provided for @fmMainErrConnNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Site bulunamadı'**
+  String get fmMainErrConnNotFound;
+
+  /// No description provided for @fmMainErrNoSession.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya bağlı değil'**
+  String get fmMainErrNoSession;
+
+  /// No description provided for @fmMainErrHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adresi gerekli.'**
+  String get fmMainErrHost;
+
+  /// No description provided for @fmMainErrUser.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı adı gerekli (veya Anonim girişi seçin).'**
+  String get fmMainErrUser;
+
+  /// No description provided for @fmMainPickKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Özel anahtar dosyası seçin'**
+  String get fmMainPickKey;
+
+  /// No description provided for @fmMainCopySuffix.
+  ///
+  /// In tr, this message translates to:
+  /// **' (kopya)'**
+  String get fmMainCopySuffix;
+
+  /// No description provided for @fmMainCloseActive.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süren aktarımlar var. Pencere kapatılırsa iptal edilecekler.'**
+  String get fmMainCloseActive;
+
+  /// No description provided for @fmMainCloseAnyway.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yine de kapat'**
+  String get fmMainCloseAnyway;
 }
 
 class _MtStringsDelegate extends LocalizationsDelegate<MtStrings> {

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:master_tool/core/account.dart';
 import 'package:master_tool/core/sync.dart';
 
 void main() {
@@ -45,6 +46,17 @@ void main() {
   test('id üretimi masaüstü biçiminde (16 hex / uuid v4)', () {
     expect(RegExp(r'^[0-9a-f]{16}$').hasMatch(newItemId()), isTrue);
     expect(RegExp(r'^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$').hasMatch(newUuid()), isTrue);
+  });
+
+  test('yerel-kalan alanlar blob verisine ve hash\'e girmez (localOnly)', () async {
+    final lib = LocalLibrary('t', Uint8List(32));
+    lib.items['a'] = ('site', {'name': 'x', 'lastRemoteDir': '/srv', 'keyPath': '/k'});
+    final eng = SyncEngine(account: AccountService(store: MemoryKvStore()), app: 'fm', library: lib, deviceId: 'd1', localOnly: const {'lastRemoteDir', 'keyPath'});
+    final items = eng.debugLocalItems();
+    expect(items.single.data, {'name': 'x'});
+    final h1 = items.single;
+    lib.items['a'] = ('site', {'name': 'x', 'lastRemoteDir': '/baska', 'keyPath': '/k'});
+    expect(eng.debugLocalItems().single.rev, h1.rev); // yalnız yerel alan değişti: yeni revizyon yok
   });
 
   test('SyncItem JSON gidiş-dönüş', () {

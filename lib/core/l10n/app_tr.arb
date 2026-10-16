@@ -906,5 +906,644 @@
   "smMainDefTop": "Süreçler (top)",
   "@smMainDefTop": {},
   "smAppNotesLabel": "Notlar",
-  "@smAppNotesLabel": {}
+  "@smAppNotesLabel": {},
+  "fmAppSearchPh": "Sitelerde ara…  (Ctrl+F)",
+  "@fmAppSearchPh": {},
+  "fmAppNewConn": "Yeni site",
+  "@fmAppNewConn": {},
+  "fmAppSettings": "Ayarlar",
+  "@fmAppSettings": {},
+  "fmAppStats": "{c} site · {f} klasör",
+  "@fmAppStats": {
+    "placeholders": {
+      "c": {
+        "type": "String"
+      },
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppWelcome": "Hoş geldiniz",
+  "@fmAppWelcome": {},
+  "fmAppResults": "“{q}” için sonuçlar",
+  "@fmAppResults": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppAll": "Tüm siteler",
+  "@fmAppAll": {},
+  "fmAppWelcomeHint": "İlk FTP / SFTP sitenizi oluşturun.<br>Sunucu bilgilerini girin, bağlantıyı test edin ve kaydedin.",
+  "@fmAppWelcomeHint": {},
+  "fmAppFolders": "Klasörler",
+  "@fmAppFolders": {},
+  "fmAppConnections": "Siteler",
+  "@fmAppConnections": {},
+  "fmAppDblHint": "Bağlanmak için karta çift tıklayın",
+  "@fmAppDblHint": {},
+  "fmAppNoMatch": "Eşleşen site bulunamadı.",
+  "@fmAppNoMatch": {},
+  "fmAppFolderCount": "{n} site",
+  "@fmAppFolderCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppNewConnHere": "Bu klasörde yeni site",
+  "@fmAppNewConnHere": {},
+  "fmAppNewSubfolder": "Alt klasör oluştur",
+  "@fmAppNewSubfolder": {},
+  "fmAppKeyTag": "Anahtar",
+  "@fmAppKeyTag": {},
+  "fmAppLastDir": "Son klasör",
+  "@fmAppLastDir": {},
+  "fmAppLastDirTag": "son klasör",
+  "@fmAppLastDirTag": {},
+  "fmAppDuplicate": "Kopyasını oluştur",
+  "@fmAppDuplicate": {},
+  "fmAppMoveToFolder": "Klasöre taşı…",
+  "@fmAppMoveToFolder": {},
+  "fmAppResetLastDir": "Son klasörü sıfırla",
+  "@fmAppResetLastDir": {},
+  "fmAppConnMoved": "Site taşındı",
+  "@fmAppConnMoved": {},
+  "fmAppFolderIntoSelf": "Klasör kendi içine taşınamaz",
+  "@fmAppFolderIntoSelf": {},
+  "fmAppFolderPh": "Örn. Müşteriler",
+  "@fmAppFolderPh": {},
+  "fmAppRenameFolder": "Klasörü yeniden adlandır",
+  "@fmAppRenameFolder": {},
+  "fmAppDeleteFolder": "Klasörü sil",
+  "@fmAppDeleteFolder": {},
+  "fmAppDeleteFolderMsg": "<b>{name}</b> klasörü silinsin mi?",
+  "@fmAppDeleteFolderMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppDeleteFolderConns": "<br>İçindeki {n} site üst klasöre taşınacak.",
+  "@fmAppDeleteFolderConns": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppRootFolder": "Ana dizin (klasörsüz)",
+  "@fmAppRootFolder": {},
+  "fmAppMoveTitle": "“{name}” taşı",
+  "@fmAppMoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmAppTargetFolder": "Hedef klasör",
+  "@fmAppTargetFolder": {},
+  "fmAppDeleteConn": "Siteyi sil",
+  "@fmAppDeleteConn": {},
+  "fmAppDeleteConnMsg": "<b>{name}</b> ({target}) sitesi silinsin mi?",
+  "@fmAppDeleteConnMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "fmFormTitleNew": "Yeni site",
+  "@fmFormTitleNew": {},
+  "fmFormTitleEdit": "Site özellikleri: {name}",
+  "@fmFormTitleEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmFormTabGeneral": "Genel",
+  "@fmFormTabGeneral": {},
+  "fmFormTabActions": "Eylemler",
+  "@fmFormTabActions": {},
+  "fmFormTabType": "Tür",
+  "@fmFormTabType": {},
+  "fmFormTabOptions": "Seçenekler",
+  "@fmFormTabOptions": {},
+  "fmFormName": "Etiket (görünen ad)",
+  "@fmFormName": {},
+  "fmFormNamePh": "Örn. Şirket web sitesi",
+  "@fmFormNamePh": {},
+  "fmFormHost": "Sunucu adresi",
+  "@fmFormHost": {},
+  "fmFormHostPh": "ftp.ornek.com veya 192.168.1.10",
+  "@fmFormHostPh": {},
+  "fmFormPort": "Port",
+  "@fmFormPort": {},
+  "fmFormUser": "Kullanıcı adı",
+  "@fmFormUser": {},
+  "fmFormPassword": "Şifre",
+  "@fmFormPassword": {},
+  "fmFormPwSaved": "•••••••• (kayıtlı, değiştirmek için yazın)",
+  "@fmFormPwSaved": {},
+  "fmFormLoginMethod": "Giriş yöntemi",
+  "@fmFormLoginMethod": {},
+  "fmFormLoginNormal": "Normal",
+  "@fmFormLoginNormal": {},
+  "fmFormLoginAnon": "Anonim",
+  "@fmFormLoginAnon": {},
+  "fmFormAuth": "SFTP kimlik doğrulama",
+  "@fmFormAuth": {},
+  "fmFormPrivateKey": "Özel anahtar",
+  "@fmFormPrivateKey": {},
+  "fmFormKeyFile": "Özel anahtar dosyası",
+  "@fmFormKeyFile": {},
+  "fmFormPassphrase": "Anahtar parolası",
+  "@fmFormPassphrase": {},
+  "fmFormPassSaved": "(kayıtlı)",
+  "@fmFormPassSaved": {},
+  "fmFormPassEmpty": "Yoksa boş bırakın",
+  "@fmFormPassEmpty": {},
+  "fmFormFolder": "Klasör",
+  "@fmFormFolder": {},
+  "fmFormColor": "Renk",
+  "@fmFormColor": {},
+  "fmFormComments": "Notlar",
+  "@fmFormComments": {},
+  "fmFormRemoteDir": "Bağlanınca bu uzak klasöre geç",
+  "@fmFormRemoteDir": {},
+  "fmFormLocalDir": "Bağlanınca bu yerel klasöre geç",
+  "@fmFormLocalDir": {},
+  "fmFormLocalDirPh": "Örn. C:\\Projeler\\site",
+  "@fmFormLocalDirPh": {},
+  "fmFormLastDir": "Son kaldığım klasöre git",
+  "@fmFormLastDir": {},
+  "fmFormLastDirHint": "Açıkken site, en son çalıştığınız sunucu ve bilgisayar klasörleriyle açılır (yukarıdaki klasörlerin yerine).",
+  "@fmFormLastDirHint": {},
+  "fmFormLastDirNow": "Şu an:",
+  "@fmFormLastDirNow": {},
+  "fmFormCache": "Gezinmede önbellek kullanımı",
+  "@fmFormCache": {},
+  "fmFormCacheSession": "Oturum boyunca önbellek kullan",
+  "@fmFormCacheSession": {},
+  "fmFormCacheAlways": "Her zaman önbellek kullan (uygulama açık kaldıkça)",
+  "@fmFormCacheAlways": {},
+  "fmFormCacheNever": "Önbellek kullanma (her seferinde yeniden listele)",
+  "@fmFormCacheNever": {},
+  "fmFormUploadCase": "Yüklerken dosya ve klasör adlarına uygulanacak kural",
+  "@fmFormUploadCase": {},
+  "fmFormCasePreserve": "Büyük/küçük harfi koru",
+  "@fmFormCasePreserve": {},
+  "fmFormCaseLower": "Küçük harfe çevir",
+  "@fmFormCaseLower": {},
+  "fmFormCaseUpper": "Büyük harfe çevir",
+  "@fmFormCaseUpper": {},
+  "fmFormTest": "Bağlantıyı dene",
+  "@fmFormTest": {},
+  "fmFormSaveConnect": "Kaydet ve bağlan",
+  "@fmFormSaveConnect": {},
+  "fmFormConnecting": "Bağlanılıyor…",
+  "@fmFormConnecting": {},
+  "fmFormTestOk": "Bağlantı başarılı",
+  "@fmFormTestOk": {},
+  "fmFormTestFail": "Bağlantı kurulamadı",
+  "@fmFormTestFail": {},
+  "fmFormHomeDir": "Başlangıç klasörü: {dir}",
+  "@fmFormHomeDir": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "fmFormRemoteDirMissing": "Uyarı: belirtilen uzak klasör açılamadı.",
+  "@fmFormRemoteDirMissing": {},
+  "fmFormHostKey": "SSH host anahtarı (SHA256): {fp}",
+  "@fmFormHostKey": {
+    "placeholders": {
+      "fp": {
+        "type": "String"
+      }
+    }
+  },
+  "fmFormSaved": "Site kaydedildi",
+  "@fmFormSaved": {},
+  "fmFormChangesSaved": "Değişiklikler kaydedildi",
+  "@fmFormChangesSaved": {},
+  "fmTypeProtocol": "Protokol",
+  "@fmTypeProtocol": {},
+  "fmTypeFtp": "FTP (standart dosya aktarım protokolü)",
+  "@fmTypeFtp": {},
+  "fmTypeFtpsImplicit": "FTP — TLS/SSL (Implicit, port 990)",
+  "@fmTypeFtpsImplicit": {},
+  "fmTypeFtpsSsl": "FTP — SSL (AUTH SSL, Explicit)",
+  "@fmTypeFtpsSsl": {},
+  "fmTypeFtpsTls": "FTP — TLS/SSL (AUTH TLS, Explicit)",
+  "@fmTypeFtpsTls": {},
+  "fmTypeSftp": "SFTP — SSH2 (Güvenli Kabuk)",
+  "@fmTypeSftp": {},
+  "fmTypeNoteFtp": "Komut ve veri bağlantıları için standart FTP kullanılır; şifre ve dosyalar şifrelenmeden (düz metin) gönderilir.",
+  "@fmTypeNoteFtp": {},
+  "fmTypeNoteFtpsImplicit": "Bağlantı en baştan TLS/SSL ile şifrelenir (genellikle port 990). Komutlar ve veriler korunur.",
+  "@fmTypeNoteFtpsImplicit": {},
+  "fmTypeNoteFtpsSsl": "Düz FTP ile bağlanıp AUTH SSL komutuyla şifreli oturuma geçilir. Komutlar ve veriler korunur.",
+  "@fmTypeNoteFtpsSsl": {},
+  "fmTypeNoteFtpsTls": "Düz FTP ile bağlanıp AUTH TLS komutuyla şifreli oturuma geçilir (en yaygın FTPS türü).",
+  "@fmTypeNoteFtpsTls": {},
+  "fmTypeNoteSftp": "SSH üzerinden şifreli dosya aktarımı (port 22). Şifre veya özel anahtarla giriş yapılır; sunucu host anahtarı ilk bağlantıda kaydedilir.",
+  "@fmTypeNoteSftp": {},
+  "fmTypeTransferType": "Aktarım türü",
+  "@fmTypeTransferType": {},
+  "fmTypeBinary": "İkili (Binary)",
+  "@fmTypeBinary": {},
+  "fmTypeAscii": "ASCII (metin)",
+  "@fmTypeAscii": {},
+  "fmTypeAuto": "Otomatik (metin dosyaları ASCII)",
+  "@fmTypeAuto": {},
+  "fmTypeUseGlobal": "Genel ayarı kullan ({v})",
+  "@fmTypeUseGlobal": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTypeDataConn": "Veri bağlantısı",
+  "@fmTypeDataConn": {},
+  "fmTypePassive": "Pasif (PASV / EPSV)",
+  "@fmTypePassive": {},
+  "fmTypeTimezone": "Sunucu saat dilimi farkı",
+  "@fmTypeTimezone": {},
+  "fmTypeTzNone": "Fark yok",
+  "@fmTypeTzNone": {},
+  "fmTypeTzHours": "saat",
+  "@fmTypeTzHours": {},
+  "fmTypeTimezoneHint": "Sunucunun listelediği dosya saatleri bu kadar kaydırılarak gösterilir.",
+  "@fmTypeTimezoneHint": {},
+  "fmOptSiteOptions": "Siteye özel ayarlar",
+  "@fmOptSiteOptions": {},
+  "fmOptUseGlobal": "Tüm seçenekler için genel ayarları kullan",
+  "@fmOptUseGlobal": {},
+  "fmOptCustom": "Bu siteye özel ayarlar kullan",
+  "@fmOptCustom": {},
+  "fmOptRetry": "Tekrar deneme sayısı",
+  "@fmOptRetry": {},
+  "fmOptRetryDelay": "Denemeler arası bekleme (sn)",
+  "@fmOptRetryDelay": {},
+  "fmOptMaxConcurrent": "Aynı anda en fazla aktarım",
+  "@fmOptMaxConcurrent": {},
+  "fmOptConflict": "Hedefte aynı adlı dosya varsa",
+  "@fmOptConflict": {},
+  "fmOptConflictOverwrite": "Üzerine yaz",
+  "@fmOptConflictOverwrite": {},
+  "fmOptConflictRename": "Otomatik yeniden adlandır (ad (1).uzantı)",
+  "@fmOptConflictRename": {},
+  "fmOptConflictSkip": "Atla",
+  "@fmOptConflictSkip": {},
+  "fmOptEncoding": "Dosya adı kodlaması",
+  "@fmOptEncoding": {},
+  "fmOptEncAuto": "Otomatik",
+  "@fmOptEncAuto": {},
+  "fmSiteLocal": "Bilgisayarım",
+  "@fmSiteLocal": {},
+  "fmSiteRemote": "Sunucu",
+  "@fmSiteRemote": {},
+  "fmSiteTransfers": "Aktarımlar",
+  "@fmSiteTransfers": {},
+  "fmSiteToggleLocal": "Bilgisayarım panelini aç/kapat (Ctrl+B)",
+  "@fmSiteToggleLocal": {},
+  "fmSiteToggleTransfers": "Aktarımlar panelini aç/kapat (Ctrl+J)",
+  "@fmSiteToggleTransfers": {},
+  "fmSiteReconnect": "Yeniden bağlan",
+  "@fmSiteReconnect": {},
+  "fmSitePlaces": "Hızlı erişim ve sürücüler",
+  "@fmSitePlaces": {},
+  "fmSiteUp": "Üst klasör (Backspace)",
+  "@fmSiteUp": {},
+  "fmSiteHome": "Başlangıç klasörü",
+  "@fmSiteHome": {},
+  "fmSiteColName": "Ad",
+  "@fmSiteColName": {},
+  "fmSiteColSize": "Boyut",
+  "@fmSiteColSize": {},
+  "fmSiteColDate": "Değiştirilme",
+  "@fmSiteColDate": {},
+  "fmSiteLoading": "Yükleniyor…",
+  "@fmSiteLoading": {},
+  "fmSiteEmptyDir": "Bu klasör boş",
+  "@fmSiteEmptyDir": {},
+  "fmSiteDesktop": "Masaüstü",
+  "@fmSiteDesktop": {},
+  "fmSiteDownloads": "İndirilenler",
+  "@fmSiteDownloads": {},
+  "fmSiteDocuments": "Belgeler",
+  "@fmSiteDocuments": {},
+  "fmSiteHomeDir": "Kullanıcı klasörü",
+  "@fmSiteHomeDir": {},
+  "fmSiteOpenExplorer": "Gezgin'de aç",
+  "@fmSiteOpenExplorer": {},
+  "fmSiteOpenFile": "Varsayılan uygulamayla aç",
+  "@fmSiteOpenFile": {},
+  "fmSiteShowExplorer": "Gezgin'de göster",
+  "@fmSiteShowExplorer": {},
+  "fmSiteUpload": "Yükle (Upload)",
+  "@fmSiteUpload": {},
+  "fmSiteUploadN": "{n} öğeyi yükle (Upload)",
+  "@fmSiteUploadN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteUploadTo": "Hedef: {dir}",
+  "@fmSiteUploadTo": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteDownload": "İndir (Download)",
+  "@fmSiteDownload": {},
+  "fmSiteDownloadN": "{n} öğeyi indir (Download)",
+  "@fmSiteDownloadN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteDownloadTo": "Hedef: {dir}",
+  "@fmSiteDownloadTo": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteTrash": "Geri Dönüşüm Kutusu'na taşı",
+  "@fmSiteTrash": {},
+  "fmSiteTrashOk": "Taşı",
+  "@fmSiteTrashOk": {},
+  "fmSiteTrashOne": "<b>{name}</b> Geri Dönüşüm Kutusu'na taşınsın mı?",
+  "@fmSiteTrashOne": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteTrashMany": "{n} öğe Geri Dönüşüm Kutusu'na taşınsın mı?",
+  "@fmSiteTrashMany": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteMkdirFail": "Klasör oluşturulamadı",
+  "@fmSiteMkdirFail": {},
+  "fmSiteRenameFail": "Yeniden adlandırılamadı",
+  "@fmSiteRenameFail": {},
+  "fmSiteDeleteFail": "Silinemedi",
+  "@fmSiteDeleteFail": {},
+  "fmSiteDeleteTitle": "Sunucudan sil",
+  "@fmSiteDeleteTitle": {},
+  "fmSiteDelOne": "<b>{name}</b> dosyası sunucudan kalıcı olarak silinsin mi?",
+  "@fmSiteDelOne": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteDelDirOne": "<b>{name}</b> klasörü ve tüm içeriği sunucudan kalıcı olarak silinsin mi?",
+  "@fmSiteDelDirOne": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteDelMany": "{n} öğe (klasörler tüm içerikleriyle) sunucudan kalıcı olarak silinsin mi?",
+  "@fmSiteDelMany": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteDeleting": "Siliniyor…",
+  "@fmSiteDeleting": {},
+  "fmSiteDeleted": "Silindi",
+  "@fmSiteDeleted": {},
+  "fmSiteItems": "{n} öğe",
+  "@fmSiteItems": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteOffline": "Bağlı değil",
+  "@fmSiteOffline": {},
+  "fmSiteLimit": "Hız sınırı: {v}",
+  "@fmSiteLimit": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteNoLimit": "Hız sınırı yok",
+  "@fmSiteNoLimit": {},
+  "fmSiteLimitTitle": "Hız sınırını ayarla",
+  "@fmSiteLimitTitle": {},
+  "fmSiteConnectFail": "Sunucuya bağlanılamadı: {msg}",
+  "@fmSiteConnectFail": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "fmSiteConnectFailTitle": "Bağlantı kurulamadı",
+  "@fmSiteConnectFailTitle": {},
+  "fmSiteStateConnected": "Bağlı",
+  "@fmSiteStateConnected": {},
+  "fmSiteStateConnecting": "Bağlanılıyor…",
+  "@fmSiteStateConnecting": {},
+  "fmSiteStateDisconnected": "Bağlantı yok",
+  "@fmSiteStateDisconnected": {},
+  "fmTrColName": "Ad",
+  "@fmTrColName": {},
+  "fmTrColSize": "Boyut",
+  "@fmTrColSize": {},
+  "fmTrColProgress": "İlerleme",
+  "@fmTrColProgress": {},
+  "fmTrColStatus": "Durum",
+  "@fmTrColStatus": {},
+  "fmTrEmpty": "Henüz aktarım yok.\nBir dosyaya veya klasöre sağ tıklayıp İndir / Yükle seçin ya da paneller arasında sürükleyin.",
+  "@fmTrEmpty": {},
+  "fmTrQueued": "Sırada",
+  "@fmTrQueued": {},
+  "fmTrActive": "Aktarılıyor",
+  "@fmTrActive": {},
+  "fmTrDone": "Tamamlandı",
+  "@fmTrDone": {},
+  "fmTrDoneFiles": "{n} dosya tamam",
+  "@fmTrDoneFiles": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTrError": "Hata",
+  "@fmTrError": {},
+  "fmTrCancelled": "İptal edildi",
+  "@fmTrCancelled": {},
+  "fmTrSkipped": "Atlandı (mevcut)",
+  "@fmTrSkipped": {},
+  "fmTrScanning": "Taranıyor… {n} dosya",
+  "@fmTrScanning": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTrRetrying": "Tekrar denenecek…",
+  "@fmTrRetrying": {},
+  "fmTrCancel": "İptal et",
+  "@fmTrCancel": {},
+  "fmTrCancelDir": "Klasör aktarımını iptal et",
+  "@fmTrCancelDir": {},
+  "fmTrCancelAll": "Tüm aktarımları iptal et",
+  "@fmTrCancelAll": {},
+  "fmTrCancelAllMsg": "Süren ve sıradaki tüm aktarımlar iptal edilsin mi?",
+  "@fmTrCancelAllMsg": {},
+  "fmTrCancelAllOk": "Tümünü iptal et",
+  "@fmTrCancelAllOk": {},
+  "fmTrRetry": "Yeniden dene",
+  "@fmTrRetry": {},
+  "fmTrShowLocal": "Gezgin'de göster",
+  "@fmTrShowLocal": {},
+  "fmTrShowRemote": "Sunucuda göster",
+  "@fmTrShowRemote": {},
+  "fmTrCopyError": "Hata mesajını kopyala",
+  "@fmTrCopyError": {},
+  "fmTrRemove": "Listeden kaldır",
+  "@fmTrRemove": {},
+  "fmTrRemoveRoot": "Bu aktarımı listeden kaldır",
+  "@fmTrRemoveRoot": {},
+  "fmTrClearDone": "Bitenleri temizle",
+  "@fmTrClearDone": {},
+  "fmTrActiveN": "{n} aktarım sürüyor",
+  "@fmTrActiveN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTrDownloadDone": "İndirme tamamlandı",
+  "@fmTrDownloadDone": {},
+  "fmTrUploadDone": "Yükleme tamamlandı",
+  "@fmTrUploadDone": {},
+  "fmTrDownloadFailed": "İndirme tamamlanamadı: {name}",
+  "@fmTrDownloadFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTrUploadFailed": "Yükleme tamamlanamadı: {name}",
+  "@fmTrUploadFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "fmTrFailedFiles": "{n} dosya aktarılamadı",
+  "@fmTrFailedFiles": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "fmMainErrAuth": "Giriş başarısız: kullanıcı adı veya şifre hatalı.",
+  "@fmMainErrAuth": {},
+  "fmMainErrRefused": "Bağlantı reddedildi: port kapalı veya sunucu çalışmıyor.",
+  "@fmMainErrRefused": {},
+  "fmMainErrTimeout": "Zaman aşımı: sunucuya ulaşılamadı.",
+  "@fmMainErrTimeout": {},
+  "fmMainErrDns": "Sunucu adresi çözümlenemedi (DNS).",
+  "@fmMainErrDns": {},
+  "fmMainErrUnreach": "Sunucuya ağ üzerinden erişilemiyor.",
+  "@fmMainErrUnreach": {},
+  "fmMainErrReset": "Sunucu bağlantıyı kapattı.",
+  "@fmMainErrReset": {},
+  "fmMainErrNotFound": "Dosya veya klasör bulunamadı.",
+  "@fmMainErrNotFound": {},
+  "fmMainErrPerm": "Erişim izni yok.",
+  "@fmMainErrPerm": {},
+  "fmMainErr550": "Sunucu işlemi reddetti (550): {msg}",
+  "@fmMainErr550": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "fmMainErr553": "Dosya adı sunucu tarafından kabul edilmedi (553).",
+  "@fmMainErr553": {},
+  "fmMainErrTls": "TLS/SSL hatası — protokolü veya portu kontrol edin. ({msg})",
+  "@fmMainErrTls": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "fmMainErrHostKey": "Sunucunun host anahtarı değişmiş! Kayıtlı: {oldVal}, gelen: {newVal}. Güvenlik için bağlantı reddedildi.",
+  "@fmMainErrHostKey": {
+    "placeholders": {
+      "newVal": {
+        "type": "String"
+      },
+      "oldVal": {
+        "type": "String"
+      }
+    }
+  },
+  "fmMainErrConnNotFound": "Site bulunamadı",
+  "@fmMainErrConnNotFound": {},
+  "fmMainErrNoSession": "Sunucuya bağlı değil",
+  "@fmMainErrNoSession": {},
+  "fmMainErrHost": "Sunucu adresi gerekli.",
+  "@fmMainErrHost": {},
+  "fmMainErrUser": "Kullanıcı adı gerekli (veya Anonim girişi seçin).",
+  "@fmMainErrUser": {},
+  "fmMainPickKey": "Özel anahtar dosyası seçin",
+  "@fmMainPickKey": {},
+  "fmMainCopySuffix": " (kopya)",
+  "@fmMainCopySuffix": {},
+  "fmMainCloseActive": "Süren aktarımlar var. Pencere kapatılırsa iptal edilecekler.",
+  "@fmMainCloseActive": {},
+  "fmMainCloseAnyway": "Yine de kapat",
+  "@fmMainCloseAnyway": {}
 }

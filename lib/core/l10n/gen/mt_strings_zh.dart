@@ -1018,4 +1018,727 @@ class MtStringsZh extends MtStrings {
 
   @override
   String get smAppNotesLabel => '备注';
+
+  @override
+  String get fmAppSearchPh => '搜索站点…  (Ctrl+F)';
+
+  @override
+  String get fmAppNewConn => '新建站点';
+
+  @override
+  String get fmAppSettings => '设置';
+
+  @override
+  String fmAppStats(String c, String f) {
+    return '$c 个站点 · $f 个文件夹';
+  }
+
+  @override
+  String get fmAppWelcome => '欢迎';
+
+  @override
+  String fmAppResults(String q) {
+    return '“$q”的搜索结果';
+  }
+
+  @override
+  String get fmAppAll => '全部站点';
+
+  @override
+  String get fmAppWelcomeHint => '创建你的第一个 FTP / SFTP 站点。<br>输入服务器信息，测试连接后保存。';
+
+  @override
+  String get fmAppFolders => '文件夹';
+
+  @override
+  String get fmAppConnections => '站点';
+
+  @override
+  String get fmAppDblHint => '双击卡片即可连接';
+
+  @override
+  String get fmAppNoMatch => '没有匹配的站点。';
+
+  @override
+  String fmAppFolderCount(String n) {
+    return '$n 个站点';
+  }
+
+  @override
+  String get fmAppNewConnHere => '在此文件夹中新建站点';
+
+  @override
+  String get fmAppNewSubfolder => '新建子文件夹';
+
+  @override
+  String get fmAppKeyTag => '密钥';
+
+  @override
+  String get fmAppLastDir => '上次的文件夹';
+
+  @override
+  String get fmAppLastDirTag => '上次的文件夹';
+
+  @override
+  String get fmAppDuplicate => '创建副本';
+
+  @override
+  String get fmAppMoveToFolder => '移动到文件夹…';
+
+  @override
+  String get fmAppResetLastDir => '重置上次的文件夹';
+
+  @override
+  String get fmAppConnMoved => '站点已移动';
+
+  @override
+  String get fmAppFolderIntoSelf => '文件夹不能移动到自身中';
+
+  @override
+  String get fmAppFolderPh => '例如：客户';
+
+  @override
+  String get fmAppRenameFolder => '重命名文件夹';
+
+  @override
+  String get fmAppDeleteFolder => '删除文件夹';
+
+  @override
+  String fmAppDeleteFolderMsg(String name) {
+    return '删除文件夹 <b>$name</b>？';
+  }
+
+  @override
+  String fmAppDeleteFolderConns(String n) {
+    return '<br>其中的 $n 个站点将移到上级文件夹。';
+  }
+
+  @override
+  String get fmAppRootFolder => '顶层（无文件夹）';
+
+  @override
+  String fmAppMoveTitle(String name) {
+    return '移动“$name”';
+  }
+
+  @override
+  String get fmAppTargetFolder => '目标文件夹';
+
+  @override
+  String get fmAppDeleteConn => '删除站点';
+
+  @override
+  String fmAppDeleteConnMsg(String name, String target) {
+    return '删除站点 <b>$name</b>（$target）？';
+  }
+
+  @override
+  String get fmFormTitleNew => '新建站点';
+
+  @override
+  String fmFormTitleEdit(String name) {
+    return '站点属性：$name';
+  }
+
+  @override
+  String get fmFormTabGeneral => '常规';
+
+  @override
+  String get fmFormTabActions => '操作';
+
+  @override
+  String get fmFormTabType => '类型';
+
+  @override
+  String get fmFormTabOptions => '选项';
+
+  @override
+  String get fmFormName => '名称';
+
+  @override
+  String get fmFormNamePh => '例如：公司网站';
+
+  @override
+  String get fmFormHost => '主机地址';
+
+  @override
+  String get fmFormHostPh => 'ftp.example.com 或 192.168.1.10';
+
+  @override
+  String get fmFormPort => '端口';
+
+  @override
+  String get fmFormUser => '用户名';
+
+  @override
+  String get fmFormPassword => '密码';
+
+  @override
+  String get fmFormPwSaved => '••••••••（已保存，输入以更改）';
+
+  @override
+  String get fmFormLoginMethod => '登录方式';
+
+  @override
+  String get fmFormLoginNormal => '普通';
+
+  @override
+  String get fmFormLoginAnon => '匿名';
+
+  @override
+  String get fmFormAuth => 'SFTP 身份验证';
+
+  @override
+  String get fmFormPrivateKey => '私钥';
+
+  @override
+  String get fmFormKeyFile => '私钥文件';
+
+  @override
+  String get fmFormPassphrase => '密钥口令';
+
+  @override
+  String get fmFormPassSaved => '（已保存）';
+
+  @override
+  String get fmFormPassEmpty => '没有则留空';
+
+  @override
+  String get fmFormFolder => '文件夹';
+
+  @override
+  String get fmFormColor => '颜色';
+
+  @override
+  String get fmFormComments => '备注';
+
+  @override
+  String get fmFormRemoteDir => '连接后切换到此远程文件夹';
+
+  @override
+  String get fmFormLocalDir => '连接后切换到此本地文件夹';
+
+  @override
+  String get fmFormLocalDirPh => '例如：C:\\Projects\\site';
+
+  @override
+  String get fmFormLastDir => '转到上次所在的文件夹';
+
+  @override
+  String get fmFormLastDirHint => '开启后，站点将在你上次工作的服务器和电脑文件夹中打开（而不是上面设置的文件夹）。';
+
+  @override
+  String get fmFormLastDirNow => '当前：';
+
+  @override
+  String get fmFormCache => '浏览缓存';
+
+  @override
+  String get fmFormCacheSession => '在会话期间使用缓存';
+
+  @override
+  String get fmFormCacheAlways => '始终使用缓存（应用运行期间）';
+
+  @override
+  String get fmFormCacheNever => '从不使用缓存（每次重新列出）';
+
+  @override
+  String get fmFormUploadCase => '上传时对文件和文件夹名称应用此规则';
+
+  @override
+  String get fmFormCasePreserve => '保留大小写';
+
+  @override
+  String get fmFormCaseLower => '小写';
+
+  @override
+  String get fmFormCaseUpper => '大写';
+
+  @override
+  String get fmFormTest => '测试连接';
+
+  @override
+  String get fmFormSaveConnect => '保存并连接';
+
+  @override
+  String get fmFormConnecting => '正在连接…';
+
+  @override
+  String get fmFormTestOk => '连接成功';
+
+  @override
+  String get fmFormTestFail => '无法连接';
+
+  @override
+  String fmFormHomeDir(String dir) {
+    return '起始文件夹：$dir';
+  }
+
+  @override
+  String get fmFormRemoteDirMissing => '警告：无法打开远程文件夹。';
+
+  @override
+  String fmFormHostKey(String fp) {
+    return 'SSH 主机密钥 (SHA256)：$fp';
+  }
+
+  @override
+  String get fmFormSaved => '站点已保存';
+
+  @override
+  String get fmFormChangesSaved => '更改已保存';
+
+  @override
+  String get fmTypeProtocol => '协议';
+
+  @override
+  String get fmTypeFtp => 'FTP（标准文件传输协议）';
+
+  @override
+  String get fmTypeFtpsImplicit => 'FTP over TLS/SSL（隐式，端口 990）';
+
+  @override
+  String get fmTypeFtpsSsl => 'FTP over SSL（AUTH SSL，显式）';
+
+  @override
+  String get fmTypeFtpsTls => 'FTP over TLS/SSL（AUTH TLS，显式）';
+
+  @override
+  String get fmTypeSftp => 'SFTP（基于 SSH2 安全外壳）';
+
+  @override
+  String get fmTypeNoteFtp => '命令和数据连接均使用行业标准 FTP 协议，以不安全的明文方式传输。';
+
+  @override
+  String get fmTypeNoteFtpsImplicit =>
+      '连接从一开始就使用 TLS/SSL 加密（通常为端口 990）。命令和数据均受保护。';
+
+  @override
+  String get fmTypeNoteFtpsSsl => '先以普通 FTP 连接，再通过 AUTH SSL 切换为加密会话。命令和数据均受保护。';
+
+  @override
+  String get fmTypeNoteFtpsTls =>
+      '先以普通 FTP 连接，再通过 AUTH TLS 切换为加密会话（最常见的 FTPS 类型）。';
+
+  @override
+  String get fmTypeNoteSftp => '通过 SSH 加密传输文件（端口 22）。使用密码或私钥登录；首次连接时会保存主机密钥。';
+
+  @override
+  String get fmTypeTransferType => '传输类型';
+
+  @override
+  String get fmTypeBinary => '二进制';
+
+  @override
+  String get fmTypeAscii => 'ASCII（文本）';
+
+  @override
+  String get fmTypeAuto => '自动（文本文件用 ASCII）';
+
+  @override
+  String fmTypeUseGlobal(String v) {
+    return '使用全局设置（$v）';
+  }
+
+  @override
+  String get fmTypeDataConn => '数据连接';
+
+  @override
+  String get fmTypePassive => '被动模式 (PASV / EPSV)';
+
+  @override
+  String get fmTypeTimezone => '服务器时区偏移';
+
+  @override
+  String get fmTypeTzNone => '无偏移';
+
+  @override
+  String get fmTypeTzHours => '小时';
+
+  @override
+  String get fmTypeTimezoneHint => '服务器列出的文件时间将按此值调整。';
+
+  @override
+  String get fmOptSiteOptions => '站点专用选项';
+
+  @override
+  String get fmOptUseGlobal => '所有选项均使用全局设置';
+
+  @override
+  String get fmOptCustom => '使用此站点专用设置';
+
+  @override
+  String get fmOptRetry => '重试次数';
+
+  @override
+  String get fmOptRetryDelay => '重试间隔（秒）';
+
+  @override
+  String get fmOptMaxConcurrent => '最大同时传输数';
+
+  @override
+  String get fmOptConflict => '存在同名文件时';
+
+  @override
+  String get fmOptConflictOverwrite => '覆盖';
+
+  @override
+  String get fmOptConflictRename => '自动重命名（name (1).ext）';
+
+  @override
+  String get fmOptConflictSkip => '跳过';
+
+  @override
+  String get fmOptEncoding => '文件名编码';
+
+  @override
+  String get fmOptEncAuto => '自动';
+
+  @override
+  String get fmSiteLocal => '我的电脑';
+
+  @override
+  String get fmSiteRemote => '服务器';
+
+  @override
+  String get fmSiteTransfers => '传输';
+
+  @override
+  String get fmSiteToggleLocal => '显示/隐藏“我的电脑” (Ctrl+B)';
+
+  @override
+  String get fmSiteToggleTransfers => '显示/隐藏“传输” (Ctrl+J)';
+
+  @override
+  String get fmSiteReconnect => '重新连接';
+
+  @override
+  String get fmSitePlaces => '快速访问和驱动器';
+
+  @override
+  String get fmSiteUp => '上级文件夹 (Backspace)';
+
+  @override
+  String get fmSiteHome => '起始文件夹';
+
+  @override
+  String get fmSiteColName => '名称';
+
+  @override
+  String get fmSiteColSize => '大小';
+
+  @override
+  String get fmSiteColDate => '修改时间';
+
+  @override
+  String get fmSiteLoading => '正在加载…';
+
+  @override
+  String get fmSiteEmptyDir => '此文件夹为空';
+
+  @override
+  String get fmSiteDesktop => '桌面';
+
+  @override
+  String get fmSiteDownloads => '下载';
+
+  @override
+  String get fmSiteDocuments => '文档';
+
+  @override
+  String get fmSiteHomeDir => '用户文件夹';
+
+  @override
+  String get fmSiteOpenExplorer => '在资源管理器中打开';
+
+  @override
+  String get fmSiteOpenFile => '用默认应用打开';
+
+  @override
+  String get fmSiteShowExplorer => '在资源管理器中显示';
+
+  @override
+  String get fmSiteUpload => '上传';
+
+  @override
+  String fmSiteUploadN(String n) {
+    return '上传 $n 项';
+  }
+
+  @override
+  String fmSiteUploadTo(String dir) {
+    return '目标：$dir';
+  }
+
+  @override
+  String get fmSiteDownload => '下载';
+
+  @override
+  String fmSiteDownloadN(String n) {
+    return '下载 $n 项';
+  }
+
+  @override
+  String fmSiteDownloadTo(String dir) {
+    return '目标：$dir';
+  }
+
+  @override
+  String get fmSiteTrash => '移到回收站';
+
+  @override
+  String get fmSiteTrashOk => '移动';
+
+  @override
+  String fmSiteTrashOne(String name) {
+    return '将 <b>$name</b> 移到回收站？';
+  }
+
+  @override
+  String fmSiteTrashMany(String n) {
+    return '将 $n 项移到回收站？';
+  }
+
+  @override
+  String get fmSiteMkdirFail => '无法创建文件夹';
+
+  @override
+  String get fmSiteRenameFail => '无法重命名';
+
+  @override
+  String get fmSiteDeleteFail => '无法删除';
+
+  @override
+  String get fmSiteDeleteTitle => '从服务器删除';
+
+  @override
+  String fmSiteDelOne(String name) {
+    return '从服务器永久删除文件 <b>$name</b>？';
+  }
+
+  @override
+  String fmSiteDelDirOne(String name) {
+    return '从服务器永久删除文件夹 <b>$name</b> 及其全部内容？';
+  }
+
+  @override
+  String fmSiteDelMany(String n) {
+    return '从服务器永久删除 $n 项（文件夹及其全部内容）？';
+  }
+
+  @override
+  String get fmSiteDeleting => '正在删除…';
+
+  @override
+  String get fmSiteDeleted => '已删除';
+
+  @override
+  String fmSiteItems(String n) {
+    return '$n 项';
+  }
+
+  @override
+  String get fmSiteOffline => '未连接';
+
+  @override
+  String fmSiteLimit(String v) {
+    return '速度限制：$v';
+  }
+
+  @override
+  String get fmSiteNoLimit => '无速度限制';
+
+  @override
+  String get fmSiteLimitTitle => '设置速度限制';
+
+  @override
+  String fmSiteConnectFail(String msg) {
+    return '无法连接到服务器：$msg';
+  }
+
+  @override
+  String get fmSiteConnectFailTitle => '连接失败';
+
+  @override
+  String get fmSiteStateConnected => '已连接';
+
+  @override
+  String get fmSiteStateConnecting => '正在连接…';
+
+  @override
+  String get fmSiteStateDisconnected => '已断开';
+
+  @override
+  String get fmTrColName => '名称';
+
+  @override
+  String get fmTrColSize => '大小';
+
+  @override
+  String get fmTrColProgress => '进度';
+
+  @override
+  String get fmTrColStatus => '状态';
+
+  @override
+  String get fmTrEmpty => '暂无传输。\n右键单击文件或文件夹并选择“下载”/“上传”，或在面板之间拖放。';
+
+  @override
+  String get fmTrQueued => '排队中';
+
+  @override
+  String get fmTrActive => '正在传输';
+
+  @override
+  String get fmTrDone => '已完成';
+
+  @override
+  String fmTrDoneFiles(String n) {
+    return '已完成 $n 个文件';
+  }
+
+  @override
+  String get fmTrError => '错误';
+
+  @override
+  String get fmTrCancelled => '已取消';
+
+  @override
+  String get fmTrSkipped => '已跳过（已存在）';
+
+  @override
+  String fmTrScanning(String n) {
+    return '正在扫描… $n 个文件';
+  }
+
+  @override
+  String get fmTrRetrying => '即将重试…';
+
+  @override
+  String get fmTrCancel => '取消';
+
+  @override
+  String get fmTrCancelDir => '取消文件夹传输';
+
+  @override
+  String get fmTrCancelAll => '取消所有传输';
+
+  @override
+  String get fmTrCancelAllMsg => '取消所有正在进行和排队中的传输？';
+
+  @override
+  String get fmTrCancelAllOk => '全部取消';
+
+  @override
+  String get fmTrRetry => '重试';
+
+  @override
+  String get fmTrShowLocal => '在资源管理器中显示';
+
+  @override
+  String get fmTrShowRemote => '在服务器上显示';
+
+  @override
+  String get fmTrCopyError => '复制错误信息';
+
+  @override
+  String get fmTrRemove => '从列表中移除';
+
+  @override
+  String get fmTrRemoveRoot => '从列表中移除此传输';
+
+  @override
+  String get fmTrClearDone => '清除已完成';
+
+  @override
+  String fmTrActiveN(String n) {
+    return '$n 个传输正在进行';
+  }
+
+  @override
+  String get fmTrDownloadDone => '下载完成';
+
+  @override
+  String get fmTrUploadDone => '上传完成';
+
+  @override
+  String fmTrDownloadFailed(String name) {
+    return '下载未完成：$name';
+  }
+
+  @override
+  String fmTrUploadFailed(String name) {
+    return '上传未完成：$name';
+  }
+
+  @override
+  String fmTrFailedFiles(String n) {
+    return '$n 个文件失败';
+  }
+
+  @override
+  String get fmMainErrAuth => '登录失败：用户名或密码错误。';
+
+  @override
+  String get fmMainErrRefused => '连接被拒绝：端口未开放或服务器未运行。';
+
+  @override
+  String get fmMainErrTimeout => '超时：无法访问服务器。';
+
+  @override
+  String get fmMainErrDns => '无法解析主机名 (DNS)。';
+
+  @override
+  String get fmMainErrUnreach => '无法通过网络访问服务器。';
+
+  @override
+  String get fmMainErrReset => '服务器关闭了连接。';
+
+  @override
+  String get fmMainErrNotFound => '找不到文件或文件夹。';
+
+  @override
+  String get fmMainErrPerm => '权限被拒绝。';
+
+  @override
+  String fmMainErr550(String msg) {
+    return '服务器拒绝了该操作 (550)：$msg';
+  }
+
+  @override
+  String get fmMainErr553 => '服务器不接受该文件名 (553)。';
+
+  @override
+  String fmMainErrTls(String msg) {
+    return 'TLS/SSL 错误 — 请检查协议或端口。（$msg）';
+  }
+
+  @override
+  String fmMainErrHostKey(String newVal, String oldVal) {
+    return '服务器主机密钥已更改！已保存：$oldVal，收到：$newVal。出于安全考虑已拒绝连接。';
+  }
+
+  @override
+  String get fmMainErrConnNotFound => '找不到站点';
+
+  @override
+  String get fmMainErrNoSession => '未连接到服务器';
+
+  @override
+  String get fmMainErrHost => '必须填写主机地址。';
+
+  @override
+  String get fmMainErrUser => '必须填写用户名（或选择匿名登录）。';
+
+  @override
+  String get fmMainPickKey => '选择私钥文件';
+
+  @override
+  String get fmMainCopySuffix => '（副本）';
+
+  @override
+  String get fmMainCloseActive => '仍有传输正在进行。关闭此窗口将取消这些传输。';
+
+  @override
+  String get fmMainCloseAnyway => '仍然关闭';
 }

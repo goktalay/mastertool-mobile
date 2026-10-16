@@ -142,13 +142,17 @@ String newUuid() {
 /// Modül senkron motoru. Modül yerel kitaplığı (items) okur/yazar, değişiklikte [onLocalChange] çağırır.
 class SyncEngine extends ChangeNotifier {
   SyncEngine({required this.account, required this.app, required this.library, required this.deviceId, this.maxBytes = kMaxBlobBytes,
-      this.hasSettings = false});
+      this.hasSettings = false, this.localOnly = const {}});
   final AccountService account;
   final String app;
   final LocalLibrary library;
   final String deviceId;
   final int maxBytes;
   final bool hasSettings;
+  /// Yalnız cihazda kalan alanlar (masaüstü: keyPath, localDir, lastRemoteDir, openTabs…): blob'a ve hash'e girmez.
+  final Set<String> localOnly;
+
+  Map<String, dynamic> _syncData(Map<String, dynamic> d) => localOnly.isEmpty ? d : {for (final e in d.entries) if (!localOnly.contains(e.key)) e.key: e.value};
 
   SyncState state = SyncState.idle;
   String? error;
@@ -197,7 +201,7 @@ class SyncEngine extends ChangeNotifier {
     final meta = library.meta;
     var changed = false;
     cur.forEach((id, v) {
-      final h = hashOf(v.$2);
+      final h = hashOf(_syncData(v.$2));
       final o = meta[id];
       if (o == null || o.deleted || o.hash != h) {
         meta[id] = SyncMeta(kind: v.$1, hash: h, updatedAt: (id == 'settings' && o == null) ? 0 : now, rev: (o?.rev ?? 0) + 1, device: deviceId, deleted: false);
@@ -217,14 +221,21 @@ class SyncEngine extends ChangeNotifier {
     }
     if (changed) unawaited(library.save());
     return [for (final e in meta.entries) SyncItem(id: e.key, kind: e.value.kind, updatedAt: e.value.updatedAt, rev: e.value.rev,
-        device: e.value.device, deleted: e.value.deleted, data: e.value.deleted ? null : cur[e.key]?.$2)];
+        device: e.value.device, deleted: e.value.deleted, data: e.value.deleted ? null : (cur[e.key] == null ? null : _syncData(cur[e.key]!.$2)))];
   }
 
+  @visibleForTesting
+  List<SyncItem> debugLocalItems() => _localItems();
+
   void _applyItems(List<SyncItem> items) {
-    library.items.clear();
     library.meta.clear();
+    final old = Map<String, (String, Map<String, dynamic>)>.from(library.items);
+    library.items.clear();
     for (final it in items) {
-      if (!it.deleted && it.data != null) library.items[it.id] = (it.kind, Map<String, dynamic>.from(it.data!));
+      if (!it.deleted && it.data != null) {
+        final keep = {for (final e in (old[it.id]?.$2 ?? const {}).entries) if (localOnly.contains(e.key)) e.key: e.value};
+        library.items[it.id] = (it.kind, {...it.data!, ...keep});
+      }
       library.meta[it.id] = SyncMeta(kind: it.kind, hash: it.deleted ? null : hashOf(it.data), updatedAt: it.updatedAt, rev: it.rev, device: it.device, deleted: it.deleted);
     }
   }
