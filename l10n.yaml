@@ -1,0 +1,7 @@
+arb-dir: lib/core/l10n
+template-arb-file: app_tr.arb
+output-localization-file: mt_strings.dart
+output-class: MtStrings
+output-dir: lib/core/l10n/gen
+synthetic-package: false
+nullable-getter: false

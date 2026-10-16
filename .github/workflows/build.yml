@@ -1,0 +1,119 @@
+# Master Tool mobil — derleme ve yayın
+#  • Her push/PR: çözümleme + testler + Android debug APK (ubuntu).
+#  • v* etiketi: Android imzalı AAB + APK (Play Console'a yükleme için) ve iOS IPA → TestFlight (macOS runner).
+# Gizli değerler (depo ayarlarından girilir; hiçbiri koda yazılmaz):
+#  Android: ANDROID_KEYSTORE_B64 (upload keystore, base64), ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD,
+#           PLAY_SERVICE_ACCOUNT_JSON (isteğe bağlı: Play Console'a otomatik yükleme — ilk sürüm elle yüklenmeli)
+#  iOS:     APPSTORE_ISSUER_ID, APPSTORE_KEY_ID, APPSTORE_PRIVATE_KEY (App Store Connect API anahtarı .p8 içeriği),
+#           IOS_CERT_P12_B64, IOS_CERT_PASSWORD (Apple Distribution sertifikası), IOS_PROVISION_B64 (App Store profili)
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+env:
+  FLUTTER_VERSION: '3.47.7'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: ${{ env.FLUTTER_VERSION }}, channel: stable, cache: true }
+      - run: flutter pub get
+      - run: flutter gen-l10n
+      - run: flutter analyze
+      - run: flutter test
+      - run: flutter build apk --debug
+      - uses: actions/upload-artifact@v4
+        with: { name: master-tool-debug-apk, path: build/app/outputs/flutter-apk/app-debug.apk }
+
+  android-release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: ${{ env.FLUTTER_VERSION }}, channel: stable, cache: true }
+      - name: Yükleme anahtarı
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_B64 }}" | base64 -d > android/upload.jks
+          cat > android/key.properties <<EOF
+          storeFile=../upload.jks
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          EOF
+      - run: flutter pub get && flutter gen-l10n
+      - name: Sürüm numarası etiketten
+        run: echo "BUILD_NAME=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV && echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
+      - run: flutter build appbundle --release --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER
+      - run: flutter build apk --release --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER
+      - uses: actions/upload-artifact@v4
+        with:
+          name: master-tool-android-${{ github.ref_name }}
+          path: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/flutter-apk/app-release.apk
+      - name: GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            build/app/outputs/bundle/release/app-release.aab
+            build/app/outputs/flutter-apk/app-release.apk
+      - name: Play Console (iç test kanalı)
+        if: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' }}
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: download.mastertool.master_tool
+          releaseFiles: build/app/outputs/bundle/release/app-release.aab
+          track: internal
+          status: completed
+
+  ios-release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: check
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: ${{ env.FLUTTER_VERSION }}, channel: stable, cache: true }
+      - name: Sertifika ve profil
+        env:
+          CERT_B64: ${{ secrets.IOS_CERT_P12_B64 }}
+          CERT_PW: ${{ secrets.IOS_CERT_PASSWORD }}
+          PROV_B64: ${{ secrets.IOS_PROVISION_B64 }}
+        run: |
+          KC=$RUNNER_TEMP/build.keychain-db
+          security create-keychain -p "" "$KC"
+          security set-keychain-settings -lut 21600 "$KC"
+          security unlock-keychain -p "" "$KC"
+          echo "$CERT_B64" | base64 -d > $RUNNER_TEMP/cert.p12
+          security import $RUNNER_TEMP/cert.p12 -P "$CERT_PW" -A -t cert -f pkcs12 -k "$KC"
+          security set-key-partition-list -S apple-tool:,apple: -k "" "$KC"
+          security list-keychain -d user -s "$KC"
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo "$PROV_B64" | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/mastertool.mobileprovision
+      - run: flutter pub get && flutter gen-l10n
+      - name: Sürüm numarası etiketten
+        run: echo "BUILD_NAME=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV && echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
+      - run: flutter build ipa --release --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --export-options-plist=ios/ExportOptions.plist
+      - uses: actions/upload-artifact@v4
+        with: { name: master-tool-ios-${{ github.ref_name }}, path: build/ios/ipa/*.ipa }
+      - name: TestFlight
+        env:
+          APPSTORE_ISSUER_ID: ${{ secrets.APPSTORE_ISSUER_ID }}
+          APPSTORE_KEY_ID: ${{ secrets.APPSTORE_KEY_ID }}
+          APPSTORE_PRIVATE_KEY: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.appstoreconnect/private_keys
+          echo "$APPSTORE_PRIVATE_KEY" > ~/.appstoreconnect/private_keys/AuthKey_$APPSTORE_KEY_ID.p8
+          xcrun altool --upload-app -f build/ios/ipa/*.ipa -t ios --apiKey "$APPSTORE_KEY_ID" --apiIssuer "$APPSTORE_ISSUER_ID"

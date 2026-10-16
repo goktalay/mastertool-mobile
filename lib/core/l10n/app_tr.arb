@@ -1,0 +1,280 @@
+{
+  "@@locale": "tr",
+  "setGeneral": "Genel",
+  "@setGeneral": {},
+  "setAccount": "Hesap",
+  "@setAccount": {},
+  "setAbout": "Hakkında",
+  "@setAbout": {},
+  "aboutVersion": "Sürüm {version}",
+  "@aboutVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutFamily": "Mastertool ailesi: SSH Master · FTP Masters · SQL Master · Notepad Master · Convert Master · IP Tools",
+  "@aboutFamily": {},
+  "aboutCheckUpdate": "Güncellemeleri denetle",
+  "@aboutCheckUpdate": {},
+  "aboutChecking": "Denetleniyor…",
+  "@aboutChecking": {},
+  "aboutUpToDate": "{app} güncel.",
+  "@aboutUpToDate": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutCheckFailed": "Güncelleme denetlenemedi: {msg}",
+  "@aboutCheckFailed": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "aboutLicenses": "Açık kaynak lisansları",
+  "@aboutLicenses": {},
+  "aboutLicensesIntro": "{app} şu açık kaynak bileşenleri kullanır:",
+  "@aboutLicensesIntro": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "authErrAppDisabled": "Bu hesapta {app} kullanımı yönetici tarafından kapatılmış. Hesap yöneticinizle iletişime geçin.",
+  "@authErrAppDisabled": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "authErrWrongApp": "Bu oturum başka bir uygulamaya ait. Lütfen {app} için yeniden giriş yapın.",
+  "@authErrWrongApp": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "authSignedOut": "Bu bilgisayardaki bir Mastertool uygulamasında çıkış yapıldı. Tekrar giriş yapın.",
+  "@authSignedOut": {},
+  "authSubtitle": "Hesabınızla giriş yapın",
+  "@authSubtitle": {},
+  "authEmail": "E-posta",
+  "@authEmail": {},
+  "authPassword": "Şifre",
+  "@authPassword": {},
+  "authRemember": "Beni hatırla",
+  "@authRemember": {},
+  "authForgot": "Şifremi unuttum",
+  "@authForgot": {},
+  "authNoAccount": "Hesabınız yok mu?",
+  "@authNoAccount": {},
+  "authRegister": "Hesap oluştur",
+  "@authRegister": {},
+  "authSubmit": "Giriş yap",
+  "@authSubmit": {},
+  "authWorking": "Giriş yapılıyor…",
+  "@authWorking": {},
+  "authErrRequired": "E-posta ve şifre gerekli.",
+  "@authErrRequired": {},
+  "authErrBadCredentials": "E-posta veya şifre hatalı.",
+  "@authErrBadCredentials": {},
+  "authErrUnverified": "E-posta adresiniz henüz doğrulanmadı. Gelen kutunuzdaki bağlantıya tıklayın.",
+  "@authErrUnverified": {},
+  "authErrSuspended": "Hesabınız askıya alınmış.",
+  "@authErrSuspended": {},
+  "authErrRateLimited": "Çok fazla deneme yapıldı. Bir dakika sonra tekrar deneyin.",
+  "@authErrRateLimited": {},
+  "authErrOffline": "Sunucuya ulaşılamıyor. İnternet bağlantınızı kontrol edin.",
+  "@authErrOffline": {},
+  "authErrSessionExpired": "Oturumunuzun süresi doldu ya da şifreniz değişti. Lütfen yeniden giriş yapın.",
+  "@authErrSessionExpired": {},
+  "authErrServer": "Giriş yapılamadı: {msg}",
+  "@authErrServer": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "acctSection": "Hesap ve senkronizasyon",
+  "@acctSection": {},
+  "acctSignedInAs": "{email} olarak giriş yapıldı",
+  "@acctSignedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "acctSyncToggle": "Bağlantıları web ile senkronize et",
+  "@acctSyncToggle": {},
+  "acctSyncHint": "Bağlantılar, klasörler ve kısayollar uçtan uca şifrelenerek hesabınıza yedeklenir; sunucu içeriği okuyamaz. Yazı boyutu, tepsi gibi cihaz ayarları gönderilmez.",
+  "@acctSyncHint": {},
+  "acctLastSync": "Son senkron: {time}",
+  "@acctLastSync": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "acctNever": "Henüz senkronize edilmedi",
+  "@acctNever": {},
+  "acctSyncNow": "Şimdi senkronize et",
+  "@acctSyncNow": {},
+  "acctDeleteRemote": "Sunucudaki kopyayı sil",
+  "@acctDeleteRemote": {},
+  "acctDeleteRemoteMsg": "Hesabınızdaki şifreli kütüphane kopyası silinecek ve senkronizasyon kapatılacak. Bu bilgisayardaki bağlantılar silinmez.",
+  "@acctDeleteRemoteMsg": {},
+  "acctDeleteRemoteDone": "Sunucudaki kopya silindi; senkronizasyon kapatıldı",
+  "@acctDeleteRemoteDone": {},
+  "acctLogout": "Çıkış yap",
+  "@acctLogout": {},
+  "acctLogoutMsg": "Hesabınızdan çıkış yapılacak. Bu cihazdaki bağlantılar ve projeler silinmez.",
+  "@acctLogoutMsg": {},
+  "acctMyAccount": "Hesabım (web)",
+  "@acctMyAccount": {},
+  "acctBackupNotice": "Farklı bir hesapla giriş yapıldı; bu bilgisayardaki önceki bağlantılar yedeklendi.",
+  "@acctBackupNotice": {},
+  "syncOff": "Senkronizasyon kapalı",
+  "@syncOff": {},
+  "syncSyncing": "Senkronize ediliyor…",
+  "@syncSyncing": {},
+  "syncOffline": "Çevrimdışı — değişiklikler bağlantı gelince gönderilecek",
+  "@syncOffline": {},
+  "syncErrDecrypt": "Sunucudaki kopya bu hesabın anahtarıyla çözülemedi; bu bilgisayardaki bağlantılar korunuyor.",
+  "@syncErrDecrypt": {},
+  "syncErrTooLarge": "Kütüphane 5 MB sınırını aşıyor; senkronize edilemedi.",
+  "@syncErrTooLarge": {},
+  "syncError": "Senkron hatası: {msg}",
+  "@syncError": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "commonCancel": "İptal",
+  "@commonCancel": {},
+  "commonSave": "Kaydet",
+  "@commonSave": {},
+  "commonCreate": "Oluştur",
+  "@commonCreate": {},
+  "commonOk": "Tamam",
+  "@commonOk": {},
+  "commonDelete": "Sil",
+  "@commonDelete": {},
+  "commonGiveUp": "Vazgeç",
+  "@commonGiveUp": {},
+  "commonOpen": "Aç",
+  "@commonOpen": {},
+  "commonEdit": "Düzenle",
+  "@commonEdit": {},
+  "commonRename": "Yeniden adlandır",
+  "@commonRename": {},
+  "commonRefresh": "Yenile",
+  "@commonRefresh": {},
+  "commonNewFolder": "Yeni klasör",
+  "@commonNewFolder": {},
+  "commonCopyPath": "Yolu kopyala",
+  "@commonCopyPath": {},
+  "commonMove": "Taşı",
+  "@commonMove": {},
+  "commonMoveEllipsis": "Taşı…",
+  "@commonMoveEllipsis": {},
+  "commonShow": "Göster",
+  "@commonShow": {},
+  "commonChoose": "Seç…",
+  "@commonChoose": {},
+  "commonConnect": "Bağlan",
+  "@commonConnect": {},
+  "commonNew": "Yeni",
+  "@commonNew": {},
+  "commonCopy": "Kopyala",
+  "@commonCopy": {},
+  "commonPaste": "Yapıştır",
+  "@commonPaste": {},
+  "commonLocation": "Konum: {path}",
+  "@commonLocation": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "commonNewName": "Yeni ad",
+  "@commonNewName": {},
+  "commonFolderName": "Klasör adı",
+  "@commonFolderName": {},
+  "setTitle": "Ayarlar",
+  "@setTitle": {},
+  "setAppearance": "Görünüm",
+  "@setAppearance": {},
+  "setTheme": "Tema",
+  "@setTheme": {},
+  "setThemeDark": "Gece",
+  "@setThemeDark": {},
+  "setThemeLight": "Gündüz",
+  "@setThemeLight": {},
+  "setThemeSystem": "Sistem tercihi",
+  "@setThemeSystem": {},
+  "setLanguage": "Dil",
+  "@setLanguage": {},
+  "setLanguageHint": "Dil hemen uygulanır.",
+  "@setLanguageHint": {},
+  "setSaved": "Ayarlar kaydedildi",
+  "@setSaved": {},
+  "mobModules": "Modüller",
+  "@mobModules": {},
+  "mobDisabled": "Hesabınızda kapalı",
+  "@mobDisabled": {},
+  "mobSoon": "Bu modül hazırlanıyor",
+  "@mobSoon": {},
+  "mobOpen": "Aç",
+  "@mobOpen": {},
+  "mobRefresh": "Yenile",
+  "@mobRefresh": {},
+  "mobSettings": "Ayarlar",
+  "@mobSettings": {},
+  "mobWelcome": "Hoş geldiniz, {name}",
+  "@mobWelcome": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "mobNoModules": "Modül listesi alınamadı. Bağlantınızı denetleyip yenileyin.",
+  "@mobNoModules": {},
+  "mobSite": "mastertool.download",
+  "@mobSite": {},
+  "mobLangSystem": "Sistem dili",
+  "@mobLangSystem": {},
+  "mobSsoHint": "Bir kez giriş yapmanız yeter: SSH Master, FTP Masters, SQL Master, Notepad Master, Convert Master ve IP Tools bu uygulamanın içinde açılır.",
+  "@mobSsoHint": {},
+  "mobOpenCount": "{open}/{total} modül açık",
+  "@mobOpenCount": {
+    "placeholders": {
+      "open": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "mobModulesHint": "Tıklayınca açılır",
+  "@mobModulesHint": {},
+  "mobTapToOpen": "Kullanıma hazır",
+  "@mobTapToOpen": {},
+  "mobVisitSite": "Web sitesini ziyaret et",
+  "@mobVisitSite": {}
+}

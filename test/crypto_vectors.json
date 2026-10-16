@@ -1,0 +1,9 @@
+{
+ "password": "Gizli-Şifre-1234",
+ "salt": "vB6KkBuw23Zs+lFu7jdJRw==",
+ "iter": 1000,
+ "master": "CiSX+Bgk20QtqA5HT2lsrMLDKVoel7hAe5qW2xyK/FQ=",
+ "auth_hash": "O9XMbRq9fzwaKdsu5/EJdqffujKF9rynbQ4dkZq8jIg=",
+ "enc_key_sshm": "FVC6TSI/pNEz9TBdFOdkMe42+zt7Wq677OgQcXsF61g=",
+ "blob": "Iy/9AFgbeeh6NBwQYFM5PfusZh2zGIpPvrzTwStRy0jleaYmSisICMxCicmJPxxWuvjw0CTVu5pl0kHMPYrOe30IkYD9aaoDRRoc+5Mgh4KMCakWYkSWU7m12psTueJGE3p/K1U8aVQv2/8="
+}

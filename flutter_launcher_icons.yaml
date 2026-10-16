@@ -1,0 +1,9 @@
+# Başlatıcı simgeleri: marka logosundan (assets/icon/icon.png 1024 px). Android uyarlanabilir simge: geçişli zemin + M ön planı.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/icon/icon.png
+  adaptive_icon_background: "#22d3ee"
+  adaptive_icon_foreground: assets/icon/foreground.png
+  remove_alpha_ios: true
+  background_color_ios: "#0b0f17"
