@@ -166,14 +166,25 @@ class _SshFormScreenState extends State<SshFormScreen> {
         Container(
           padding: const EdgeInsets.fromLTRB(22, 14, 22, 18),
           decoration: BoxDecoration(border: Border(top: BorderSide(color: col.border))),
-          child: Row(children: [
-            MtButton(label: s.smFormTest, icon: Icons.network_check, busy: _testing, onPressed: _test),
-            const Spacer(),
-            if (wide) ...[MtButton(label: s.commonCancel, onPressed: () => Navigator.of(context).pop()), const SizedBox(width: 8)],
-            MtButton(label: s.commonSave, onPressed: () => _save()),
-            const SizedBox(width: 8),
-            MtButton(label: s.smFormSaveConnect, kind: MtBtnKind.primary, icon: Icons.play_arrow, onPressed: () => _save(connect: true)),
-          ]),
+          child: wide
+              ? Row(children: [
+                  MtButton(label: s.smFormTest, icon: Icons.network_check, busy: _testing, onPressed: _test),
+                  const Spacer(),
+                  MtButton(label: s.commonCancel, onPressed: () => Navigator.of(context).pop()),
+                  const SizedBox(width: 8),
+                  MtButton(label: s.commonSave, onPressed: () => _save()),
+                  const SizedBox(width: 8),
+                  MtButton(label: s.smFormSaveConnect, kind: MtBtnKind.primary, icon: Icons.play_arrow, onPressed: () => _save(connect: true)),
+                ])
+              : Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                  MtButton(label: s.smFormSaveConnect, kind: MtBtnKind.primary, icon: Icons.play_arrow, expand: true, onPressed: () => _save(connect: true)),
+                  const SizedBox(height: 8),
+                  Row(children: [
+                    Expanded(child: MtButton(label: s.smFormTest, icon: Icons.network_check, busy: _testing, expand: true, onPressed: _test)),
+                    const SizedBox(width: 8),
+                    Expanded(child: MtButton(label: s.commonSave, expand: true, onPressed: () => _save())),
+                  ]),
+                ]),
         ),
       ])),
     );

@@ -33,7 +33,7 @@ class MtButton extends StatelessWidget {
       if (busy) SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2, color: fg))
       else if (icon != null) Icon(icon, size: small ? 14 : 16, color: fg),
       if (busy || icon != null) const SizedBox(width: 8),
-      Text(busy ? '…' : label, style: style),
+      Flexible(child: Text(busy ? '…' : label, style: style, maxLines: 1, overflow: TextOverflow.ellipsis, softWrap: false)),
     ]);
     return Opacity(
       opacity: disabled ? .5 : 1,

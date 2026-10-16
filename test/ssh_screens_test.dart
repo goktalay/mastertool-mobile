@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:master_tool/core/account.dart';
 import 'package:master_tool/core/l10n/gen/mt_strings.dart';
 import 'package:master_tool/core/module_host.dart';
-import 'package:master_tool/core/sync.dart';
 import 'package:master_tool/core/theme.dart';
 import 'package:master_tool/modules/ssh/ssh_form.dart';
 import 'package:master_tool/modules/ssh/ssh_library.dart';
@@ -53,6 +52,7 @@ void main() {
     final host = ModuleHost(acc);
     final e = await host.open('sm');
     e.syncEnabled = false; // ağ yok
+    e.stop(); // zamanlayıcılar pumpAndSettle'ı sonsuz bekletmesin
     final lib = e.library;
     lib.items['f1'] = ('folder', {'name': 'Üretim sunucuları', 'parentId': null});
     lib.items['f2'] = ('folder', {'name': 'Ev laboratuvarı', 'parentId': null});
@@ -62,6 +62,12 @@ void main() {
     return (acc, host);
   }
 
+  // Dosya ve ağ işlemleri testWidgets'ın sahte zamanında tamamlanmaz; kitaplık setUp'ta (gerçek zamanda) kurulur.
+  late AccountService acc;
+  late ModuleHost host;
+  setUp(() async { (acc, host) = await seeded(); });
+  tearDown(() => host.dispose());
+
   final sizes = {'telefon': const Size(390, 844), 'tablet': const Size(1024, 768)};
   for (final e in sizes.entries) {
     for (final dark in [true, false]) {
@@ -69,17 +75,15 @@ void main() {
       testWidgets('ssh kitaplık $tag', (t) async {
         await t.binding.setSurfaceSize(e.value);
         t.view.physicalSize = e.value; t.view.devicePixelRatio = 1;
-        final (acc, host) = await seeded();
         await t.pumpWidget(_app(SshLibraryScreen(host: host, account: acc), dark: dark));
-        await t.pumpAndSettle();
+        for (var i = 0; i < 6; i++) { await t.pump(const Duration(milliseconds: 100)); }
         await expectLater(find.byType(SshLibraryScreen), matchesGoldenFile('goldens/ssh-kitaplik-$tag.png'));
-        host.dispose();
       });
       testWidgets('ssh form $tag', (t) async {
         await t.binding.setSurfaceSize(e.value);
         t.view.physicalSize = e.value; t.view.devicePixelRatio = 1;
         await t.pumpWidget(_app(SshFormScreen(folders: [SshFolder('f1', {'name': 'Üretim sunucuları', 'parentId': null})]), dark: dark));
-        await t.pumpAndSettle();
+        await t.pump(const Duration(milliseconds: 300));
         await expectLater(find.byType(SshFormScreen), matchesGoldenFile('goldens/ssh-form-$tag.png'));
       });
     }
