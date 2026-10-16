@@ -42,13 +42,51 @@ class ModuleInfo {
   bool get enabled => license == 'AKTIF';
 }
 
+/// Oturum deposu: cihazda güvenli depo (Keychain / Android Keystore); testlerde bellek.
+abstract class KvStore {
+  Future<String?> read(String key);
+  Future<void> write(String key, String value);
+  Future<void> delete(String key);
+}
+
+class SecureKvStore implements KvStore {
+  const SecureKvStore();
+  static const _s = FlutterSecureStorage();
+  @override
+  Future<String?> read(String key) => _s.read(key: key);
+  @override
+  Future<void> write(String key, String value) => _s.write(key: key, value: value);
+  @override
+  Future<void> delete(String key) => _s.delete(key: key);
+}
+
+class MemoryKvStore implements KvStore {
+  final Map<String, String> _m = {};
+  @override
+  Future<String?> read(String key) async => _m[key];
+  @override
+  Future<void> write(String key, String value) async => _m[key] = value;
+  @override
+  Future<void> delete(String key) async => _m.remove(key);
+}
+
 class AccountService extends ChangeNotifier {
-  AccountService({MtApi? api, FlutterSecureStorage? storage})
+  AccountService({MtApi? api, KvStore? store})
       : api = api ?? MtApi(),
-        _store = storage ?? const FlutterSecureStorage();
+        _store = store ?? const SecureKvStore();
   final MtApi api;
-  final FlutterSecureStorage _store;
+  final KvStore _store;
   static const _key = 'mastertool.session';
+
+  /// Testler ve ekran görüntüleri için: sunucuya gitmeden oturum açık görünümü.
+  @visibleForTesting
+  void seed({required String email, required String name, required List<ModuleInfo> modules, String ssoToken = 'test'}) {
+    _ssoToken = ssoToken;
+    user = MtUser(id: 1, name: name, email: email);
+    this.modules = modules;
+    loading = false;
+    notifyListeners();
+  }
 
   String? _ssoToken;
   Uint8List? _master;
@@ -73,7 +111,7 @@ class AccountService extends ChangeNotifier {
       _appVersion = info.version;
     } catch (_) {}
     _device = Platform.isIOS ? 'iPhone' : 'Android';
-    final raw = await _store.read(key: _key);
+    final raw = await _store.read(_key);
     if (raw != null) {
       try {
         final j = jsonDecode(raw) as Map<String, dynamic>;
@@ -83,7 +121,7 @@ class AccountService extends ChangeNotifier {
         final u = j['user'] as Map<String, dynamic>;
         user = MtUser(id: (u['id'] as num?)?.toInt(), name: (u['name'] ?? '').toString(), email: (j['email'] ?? '').toString());
       } catch (_) {
-        await _store.delete(key: _key);
+        await _store.delete(_key);
         _ssoToken = null;
       }
     }
@@ -93,7 +131,7 @@ class AccountService extends ChangeNotifier {
   }
 
   Future<void> _persist() async {
-    await _store.write(key: _key, value: jsonEncode({
+    await _store.write(_key, jsonEncode({
       'sso_token': _ssoToken, 'email': user?.email, 'user': {'id': user?.id, 'name': user?.name},
       'master': base64.encode(_master!), 'kdf': _kdf!.toJson(),
     }));
@@ -194,7 +232,7 @@ class AccountService extends ChangeNotifier {
     modules = const [];
     _moduleTokens.clear();
     _encKeys.clear();
-    await _store.delete(key: _key);
+    await _store.delete(_key);
     notifyListeners();
   }
 
