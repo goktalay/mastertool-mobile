@@ -51,7 +51,6 @@ dependencies:
   file_picker: ^13.1.0
   share_plus: ^13.3.1
   image: ^4.12.0
-  ffmpeg_kit_flutter_new: ^4.6.7
   re_editor: ^0.10.0
   re_highlight: ^0.0.3
   postgres: ^3.5.20
@@ -60,6 +59,7 @@ dependencies:
   sqlite3_flutter_libs: ^0.6.0+eol
   network_info_plus: ^8.2.2
   image_picker: ^1.2.4
+  ffmpeg_kit_flutter_new_full: ^2.5.7
 
 dev_dependencies:
   flutter_test:
