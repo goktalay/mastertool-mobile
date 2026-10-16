@@ -11,7 +11,6 @@ import 'drivers/sql_driver.dart';
 import 'sql_classify.dart';
 import 'sql_model.dart';
 import 'sql_split.dart';
-import 'sql_texts.dart';
 
 enum SessionState { idle, connecting, connected, failed, closed }
 
@@ -43,6 +42,7 @@ class SqlSession extends ChangeNotifier {
   SshTunnel? tunnel;
   SessionState state = SessionState.idle;
   String? error;
+  /// Bağlanma evresi kodu: 'tunnel' | 'db' (metin ekranda sözlükten alınır)
   String? phase;
   late bool readOnly = conn.readOnly;
   bool _busy = false;
@@ -60,7 +60,7 @@ class SqlSession extends ChangeNotifier {
       String? host;
       int? port;
       if (conn.sshEnabled) {
-        phase = SqTxt.tunnelOpening;
+        phase = 'tunnel';
         notifyListeners();
         final t = SshTunnel(conn, onHostKey: onHostKey);
         await t.open(conn.host, conn.port);
@@ -68,7 +68,7 @@ class SqlSession extends ChangeNotifier {
         host = '127.0.0.1';
         port = t.localPort;
       }
-      phase = SqTxt.connectingDb;
+      phase = 'db';
       notifyListeners();
       final d = createDriver(conn, hostOverride: host, portOverride: port, password: password);
       await d.connect();

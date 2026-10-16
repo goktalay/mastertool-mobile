@@ -69,7 +69,7 @@ class _FtpLibraryScreenState extends State<FtpLibraryScreen> {
         texts: LibraryTexts(
           title: 'FTP Masters', searchPh: s.fmAppSearchPh, newItem: s.fmAppNewConn, items: s.fmAppConnections, welcome: s.fmAppWelcome,
           welcomeHint: s.fmAppWelcomeHint, noMatch: s.fmAppNoMatch, stats: s.fmAppStats, folderCount: s.fmAppFolderCount,
-          deleteItem: s.fmAppDeleteConn, deleteItemMsg: s.fmAppDeleteConnMsg, newHere: s.fmAppNewConnHere, results: s.fmAppResults,
+          deleteItem: s.fmAppDeleteConn, deleteItemMsg: s.fmAppDeleteConnMsg, newHere: s.fmAppNewConnHere, results: s.fmAppResults, all: s.fmAppAll,
         ),
         toItem: (id, d) {
           final x = FtpSite(id, d);

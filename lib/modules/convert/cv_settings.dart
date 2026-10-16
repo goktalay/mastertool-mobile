@@ -12,7 +12,6 @@ import '../../widgets/mt_widgets.dart';
 import 'cv_engine.dart';
 import 'cv_formats.dart';
 import 'cv_model.dart';
-import 'cv_texts.dart';
 
 class CvSettingsScreen extends StatefulWidget {
   const CvSettingsScreen({super.key, required this.engine, this.baseDir});
@@ -56,7 +55,7 @@ class _CvSettingsScreenState extends State<CvSettingsScreen> {
     }
     await widget.engine.library.save();
     await _measure();
-    if (mounted) { setState(() => _busy = false); mtToast(context, CvT.cleared, type: 'ok'); }
+    if (mounted) { setState(() => _busy = false); mtToast(context, MtStrings.of(context).cvMobCleared, type: 'ok'); }
   }
 
   /// Kitaplıkta olmayan projelerin src/ ve converted/ klasörleri silinir.
@@ -73,7 +72,7 @@ class _CvSettingsScreenState extends State<CvSettingsScreen> {
       }
     }
     await _measure();
-    if (mounted) { setState(() => _busy = false); mtToast(context, CvT.cleared, type: 'ok'); }
+    if (mounted) { setState(() => _busy = false); mtToast(context, MtStrings.of(context).cvMobCleared, type: 'ok'); }
   }
 
   Future<void> _save() async {
@@ -103,24 +102,24 @@ class _CvSettingsScreenState extends State<CvSettingsScreen> {
           Text(s.cvAppSettings, style: MtText.h2.copyWith(color: c.text))])),
       body: SafeArea(child: Column(children: [
         Expanded(child: Center(child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 760), child: ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-          MtSectionTitle(CvT.conversion),
+          MtSectionTitle(s.cvMobConversion),
           const SizedBox(height: 10),
-          MtField(label: CvT.defaultConcurrency, hint: CvT.concurrencyMobileHint, child: MtSegment<int>(value: _conc, onChanged: (v) => setState(() => _conc = v),
+          MtField(label: s.cvMobDefaultConcurrency, hint: s.cvMobConcurrencyHint, child: MtSegment<int>(value: _conc, onChanged: (v) => setState(() => _conc = v),
               items: [for (var i = 1; i <= kMobileMaxConcurrency; i++) (i, '$i', null)])),
           const SizedBox(height: 22),
-          MtSectionTitle(CvT.storage),
+          MtSectionTitle(s.cvMobStorage),
           const SizedBox(height: 10),
           storageRow(Icons.swap_horiz, s.cvPjConverted, _outSize, action: MtButton(label: s.cvAppClearOutputs, small: true, kind: MtBtnKind.danger, icon: Icons.delete_outline, busy: _busy, onPressed: _clearOutputs)),
           const SizedBox(height: 8),
-          storageRow(Icons.folder_copy_outlined, CvT.sourceCopies, _srcSize),
+          storageRow(Icons.folder_copy_outlined, s.cvMobSourceCopies, _srcSize),
           const SizedBox(height: 8),
-          Align(alignment: AlignmentDirectional.centerStart, child: MtButton(label: CvT.clearOrphans, small: true, icon: Icons.cleaning_services_outlined, busy: _busy, onPressed: _clearOrphans)),
+          Align(alignment: AlignmentDirectional.centerStart, child: MtButton(label: s.cvMobClearOrphans, small: true, icon: Icons.cleaning_services_outlined, busy: _busy, onPressed: _clearOrphans)),
           const SizedBox(height: 8),
-          Text(CvT.storageNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
+          Text(s.cvMobStorageNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
           const SizedBox(height: 22),
           MtSectionTitle(s.setAbout),
           const SizedBox(height: 10),
-          Text(CvT.license, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
+          Text(s.cvMobLicense, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
         ])))),
         Container(
           padding: const EdgeInsets.fromLTRB(22, 14, 22, 18),

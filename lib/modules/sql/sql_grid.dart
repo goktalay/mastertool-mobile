@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
 import 'drivers/sql_driver.dart';
-import 'sql_texts.dart';
 
 const kRowH = 26.0, kHeadH = 40.0, kNumW = 44.0;
 
@@ -130,15 +130,16 @@ class RowDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = MtColors.of(context);
+    final s = MtStrings.of(context);
     return Scaffold(
-      appBar: AppBar(toolbarHeight: 46, title: Text('${SqTxt.rowDetail} · #$index', style: MtText.cardTitle.copyWith(color: c.text))),
+      appBar: AppBar(toolbarHeight: 46, title: Text('${s.sqMobRowDetail} · #$index', style: MtText.cardTitle.copyWith(color: c.text))),
       body: SafeArea(child: ListView.separated(
         padding: const EdgeInsets.symmetric(vertical: 6),
         itemCount: columns.length, separatorBuilder: (_, _) => Divider(height: 1, color: c.border.withValues(alpha: .5)),
         itemBuilder: (_, i) {
           final v = i < row.length ? row[i] : null;
           return InkWell(
-            onLongPress: () { Clipboard.setData(ClipboardData(text: cellText(v))); mtToast(context, SqTxt.copyCell, type: 'ok'); },
+            onLongPress: () { Clipboard.setData(ClipboardData(text: cellText(v))); mtToast(context, s.sqMobCopyCell, type: 'ok'); },
             child: Padding(padding: const EdgeInsets.fromLTRB(16, 8, 16, 8), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(children: [
                 Text(columns[i].name, style: MtText.label.copyWith(color: c.text2)),

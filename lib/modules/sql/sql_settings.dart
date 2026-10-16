@@ -7,7 +7,6 @@ import '../../core/sync.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
 import 'sql_model.dart';
-import 'sql_texts.dart';
 
 class SqlSettingsScreen extends StatefulWidget {
   const SqlSettingsScreen({super.key, required this.engine});
@@ -43,15 +42,15 @@ class _SqlSettingsScreenState extends State<SqlSettingsScreen> {
     final c = MtColors.of(context);
     return Scaffold(
       backgroundColor: c.surface,
-      appBar: AppBar(backgroundColor: c.surface, title: Text(SqTxt.settingsTitle, style: MtText.h2.copyWith(color: c.text))),
+      appBar: AppBar(backgroundColor: c.surface, title: Text(s.sqMobSettingsTitle, style: MtText.h2.copyWith(color: c.text))),
       body: SafeArea(child: Center(child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 560), child: ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
         MtSectionTitle(s.sqAppSettings),
         const SizedBox(height: 12),
-        MtField(label: SqTxt.rowLimit, child: TextField(controller: _rows, keyboardType: TextInputType.number)),
+        MtField(label: s.sqMobRowLimit, child: TextField(controller: _rows, keyboardType: TextInputType.number)),
         const SizedBox(height: 14),
-        MtField(label: SqTxt.previewRows, child: TextField(controller: _prev, keyboardType: TextInputType.number)),
+        MtField(label: s.sqMobPreviewRows, child: TextField(controller: _prev, keyboardType: TextInputType.number)),
         const SizedBox(height: 14),
-        MtField(label: '${SqTxt.editorFont}: ${_font.round()}', child: Slider(value: _font, min: 9, max: 24, divisions: 15, activeColor: c.accent, onChanged: (v) => setState(() => _font = v))),
+        MtField(label: '${s.sqMobEditorFont}: ${_font.round()}', child: Slider(value: _font, min: 9, max: 24, divisions: 15, activeColor: c.accent, onChanged: (v) => setState(() => _font = v))),
         const SizedBox(height: 18),
         Row(children: [
           const Spacer(),

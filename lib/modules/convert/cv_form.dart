@@ -10,7 +10,6 @@ import '../../widgets/mt_widgets.dart';
 import '../ssh/ssh_model.dart' show kCardColors, parseHex;
 import 'cv_formats.dart';
 import 'cv_model.dart';
-import 'cv_texts.dart';
 
 class CvFormScreen extends StatefulWidget {
   const CvFormScreen({super.key, this.existing, required this.folders, this.folderId, this.settings});
@@ -140,20 +139,20 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
           ]),
           const SizedBox(height: 4),
           Wrap(spacing: 6, runSpacing: 6, children: [for (final e in _t.source) _chip(col, e, _srcExts.contains(e), unsupportedSrc.contains(e), () => setState(() => _srcExts.contains(e) ? _srcExts.remove(e) : _srcExts.add(e)))]),
-          if (unsupportedSrc.isNotEmpty) ...[const SizedBox(height: 6), Text('${unsupportedSrc.map((e) => e.toUpperCase()).join(', ')}: ${CvT.mobileUnsupportedExt}', style: MtText.small.copyWith(color: col.text3))],
+          if (unsupportedSrc.isNotEmpty) ...[const SizedBox(height: 6), Text('${unsupportedSrc.map((e) => e.toUpperCase()).join(', ')}: ${s.cvMobUnsupportedOnMobile}', style: MtText.small.copyWith(color: col.text3))],
         ])),
         MtField(label: s.cvPfTargetExt, hint: _target == 'gif' && _type == 'video' ? s.cvPfGifHint : _t.audioOnlyTargets.contains(_target) ? s.cvPfAudioOnlyHint : null,
-            child: _select<String>(_target, [for (final e in _t.target) (e, unsupportedTgt.contains(e) ? '${e.toUpperCase()} — ${CvT.mobileUnsupportedExt}' : _targetLabel(s, e))],
+            child: _select<String>(_target, [for (final e in _t.target) (e, unsupportedTgt.contains(e) ? '${e.toUpperCase()} — ${s.cvMobUnsupportedOnMobile}' : _targetLabel(s, e))],
                 (v) { if (v != null && !unsupportedTgt.contains(v)) setState(() => _target = v); })),
       ], flex: const [3, 2]),
       const SizedBox(height: 14),
-      MtField(label: s.cvPfSource, hint: CvT.folderMobileNote, child: MtSegment<String>(value: _mode, onChanged: (v) => setState(() => _mode = v),
-          items: [('file', s.cvPfModeFile, Icons.insert_drive_file_outlined), ('folder', '${s.cvPfModeFolder} · ${CvT.notOnMobile}', Icons.folder_outlined)])),
+      MtField(label: s.cvPfSource, hint: s.cvMobFolderNote, child: MtSegment<String>(value: _mode, onChanged: (v) => setState(() => _mode = v),
+          items: [('file', s.cvPfModeFile, Icons.insert_drive_file_outlined), ('folder', '${s.cvPfModeFolder} · ${s.cvMobNotOnMobile}', Icons.folder_outlined)])),
       const SizedBox(height: 10),
       Opacity(opacity: _mode == 'folder' ? 1 : .5, child: MtCheck(value: _sub, onChanged: (v) => setState(() => _sub = v), label: s.cvPfSubfolders)),
       const SizedBox(height: 14),
       _row(wide, [
-        MtField(label: s.cvPfConcurrency, hint: CvT.concurrencyMobileHint, child: MtSegment<int>(value: _conc, onChanged: (v) => setState(() => _conc = v),
+        MtField(label: s.cvPfConcurrency, hint: s.cvMobConcurrencyHint, child: MtSegment<int>(value: _conc, onChanged: (v) => setState(() => _conc = v),
             items: [for (var i = 1; i <= kMobileMaxConcurrency; i++) (i, '$i', null)])),
         MtField(label: s.cvPfFolder, child: _select<String?>(_folder, [(null, s.cvAppRootFolder), for (final f in widget.folders) (f.$1, f.$2)], (v) => setState(() => _folder = v))),
       ]),
@@ -274,10 +273,10 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
   Widget _speechTab(MtStrings s, MtColors col, bool wide) {
     final modelLabel = {'tiny': s.cvSpeechModelTiny, 'base': s.cvSpeechModelBase, 'small': s.cvSpeechModelSmall, 'medium': s.cvSpeechModelMedium, 'turbo': s.cvSpeechModelTurbo};
     return ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-      MtBox(CvT.speechMobileNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
+      MtBox(s.cvMobSpeechNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
       const SizedBox(height: 14),
       Opacity(opacity: .5, child: IgnorePointer(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        MtCheck(value: _speech['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfSpeechAsk} · ${CvT.notOnMobile}', hint: s.cvPfSpeechAskHint),
+        MtCheck(value: _speech['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfSpeechAsk} · ${s.cvMobNotOnMobile}', hint: s.cvPfSpeechAskHint),
         const SizedBox(height: 14),
         _row(wide, [
           MtField(label: s.cvPfSpeechModel, child: _select<String>(_speech['model'].toString(), [for (final m in kSpeechModels) (m, modelLabel[m] ?? m)], (_) {})),
@@ -295,10 +294,10 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
   Widget _ocrTab(MtStrings s, MtColors col) {
     final langs = ((_ocr['languages'] as List?) ?? const []).map((x) => x.toString()).toList();
     return ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-      MtBox(CvT.ocrMobileNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
+      MtBox(s.cvMobOcrNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
       const SizedBox(height: 14),
       Opacity(opacity: .5, child: IgnorePointer(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        MtCheck(value: _ocr['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfOcrAsk} · ${CvT.notOnMobile}', hint: s.cvPfOcrAskHint),
+        MtCheck(value: _ocr['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfOcrAsk} · ${s.cvMobNotOnMobile}', hint: s.cvPfOcrAskHint),
         const SizedBox(height: 14),
         MtField(label: s.cvPfOcrLangs, hint: s.cvPfOcrLangsHint, child: Wrap(spacing: 6, runSpacing: 6, children: [for (final l in kOcrLangs) _chip(col, l, langs.contains(l), false, () {})])),
       ]))),

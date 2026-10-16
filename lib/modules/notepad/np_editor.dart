@@ -120,7 +120,7 @@ class NpFindPanel extends StatelessWidget implements PreferredSizeWidget {
               const SizedBox(width: 8),
               MtButton(label: s.npProjReplace, small: true, onPressed: res == null ? null : controller.replaceMatch),
               const SizedBox(width: 6),
-              MtIconButton(icon: Icons.done_all, size: 20, tooltip: '${s.npProjReplace} (${s.npProjCloseAll.split(' ').first})', onPressed: res == null ? null : controller.replaceAllMatches),
+              MtIconButton(icon: Icons.done_all, size: 20, tooltip: s.npMobReplaceAll, onPressed: res == null ? null : controller.replaceAllMatches),
             ]),
           ],
         ]),

@@ -12,7 +12,6 @@ import '../../widgets/mt_widgets.dart';
 import 'ip_actions.dart';
 import 'ip_ports.dart';
 import 'ip_probe.dart';
-import 'ip_texts.dart';
 import 'ip_widgets.dart';
 
 Future<void> showHostDetails(BuildContext context, ScanHost host) {
@@ -37,7 +36,7 @@ Future<void> runHostAction(BuildContext context, HostAction a) async {
 
 String statusText(MtStrings s, String st) => switch (st) { 'new' => s.ipStatusNew, 'gone' => s.ipStatusGone, 'live' => s.ipStatusLive, _ => s.ipStatusSame };
 
-String aliveText(MtStrings s, String a) => switch (a) { 'ping' => s.ipStatusAlivePing, 'arp' => s.ipStatusAliveArp, 'name' => IpTr.aliveName, _ => IpTr.aliveTcp };
+String aliveText(MtStrings s, String a) => switch (a) { 'ping' => s.ipStatusAlivePing, 'arp' => s.ipStatusAliveArp, 'name' => s.ipMobAliveName, _ => s.ipMobAliveTcp };
 
 class IpHostScreen extends StatelessWidget {
   const IpHostScreen({super.key, required this.host, this.dialog = false});
@@ -63,8 +62,8 @@ class IpHostScreen extends StatelessWidget {
       kv(s.ipColIp, h.ip),
       kv(s.ipColName, h.name, muted: h.name == null),
       kv('mDNS', h.mdns),
-      KvRow(s.ipColMac, h.mac ?? IpTr.macMobile, muted: h.mac == null, onLongPress: h.mac == null ? null : () => _copy(context, h.mac!)),
-      KvRow(s.ipColVendor, h.vendor ?? (h.localMac ? s.ipHostLocalMac : IpTr.macMobile), muted: h.vendor == null),
+      KvRow(s.ipColMac, h.mac ?? s.ipMobMacMobile, muted: h.mac == null, onLongPress: h.mac == null ? null : () => _copy(context, h.mac!)),
+      KvRow(s.ipColVendor, h.vendor ?? (h.localMac ? s.ipHostLocalMac : s.ipMobMacMobile), muted: h.vendor == null),
       kv(s.ipColRtt, fmtRtt(h.rttMs)),
       if (h.ttl != null) kv('TTL', h.ttl.toString()),
       kv(s.ipColStatus, statusText(s, h.status)),
@@ -101,10 +100,10 @@ class IpHostScreen extends StatelessWidget {
 
     final actions = Wrap(spacing: 8, runSpacing: 8, children: [
       if (web != null) MtButton(label: s.ipCtxOpenWeb, icon: Icons.open_in_new, small: true, onPressed: () => runHostAction(context, actionFor(web.group, h.ip, web.port))),
-      MtButton(label: IpTr.copyAddress, icon: Icons.copy_outlined, small: true, onPressed: () => _copy(context, h.ip)),
-      if (ssh != null) MtButton(label: IpTr.openInSsh, icon: Icons.terminal, small: true, kind: MtBtnKind.primary, onPressed: () async {
+      MtButton(label: s.ipMobCopyAddress, icon: Icons.copy_outlined, small: true, onPressed: () => _copy(context, h.ip)),
+      if (ssh != null) MtButton(label: s.ipMobOpenInSsh, icon: Icons.terminal, small: true, kind: MtBtnKind.primary, onPressed: () async {
         await Clipboard.setData(ClipboardData(text: h.ip));
-        if (context.mounted) mtToast(context, s.ipTagCopied(h.ip), sub: IpTr.openInSshNote, type: 'ok');
+        if (context.mounted) mtToast(context, s.ipTagCopied(h.ip), sub: s.ipMobOpenInSshNote, type: 'ok');
       }),
     ]);
 

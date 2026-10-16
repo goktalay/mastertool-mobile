@@ -4824,4 +4824,268 @@ class MtStringsTr extends MtStrings {
 
   @override
   String get sqOpIsnotnull => 'boş değil';
+
+  @override
+  String get ipMobScanThis => 'Bu ağı tara';
+
+  @override
+  String get ipMobDeleteRecord => 'Kaydı sil';
+
+  @override
+  String get ipMobNewRecordHere => 'Burada yeni kayıt';
+
+  @override
+  String get ipMobNoMatch => 'Eşleşen kayıt bulunamadı.';
+
+  @override
+  String ipMobAddresses(int n) {
+    return '$n adres';
+  }
+
+  @override
+  String get ipMobAllRecords => 'Tüm kayıtlar';
+
+  @override
+  String get ipMobSetScan => 'Tarama';
+
+  @override
+  String get ipMobSetPorts => 'Denenecek servisler';
+
+  @override
+  String get ipMobSetPortsHint =>
+      'Her port için yalnız standart bir TCP bağlantı denemesi yapılır. Liste sabittir; istemediklerinizi kapatabilirsiniz.';
+
+  @override
+  String get ipMobSetSpeed => 'Hız';
+
+  @override
+  String get ipMobSetConcurrency => 'Eşzamanlı bağlantı';
+
+  @override
+  String get ipMobSetConcurrencyHint =>
+      'Aynı anda en çok 64 bağlantı denemesi (tasarım sınırı).';
+
+  @override
+  String get ipMobSetTimeout => 'Zaman aşımı';
+
+  @override
+  String get ipMobSetTimeoutHint => 'Cihaz başına en çok 1000 ms beklenir.';
+
+  @override
+  String get ipMobSetLimitsNote =>
+      'IP Tools yalnız keşif ve envanter aracıdır: port listesi genişletilemez, zafiyet denemesi ve parola deneme yapılmaz, yalnız özel/yerel adresler taranır.';
+
+  @override
+  String get ipMobMacMobile => 'mobilde kullanılamaz';
+
+  @override
+  String get ipMobAliveTcp => 'TCP bağlantısına yanıt verdi';
+
+  @override
+  String get ipMobAliveName => 'Ad çözümüne yanıt verdi';
+
+  @override
+  String get ipMobOpenInSsh => 'SSH Master\'da aç';
+
+  @override
+  String get ipMobOpenInSshNote =>
+      'Adres panoya kopyalandı; SSH Master › Yeni bağlantı formuna yapıştırın.';
+
+  @override
+  String get ipMobCopyAddress => 'Adresi kopyala';
+
+  @override
+  String get ipMobSuggestLocal => 'Bu cihazın ağı';
+
+  @override
+  String get ipMobSuggestLocalNone => 'Wi-Fi ağı bulunamadı';
+
+  @override
+  String get ipMobPhoneNoMacNote =>
+      'Mobilde ping ve ARP yoktur: canlılık TCP bağlantı denemesi ve ad çözümüyle belirlenir; MAC ve üretici bilgisi gösterilemez.';
+
+  @override
+  String get cvMobNotOnMobile => 'Mobilde kullanılamaz';
+
+  @override
+  String get cvMobSpeechNote =>
+      'Konuşmadan metne (whisper.cpp) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.';
+
+  @override
+  String get cvMobOcrNote =>
+      'Resimden metin (OCR, Tesseract) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.';
+
+  @override
+  String get cvMobFolderNote =>
+      'Mobilde kaynak klasör seçilemez; dosyalar tek tek ya da galeriden eklenir.';
+
+  @override
+  String get cvMobConcurrencyHint =>
+      'Mobilde en çok 2 dosya aynı anda dönüştürülür.';
+
+  @override
+  String get cvMobAddFiles => 'Dosya ekle';
+
+  @override
+  String get cvMobAddFromGallery => 'Galeriden ekle';
+
+  @override
+  String get cvMobPickFilesHint =>
+      'Dönüştürülecek dosyaları ekleyin; çıktılar uygulama belgeleri altında saklanır.';
+
+  @override
+  String get cvMobShareOutput => 'Çıktıyı paylaş';
+
+  @override
+  String get cvMobShareAllOutputs => 'Tüm çıktıları paylaş';
+
+  @override
+  String get cvMobSourceCopies => 'Kaynak kopyaları';
+
+  @override
+  String get cvMobModuleSettings => 'Convert Master ayarları';
+
+  @override
+  String get cvMobDefaultConcurrency =>
+      'Yeni projelerde aynı anda çevrilecek dosya sayısı';
+
+  @override
+  String get cvMobStorage => 'Depolama';
+
+  @override
+  String get cvMobConversion => 'Dönüştürme';
+
+  @override
+  String get cvMobClearOrphans => 'Silinmiş projelerin dosyalarını temizle';
+
+  @override
+  String get cvMobStorageNote =>
+      'Dönüştürülmüş dosyalar ve kaynak kopyaları uygulamanın belgeler klasöründe tutulur; cihazınızdan ayrılmaz.';
+
+  @override
+  String get cvMobCleared => 'Temizlendi';
+
+  @override
+  String get cvMobNoOutputsYet => 'Henüz dönüştürülmüş dosya yok.';
+
+  @override
+  String cvMobFilesAdded(int n) {
+    return '$n dosya eklendi';
+  }
+
+  @override
+  String get cvMobUnsupportedExt =>
+      'Bu projenin kaynak uzantıları arasında değil';
+
+  @override
+  String get cvMobUnsupportedOnMobile => 'Mobilde desteklenmiyor';
+
+  @override
+  String get cvMobLicense =>
+      'Video ve ses dönüştürme FFmpegKit (LGPL 3.0, GPL bileşeni yok) ile yapılır; H.264 / H.265 kodlama cihazın donanım kodlayıcısını (iOS VideoToolbox, Android MediaCodec) kullanır.';
+
+  @override
+  String cvMobConverted(int n) {
+    return '$n dosya dönüştürüldü';
+  }
+
+  @override
+  String cvMobFilesCount(int n) {
+    return '$n dosya';
+  }
+
+  @override
+  String get sqMobUnsupportedMobile => 'Bu motor mobilde henüz desteklenmiyor';
+
+  @override
+  String get sqMobPickFile => 'Seç';
+
+  @override
+  String get sqMobFileCopied =>
+      'Dosya uygulamanın belgeler dizinine kopyalandı';
+
+  @override
+  String get sqMobSshKeyPaste => 'PEM anahtarı yapıştırın ya da dosyadan seçin';
+
+  @override
+  String get sqMobErrHost => 'Sunucu adresi gerekli';
+
+  @override
+  String get sqMobErrFile => 'Veritabanı dosyası seçin';
+
+  @override
+  String get sqMobErrSshHost => 'SSH sunucusu ve kullanıcı adı gerekli';
+
+  @override
+  String get sqMobErrSshKey => 'SSH özel anahtarı gerekli';
+
+  @override
+  String get sqMobSslVerifyNote =>
+      'MySQL sürücüsü sertifika doğrulamaz; \"doğrula\" seçeneği \"zorunlu\" gibi davranır.';
+
+  @override
+  String get sqMobRowDetail => 'Satır ayrıntısı';
+
+  @override
+  String get sqMobNoResult => 'Sonuç yok — Çalıştır ile başlayın';
+
+  @override
+  String get sqMobExportJsonl => 'JSONL (satır başına JSON)';
+
+  @override
+  String get sqMobExportNoRows => 'Dışa aktarılacak satır yok';
+
+  @override
+  String get sqMobSettingsTitle => 'SQL Master ayarları';
+
+  @override
+  String get sqMobRowLimit => 'Sorgu satır sınırı';
+
+  @override
+  String get sqMobPreviewRows => 'Tablo önizleme satırı';
+
+  @override
+  String get sqMobEditorFont => 'Editör yazı boyutu';
+
+  @override
+  String get sqMobCopyCell => 'Değeri kopyala';
+
+  @override
+  String get sqMobSelectionRun => 'Seçimi çalıştır';
+
+  @override
+  String get sqMobTunnelOpening => 'SSH tüneli açılıyor…';
+
+  @override
+  String get sqMobConnectingDb => 'Veritabanına bağlanılıyor…';
+
+  @override
+  String get sqMobOpEq => '= (eşittir)';
+
+  @override
+  String get sqMobOpNe => '≠ (eşit değil)';
+
+  @override
+  String get sqMobOpLt => '< (küçük)';
+
+  @override
+  String get sqMobOpGt => '> (büyük)';
+
+  @override
+  String get sqMobOpLe => '≤ (küçük ya da eşit)';
+
+  @override
+  String get npMobSaveAs => 'Farklı kaydet…';
+
+  @override
+  String get npMobSaveAsTitle => 'Farklı kaydet';
+
+  @override
+  String get npMobDefaultProjectName => 'Proje';
+
+  @override
+  String get npMobLocalPathExample => 'Belgeler/Notepad Master/…';
+
+  @override
+  String get npMobReplaceAll => 'Tümünü değiştir';
 }

@@ -15,7 +15,6 @@ import '../ssh/ssh_model.dart' show kCardColors, parseHex;
 import 'drivers/sql_driver.dart';
 import 'sql_model.dart';
 import 'sql_session.dart';
-import 'sql_texts.dart';
 
 class SqlFormScreen extends StatefulWidget {
   const SqlFormScreen({super.key, this.existing, required this.folders, this.folderId, this.colorIndex = 0});
@@ -74,11 +73,11 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
   Map<String, dynamic>? _collect(MtStrings s) {
     final file = _meta.isFile;
     final host = _host.text.trim();
-    if (!file && host.isEmpty) { mtToast(context, SqTxt.errHost, type: 'err'); _tabs.animateTo(0); return null; }
-    if (_provider == 'sqlite' && _file.isEmpty) { mtToast(context, SqTxt.errFile, type: 'err'); _tabs.animateTo(0); return null; }
+    if (!file && host.isEmpty) { mtToast(context, s.sqMobErrHost, type: 'err'); _tabs.animateTo(0); return null; }
+    if (_provider == 'sqlite' && _file.isEmpty) { mtToast(context, s.sqMobErrFile, type: 'err'); _tabs.animateTo(0); return null; }
     if (!file && _sshOn) {
-      if (_sshHost.text.trim().isEmpty || _sshUser.text.trim().isEmpty) { mtToast(context, SqTxt.errSshHost, type: 'err'); _tabs.animateTo(2); return null; }
-      if (_sshAuth == 'key' && _sshKey.text.trim().isEmpty) { mtToast(context, SqTxt.errSshKey, type: 'err'); _tabs.animateTo(2); return null; }
+      if (_sshHost.text.trim().isEmpty || _sshUser.text.trim().isEmpty) { mtToast(context, s.sqMobErrSshHost, type: 'err'); _tabs.animateTo(2); return null; }
+      if (_sshAuth == 'key' && _sshKey.text.trim().isEmpty) { mtToast(context, s.sqMobErrSshKey, type: 'err'); _tabs.animateTo(2); return null; }
     }
     final sshHostNew = _sshHost.text.trim(), sshPortNew = int.tryParse(_sshPort.text.trim()) ?? 22;
     final keepHostKey = _ssh['host'] == sshHostNew && (_ssh['port'] ?? 22) == sshPortNew ? _ssh['hostKey'] : null;
@@ -107,7 +106,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
     final f = r.firstOrNull;
     if (f == null) return;
     final base = await getApplicationDocumentsDirectory();
-    final dir = Directory('${base.path}/SQL Master/${SqTxt.inFileDir}');
+    final dir = Directory('${base.path}/SQL Master/${'Belgeler'}');
     await dir.create(recursive: true);
     final target = File('${dir.path}/${f.name}');
     final sink = target.openWrite();
@@ -115,14 +114,14 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
     await sink.close();
     if (!mounted) return;
     setState(() => _file = target.path);
-    mtToast(context, SqTxt.fileCopied, sub: f.name, type: 'ok');
+    mtToast(context, MtStrings.of(context).sqMobFileCopied, sub: f.name, type: 'ok');
   }
 
   Future<void> _test() async {
     final s = MtStrings.of(context);
     final data = _collect(s);
     if (data == null) return;
-    if (!_meta.mobile) { setState(() { _testOk = false; _testMsg = '${s.sqFormTestFail}\n${SqTxt.unsupportedMobile}'; }); return; }
+    if (!_meta.mobile) { setState(() { _testOk = false; _testMsg = '${s.sqFormTestFail}\n${s.sqMobUnsupportedMobile}'; }); return; }
     setState(() { _testing = true; _testMsg = null; });
     final sess = SqlSession(conn: SqlConnection('test', data), settings: SqlSettings(SqlSettings.blank()), password: _pw.text, onHostKey: (fp) => _fp = fp);
     final sw = Stopwatch()..start();
@@ -175,7 +174,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
                   _ProviderButton(meta: p, selected: p.id == _provider, width: w, enabled: !sameKindOnly || p.kind == _meta.kind, onTap: () => _onProvider(p.id)),
               ]);
             }),
-            if (!_meta.mobile) ...[const SizedBox(height: 10), MtBox(SqTxt.unsupportedMobile, kind: MtBoxKind.notice, icon: Icons.phonelink_off_outlined)],
+            if (!_meta.mobile) ...[const SizedBox(height: 10), MtBox(s.sqMobUnsupportedMobile, kind: MtBoxKind.notice, icon: Icons.phonelink_off_outlined)],
             const SizedBox(height: 14),
             MtField(label: s.sqFormName, child: TextField(controller: _name, decoration: InputDecoration(hintText: s.sqFormNamePh))),
             const SizedBox(height: 14),
@@ -202,7 +201,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
                       style: MtText.body.copyWith(color: _file.isEmpty ? col.text3 : col.text)),
                 )),
                 const SizedBox(width: 8),
-                MtButton(label: SqTxt.pickFile, icon: Icons.folder_open_outlined, onPressed: _pickFile),
+                MtButton(label: s.sqMobPickFile, icon: Icons.folder_open_outlined, onPressed: _pickFile),
                 if (_file.isNotEmpty) ...[const SizedBox(width: 4), MtIconButton(icon: Icons.close, tooltip: s.commonDelete, onPressed: () => setState(() => _file = ''))],
               ])),
             ],
@@ -225,7 +224,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
             if (!file) MtCheck(value: _savePw, onChanged: (v) => setState(() => _savePw = v), label: s.sqFormSavePassword, hint: s.sqFormSavePasswordHint),
             if (!file) const SizedBox(height: 14),
             if (!file)
-              MtField(label: s.sqFormSsl, hint: _provider == 'mysql' ? '${s.sqFormSslHint}\n${SqTxt.sslVerifyNote}' : s.sqFormSslHint, child: _select<String>(_ssl, [
+              MtField(label: s.sqFormSsl, hint: _provider == 'mysql' ? '${s.sqFormSslHint}\n${s.sqMobSslVerifyNote}' : s.sqFormSslHint, child: _select<String>(_ssl, [
                 ('prefer', s.sqFormSslPrefer), ('require', s.sqFormSslRequire), ('verify-full', s.sqFormSslVerify), ('disable', s.sqFormSslDisable),
               ], (v) => setState(() => _ssl = v!))),
           ]),
@@ -246,10 +245,10 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
                     MtField(label: s.sqFormSshAuth, child: MtSegment<String>(value: _sshAuth, onChanged: (v) => setState(() => _sshAuth = v), items: [('key', s.sqFormSshKey, Icons.key), ('password', s.sqFormPassword, Icons.password)])),
                     const SizedBox(height: 14),
                     if (_sshAuth == 'key') ...[
-                      MtField(label: s.sqFormKeyFile, hint: SqTxt.sshKeyPaste, child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                      MtField(label: s.sqFormKeyFile, hint: s.sqMobSshKeyPaste, child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
                         TextField(controller: _sshKey, maxLines: 5, minLines: 3, style: MtText.mono, textDirection: TextDirection.ltr, decoration: const InputDecoration(hintText: '-----BEGIN OPENSSH PRIVATE KEY-----')),
                         const SizedBox(height: 8),
-                        Align(alignment: AlignmentDirectional.centerStart, child: MtButton(label: SqTxt.pickFile, small: true, icon: Icons.upload_file, onPressed: _pickKey)),
+                        Align(alignment: AlignmentDirectional.centerStart, child: MtButton(label: s.sqMobPickFile, small: true, icon: Icons.upload_file, onPressed: _pickKey)),
                       ])),
                       const SizedBox(height: 14),
                       MtField(label: s.sqFormPassphrase, hint: s.sqFormPassEmpty, child: TextField(controller: _sshPass, obscureText: true)),

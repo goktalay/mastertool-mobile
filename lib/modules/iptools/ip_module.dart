@@ -18,7 +18,6 @@ import 'ip_model.dart';
 import 'ip_scan_screen.dart';
 import 'ip_settings_screen.dart';
 import 'ip_store.dart';
-import 'ip_texts.dart';
 import 'ip_widgets.dart';
 
 const kIpMaxBlobBytes = 256 * 1024;
@@ -128,8 +127,8 @@ class _IpLibraryScreenState extends State<IpLibraryScreen> {
         app: 'ip', kind: 'record', appIcon: 'ip', copySuffix: s.smMainCopySuffix,
         texts: LibraryTexts(
           title: 'IP Tools', searchPh: s.ipAppSearchPh, newItem: s.ipAppNewRecord, items: s.ipRecRootFolder, welcome: s.ipWelcomeTitle,
-          welcomeHint: s.ipWelcomeBody, noMatch: IpTr.noMatch, stats: (n, _) => s.ipAppStats(n), folderCount: s.ipRecItems,
-          deleteItem: IpTr.deleteRecord, deleteItemMsg: (name, _) => s.ipRecDeleteMsg(name), newHere: IpTr.newRecordHere, results: s.smAppResults,
+          welcomeHint: s.ipWelcomeBody, noMatch: s.ipMobNoMatch, stats: (n, _) => s.ipAppStats(n), folderCount: s.ipRecItems,
+          deleteItem: s.ipMobDeleteRecord, deleteItemMsg: (name, _) => s.ipRecDeleteMsg(name), newHere: s.ipMobNewRecordHere, results: s.smAppResults, all: s.ipMobAllRecords,
         ),
         toItem: (id, d) {
           final r = IpRecord(id, d);
@@ -140,7 +139,7 @@ class _IpLibraryScreenState extends State<IpLibraryScreen> {
               icon: scanning ? Icons.radar : Icons.wifi, folderId: r.folderId, tags: [
                 if (scanning) (Icons.radar, s.ipScanScanning)
                 else (Icons.schedule, last == null ? s.ipRecNever : s.ipRecLastScan(fmtTime(last.finishedAt))),
-                if (p.ok) (Icons.tag, '${p.count} ${IpTr.addresses}'),
+                if (p.ok) (Icons.tag, s.ipMobAddresses(p.count)),
                 if (last != null) (Icons.devices_other_outlined, s.ipRecDevices(last.liveCount.toString())),
                 if (last != null && last.newCount > 0) (Icons.bolt, s.ipRecNewDevices(last.newCount.toString())),
               ]);

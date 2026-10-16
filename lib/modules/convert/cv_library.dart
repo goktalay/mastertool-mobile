@@ -12,7 +12,6 @@ import 'cv_form.dart';
 import 'cv_model.dart';
 import 'cv_project.dart';
 import 'cv_settings.dart';
-import 'cv_texts.dart';
 
 class CvLibraryScreen extends StatefulWidget {
   const CvLibraryScreen({super.key, required this.host});
@@ -70,7 +69,7 @@ class _CvLibraryScreenState extends State<CvLibraryScreen> {
         texts: LibraryTexts(
           title: 'Convert Master', searchPh: s.cvAppSearchPh, newItem: s.cvAppNewProject, items: s.cvAppProjects, welcome: s.cvAppWelcome,
           welcomeHint: s.cvAppWelcomeHint.replaceAll('<br>', ' '), noMatch: s.cvAppNoMatch, stats: s.cvAppStats, folderCount: s.cvAppFolderCount,
-          deleteItem: s.cvAppDeleteProject, deleteItemMsg: (name, _) => s.cvAppDeleteProjectMsg(name), newHere: s.cvAppNewProjectHere, results: s.cvAppResults,
+          deleteItem: s.cvAppDeleteProject, deleteItemMsg: (name, _) => s.cvAppDeleteProjectMsg(name), newHere: s.cvAppNewProjectHere, results: s.cvAppResults, all: s.cvAppAll,
         ),
         toItem: (id, d) {
           final p = CvProject(id, d);
@@ -81,7 +80,7 @@ class _CvLibraryScreenState extends State<CvLibraryScreen> {
           return LibraryItem(id: id, name: p.name, subtitle: '$src → ${p.targetExt.toUpperCase()}', color: p.colorValue, icon: icon, folderId: p.folderId, tags: [
             (p.sourceMode == 'folder' ? Icons.folder_outlined : Icons.insert_drive_file_outlined, p.sourceMode == 'folder' ? s.cvPfModeFolder : s.cvPfModeFile),
             if (running) (Icons.sync, s.cvAppRunning),
-            (Icons.check, CvT.converted(p.doneCount)),
+            (Icons.check, s.cvMobConverted(p.doneCount)),
             if (p.errorCount > 0) (Icons.error_outline, s.cvAppErrorCount('${p.errorCount}')),
           ]);
         },

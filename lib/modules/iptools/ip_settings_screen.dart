@@ -9,7 +9,6 @@ import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
 import 'ip_model.dart';
 import 'ip_ports.dart';
-import 'ip_texts.dart';
 import 'ip_widgets.dart';
 
 class IpSettingsScreen extends StatefulWidget {
@@ -52,12 +51,12 @@ class _IpSettingsScreenState extends State<IpSettingsScreen> {
     return Scaffold(
       backgroundColor: c.surface,
       appBar: AppBar(backgroundColor: c.surface, title: Row(children: [Icon(Icons.settings_outlined, size: 18, color: c.accent), const SizedBox(width: 8),
-          Text('${s.setTitle} › ${IpTr.setScan}', style: MtText.h2.copyWith(color: c.text))])),
+          Text('${s.setTitle} › ${s.ipMobSetScan}', style: MtText.h2.copyWith(color: c.text))])),
       body: SafeArea(child: Column(children: [
         Expanded(child: Center(child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 760), child: ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-          const MtSectionTitle(IpTr.setPorts),
+          MtSectionTitle(s.ipMobSetPorts),
           const SizedBox(height: 6),
-          Text(IpTr.setPortsHint, style: MtText.small.copyWith(color: c.text2, height: 1.45)),
+          Text(s.ipMobSetPortsHint, style: MtText.small.copyWith(color: c.text2, height: 1.45)),
           const SizedBox(height: 12),
           if (wide)
             Column(children: [
@@ -69,17 +68,17 @@ class _IpSettingsScreenState extends State<IpSettingsScreen> {
           else
             Column(children: [for (final w in cards) Padding(padding: const EdgeInsets.only(bottom: 10), child: w)]),
           const SizedBox(height: 14),
-          const MtSectionTitle(IpTr.setSpeed),
+          MtSectionTitle(s.ipMobSetSpeed),
           const SizedBox(height: 12),
           _row(wide, [
-            MtField(label: IpTr.setConcurrency, hint: IpTr.setConcurrencyHint, child: TextField(controller: _conc, keyboardType: TextInputType.number, textDirection: TextDirection.ltr)),
-            MtField(label: IpTr.setTimeout, hint: IpTr.setTimeoutHint, child: TextField(controller: _tmo, keyboardType: TextInputType.number, textDirection: TextDirection.ltr,
+            MtField(label: s.ipMobSetConcurrency, hint: s.ipMobSetConcurrencyHint, child: TextField(controller: _conc, keyboardType: TextInputType.number, textDirection: TextDirection.ltr)),
+            MtField(label: s.ipMobSetTimeout, hint: s.ipMobSetTimeoutHint, child: TextField(controller: _tmo, keyboardType: TextInputType.number, textDirection: TextDirection.ltr,
                 decoration: InputDecoration(suffixText: 'ms', suffixStyle: MtText.small.copyWith(color: c.text3)))),
           ]),
           const SizedBox(height: 16),
-          const MtBox(IpTr.setLimitsNote, kind: MtBoxKind.info, icon: Icons.info_outline),
+          MtBox(s.ipMobSetLimitsNote, kind: MtBoxKind.info, icon: Icons.info_outline),
           const SizedBox(height: 10),
-          const MtBox(IpTr.phoneNoMacNote, kind: MtBoxKind.info, icon: Icons.phone_android_outlined),
+          MtBox(s.ipMobPhoneNoMacNote, kind: MtBoxKind.info, icon: Icons.phone_android_outlined),
         ])))),
         Container(
           padding: const EdgeInsets.fromLTRB(22, 14, 22, 18),

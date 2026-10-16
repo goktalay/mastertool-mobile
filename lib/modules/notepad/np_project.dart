@@ -281,7 +281,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
 
   Future<void> _saveAs(NpTab tab) async {
     final s = MtStrings.of(context);
-    final name = await _ask('Farklı kaydet', s.npTreeFileName, initial: tab.name);
+    final name = await _ask(s.npMobSaveAsTitle, s.npTreeFileName, initial: tab.name);
     if (name == null || name.isEmpty || name.contains('/')) { if (name != null && mounted) mtToast(context, s.npTreeBadName, type: 'err'); return; }
     final dir = npDirName(tab.path);
     final newPath = npJoin(dir, name);
@@ -468,7 +468,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
       PopupMenuItem(value: 'all', child: mi(Icons.clear_all, s.npProjCloseAll)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'reload', child: mi(Icons.refresh, s.npProjReload)),
-      PopupMenuItem(value: 'saveAs', child: mi(Icons.save_as_outlined, 'Farklı kaydet…')),
+      PopupMenuItem(value: 'saveAs', child: mi(Icons.save_as_outlined, s.npMobSaveAs)),
       PopupMenuItem(value: 'reveal', child: mi(Icons.account_tree_outlined, s.npProjRevealTree)),
     ]);
     if (!mounted || r == null) return;
@@ -802,7 +802,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
           PopupMenuItem(value: 'newFile', child: Text(s.npTreeNewFile)),
           PopupMenuItem(value: 'newFolder', child: Text(s.commonNewFolder)),
           PopupMenuItem(value: 'saveAll', enabled: _tabs.any((t) => t.dirty), child: Text(s.npProjSaveAll)),
-          PopupMenuItem(value: 'saveAs', enabled: tab != null, child: const Text('Farklı kaydet…')),
+          PopupMenuItem(value: 'saveAs', enabled: tab != null, child: Text(s.npMobSaveAs)),
           const PopupMenuDivider(),
           PopupMenuItem(value: 'undo', enabled: tab != null, child: Text(s.npProjUndo)),
           PopupMenuItem(value: 'redo', enabled: tab != null, child: Text(s.npProjRedo)),

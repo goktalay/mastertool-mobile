@@ -12,7 +12,6 @@ import '../ssh/ssh_model.dart' show kCardColors, parseHex;
 import 'ip_model.dart';
 import 'ip_ranges.dart';
 import 'ip_store.dart';
-import 'ip_texts.dart';
 
 String rangeErrorText(MtStrings s, IpRangeError e) => switch (e.code) {
       'empty' => s.ipRangeErrEmpty, 'ipv6' => s.ipRangeErrIpv6(e.token), 'reversed' => s.ipRangeErrReversed(e.token),
@@ -79,7 +78,7 @@ class _IpFormScreenState extends State<IpFormScreen> {
       final mask = await info.getWifiSubmask();
       final n = ip == null ? null : ipToInt(ip);
       if (n == null || !isPrivate(n)) {
-        if (mounted) mtToast(context, IpTr.suggestLocalNone, type: 'err');
+        if (mounted) mtToast(context, MtStrings.of(context).ipMobSuggestLocalNone, type: 'err');
         return;
       }
       var bits = 24;
@@ -95,7 +94,7 @@ class _IpFormScreenState extends State<IpFormScreen> {
       final cur = _range.text.trim();
       _range.text = cur.isEmpty ? cidr : '$cur, $cidr';
     } catch (_) {
-      if (mounted) mtToast(context, IpTr.suggestLocalNone, type: 'err');
+      if (mounted) mtToast(context, MtStrings.of(context).ipMobSuggestLocalNone, type: 'err');
     } finally {
       if (mounted) setState(() => _suggesting = false);
     }
@@ -140,7 +139,7 @@ class _IpFormScreenState extends State<IpFormScreen> {
           keyboardType: TextInputType.multiline, autocorrect: false, textDirection: TextDirection.ltr, decoration: const InputDecoration(hintText: '192.168.1.0/24'))),
       const SizedBox(height: 8),
       Row(children: [
-        MtButton(label: IpTr.suggestLocal, small: true, icon: Icons.wifi, busy: _suggesting, onPressed: _suggest),
+        MtButton(label: s.ipMobSuggestLocal, small: true, icon: Icons.wifi, busy: _suggesting, onPressed: _suggest),
         const SizedBox(width: 10),
         if (touched) Expanded(child: parsed.ok
             ? Row(children: [Icon(Icons.check_circle_outline, size: 14, color: col.ok), const SizedBox(width: 6),
@@ -168,10 +167,10 @@ class _IpFormScreenState extends State<IpFormScreen> {
                   const SizedBox(width: 8),
                   MtButton(label: widget.existing == null ? s.commonCreate : s.commonSave, onPressed: () => _save()),
                   const SizedBox(width: 8),
-                  MtButton(label: IpTr.scanThis, kind: MtBtnKind.primary, icon: Icons.play_arrow, onPressed: () => _save(scan: true)),
+                  MtButton(label: s.ipMobScanThis, kind: MtBtnKind.primary, icon: Icons.play_arrow, onPressed: () => _save(scan: true)),
                 ])
               : Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-                  MtButton(label: IpTr.scanThis, kind: MtBtnKind.primary, icon: Icons.play_arrow, expand: true, onPressed: () => _save(scan: true)),
+                  MtButton(label: s.ipMobScanThis, kind: MtBtnKind.primary, icon: Icons.play_arrow, expand: true, onPressed: () => _save(scan: true)),
                   const SizedBox(height: 8),
                   Row(children: [
                     Expanded(child: MtButton(label: s.commonCancel, expand: true, onPressed: () => Navigator.of(context).pop())),

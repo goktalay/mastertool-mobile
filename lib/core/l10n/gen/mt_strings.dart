@@ -8694,6 +8694,486 @@ abstract class MtStrings {
   /// In tr, this message translates to:
   /// **'boş değil'**
   String get sqOpIsnotnull;
+
+  /// No description provided for @ipMobScanThis.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu ağı tara'**
+  String get ipMobScanThis;
+
+  /// No description provided for @ipMobDeleteRecord.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydı sil'**
+  String get ipMobDeleteRecord;
+
+  /// No description provided for @ipMobNewRecordHere.
+  ///
+  /// In tr, this message translates to:
+  /// **'Burada yeni kayıt'**
+  String get ipMobNewRecordHere;
+
+  /// No description provided for @ipMobNoMatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşleşen kayıt bulunamadı.'**
+  String get ipMobNoMatch;
+
+  /// No description provided for @ipMobAddresses.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} adres'**
+  String ipMobAddresses(int n);
+
+  /// No description provided for @ipMobAllRecords.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm kayıtlar'**
+  String get ipMobAllRecords;
+
+  /// No description provided for @ipMobSetScan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tarama'**
+  String get ipMobSetScan;
+
+  /// No description provided for @ipMobSetPorts.
+  ///
+  /// In tr, this message translates to:
+  /// **'Denenecek servisler'**
+  String get ipMobSetPorts;
+
+  /// No description provided for @ipMobSetPortsHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her port için yalnız standart bir TCP bağlantı denemesi yapılır. Liste sabittir; istemediklerinizi kapatabilirsiniz.'**
+  String get ipMobSetPortsHint;
+
+  /// No description provided for @ipMobSetSpeed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hız'**
+  String get ipMobSetSpeed;
+
+  /// No description provided for @ipMobSetConcurrency.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşzamanlı bağlantı'**
+  String get ipMobSetConcurrency;
+
+  /// No description provided for @ipMobSetConcurrencyHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aynı anda en çok 64 bağlantı denemesi (tasarım sınırı).'**
+  String get ipMobSetConcurrencyHint;
+
+  /// No description provided for @ipMobSetTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zaman aşımı'**
+  String get ipMobSetTimeout;
+
+  /// No description provided for @ipMobSetTimeoutHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cihaz başına en çok 1000 ms beklenir.'**
+  String get ipMobSetTimeoutHint;
+
+  /// No description provided for @ipMobSetLimitsNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'IP Tools yalnız keşif ve envanter aracıdır: port listesi genişletilemez, zafiyet denemesi ve parola deneme yapılmaz, yalnız özel/yerel adresler taranır.'**
+  String get ipMobSetLimitsNote;
+
+  /// No description provided for @ipMobMacMobile.
+  ///
+  /// In tr, this message translates to:
+  /// **'mobilde kullanılamaz'**
+  String get ipMobMacMobile;
+
+  /// No description provided for @ipMobAliveTcp.
+  ///
+  /// In tr, this message translates to:
+  /// **'TCP bağlantısına yanıt verdi'**
+  String get ipMobAliveTcp;
+
+  /// No description provided for @ipMobAliveName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ad çözümüne yanıt verdi'**
+  String get ipMobAliveName;
+
+  /// No description provided for @ipMobOpenInSsh.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH Master\'da aç'**
+  String get ipMobOpenInSsh;
+
+  /// No description provided for @ipMobOpenInSshNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adres panoya kopyalandı; SSH Master › Yeni bağlantı formuna yapıştırın.'**
+  String get ipMobOpenInSshNote;
+
+  /// No description provided for @ipMobCopyAddress.
+  ///
+  /// In tr, this message translates to:
+  /// **'Adresi kopyala'**
+  String get ipMobCopyAddress;
+
+  /// No description provided for @ipMobSuggestLocal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu cihazın ağı'**
+  String get ipMobSuggestLocal;
+
+  /// No description provided for @ipMobSuggestLocalNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Wi-Fi ağı bulunamadı'**
+  String get ipMobSuggestLocalNone;
+
+  /// No description provided for @ipMobPhoneNoMacNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde ping ve ARP yoktur: canlılık TCP bağlantı denemesi ve ad çözümüyle belirlenir; MAC ve üretici bilgisi gösterilemez.'**
+  String get ipMobPhoneNoMacNote;
+
+  /// No description provided for @cvMobNotOnMobile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde kullanılamaz'**
+  String get cvMobNotOnMobile;
+
+  /// No description provided for @cvMobSpeechNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konuşmadan metne (whisper.cpp) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.'**
+  String get cvMobSpeechNote;
+
+  /// No description provided for @cvMobOcrNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Resimden metin (OCR, Tesseract) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.'**
+  String get cvMobOcrNote;
+
+  /// No description provided for @cvMobFolderNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde kaynak klasör seçilemez; dosyalar tek tek ya da galeriden eklenir.'**
+  String get cvMobFolderNote;
+
+  /// No description provided for @cvMobConcurrencyHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde en çok 2 dosya aynı anda dönüştürülür.'**
+  String get cvMobConcurrencyHint;
+
+  /// No description provided for @cvMobAddFiles.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya ekle'**
+  String get cvMobAddFiles;
+
+  /// No description provided for @cvMobAddFromGallery.
+  ///
+  /// In tr, this message translates to:
+  /// **'Galeriden ekle'**
+  String get cvMobAddFromGallery;
+
+  /// No description provided for @cvMobPickFilesHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dönüştürülecek dosyaları ekleyin; çıktılar uygulama belgeleri altında saklanır.'**
+  String get cvMobPickFilesHint;
+
+  /// No description provided for @cvMobShareOutput.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çıktıyı paylaş'**
+  String get cvMobShareOutput;
+
+  /// No description provided for @cvMobShareAllOutputs.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm çıktıları paylaş'**
+  String get cvMobShareAllOutputs;
+
+  /// No description provided for @cvMobSourceCopies.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaynak kopyaları'**
+  String get cvMobSourceCopies;
+
+  /// No description provided for @cvMobModuleSettings.
+  ///
+  /// In tr, this message translates to:
+  /// **'Convert Master ayarları'**
+  String get cvMobModuleSettings;
+
+  /// No description provided for @cvMobDefaultConcurrency.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni projelerde aynı anda çevrilecek dosya sayısı'**
+  String get cvMobDefaultConcurrency;
+
+  /// No description provided for @cvMobStorage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Depolama'**
+  String get cvMobStorage;
+
+  /// No description provided for @cvMobConversion.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dönüştürme'**
+  String get cvMobConversion;
+
+  /// No description provided for @cvMobClearOrphans.
+  ///
+  /// In tr, this message translates to:
+  /// **'Silinmiş projelerin dosyalarını temizle'**
+  String get cvMobClearOrphans;
+
+  /// No description provided for @cvMobStorageNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dönüştürülmüş dosyalar ve kaynak kopyaları uygulamanın belgeler klasöründe tutulur; cihazınızdan ayrılmaz.'**
+  String get cvMobStorageNote;
+
+  /// No description provided for @cvMobCleared.
+  ///
+  /// In tr, this message translates to:
+  /// **'Temizlendi'**
+  String get cvMobCleared;
+
+  /// No description provided for @cvMobNoOutputsYet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz dönüştürülmüş dosya yok.'**
+  String get cvMobNoOutputsYet;
+
+  /// No description provided for @cvMobFilesAdded.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dosya eklendi'**
+  String cvMobFilesAdded(int n);
+
+  /// No description provided for @cvMobUnsupportedExt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu projenin kaynak uzantıları arasında değil'**
+  String get cvMobUnsupportedExt;
+
+  /// No description provided for @cvMobUnsupportedOnMobile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde desteklenmiyor'**
+  String get cvMobUnsupportedOnMobile;
+
+  /// No description provided for @cvMobLicense.
+  ///
+  /// In tr, this message translates to:
+  /// **'Video ve ses dönüştürme FFmpegKit (LGPL 3.0, GPL bileşeni yok) ile yapılır; H.264 / H.265 kodlama cihazın donanım kodlayıcısını (iOS VideoToolbox, Android MediaCodec) kullanır.'**
+  String get cvMobLicense;
+
+  /// No description provided for @cvMobConverted.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dosya dönüştürüldü'**
+  String cvMobConverted(int n);
+
+  /// No description provided for @cvMobFilesCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} dosya'**
+  String cvMobFilesCount(int n);
+
+  /// No description provided for @sqMobUnsupportedMobile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu motor mobilde henüz desteklenmiyor'**
+  String get sqMobUnsupportedMobile;
+
+  /// No description provided for @sqMobPickFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seç'**
+  String get sqMobPickFile;
+
+  /// No description provided for @sqMobFileCopied.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya uygulamanın belgeler dizinine kopyalandı'**
+  String get sqMobFileCopied;
+
+  /// No description provided for @sqMobSshKeyPaste.
+  ///
+  /// In tr, this message translates to:
+  /// **'PEM anahtarı yapıştırın ya da dosyadan seçin'**
+  String get sqMobSshKeyPaste;
+
+  /// No description provided for @sqMobErrHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adresi gerekli'**
+  String get sqMobErrHost;
+
+  /// No description provided for @sqMobErrFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Veritabanı dosyası seçin'**
+  String get sqMobErrFile;
+
+  /// No description provided for @sqMobErrSshHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH sunucusu ve kullanıcı adı gerekli'**
+  String get sqMobErrSshHost;
+
+  /// No description provided for @sqMobErrSshKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH özel anahtarı gerekli'**
+  String get sqMobErrSshKey;
+
+  /// No description provided for @sqMobSslVerifyNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'MySQL sürücüsü sertifika doğrulamaz; \"doğrula\" seçeneği \"zorunlu\" gibi davranır.'**
+  String get sqMobSslVerifyNote;
+
+  /// No description provided for @sqMobRowDetail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Satır ayrıntısı'**
+  String get sqMobRowDetail;
+
+  /// No description provided for @sqMobNoResult.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sonuç yok — Çalıştır ile başlayın'**
+  String get sqMobNoResult;
+
+  /// No description provided for @sqMobExportJsonl.
+  ///
+  /// In tr, this message translates to:
+  /// **'JSONL (satır başına JSON)'**
+  String get sqMobExportJsonl;
+
+  /// No description provided for @sqMobExportNoRows.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dışa aktarılacak satır yok'**
+  String get sqMobExportNoRows;
+
+  /// No description provided for @sqMobSettingsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'SQL Master ayarları'**
+  String get sqMobSettingsTitle;
+
+  /// No description provided for @sqMobRowLimit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sorgu satır sınırı'**
+  String get sqMobRowLimit;
+
+  /// No description provided for @sqMobPreviewRows.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tablo önizleme satırı'**
+  String get sqMobPreviewRows;
+
+  /// No description provided for @sqMobEditorFont.
+  ///
+  /// In tr, this message translates to:
+  /// **'Editör yazı boyutu'**
+  String get sqMobEditorFont;
+
+  /// No description provided for @sqMobCopyCell.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değeri kopyala'**
+  String get sqMobCopyCell;
+
+  /// No description provided for @sqMobSelectionRun.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçimi çalıştır'**
+  String get sqMobSelectionRun;
+
+  /// No description provided for @sqMobTunnelOpening.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH tüneli açılıyor…'**
+  String get sqMobTunnelOpening;
+
+  /// No description provided for @sqMobConnectingDb.
+  ///
+  /// In tr, this message translates to:
+  /// **'Veritabanına bağlanılıyor…'**
+  String get sqMobConnectingDb;
+
+  /// No description provided for @sqMobOpEq.
+  ///
+  /// In tr, this message translates to:
+  /// **'= (eşittir)'**
+  String get sqMobOpEq;
+
+  /// No description provided for @sqMobOpNe.
+  ///
+  /// In tr, this message translates to:
+  /// **'≠ (eşit değil)'**
+  String get sqMobOpNe;
+
+  /// No description provided for @sqMobOpLt.
+  ///
+  /// In tr, this message translates to:
+  /// **'< (küçük)'**
+  String get sqMobOpLt;
+
+  /// No description provided for @sqMobOpGt.
+  ///
+  /// In tr, this message translates to:
+  /// **'> (büyük)'**
+  String get sqMobOpGt;
+
+  /// No description provided for @sqMobOpLe.
+  ///
+  /// In tr, this message translates to:
+  /// **'≤ (küçük ya da eşit)'**
+  String get sqMobOpLe;
+
+  /// No description provided for @npMobSaveAs.
+  ///
+  /// In tr, this message translates to:
+  /// **'Farklı kaydet…'**
+  String get npMobSaveAs;
+
+  /// No description provided for @npMobSaveAsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Farklı kaydet'**
+  String get npMobSaveAsTitle;
+
+  /// No description provided for @npMobDefaultProjectName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Proje'**
+  String get npMobDefaultProjectName;
+
+  /// No description provided for @npMobLocalPathExample.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belgeler/Notepad Master/…'**
+  String get npMobLocalPathExample;
+
+  /// No description provided for @npMobReplaceAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tümünü değiştir'**
+  String get npMobReplaceAll;
 }
 
 class _MtStringsDelegate extends LocalizationsDelegate<MtStrings> {

@@ -80,7 +80,7 @@ class _NpLibraryScreenState extends State<NpLibraryScreen> {
         texts: LibraryTexts(
           title: 'Notepad Master', searchPh: s.npAppSearchPh, newItem: s.npAppNewConn, items: s.npAppConnections, welcome: s.npAppWelcome,
           welcomeHint: s.npAppWelcomeHint.replaceAll('<br>', '\n'), noMatch: s.npAppNoMatch, stats: s.npAppStats, folderCount: s.npAppFolderCount,
-          deleteItem: s.npAppDeleteConn, deleteItemMsg: s.npAppDeleteConnMsg, newHere: s.npAppNewConnHere, results: s.npAppResults,
+          deleteItem: s.npAppDeleteConn, deleteItemMsg: s.npAppDeleteConnMsg, newHere: s.npAppNewConnHere, results: s.npAppResults, all: s.npAppAll,
         ),
         toItem: (id, d) {
           final c = NpConnection(id, d);

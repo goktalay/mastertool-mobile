@@ -4713,4 +4713,255 @@ class MtStringsZh extends MtStrings {
 
   @override
   String get sqOpIsnotnull => '不为 NULL';
+
+  @override
+  String get ipMobScanThis => '扫描此网络';
+
+  @override
+  String get ipMobDeleteRecord => '删除记录';
+
+  @override
+  String get ipMobNewRecordHere => '在此新建记录';
+
+  @override
+  String get ipMobNoMatch => '未找到匹配的记录。';
+
+  @override
+  String ipMobAddresses(int n) {
+    return '$n 个地址';
+  }
+
+  @override
+  String get ipMobAllRecords => '所有记录';
+
+  @override
+  String get ipMobSetScan => '扫描';
+
+  @override
+  String get ipMobSetPorts => '要探测的服务';
+
+  @override
+  String get ipMobSetPortsHint => '每个端口只进行一次标准 TCP 连接尝试。列表固定，您可以关闭不需要的项。';
+
+  @override
+  String get ipMobSetSpeed => '速度';
+
+  @override
+  String get ipMobSetConcurrency => '并发连接数';
+
+  @override
+  String get ipMobSetConcurrencyHint => '同时最多 64 次连接尝试（设计上限）。';
+
+  @override
+  String get ipMobSetTimeout => '超时';
+
+  @override
+  String get ipMobSetTimeoutHint => '每台设备最多等待 1000 毫秒。';
+
+  @override
+  String get ipMobSetLimitsNote =>
+      'IP Tools 仅是发现与清单工具：端口列表不可扩展，不进行漏洞或密码尝试，仅扫描私有/本地地址。';
+
+  @override
+  String get ipMobMacMobile => '移动端不可用';
+
+  @override
+  String get ipMobAliveTcp => '已响应 TCP 连接';
+
+  @override
+  String get ipMobAliveName => '已响应名称解析';
+
+  @override
+  String get ipMobOpenInSsh => '在 SSH Master 中打开';
+
+  @override
+  String get ipMobOpenInSshNote => '地址已复制到剪贴板；请粘贴到 SSH Master › 新建连接表单中。';
+
+  @override
+  String get ipMobCopyAddress => '复制地址';
+
+  @override
+  String get ipMobSuggestLocal => '本设备所在网络';
+
+  @override
+  String get ipMobSuggestLocalNone => '未找到 Wi-Fi 网络';
+
+  @override
+  String get ipMobPhoneNoMacNote =>
+      '移动端没有 ping 和 ARP：在线状态通过 TCP 连接尝试和名称解析判断；无法显示 MAC 和厂商信息。';
+
+  @override
+  String get cvMobNotOnMobile => '移动端不可用';
+
+  @override
+  String get cvMobSpeechNote => '移动版不包含语音转文字 (whisper.cpp)；设置会保留并在桌面端生效。';
+
+  @override
+  String get cvMobOcrNote => '移动版不包含图片文字识别 (OCR, Tesseract)；设置会保留并在桌面端生效。';
+
+  @override
+  String get cvMobFolderNote => '移动端无法选择源文件夹；文件需逐个添加或从相册添加。';
+
+  @override
+  String get cvMobConcurrencyHint => '移动端最多同时转换 2 个文件。';
+
+  @override
+  String get cvMobAddFiles => '添加文件';
+
+  @override
+  String get cvMobAddFromGallery => '从相册添加';
+
+  @override
+  String get cvMobPickFilesHint => '添加要转换的文件；输出保存在应用文档目录下。';
+
+  @override
+  String get cvMobShareOutput => '分享输出';
+
+  @override
+  String get cvMobShareAllOutputs => '分享全部输出';
+
+  @override
+  String get cvMobSourceCopies => '源文件副本';
+
+  @override
+  String get cvMobModuleSettings => 'Convert Master 设置';
+
+  @override
+  String get cvMobDefaultConcurrency => '新项目中同时转换的文件数';
+
+  @override
+  String get cvMobStorage => '存储';
+
+  @override
+  String get cvMobConversion => '转换';
+
+  @override
+  String get cvMobClearOrphans => '清理已删除项目的文件';
+
+  @override
+  String get cvMobStorageNote => '转换后的文件和源文件副本保存在应用的文档文件夹中，不会离开您的设备。';
+
+  @override
+  String get cvMobCleared => '已清理';
+
+  @override
+  String get cvMobNoOutputsYet => '尚无已转换的文件。';
+
+  @override
+  String cvMobFilesAdded(int n) {
+    return '已添加 $n 个文件';
+  }
+
+  @override
+  String get cvMobUnsupportedExt => '不在此项目的源扩展名范围内';
+
+  @override
+  String get cvMobUnsupportedOnMobile => '移动端不支持';
+
+  @override
+  String get cvMobLicense =>
+      '视频和音频转换使用 FFmpegKit（LGPL 3.0，不含 GPL 组件）；H.264 / H.265 编码使用设备的硬件编码器（iOS VideoToolbox、Android MediaCodec）。';
+
+  @override
+  String cvMobConverted(int n) {
+    return '已转换 $n 个文件';
+  }
+
+  @override
+  String cvMobFilesCount(int n) {
+    return '$n 个文件';
+  }
+
+  @override
+  String get sqMobUnsupportedMobile => '移动端尚不支持此引擎';
+
+  @override
+  String get sqMobPickFile => '选择';
+
+  @override
+  String get sqMobFileCopied => '文件已复制到应用的文档目录';
+
+  @override
+  String get sqMobSshKeyPaste => '粘贴 PEM 密钥或从文件选择';
+
+  @override
+  String get sqMobErrHost => '需要服务器地址';
+
+  @override
+  String get sqMobErrFile => '请选择数据库文件';
+
+  @override
+  String get sqMobErrSshHost => '需要 SSH 服务器和用户名';
+
+  @override
+  String get sqMobErrSshKey => '需要 SSH 私钥';
+
+  @override
+  String get sqMobSslVerifyNote => 'MySQL 驱动不验证证书；“验证”选项的行为与“必需”相同。';
+
+  @override
+  String get sqMobRowDetail => '行详情';
+
+  @override
+  String get sqMobNoResult => '暂无结果 — 点击运行开始';
+
+  @override
+  String get sqMobExportJsonl => 'JSONL（每行一个 JSON）';
+
+  @override
+  String get sqMobExportNoRows => '没有可导出的行';
+
+  @override
+  String get sqMobSettingsTitle => 'SQL Master 设置';
+
+  @override
+  String get sqMobRowLimit => '查询行数上限';
+
+  @override
+  String get sqMobPreviewRows => '表预览行数';
+
+  @override
+  String get sqMobEditorFont => '编辑器字号';
+
+  @override
+  String get sqMobCopyCell => '复制值';
+
+  @override
+  String get sqMobSelectionRun => '运行所选内容';
+
+  @override
+  String get sqMobTunnelOpening => '正在打开 SSH 隧道…';
+
+  @override
+  String get sqMobConnectingDb => '正在连接数据库…';
+
+  @override
+  String get sqMobOpEq => '=（等于）';
+
+  @override
+  String get sqMobOpNe => '≠（不等于）';
+
+  @override
+  String get sqMobOpLt => '<（小于）';
+
+  @override
+  String get sqMobOpGt => '>（大于）';
+
+  @override
+  String get sqMobOpLe => '≤（小于或等于）';
+
+  @override
+  String get npMobSaveAs => '另存为…';
+
+  @override
+  String get npMobSaveAsTitle => '另存为';
+
+  @override
+  String get npMobDefaultProjectName => '项目';
+
+  @override
+  String get npMobLocalPathExample => '文档/Notepad Master/…';
+
+  @override
+  String get npMobReplaceAll => '全部替换';
 }

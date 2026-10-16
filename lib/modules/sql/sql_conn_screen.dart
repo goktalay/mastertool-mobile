@@ -14,7 +14,6 @@ import 'sql_editor.dart';
 import 'sql_model.dart';
 import 'sql_session.dart';
 import 'sql_settings.dart';
-import 'sql_texts.dart';
 import 'sql_tree.dart';
 
 class SqlConnScreen extends StatefulWidget {
@@ -58,9 +57,11 @@ class _SqlConnScreenState extends State<SqlConnScreen> {
 
   void _onSession() { if (mounted) setState(() {}); }
 
+  String _phaseText(MtStrings s) => switch (_session.phase) { 'tunnel' => s.sqMobTunnelOpening, 'db' => s.sqMobConnectingDb, _ => s.sqCwConnecting };
+
   Future<void> _connect() async {
     setState(() => _error = null);
-    if (!widget.conn.meta.mobile) { setState(() => _error = SqTxt.unsupportedMobile); return; }
+    if (!widget.conn.meta.mobile) { setState(() => _error = MtStrings.of(context).sqMobUnsupportedMobile); return; }
     var pw = _session.password;
     if (!widget.conn.meta.isFile && widget.conn.password.isEmpty && pw == null) {
       pw = await _askPassword();
@@ -163,7 +164,7 @@ class _SqlConnScreenState extends State<SqlConnScreen> {
     final dot = switch (st) { SessionState.connected => c.ok, SessionState.connecting => c.warn, _ => c.err };
     final sub = switch (st) {
       SessionState.connected => conn.meta.isFile ? conn.subtitle(s.sqFormInMemory) : '${conn.userOrDefault}@${conn.host}:${conn.port}',
-      SessionState.connecting => _session.phase ?? s.sqCwConnecting,
+      SessionState.connecting => _phaseText(s),
       SessionState.failed => s.sqCwConnectFailed,
       _ => s.sqCwNotConnected,
     };
@@ -177,7 +178,7 @@ class _SqlConnScreenState extends State<SqlConnScreen> {
         if (conn.meta.mobile) MtButton(label: s.sqCwRetry, icon: Icons.refresh, kind: MtBtnKind.primary, onPressed: _connect),
       ]))));
     } else if (st == SessionState.connecting) {
-      content = Center(child: Column(mainAxisSize: MainAxisSize.min, children: [const MtSpinner(size: 22), const SizedBox(height: 10), Text(_session.phase ?? s.sqCwConnecting, style: MtText.small.copyWith(color: c.text2))]));
+      content = Center(child: Column(mainAxisSize: MainAxisSize.min, children: [const MtSpinner(size: 22), const SizedBox(height: 10), Text(_phaseText(s), style: MtText.small.copyWith(color: c.text2))]));
     } else if (!wide) {
       content = tree;
     } else {

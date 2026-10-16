@@ -4864,4 +4864,270 @@ class MtStringsFr extends MtStrings {
 
   @override
   String get sqOpIsnotnull => 'n’est pas NULL';
+
+  @override
+  String get ipMobScanThis => 'Analyser ce réseau';
+
+  @override
+  String get ipMobDeleteRecord => 'Supprimer l\'enregistrement';
+
+  @override
+  String get ipMobNewRecordHere => 'Nouvel enregistrement ici';
+
+  @override
+  String get ipMobNoMatch => 'Aucun enregistrement correspondant.';
+
+  @override
+  String ipMobAddresses(int n) {
+    return '$n adresses';
+  }
+
+  @override
+  String get ipMobAllRecords => 'Tous les enregistrements';
+
+  @override
+  String get ipMobSetScan => 'Analyse';
+
+  @override
+  String get ipMobSetPorts => 'Services à tester';
+
+  @override
+  String get ipMobSetPortsHint =>
+      'Une seule tentative de connexion TCP standard est effectuée pour chaque port. La liste est fixe ; vous pouvez désactiver ceux dont vous n\'avez pas besoin.';
+
+  @override
+  String get ipMobSetSpeed => 'Vitesse';
+
+  @override
+  String get ipMobSetConcurrency => 'Connexions simultanées';
+
+  @override
+  String get ipMobSetConcurrencyHint =>
+      'Au plus 64 tentatives de connexion à la fois (limite de conception).';
+
+  @override
+  String get ipMobSetTimeout => 'Délai d\'attente';
+
+  @override
+  String get ipMobSetTimeoutHint => 'Attente maximale de 1000 ms par appareil.';
+
+  @override
+  String get ipMobSetLimitsNote =>
+      'IP Tools est uniquement un outil de découverte et d\'inventaire : la liste des ports ne peut pas être étendue, aucun test de vulnérabilité ni essai de mot de passe n\'est effectué, et seules les adresses privées/locales sont analysées.';
+
+  @override
+  String get ipMobMacMobile => 'indisponible sur mobile';
+
+  @override
+  String get ipMobAliveTcp => 'A répondu à la connexion TCP';
+
+  @override
+  String get ipMobAliveName => 'A répondu à la résolution de nom';
+
+  @override
+  String get ipMobOpenInSsh => 'Ouvrir dans SSH Master';
+
+  @override
+  String get ipMobOpenInSshNote =>
+      'Adresse copiée dans le presse-papiers ; collez-la dans le formulaire SSH Master › Nouvelle connexion.';
+
+  @override
+  String get ipMobCopyAddress => 'Copier l\'adresse';
+
+  @override
+  String get ipMobSuggestLocal => 'Réseau de cet appareil';
+
+  @override
+  String get ipMobSuggestLocalNone => 'Aucun réseau Wi-Fi trouvé';
+
+  @override
+  String get ipMobPhoneNoMacNote =>
+      'Sur mobile, ni ping ni ARP : la présence est déterminée par des tentatives de connexion TCP et la résolution de nom ; les informations MAC et fabricant ne peuvent pas être affichées.';
+
+  @override
+  String get cvMobNotOnMobile => 'Indisponible sur mobile';
+
+  @override
+  String get cvMobSpeechNote =>
+      'La transcription de la parole (whisper.cpp) n\'est pas disponible dans la version mobile ; les paramètres sont conservés et appliqués sur ordinateur.';
+
+  @override
+  String get cvMobOcrNote =>
+      'L\'extraction de texte des images (OCR, Tesseract) n\'est pas disponible dans la version mobile ; les paramètres sont conservés et appliqués sur ordinateur.';
+
+  @override
+  String get cvMobFolderNote =>
+      'Impossible de choisir un dossier source sur mobile ; les fichiers sont ajoutés un par un ou depuis la galerie.';
+
+  @override
+  String get cvMobConcurrencyHint =>
+      'Sur mobile, au plus 2 fichiers sont convertis à la fois.';
+
+  @override
+  String get cvMobAddFiles => 'Ajouter des fichiers';
+
+  @override
+  String get cvMobAddFromGallery => 'Ajouter depuis la galerie';
+
+  @override
+  String get cvMobPickFilesHint =>
+      'Ajoutez les fichiers à convertir ; les sorties sont enregistrées dans les documents de l\'application.';
+
+  @override
+  String get cvMobShareOutput => 'Partager la sortie';
+
+  @override
+  String get cvMobShareAllOutputs => 'Partager toutes les sorties';
+
+  @override
+  String get cvMobSourceCopies => 'Copies des sources';
+
+  @override
+  String get cvMobModuleSettings => 'Paramètres de Convert Master';
+
+  @override
+  String get cvMobDefaultConcurrency =>
+      'Fichiers convertis simultanément dans les nouveaux projets';
+
+  @override
+  String get cvMobStorage => 'Stockage';
+
+  @override
+  String get cvMobConversion => 'Conversion';
+
+  @override
+  String get cvMobClearOrphans => 'Nettoyer les fichiers des projets supprimés';
+
+  @override
+  String get cvMobStorageNote =>
+      'Les fichiers convertis et les copies des sources sont conservés dans le dossier documents de l\'application ; ils ne quittent jamais votre appareil.';
+
+  @override
+  String get cvMobCleared => 'Nettoyé';
+
+  @override
+  String get cvMobNoOutputsYet => 'Aucun fichier converti pour l\'instant.';
+
+  @override
+  String cvMobFilesAdded(int n) {
+    return '$n fichiers ajoutés';
+  }
+
+  @override
+  String get cvMobUnsupportedExt =>
+      'Ne fait pas partie des extensions sources de ce projet';
+
+  @override
+  String get cvMobUnsupportedOnMobile => 'Non pris en charge sur mobile';
+
+  @override
+  String get cvMobLicense =>
+      'La conversion vidéo et audio utilise FFmpegKit (LGPL 3.0, sans composant GPL) ; l\'encodage H.264 / H.265 utilise l\'encodeur matériel de l\'appareil (iOS VideoToolbox, Android MediaCodec).';
+
+  @override
+  String cvMobConverted(int n) {
+    return '$n fichiers convertis';
+  }
+
+  @override
+  String cvMobFilesCount(int n) {
+    return '$n fichiers';
+  }
+
+  @override
+  String get sqMobUnsupportedMobile =>
+      'Ce moteur n\'est pas encore pris en charge sur mobile';
+
+  @override
+  String get sqMobPickFile => 'Choisir';
+
+  @override
+  String get sqMobFileCopied =>
+      'Fichier copié dans le répertoire documents de l\'application';
+
+  @override
+  String get sqMobSshKeyPaste => 'Collez une clé PEM ou choisissez un fichier';
+
+  @override
+  String get sqMobErrHost => 'L\'adresse du serveur est requise';
+
+  @override
+  String get sqMobErrFile => 'Choisissez un fichier de base de données';
+
+  @override
+  String get sqMobErrSshHost =>
+      'Le serveur SSH et le nom d\'utilisateur sont requis';
+
+  @override
+  String get sqMobErrSshKey => 'La clé privée SSH est requise';
+
+  @override
+  String get sqMobSslVerifyNote =>
+      'Le pilote MySQL ne vérifie pas les certificats ; l\'option « vérifier » se comporte comme « obligatoire ».';
+
+  @override
+  String get sqMobRowDetail => 'Détail de la ligne';
+
+  @override
+  String get sqMobNoResult => 'Aucun résultat — commencez par Exécuter';
+
+  @override
+  String get sqMobExportJsonl => 'JSONL (un JSON par ligne)';
+
+  @override
+  String get sqMobExportNoRows => 'Aucune ligne à exporter';
+
+  @override
+  String get sqMobSettingsTitle => 'Paramètres de SQL Master';
+
+  @override
+  String get sqMobRowLimit => 'Limite de lignes par requête';
+
+  @override
+  String get sqMobPreviewRows => 'Lignes d\'aperçu de table';
+
+  @override
+  String get sqMobEditorFont => 'Taille de police de l\'éditeur';
+
+  @override
+  String get sqMobCopyCell => 'Copier la valeur';
+
+  @override
+  String get sqMobSelectionRun => 'Exécuter la sélection';
+
+  @override
+  String get sqMobTunnelOpening => 'Ouverture du tunnel SSH…';
+
+  @override
+  String get sqMobConnectingDb => 'Connexion à la base de données…';
+
+  @override
+  String get sqMobOpEq => '= (égal)';
+
+  @override
+  String get sqMobOpNe => '≠ (différent)';
+
+  @override
+  String get sqMobOpLt => '< (inférieur)';
+
+  @override
+  String get sqMobOpGt => '> (supérieur)';
+
+  @override
+  String get sqMobOpLe => '≤ (inférieur ou égal)';
+
+  @override
+  String get npMobSaveAs => 'Enregistrer sous…';
+
+  @override
+  String get npMobSaveAsTitle => 'Enregistrer sous';
+
+  @override
+  String get npMobDefaultProjectName => 'Projet';
+
+  @override
+  String get npMobLocalPathExample => 'Documents/Notepad Master/…';
+
+  @override
+  String get npMobReplaceAll => 'Tout remplacer';
 }

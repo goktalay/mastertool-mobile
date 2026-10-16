@@ -13,7 +13,6 @@ import '../sql_dialect.dart';
 import '../sql_grid_query.dart';
 import '../sql_lexer.dart';
 import '../sql_model.dart';
-import '../sql_texts.dart';
 import 'mysql_driver.dart';
 import 'postgres_driver.dart';
 import 'sqlite_driver.dart';
@@ -202,7 +201,7 @@ SqlDriver createDriver(SqlConnection conn, {String? hostOverride, int? portOverr
 
 /// Hata metni (masaüstü errors.ts eşlemesi)
 String sqlErrorText(MtStrings s, Object e) {
-  if (e is UnsupportedProvider) return SqTxt.unsupportedMobile;
+  if (e is UnsupportedProvider) return s.sqMobUnsupportedMobile;
   if (e is SshTunnelError) return e.auth ? s.sqErrSshAuth : e.message;
   if (e is SqlCancelled) return s.sqResCancelled;
   final m = e.toString();

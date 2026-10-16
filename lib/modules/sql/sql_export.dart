@@ -11,7 +11,6 @@ import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
 import 'drivers/sql_driver.dart';
-import 'sql_texts.dart';
 
 enum ExportFormat { csv, json, jsonl }
 
@@ -23,7 +22,7 @@ Future<ExportFormat?> pickExportFormat(BuildContext context) async {
     builder: (ctx) => SafeArea(child: Column(mainAxisSize: MainAxisSize.min, children: [
       Padding(padding: const EdgeInsets.fromLTRB(18, 14, 18, 4), child: Row(children: [Icon(Icons.ios_share, size: 18, color: c.accent), const SizedBox(width: 8), Text(s.sqExpTitle, style: MtText.h2.copyWith(color: c.text))])),
       Padding(padding: const EdgeInsets.fromLTRB(18, 0, 18, 8), child: Text(s.sqExpHint, style: MtText.small.copyWith(color: c.text3))),
-      for (final (f, label, icon) in [(ExportFormat.csv, SqTxt.exportCsv, Icons.table_chart_outlined), (ExportFormat.json, SqTxt.exportJson, Icons.data_object), (ExportFormat.jsonl, SqTxt.exportJsonl, Icons.view_list_outlined)])
+      for (final (f, label, icon) in [(ExportFormat.csv, 'CSV (UTF-8, BOM)', Icons.table_chart_outlined), (ExportFormat.json, 'JSON', Icons.data_object), (ExportFormat.jsonl, s.sqMobExportJsonl, Icons.view_list_outlined)])
         ListTile(dense: true, leading: Icon(icon, size: 20, color: c.text2), title: Text(label, style: MtText.body.copyWith(color: c.text)), onTap: () => Navigator.pop(ctx, f)),
       const SizedBox(height: 8),
     ])),
@@ -100,7 +99,7 @@ Future<void> exportQuery(BuildContext context, {required SqlDriver driver, requi
   await sink.close();
   if (!context.mounted) return;
   if (n == 0) {
-    mtToast(context, SqTxt.exportNoRows, type: 'err');
+    mtToast(context, s.sqMobExportNoRows, type: 'err');
     return;
   }
   mtToast(context, s.sqExpDone(n.toString()), sub: file.path.split('/').last, type: 'ok');

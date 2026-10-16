@@ -16,7 +16,6 @@ import '../../widgets/mt_widgets.dart';
 import 'cv_engine.dart';
 import 'cv_formats.dart';
 import 'cv_model.dart';
-import 'cv_texts.dart';
 
 class CvProjectScreen extends StatefulWidget {
   const CvProjectScreen({super.key, required this.projectId, required this.engine, this.runner, required this.onEditProject, required this.onModuleSettings});
@@ -67,8 +66,9 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     final paths = res.map((f) => f.path).whereType<String>().toList();
     final n = await _r!.addFiles(paths);
     if (!mounted) return;
-    if (n < paths.length) mtToast(context, '${paths.length - n} ${CvT.filesCount(1).split(' ').last}: ${CvT.unsupportedExt}', type: 'err');
-    if (n > 0) mtToast(context, '${CvT.sourceCopied}: $n', type: 'ok');
+    final s = MtStrings.of(context);
+    if (n < paths.length) mtToast(context, '${s.cvMobFilesCount(paths.length - n)}: ${s.cvMobUnsupportedExt}', type: 'err');
+    if (n > 0) mtToast(context, s.cvMobFilesAdded(n), type: 'ok');
   }
 
   Future<void> _addFromGallery() async {
@@ -79,13 +79,14 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     if (files.isEmpty) return;
     final n = await _r!.addFiles(files.map((f) => f.path).toList());
     if (!mounted) return;
-    if (n < files.length) mtToast(context, '${files.length - n}: ${CvT.unsupportedExt}', type: 'err');
-    if (n > 0) mtToast(context, '${CvT.sourceCopied}: $n', type: 'ok');
+    final s = MtStrings.of(context);
+    if (n < files.length) mtToast(context, '${s.cvMobFilesCount(files.length - n)}: ${s.cvMobUnsupportedExt}', type: 'err');
+    if (n > 0) mtToast(context, s.cvMobFilesAdded(n), type: 'ok');
   }
 
   Future<void> _share(List<String> paths, String subject) async {
     final files = [for (final p in paths) if (await File(p).exists()) XFile(p)];
-    if (files.isEmpty) { if (mounted) mtToast(context, CvT.noOutputsYet); return; }
+    if (files.isEmpty) { if (mounted) mtToast(context, MtStrings.of(context).cvMobNoOutputsYet); return; }
     await SharePlus.instance.share(ShareParams(files: files, subject: subject));
   }
 
@@ -104,12 +105,12 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     final p = _p!;
     Widget mi(IconData i, String t, {bool danger = false}) => Row(children: [Icon(i, size: 16, color: danger ? MtColors.of(context).err : null), const SizedBox(width: 10), Text(t)]);
     final r = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy), items: [
-      PopupMenuItem(value: 'add', child: mi(Icons.note_add_outlined, CvT.addFiles)),
-      if (p.type != 'audio') PopupMenuItem(value: 'gallery', child: mi(Icons.photo_library_outlined, CvT.addFromGallery)),
-      PopupMenuItem(value: 'share', child: mi(Icons.ios_share, CvT.shareAllOutputs)),
+      PopupMenuItem(value: 'add', child: mi(Icons.note_add_outlined, s.cvMobAddFiles)),
+      if (p.type != 'audio') PopupMenuItem(value: 'gallery', child: mi(Icons.photo_library_outlined, s.cvMobAddFromGallery)),
+      PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareAllOutputs)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'edit', child: mi(Icons.tune, s.cvAppProjectSettings)),
-      PopupMenuItem(value: 'settings', child: mi(Icons.settings_outlined, CvT.moduleSettings)),
+      PopupMenuItem(value: 'settings', child: mi(Icons.settings_outlined, s.cvMobModuleSettings)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'clear', child: mi(Icons.delete_sweep_outlined, s.cvPjClearOutputs, danger: true)),
     ]);
@@ -133,9 +134,9 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     Widget mi(IconData i, String t, {bool danger = false}) => Row(children: [Icon(i, size: 16, color: danger ? c.err : null), const SizedBox(width: 10), Text(t)]);
     final active = j.status == CvStatus.converting || j.status == CvStatus.queued;
     final res = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy), items: [
-      if (active) PopupMenuItem(value: 'cancel', child: mi(Icons.stop_circle_outlined, CvT.cancel))
+      if (active) PopupMenuItem(value: 'cancel', child: mi(Icons.stop_circle_outlined, s.commonCancel))
       else PopupMenuItem(value: 'convert', child: mi(Icons.play_arrow, j.status == CvStatus.done ? s.cvPjReconvert : s.cvPjConvertThis)),
-      if (j.status == CvStatus.done) PopupMenuItem(value: 'share', child: mi(Icons.ios_share, CvT.shareOutput)),
+      if (j.status == CvStatus.done) PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareOutput)),
       if (j.status == CvStatus.done) PopupMenuItem(value: 'delout', child: mi(Icons.delete_outline, s.cvPjDeleteOut)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'remove', child: mi(Icons.playlist_remove, s.cvPjUncheck, danger: true)),
@@ -195,10 +196,10 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
             Flexible(child: Text(p.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.brand.copyWith(color: c.text))),
             if (wide) ...[const SizedBox(width: 10), _pill(c, srcLabel), Padding(padding: const EdgeInsets.symmetric(horizontal: 4), child: Icon(Icons.arrow_forward, size: 12, color: c.text3)), _pill(c, p.targetExt.toUpperCase(), tone: col)],
           ]),
-          Text(wide ? CvT.filesCount(r.sources.length) : '$srcLabel → ${p.targetExt.toUpperCase()} · ${CvT.filesCount(r.sources.length)}', maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.mono.copyWith(color: c.text3)),
+          Text(wide ? s.cvMobFilesCount(r.sources.length) : '$srcLabel → ${p.targetExt.toUpperCase()} · ${s.cvMobFilesCount(r.sources.length)}', maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.mono.copyWith(color: c.text3)),
         ])),
         const SizedBox(width: 8),
-        if (wide) ...[MtButton(label: CvT.addFiles, icon: Icons.note_add_outlined, onPressed: _addFiles), const SizedBox(width: 8)],
+        if (wide) ...[MtButton(label: s.cvMobAddFiles, icon: Icons.note_add_outlined, onPressed: _addFiles), const SizedBox(width: 8)],
         r.running
             ? MtButton(label: s.cvPjStop, icon: Icons.stop, kind: MtBtnKind.dangerPrimary, small: !wide, onPressed: r.stop)
             : MtButton(label: s.cvPjStart, icon: Icons.play_arrow, kind: MtBtnKind.primary, small: !wide, onPressed: r.sources.isEmpty ? null : r.start),
@@ -230,11 +231,11 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
           const SizedBox(height: 14),
           Text(s.cvPjNoSourceTitle.replaceAll('bilgisayarda', 'cihazda'), textAlign: TextAlign.center, style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600, color: c.text)),
           const SizedBox(height: 6),
-          Text(CvT.pickFilesHint, textAlign: TextAlign.center, style: MtText.small.copyWith(color: c.text3)),
+          Text(s.cvMobPickFilesHint, textAlign: TextAlign.center, style: MtText.small.copyWith(color: c.text3)),
           const SizedBox(height: 16),
           Wrap(spacing: 8, runSpacing: 8, alignment: WrapAlignment.center, children: [
-            MtButton(label: CvT.addFiles, icon: Icons.note_add_outlined, kind: MtBtnKind.primary, onPressed: _addFiles),
-            if (p.type != 'audio') MtButton(label: CvT.addFromGallery, icon: Icons.photo_library_outlined, onPressed: _addFromGallery),
+            MtButton(label: s.cvMobAddFiles, icon: Icons.note_add_outlined, kind: MtBtnKind.primary, onPressed: _addFiles),
+            if (p.type != 'audio') MtButton(label: s.cvMobAddFromGallery, icon: Icons.photo_library_outlined, onPressed: _addFromGallery),
           ]),
         ])),
       )));
@@ -403,10 +404,10 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       const SizedBox(height: 16),
       Wrap(spacing: 8, runSpacing: 8, children: [
         if (j.status == CvStatus.converting || j.status == CvStatus.queued)
-          MtButton(label: CvT.cancel, small: true, icon: Icons.stop_circle_outlined, kind: MtBtnKind.danger, onPressed: () { r.cancel(src.name); setState(() {}); })
+          MtButton(label: s.commonCancel, small: true, icon: Icons.stop_circle_outlined, kind: MtBtnKind.danger, onPressed: () { r.cancel(src.name); setState(() {}); })
         else
           MtButton(label: j.status == CvStatus.done ? s.cvPjReconvert : s.cvPjConvertThis, small: true, icon: Icons.play_arrow, onPressed: () => r.convertOne(src.name)),
-        if (j.status == CvStatus.done) MtButton(label: CvT.shareOutput, small: true, icon: Icons.ios_share, onPressed: () => _share([out!], src.name)),
+        if (j.status == CvStatus.done) MtButton(label: s.cvMobShareOutput, small: true, icon: Icons.ios_share, onPressed: () => _share([out!], src.name)),
         if (j.status == CvStatus.done) MtButton(label: s.cvPjDeleteOut, small: true, icon: Icons.delete_outline, onPressed: () => r.deleteOutput(src.name)),
         MtButton(label: s.cvPjUncheck, small: true, icon: Icons.playlist_remove, kind: MtBtnKind.danger, onPressed: () async { await r.remove(src.name); if (sheet && mounted) Navigator.of(context).pop(); }),
       ]),

@@ -11,7 +11,6 @@ import 'sql_grid.dart';
 import 'sql_history.dart';
 import 'sql_session.dart';
 import 'sql_split.dart';
-import 'sql_texts.dart';
 
 class SqlEditorTab extends StatefulWidget {
   const SqlEditorTab({super.key, required this.session, required this.title, this.initialSql = '', this.database, this.standalone = false, this.controller});
@@ -138,7 +137,7 @@ class _SqlEditorTabState extends State<SqlEditorTab> with AutomaticKeepAliveClie
     final d = widget.session.driver;
     if (d == null) return;
     final cur = _tab < _results.length ? _results[_tab] : _results.where((r) => r.hasGrid).lastOrNull;
-    if (cur == null || !cur.hasGrid) { mtToast(context, SqTxt.exportNoRows, type: 'err'); return; }
+    if (cur == null || !cur.hasGrid) { mtToast(context, MtStrings.of(context).sqMobExportNoRows, type: 'err'); return; }
     await exportQuery(context, driver: d, sql: cur.sql, database: _db, connName: widget.session.conn.name, baseName: widget.title);
   }
 
@@ -159,7 +158,7 @@ class _SqlEditorTabState extends State<SqlEditorTab> with AutomaticKeepAliveClie
               ? MtButton(label: s.sqSqlCancel, icon: Icons.stop, small: true, kind: MtBtnKind.danger, onPressed: _cancel)
               : MtButton(label: s.sqSqlRun, icon: Icons.play_arrow, small: true, kind: MtBtnKind.primary, onPressed: connected ? () => _run() : null)),
           const SizedBox(width: 6),
-          Center(child: MtButton(label: hasSel ? SqTxt.selectionRun : s.sqSqlRunStatement, icon: Icons.play_arrow_outlined, small: true, onPressed: connected && !_running ? () => _run(selection: hasSel, atCursor: !hasSel) : null)),
+          Center(child: MtButton(label: hasSel ? s.sqMobSelectionRun : s.sqSqlRunStatement, icon: Icons.play_arrow_outlined, small: true, onPressed: connected && !_running ? () => _run(selection: hasSel, atCursor: !hasSel) : null)),
           if (_dbs.isNotEmpty) ...[
             const SizedBox(width: 10),
             Center(child: Container(
@@ -209,7 +208,7 @@ class _SqlEditorTabState extends State<SqlEditorTab> with AutomaticKeepAliveClie
       toolbar,
       Expanded(flex: 5, child: editor),
       Expanded(flex: 6, child: _results.isEmpty && !_running
-          ? Container(decoration: BoxDecoration(border: Border(top: BorderSide(color: c.border))), child: Center(child: Text(SqTxt.noResult, style: MtText.small.copyWith(color: c.text3))))
+          ? Container(decoration: BoxDecoration(border: Border(top: BorderSide(color: c.border))), child: Center(child: Text(s.sqMobNoResult, style: MtText.small.copyWith(color: c.text3))))
           : results),
       if (narrow && _status.isNotEmpty)
         Container(height: 24, alignment: AlignmentDirectional.centerEnd, padding: const EdgeInsets.symmetric(horizontal: 10),

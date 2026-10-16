@@ -73,7 +73,7 @@ class _NpFormScreenState extends State<NpFormScreen> with SingleTickerProviderSt
     if (_isRemote && !(_kind == 'ftp' && _login == 'anonymous') && _user.text.trim().isEmpty) { mtToast(context, s.npMainErrUser, type: 'err'); _tabs.animateTo(0); return null; }
     if (_kind == 'file' && _localPath.isEmpty) { mtToast(context, s.npMainErrNoLocal, type: 'err'); _tabs.animateTo(0); return null; }
     final anon = _kind == 'ftp' && _login == 'anonymous';
-    final name = _name.text.trim().isNotEmpty ? _name.text.trim() : _isRemote ? host : _kind == 'file' ? npBaseName(_localPath) : (_localName.text.trim().isEmpty ? 'Proje' : _localName.text.trim());
+    final name = _name.text.trim().isNotEmpty ? _name.text.trim() : _isRemote ? host : _kind == 'file' ? npBaseName(_localPath) : (_localName.text.trim().isEmpty ? s.npMobDefaultProjectName : _localName.text.trim());
     return {
       ...d, 'name': name, 'kind': _kind, 'host': _isRemote ? host : '', 'port': _isRemote ? (int.tryParse(_port.text.trim()) ?? (_kind == 'ssh' ? 22 : kFtpProtocols[_protocol]!.$2)) : null,
       'protocol': _kind == 'ssh' ? 'sftp' : _kind == 'ftp' ? _protocol : null, 'username': anon ? 'anonymous' : _user.text.trim(),
@@ -160,8 +160,9 @@ class _NpFormScreenState extends State<NpFormScreen> with SingleTickerProviderSt
   }
 
   Future<String> _localDirPath({bool create = true}) async {
+    final untitled = mounted ? MtStrings.of(context).npMobDefaultProjectName : 'Project';
     final root = await npLocalRoot();
-    final rel = _localName.text.trim().isEmpty ? (_name.text.trim().isEmpty ? 'Proje' : _name.text.trim()) : _localName.text.trim();
+    final rel = _localName.text.trim().isEmpty ? (_name.text.trim().isEmpty ? untitled : _name.text.trim()) : _localName.text.trim();
     final dir = Directory('${root.path}/${rel.replaceAll(RegExp(r'[\\:*?"<>|]'), '_').replaceAll('..', '_')}');
     if (create) await dir.create(recursive: true);
     return dir.path;
@@ -272,7 +273,7 @@ class _NpFormScreenState extends State<NpFormScreen> with SingleTickerProviderSt
       ],
       if (_kind == 'local') ...[
         const SizedBox(height: 14),
-        MtField(label: s.npFormFolderPath, hint: '${s.npFormLocalPathHint} (${_localPath.isEmpty ? 'Belgeler/Notepad Master/…' : _localPath})',
+        MtField(label: s.npFormFolderPath, hint: '${s.npFormLocalPathHint} (${_localPath.isEmpty ? s.npMobLocalPathExample : _localPath})',
             child: TextField(controller: _localName, textDirection: TextDirection.ltr, decoration: InputDecoration(hintText: s.npFormNamePh))),
       ],
       if (_kind == 'file') ...[

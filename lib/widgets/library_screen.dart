@@ -13,8 +13,10 @@ import 'mt_widgets.dart';
 class LibraryTexts {
   const LibraryTexts({required this.title, required this.searchPh, required this.newItem, required this.items, required this.welcome,
       required this.welcomeHint, required this.noMatch, required this.stats, required this.folderCount, required this.deleteItem,
-      required this.deleteItemMsg, required this.newHere, required this.results});
+      required this.deleteItemMsg, required this.newHere, required this.results, this.all});
   final String title, searchPh, newItem, items, welcome, welcomeHint, noMatch, deleteItem, newHere;
+  /// Gezinti yolu kökü ("Tüm bağlantılar" / "Tüm siteler" / "Tüm projeler"); verilmezse SSH metni.
+  final String? all;
   final String Function(String count, String folders) stats;
   final String Function(String n) folderCount;
   final String Function(String name, String target) deleteItemMsg;
@@ -265,7 +267,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ),
         Expanded(child: ListView(padding: EdgeInsets.fromLTRB(padH, 14, padH, 90), children: [
           Row(children: [
-            InkWell(onTap: () => setState(() => _folderId = null), child: Text(s.smAppAll, style: MtText.body.copyWith(color: current == null ? c.text : c.accent, fontWeight: FontWeight.w600))),
+            InkWell(onTap: () => setState(() => _folderId = null), child: Text(t.all ?? s.smAppAll, style: MtText.body.copyWith(color: current == null ? c.text : c.accent, fontWeight: FontWeight.w600))),
             if (current != null) ...[
               Padding(padding: const EdgeInsets.symmetric(horizontal: 6), child: Icon(Icons.chevron_right, size: 16, color: c.text3)),
               Text((current.$2['name'] ?? '').toString(), style: MtText.body.copyWith(color: c.text, fontWeight: FontWeight.w600)),

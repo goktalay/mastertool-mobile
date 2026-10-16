@@ -75,7 +75,7 @@ class _SqlLibraryScreenState extends State<SqlLibraryScreen> {
         texts: LibraryTexts(
           title: 'SQL Master', searchPh: s.sqAppSearchPh, newItem: s.sqAppNewConn, items: s.sqAppConnections, welcome: s.sqAppWelcome,
           welcomeHint: s.sqAppWelcomeHint, noMatch: s.sqAppNoMatch, stats: s.sqAppStats, folderCount: s.sqAppFolderCount,
-          deleteItem: s.sqAppDeleteConn, deleteItemMsg: s.sqAppDeleteConnMsg, newHere: s.sqAppNewConnHere, results: s.sqAppResults,
+          deleteItem: s.sqAppDeleteConn, deleteItemMsg: s.sqAppDeleteConnMsg, newHere: s.sqAppNewConnHere, results: s.sqAppResults, all: s.sqAppAll,
         ),
         toItem: (id, d) {
           final x = SqlConnection(id, d);

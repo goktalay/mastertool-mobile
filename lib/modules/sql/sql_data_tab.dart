@@ -123,7 +123,7 @@ class _SqlDataTabState extends State<SqlDataTab> {
   static String opLabel(MtStrings s, String op) => switch (op) {
         'contains' => s.sqOpContains, 'not contains' => s.sqOpNotcontains, 'starts' => s.sqOpStarts, 'ends' => s.sqOpEnds, 'like' => s.sqOpLike,
         'not like' => s.sqOpNotlike, 'in' => s.sqOpIn, 'not in' => s.sqOpNotin, 'is null' => s.sqOpIsnull, 'is not null' => s.sqOpIsnotnull,
-        '=' => '= (eşittir)', '<>' => '≠ (eşit değil)', '<' => '< (küçük)', '>' => '> (büyük)', '<=' => '≤ (küçük ya da eşit)', '>=' => '≥ (${s.sqOp})', _ => op };
+        '=' => s.sqMobOpEq, '<>' => s.sqMobOpNe, '<' => s.sqMobOpLt, '>' => s.sqMobOpGt, '<=' => s.sqMobOpLe, '>=' => '≥ (${s.sqOp})', _ => op };
 
   Future<void> _editFilter(GridFilter f, {int? index}) async {
     final s = MtStrings.of(context);

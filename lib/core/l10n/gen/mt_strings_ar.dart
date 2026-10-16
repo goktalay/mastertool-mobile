@@ -4804,4 +4804,268 @@ class MtStringsAr extends MtStrings {
 
   @override
   String get sqOpIsnotnull => 'ليس NULL';
+
+  @override
+  String get ipMobScanThis => 'فحص هذه الشبكة';
+
+  @override
+  String get ipMobDeleteRecord => 'حذف السجل';
+
+  @override
+  String get ipMobNewRecordHere => 'سجل جديد هنا';
+
+  @override
+  String get ipMobNoMatch => 'لم يتم العثور على سجلات مطابقة.';
+
+  @override
+  String ipMobAddresses(int n) {
+    return '$n عنوان';
+  }
+
+  @override
+  String get ipMobAllRecords => 'كل السجلات';
+
+  @override
+  String get ipMobSetScan => 'الفحص';
+
+  @override
+  String get ipMobSetPorts => 'الخدمات المراد اختبارها';
+
+  @override
+  String get ipMobSetPortsHint =>
+      'يُجرى لكل منفذ محاولة اتصال TCP عادية واحدة فقط. القائمة ثابتة؛ ويمكنك إيقاف ما لا تريده منها.';
+
+  @override
+  String get ipMobSetSpeed => 'السرعة';
+
+  @override
+  String get ipMobSetConcurrency => 'الاتصالات المتزامنة';
+
+  @override
+  String get ipMobSetConcurrencyHint =>
+      '64 محاولة اتصال في الوقت نفسه على الأكثر (حد تصميمي).';
+
+  @override
+  String get ipMobSetTimeout => 'مهلة الانتظار';
+
+  @override
+  String get ipMobSetTimeoutHint =>
+      'يُنتظر 1000 مللي ثانية على الأكثر لكل جهاز.';
+
+  @override
+  String get ipMobSetLimitsNote =>
+      'IP Tools أداة للاستكشاف والجرد فقط: لا يمكن توسيع قائمة المنافذ، ولا تُجرى محاولات لاكتشاف الثغرات أو تجربة كلمات المرور، وتُفحص العناوين الخاصة/المحلية فقط.';
+
+  @override
+  String get ipMobMacMobile => 'غير متاح على الجوال';
+
+  @override
+  String get ipMobAliveTcp => 'استجاب لاتصال TCP';
+
+  @override
+  String get ipMobAliveName => 'استجاب لتحليل الاسم';
+
+  @override
+  String get ipMobOpenInSsh => 'فتح في SSH Master';
+
+  @override
+  String get ipMobOpenInSshNote =>
+      'تم نسخ العنوان إلى الحافظة؛ الصقه في نموذج SSH Master › اتصال جديد.';
+
+  @override
+  String get ipMobCopyAddress => 'نسخ العنوان';
+
+  @override
+  String get ipMobSuggestLocal => 'شبكة هذا الجهاز';
+
+  @override
+  String get ipMobSuggestLocalNone => 'لم يتم العثور على شبكة Wi-Fi';
+
+  @override
+  String get ipMobPhoneNoMacNote =>
+      'لا يتوفر ping أو ARP على الجوال: يُحدَّد النشاط عبر محاولات اتصال TCP وتحليل الأسماء؛ ولا يمكن عرض معلومات MAC والشركة المصنّعة.';
+
+  @override
+  String get cvMobNotOnMobile => 'غير متاح على الجوال';
+
+  @override
+  String get cvMobSpeechNote =>
+      'تحويل الكلام إلى نص (whisper.cpp) غير متوفر في إصدار الجوال؛ تُحفظ الإعدادات وتُطبَّق على سطح المكتب.';
+
+  @override
+  String get cvMobOcrNote =>
+      'استخراج النص من الصور (OCR، Tesseract) غير متوفر في إصدار الجوال؛ تُحفظ الإعدادات وتُطبَّق على سطح المكتب.';
+
+  @override
+  String get cvMobFolderNote =>
+      'لا يمكن اختيار مجلد مصدر على الجوال؛ تُضاف الملفات واحدًا تلو الآخر أو من المعرض.';
+
+  @override
+  String get cvMobConcurrencyHint =>
+      'على الجوال يُحوَّل ملفان في الوقت نفسه على الأكثر.';
+
+  @override
+  String get cvMobAddFiles => 'إضافة ملفات';
+
+  @override
+  String get cvMobAddFromGallery => 'إضافة من المعرض';
+
+  @override
+  String get cvMobPickFilesHint =>
+      'أضف الملفات المراد تحويلها؛ تُحفظ المخرجات ضمن مستندات التطبيق.';
+
+  @override
+  String get cvMobShareOutput => 'مشاركة المخرج';
+
+  @override
+  String get cvMobShareAllOutputs => 'مشاركة كل المخرجات';
+
+  @override
+  String get cvMobSourceCopies => 'نسخ المصادر';
+
+  @override
+  String get cvMobModuleSettings => 'إعدادات Convert Master';
+
+  @override
+  String get cvMobDefaultConcurrency =>
+      'عدد الملفات المحوَّلة في الوقت نفسه في المشاريع الجديدة';
+
+  @override
+  String get cvMobStorage => 'التخزين';
+
+  @override
+  String get cvMobConversion => 'التحويل';
+
+  @override
+  String get cvMobClearOrphans => 'تنظيف ملفات المشاريع المحذوفة';
+
+  @override
+  String get cvMobStorageNote =>
+      'تُحفظ الملفات المحوَّلة ونسخ المصادر في مجلد مستندات التطبيق؛ ولا تغادر جهازك أبدًا.';
+
+  @override
+  String get cvMobCleared => 'تم التنظيف';
+
+  @override
+  String get cvMobNoOutputsYet => 'لا توجد ملفات محوَّلة بعد.';
+
+  @override
+  String cvMobFilesAdded(int n) {
+    return 'تمت إضافة $n ملف';
+  }
+
+  @override
+  String get cvMobUnsupportedExt => 'ليس من ضمن امتدادات المصدر لهذا المشروع';
+
+  @override
+  String get cvMobUnsupportedOnMobile => 'غير مدعوم على الجوال';
+
+  @override
+  String get cvMobLicense =>
+      'يُجرى تحويل الفيديو والصوت باستخدام FFmpegKit (LGPL 3.0، بدون مكوّنات GPL)؛ ويستخدم ترميز H.264 / H.265 مُرمِّز العتاد في الجهاز (iOS VideoToolbox وAndroid MediaCodec).';
+
+  @override
+  String cvMobConverted(int n) {
+    return 'تم تحويل $n ملف';
+  }
+
+  @override
+  String cvMobFilesCount(int n) {
+    return '$n ملف';
+  }
+
+  @override
+  String get sqMobUnsupportedMobile =>
+      'هذا المحرك غير مدعوم على الجوال حتى الآن';
+
+  @override
+  String get sqMobPickFile => 'اختيار';
+
+  @override
+  String get sqMobFileCopied => 'تم نسخ الملف إلى دليل مستندات التطبيق';
+
+  @override
+  String get sqMobSshKeyPaste => 'الصق مفتاح PEM أو اختره من ملف';
+
+  @override
+  String get sqMobErrHost => 'عنوان الخادم مطلوب';
+
+  @override
+  String get sqMobErrFile => 'اختر ملف قاعدة البيانات';
+
+  @override
+  String get sqMobErrSshHost => 'خادم SSH واسم المستخدم مطلوبان';
+
+  @override
+  String get sqMobErrSshKey => 'مفتاح SSH الخاص مطلوب';
+
+  @override
+  String get sqMobSslVerifyNote =>
+      'لا يتحقق مشغّل MySQL من الشهادات؛ ويعمل خيار \"التحقق\" كخيار \"إلزامي\".';
+
+  @override
+  String get sqMobRowDetail => 'تفاصيل الصف';
+
+  @override
+  String get sqMobNoResult => 'لا توجد نتائج — ابدأ بالضغط على تشغيل';
+
+  @override
+  String get sqMobExportJsonl => 'JSONL (كائن JSON في كل سطر)';
+
+  @override
+  String get sqMobExportNoRows => 'لا توجد صفوف للتصدير';
+
+  @override
+  String get sqMobSettingsTitle => 'إعدادات SQL Master';
+
+  @override
+  String get sqMobRowLimit => 'حد صفوف الاستعلام';
+
+  @override
+  String get sqMobPreviewRows => 'صفوف معاينة الجدول';
+
+  @override
+  String get sqMobEditorFont => 'حجم خط المحرر';
+
+  @override
+  String get sqMobCopyCell => 'نسخ القيمة';
+
+  @override
+  String get sqMobSelectionRun => 'تشغيل التحديد';
+
+  @override
+  String get sqMobTunnelOpening => 'يتم فتح نفق SSH…';
+
+  @override
+  String get sqMobConnectingDb => 'يتم الاتصال بقاعدة البيانات…';
+
+  @override
+  String get sqMobOpEq => '= (يساوي)';
+
+  @override
+  String get sqMobOpNe => '≠ (لا يساوي)';
+
+  @override
+  String get sqMobOpLt => '< (أصغر من)';
+
+  @override
+  String get sqMobOpGt => '> (أكبر من)';
+
+  @override
+  String get sqMobOpLe => '≤ (أصغر من أو يساوي)';
+
+  @override
+  String get npMobSaveAs => 'حفظ باسم…';
+
+  @override
+  String get npMobSaveAsTitle => 'حفظ باسم';
+
+  @override
+  String get npMobDefaultProjectName => 'مشروع';
+
+  @override
+  String get npMobLocalPathExample => 'المستندات/Notepad Master/…';
+
+  @override
+  String get npMobReplaceAll => 'استبدال الكل';
 }
