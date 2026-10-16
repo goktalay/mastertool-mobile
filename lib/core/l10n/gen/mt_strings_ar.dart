@@ -2791,7 +2791,7 @@ class MtStringsAr extends MtStrings {
   String get npFormTabProject => 'المشروع';
 
   @override
-  String get npFormTabEditor => 'المحرر (⁦Notepad++⁩)';
+  String get npFormTabEditor => 'المحرر (Notepad++)';
 
   @override
   String get npFormName => 'الاسم (المعروض)';

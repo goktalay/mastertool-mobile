@@ -828,7 +828,7 @@
   "npFormTitleEdit": "الاتصال: {name}",
   "npFormTabConn": "الاتصال",
   "npFormTabProject": "المشروع",
-  "npFormTabEditor": "المحرر (⁦Notepad++⁩)",
+  "npFormTabEditor": "المحرر (Notepad++)",
   "npFormName": "الاسم (المعروض)",
   "npFormNamePh": "مثال: موقع الشركة",
   "npFormHost": "عنوان الخادم",
