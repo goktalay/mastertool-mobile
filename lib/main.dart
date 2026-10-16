@@ -13,6 +13,7 @@ import 'modules/convert/convert_module.dart';
 import 'modules/ftp/ftp_module.dart';
 import 'modules/iptools/ip_module.dart';
 import 'modules/notepad/np_module.dart';
+import 'modules/sql/sql_module.dart';
 import 'modules/ssh/ssh_module.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
@@ -26,7 +27,7 @@ void main() {
 Map<String, MtModule> buildModules([ModuleHost? host]) => {
       'sm': host == null ? PlaceholderModule('sm', Icons.terminal, const Color(0xFF22D3EE)) : SshModule(host),
       'fm': host == null ? PlaceholderModule('fm', Icons.cloud_sync_outlined, const Color(0xFFF59E0B)) : FtpModule(host),
-      'sq': PlaceholderModule('sq', Icons.storage_outlined, const Color(0xFF8B5CF6)),
+      'sq': host == null ? PlaceholderModule('sq', Icons.storage_outlined, const Color(0xFF8B5CF6)) : SqlModule(host),
       'np': host == null ? PlaceholderModule('np', Icons.edit_note, const Color(0xFF10B981)) : NotepadModule(host),
       'cv': host == null ? PlaceholderModule('cv', Icons.swap_horiz, const Color(0xFFEC4899)) : ConvertModule(host),
       'ip': host == null ? PlaceholderModule('ip', Icons.lan_outlined, const Color(0xFF3B82F6)) : IpToolsModule(host),
