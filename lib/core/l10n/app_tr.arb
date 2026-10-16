@@ -1545,5 +1545,2587 @@
   "fmMainCloseActive": "Süren aktarımlar var. Pencere kapatılırsa iptal edilecekler.",
   "@fmMainCloseActive": {},
   "fmMainCloseAnyway": "Yine de kapat",
-  "@fmMainCloseAnyway": {}
+  "@fmMainCloseAnyway": {},
+  "sqAppSearchPh": "Bağlantılarda ara…  (Ctrl+F)",
+  "@sqAppSearchPh": {},
+  "sqAppNewConn": "Bağlantı ekle",
+  "@sqAppNewConn": {},
+  "sqAppAddConn": "Bağlantı ekle",
+  "@sqAppAddConn": {},
+  "sqAppSettings": "Ayarlar",
+  "@sqAppSettings": {},
+  "sqAppStats": "{c} bağlantı · {f} klasör",
+  "@sqAppStats": {
+    "placeholders": {
+      "c": {
+        "type": "String"
+      },
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppWelcome": "Hoş geldiniz",
+  "@sqAppWelcome": {},
+  "sqAppResults": "“{q}” için sonuçlar",
+  "@sqAppResults": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppAll": "Tüm bağlantılar",
+  "@sqAppAll": {},
+  "sqAppWelcomeHint": "PostgreSQL, SQL Server, MySQL, SQLite ya da CSV/Parquet/Excel dosyalarına bağlanın.<br>Bilgileri girin, bağlantıyı deneyin ve kaydedin.",
+  "@sqAppWelcomeHint": {},
+  "sqAppFolders": "Klasörler",
+  "@sqAppFolders": {},
+  "sqAppConnections": "Bağlantılar",
+  "@sqAppConnections": {},
+  "sqAppDblHint": "Açmak için karta çift tıklayın",
+  "@sqAppDblHint": {},
+  "sqAppNoMatch": "Eşleşen bağlantı bulunamadı.",
+  "@sqAppNoMatch": {},
+  "sqAppFolderCount": "{n} bağlantı",
+  "@sqAppFolderCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppNewConnHere": "Bu klasörde yeni bağlantı",
+  "@sqAppNewConnHere": {},
+  "sqAppNewSubfolder": "Alt klasör oluştur",
+  "@sqAppNewSubfolder": {},
+  "sqAppDuplicate": "Kopyasını oluştur",
+  "@sqAppDuplicate": {},
+  "sqAppMoveToFolder": "Klasöre taşı…",
+  "@sqAppMoveToFolder": {},
+  "sqAppConnMoved": "Bağlantı taşındı",
+  "@sqAppConnMoved": {},
+  "sqAppFolderIntoSelf": "Klasör kendi içine taşınamaz",
+  "@sqAppFolderIntoSelf": {},
+  "sqAppFolderPh": "Örn. Müşteriler",
+  "@sqAppFolderPh": {},
+  "sqAppRenameFolder": "Klasörü yeniden adlandır",
+  "@sqAppRenameFolder": {},
+  "sqAppDeleteFolder": "Klasörü sil",
+  "@sqAppDeleteFolder": {},
+  "sqAppDeleteFolderMsg": "<b>{name}</b> klasörü silinsin mi?",
+  "@sqAppDeleteFolderMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppDeleteFolderConns": "<br>İçindeki {n} bağlantı üst klasöre taşınacak.",
+  "@sqAppDeleteFolderConns": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppRootFolder": "Ana dizin (klasörsüz)",
+  "@sqAppRootFolder": {},
+  "sqAppMoveTitle": "“{name}” taşı",
+  "@sqAppMoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppTargetFolder": "Hedef klasör",
+  "@sqAppTargetFolder": {},
+  "sqAppDeleteConn": "Bağlantıyı sil",
+  "@sqAppDeleteConn": {},
+  "sqAppDeleteConnMsg": "<b>{name}</b> ({target}) bağlantısı silinsin mi? Kayıtlı parolası da silinir.",
+  "@sqAppDeleteConnMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "sqAppReadOnlyTag": "Salt okunur",
+  "@sqAppReadOnlyTag": {},
+  "sqAppWriteTag": "Yazılabilir",
+  "@sqAppWriteTag": {},
+  "sqFormTitleNew": "Yeni bağlantı",
+  "@sqFormTitleNew": {},
+  "sqFormTitleEdit": "Bağlantı: {name}",
+  "@sqFormTitleEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sqFormTabGeneral": "Genel",
+  "@sqFormTabGeneral": {},
+  "sqFormTabSecurity": "Güvenlik",
+  "@sqFormTabSecurity": {},
+  "sqFormTabSsh": "SSH tüneli",
+  "@sqFormTabSsh": {},
+  "sqFormName": "Etiket (görünen ad)",
+  "@sqFormName": {},
+  "sqFormNamePh": "Örn. Üretim veritabanı",
+  "@sqFormNamePh": {},
+  "sqFormHost": "Sunucu adresi",
+  "@sqFormHost": {},
+  "sqFormPort": "Port",
+  "@sqFormPort": {},
+  "sqFormUser": "Kullanıcı adı",
+  "@sqFormUser": {},
+  "sqFormPassword": "Parola",
+  "@sqFormPassword": {},
+  "sqFormPwSaved": "•••••••• (kayıtlı, değiştirmek için yazın)",
+  "@sqFormPwSaved": {},
+  "sqFormDatabase": "Veritabanı",
+  "@sqFormDatabase": {},
+  "sqFormDatabasePh": "Boş bırakılırsa varsayılan veritabanı",
+  "@sqFormDatabasePh": {},
+  "sqFormFile": "Veritabanı dosyası",
+  "@sqFormFile": {},
+  "sqFormFilePh": "C:\\Veriler\\uygulama.db",
+  "@sqFormFilePh": {},
+  "sqFormSqliteHint": "SQLite veritabanı dosyası (.db, .sqlite). Salt okunur kipte dosya değiştirilmez.",
+  "@sqFormSqliteHint": {},
+  "sqFormDuckdbHint": "Bir .duckdb dosyası seçin ya da boş bırakın (bellek içi). CSV, Parquet, JSON ve Excel dosyalarını doğrudan sorgulayabilirsiniz: SELECT * FROM 'C:\\veri\\satis.csv'",
+  "@sqFormDuckdbHint": {},
+  "sqFormInMemory": "Bellek içi",
+  "@sqFormInMemory": {},
+  "sqFormFolder": "Klasör",
+  "@sqFormFolder": {},
+  "sqFormColor": "Renk",
+  "@sqFormColor": {},
+  "sqFormComments": "Notlar",
+  "@sqFormComments": {},
+  "sqFormReadOnly": "Salt okunur mod",
+  "@sqFormReadOnly": {},
+  "sqFormReadOnlyHint": "Önerilir. INSERT/UPDATE/DELETE ve DDL komutları çalıştırılmadan önce engellenir; isterseniz tek seferlik onaylarsınız. Desteklenen veritabanlarında oturum da salt okunur açılır.",
+  "@sqFormReadOnlyHint": {},
+  "sqFormSavePassword": "Parolayı kaydet",
+  "@sqFormSavePassword": {},
+  "sqFormSavePasswordHint": "Parola yalnızca işletim sisteminin anahtar zincirinde (Windows: DPAPI) şifreli saklanır. Kapalıysa her bağlantıda sorulur.",
+  "@sqFormSavePasswordHint": {},
+  "sqFormSsl": "TLS / SSL",
+  "@sqFormSsl": {},
+  "sqFormSslPrefer": "Tercih et (sunucu destekliyorsa şifreli)",
+  "@sqFormSslPrefer": {},
+  "sqFormSslRequire": "Zorunlu (sertifika doğrulanmaz)",
+  "@sqFormSslRequire": {},
+  "sqFormSslVerify": "Zorunlu + sertifikayı doğrula",
+  "@sqFormSslVerify": {},
+  "sqFormSslDisable": "Kapalı (şifresiz)",
+  "@sqFormSslDisable": {},
+  "sqFormSslHint": "Varsayılan olarak TLS denenir; sunucu desteklemiyorsa bağlantı penceresi uyarı gösterir.",
+  "@sqFormSslHint": {},
+  "sqFormSshEnable": "SSH tüneli üzerinden bağlan",
+  "@sqFormSshEnable": {},
+  "sqFormSshHint": "Veritabanına önce bir SSH sunucusuna bağlanılarak ulaşılır. Anahtarla giriş önerilir.",
+  "@sqFormSshHint": {},
+  "sqFormSshHost": "SSH sunucusu",
+  "@sqFormSshHost": {},
+  "sqFormSshAuth": "SSH kimlik doğrulama",
+  "@sqFormSshAuth": {},
+  "sqFormSshKey": "Özel anahtar",
+  "@sqFormSshKey": {},
+  "sqFormSshAgent": "Ajan (Pageant)",
+  "@sqFormSshAgent": {},
+  "sqFormKeyFile": "Özel anahtar dosyası",
+  "@sqFormKeyFile": {},
+  "sqFormPassphrase": "Anahtar parolası",
+  "@sqFormPassphrase": {},
+  "sqFormPassSaved": "(kayıtlı)",
+  "@sqFormPassSaved": {},
+  "sqFormPassEmpty": "Yoksa boş bırakın",
+  "@sqFormPassEmpty": {},
+  "sqFormSshPassword": "SSH parolası",
+  "@sqFormSshPassword": {},
+  "sqFormHostKey": "SSH sunucu anahtarı: {fp}",
+  "@sqFormHostKey": {
+    "placeholders": {
+      "fp": {
+        "type": "String"
+      }
+    }
+  },
+  "sqFormTest": "Bağlantıyı dene",
+  "@sqFormTest": {},
+  "sqFormSaveConnect": "Kaydet ve aç",
+  "@sqFormSaveConnect": {},
+  "sqFormConnecting": "Bağlanılıyor…",
+  "@sqFormConnecting": {},
+  "sqFormTestOk": "Bağlantı başarılı",
+  "@sqFormTestOk": {},
+  "sqFormTestFail": "Bağlantı kurulamadı",
+  "@sqFormTestFail": {},
+  "sqFormTestDb": "Veritabanı: {db} · Kullanıcı: {user}",
+  "@sqFormTestDb": {
+    "placeholders": {
+      "db": {
+        "type": "String"
+      },
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "sqFormNoTls": "Uyarı: bağlantı şifresiz (sunucu TLS desteklemiyor).",
+  "@sqFormNoTls": {},
+  "sqFormSaved": "Bağlantı kaydedildi",
+  "@sqFormSaved": {},
+  "sqFormChangesSaved": "Değişiklikler kaydedildi",
+  "@sqFormChangesSaved": {},
+  "sqCwObjects": "Nesneler",
+  "@sqCwObjects": {},
+  "sqCwCollapseAll": "Tümünü daralt",
+  "@sqCwCollapseAll": {},
+  "sqCwFilterPh": "Yüklenmiş nesnelerde süz…",
+  "@sqCwFilterPh": {},
+  "sqCwEmpty": "(boş)",
+  "@sqCwEmpty": {},
+  "sqCwOpenData": "Veriyi aç",
+  "@sqCwOpenData": {},
+  "sqCwShowDdl": "DDL göster",
+  "@sqCwShowDdl": {},
+  "sqCwOpenCode": "Kodu aç",
+  "@sqCwOpenCode": {},
+  "sqCwSelectSql": "SELECT ifadesi oluştur",
+  "@sqCwSelectSql": {},
+  "sqCwAddToBuilder": "Sorgu oluşturucuya ekle",
+  "@sqCwAddToBuilder": {},
+  "sqCwNewSqlHere": "Burada yeni SQL",
+  "@sqCwNewSqlHere": {},
+  "sqCwCopyName": "Adı kopyala",
+  "@sqCwCopyName": {},
+  "sqCwCopied": "Panoya kopyalandı",
+  "@sqCwCopied": {},
+  "sqCwNewSql": "Yeni SQL",
+  "@sqCwNewSql": {},
+  "sqCwBuilder": "Sorgu oluşturucu",
+  "@sqCwBuilder": {},
+  "sqCwReconnect": "Yeniden bağlan",
+  "@sqCwReconnect": {},
+  "sqCwReadOnly": "Salt okunur",
+  "@sqCwReadOnly": {},
+  "sqCwReadWrite": "Yazma açık",
+  "@sqCwReadWrite": {},
+  "sqCwReadOnlyTip": "Salt okunur kip: DML/DDL onay olmadan çalışmaz. Tıklayın: kapat",
+  "@sqCwReadOnlyTip": {},
+  "sqCwReadWriteTip": "Yazma açık: komutlar onaysız çalışır. Tıklayın: salt okunura dön",
+  "@sqCwReadWriteTip": {},
+  "sqCwDisableRo": "Salt okunur kip kapatılsın mı?",
+  "@sqCwDisableRo": {},
+  "sqCwDisableRoMsg": "Bu pencere kapanana kadar INSERT/UPDATE/DELETE ve DDL komutları onay sorulmadan çalışacak.",
+  "@sqCwDisableRoMsg": {},
+  "sqCwDisableRoOk": "Yazmayı aç",
+  "@sqCwDisableRoOk": {},
+  "sqCwRoOn": "Salt okunur kip açık",
+  "@sqCwRoOn": {},
+  "sqCwRoOff": "Yazma açık — dikkatli olun",
+  "@sqCwRoOff": {},
+  "sqCwPasswordTitle": "Parola gerekli",
+  "@sqCwPasswordTitle": {},
+  "sqCwPasswordFor": "{user}@{host} için parola",
+  "@sqCwPasswordFor": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      },
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "sqCwNotConnected": "Bağlı değil",
+  "@sqCwNotConnected": {},
+  "sqCwConnected": "Bağlı",
+  "@sqCwConnected": {},
+  "sqCwConnecting": "Bağlanılıyor…",
+  "@sqCwConnecting": {},
+  "sqCwNoTls": "Şifresiz",
+  "@sqCwNoTls": {},
+  "sqCwConnectFailed": "Bağlantı kurulamadı",
+  "@sqCwConnectFailed": {},
+  "sqCwRetry": "Tekrar dene",
+  "@sqCwRetry": {},
+  "sqCwResetCancel": "Sorgu iptale yanıt vermedi; bağlantı yeniden kuruluyor.",
+  "@sqCwResetCancel": {},
+  "sqCwResetExit": "Veritabanı bağlantısı koptu; yeniden kuruluyor.",
+  "@sqCwResetExit": {},
+  "sqCwEmptyWorkspace": "Soldaki ağaçtan bir tabloya çift tıklayın ya da Ctrl+T ile yeni SQL sekmesi açın.",
+  "@sqCwEmptyWorkspace": {},
+  "sqCwCloseTab": "Sekme kapatılsın mı?",
+  "@sqCwCloseTab": {},
+  "sqCwCloseTabMsg": "“{name}” sekmesindeki SQL kaydedilmedi.",
+  "@sqCwCloseTabMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "sqCwCloseTabOk": "Kapat",
+  "@sqCwCloseTabOk": {},
+  "sqTreeTables": "Tablolar",
+  "@sqTreeTables": {},
+  "sqTreeViews": "Görünümler",
+  "@sqTreeViews": {},
+  "sqTreeMatviews": "Materialized view’lar",
+  "@sqTreeMatviews": {},
+  "sqTreeForeignTables": "Yabancı tablolar",
+  "@sqTreeForeignTables": {},
+  "sqTreeFunctions": "Fonksiyonlar",
+  "@sqTreeFunctions": {},
+  "sqTreeProcedures": "Prosedürler",
+  "@sqTreeProcedures": {},
+  "sqTreeTriggers": "Trigger’lar",
+  "@sqTreeTriggers": {},
+  "sqTreeSequences": "Sequence’ler",
+  "@sqTreeSequences": {},
+  "sqTreeTypes": "Tipler",
+  "@sqTreeTypes": {},
+  "sqTreeColumns": "Kolonlar",
+  "@sqTreeColumns": {},
+  "sqTreeIndexes": "İndeksler",
+  "@sqTreeIndexes": {},
+  "sqTreeConstraints": "Kısıtlar",
+  "@sqTreeConstraints": {},
+  "sqTreeFiles": "Dosyalar",
+  "@sqTreeFiles": {},
+  "sqKindTable": "Tablo",
+  "@sqKindTable": {},
+  "sqKindView": "Görünüm",
+  "@sqKindView": {},
+  "sqKindMatview": "Materialized view",
+  "@sqKindMatview": {},
+  "sqKindForeignTable": "Yabancı tablo",
+  "@sqKindForeignTable": {},
+  "sqKindFunction": "Fonksiyon",
+  "@sqKindFunction": {},
+  "sqKindProcedure": "Prosedür",
+  "@sqKindProcedure": {},
+  "sqKindTrigger": "Trigger",
+  "@sqKindTrigger": {},
+  "sqKindSequence": "Sequence",
+  "@sqKindSequence": {},
+  "sqKindType": "Tip",
+  "@sqKindType": {},
+  "sqKindIndex": "İndeks",
+  "@sqKindIndex": {},
+  "sqKindConstraint": "Kısıt",
+  "@sqKindConstraint": {},
+  "sqSqlRun": "Çalıştır",
+  "@sqSqlRun": {},
+  "sqSqlRunStatement": "İfadeyi çalıştır",
+  "@sqSqlRunStatement": {},
+  "sqSqlCancel": "İptal",
+  "@sqSqlCancel": {},
+  "sqSqlDatabase": "Veritabanı",
+  "@sqSqlDatabase": {},
+  "sqSqlHistory": "Geçmiş",
+  "@sqSqlHistory": {},
+  "sqSqlExport": "Dışa aktar",
+  "@sqSqlExport": {},
+  "sqSqlRunning": "Çalışıyor…",
+  "@sqSqlRunning": {},
+  "sqSqlDone": "Tamamlandı · {ms} ms",
+  "@sqSqlDone": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      }
+    }
+  },
+  "sqSqlDoneErrors": "{n} hata · {ms} ms",
+  "@sqSqlDoneErrors": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqSqlDdlHint": "Şema değişti: ağacı yenilemek için Yenile düğmesini kullanın.",
+  "@sqSqlDdlHint": {},
+  "sqSqlPlaceholder": "SQL yazın… Ctrl+Enter: seçili/tümünü çalıştır · Ctrl+Shift+Enter: imleçteki ifade · Ctrl+Boşluk: tamamla",
+  "@sqSqlPlaceholder": {},
+  "sqSqlTabTitle": "SQL {n}",
+  "@sqSqlTabTitle": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqSqlHistoryEmpty": "Bu bağlantı için geçmiş yok.",
+  "@sqSqlHistoryEmpty": {},
+  "sqSqlRowsShort": "satır",
+  "@sqSqlRowsShort": {},
+  "sqResResult": "Sonuç {n}",
+  "@sqResResult": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqResMessages": "Mesajlar",
+  "@sqResMessages": {},
+  "sqResRows": "{n} satır · {ms} ms",
+  "@sqResRows": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqResRowsTruncated": "İlk {n} satır gösteriliyor (sınır) · {ms} ms",
+  "@sqResRowsTruncated": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqResNoRows": "Kayıt yok",
+  "@sqResNoRows": {},
+  "sqResAffected": "{cmd}: {n} satır etkilendi · {ms} ms",
+  "@sqResAffected": {
+    "placeholders": {
+      "cmd": {
+        "type": "String"
+      },
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqResCommand": "{cmd} · {ms} ms",
+  "@sqResCommand": {
+    "placeholders": {
+      "cmd": {
+        "type": "String"
+      },
+      "ms": {
+        "type": "String"
+      }
+    }
+  },
+  "sqResCancelled": "İptal edildi",
+  "@sqResCancelled": {},
+  "sqGridCopy": "Kopyala",
+  "@sqGridCopy": {},
+  "sqGridCopyHeaders": "Başlıklarla kopyala",
+  "@sqGridCopyHeaders": {},
+  "sqGridExport": "Bu sonucu dışa aktar…",
+  "@sqGridExport": {},
+  "sqDataColumns": "Kolonlar",
+  "@sqDataColumns": {},
+  "sqDataColumnsHidden": "Kolonlar ({n}/{total})",
+  "@sqDataColumnsHidden": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataAddFilter": "Filtre",
+  "@sqDataAddFilter": {},
+  "sqDataLimit": "Kayıt sayısı",
+  "@sqDataLimit": {},
+  "sqDataFirstN": "İlk {n}",
+  "@sqDataFirstN": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataAll": "Tümü (sınırla)",
+  "@sqDataAll": {},
+  "sqDataOpenInEditor": "SQL editöründe aç",
+  "@sqDataOpenInEditor": {},
+  "sqDataClearFilters": "Filtreleri temizle",
+  "@sqDataClearFilters": {},
+  "sqDataRows": "{n} kayıt · {ms} ms",
+  "@sqDataRows": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataRowsMore": "İlk {n} kayıt · {ms} ms",
+  "@sqDataRowsMore": {
+    "placeholders": {
+      "ms": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataError": "Veri alınamadı",
+  "@sqDataError": {},
+  "sqDataSortAsc": "Artan sırala",
+  "@sqDataSortAsc": {},
+  "sqDataSortDesc": "Azalan sırala",
+  "@sqDataSortDesc": {},
+  "sqDataSortClear": "Sıralamayı kaldır",
+  "@sqDataSortClear": {},
+  "sqDataFilterColumn": "Bu kolona göre filtrele…",
+  "@sqDataFilterColumn": {},
+  "sqDataHideColumn": "Kolonu gizle",
+  "@sqDataHideColumn": {},
+  "sqDataShowAll": "Tüm kolonları göster",
+  "@sqDataShowAll": {},
+  "sqDataFilterEq": "= “{v}” olanlar",
+  "@sqDataFilterEq": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataFilterNe": "≠ “{v}” olanlar",
+  "@sqDataFilterNe": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "sqDataFilterNull": "NULL olanlar / olmayanlar",
+  "@sqDataFilterNull": {},
+  "sqDataColumn": "Kolon",
+  "@sqDataColumn": {},
+  "sqDataOperator": "Koşul",
+  "@sqDataOperator": {},
+  "sqDataValue": "Değer",
+  "@sqDataValue": {},
+  "sqDataInHint": "“içinde” için değerleri virgülle ayırın.",
+  "@sqDataInHint": {},
+  "sqDataFilterTitle": "Filtre",
+  "@sqDataFilterTitle": {},
+  "sqDataSelectAll": "Tümü",
+  "@sqDataSelectAll": {},
+  "sqDataSelectNone": "Hiçbiri",
+  "@sqDataSelectNone": {},
+  "sqOpContains": "içerir",
+  "@sqOpContains": {},
+  "sqOpStarts": "ile başlar",
+  "@sqOpStarts": {},
+  "sqOpEnds": "ile biter",
+  "@sqOpEnds": {},
+  "sqOpLike": "LIKE",
+  "@sqOpLike": {},
+  "sqOpIn": "içinde (liste)",
+  "@sqOpIn": {},
+  "sqCodeExecute": "Çalıştır",
+  "@sqCodeExecute": {},
+  "sqCodeLoading": "Yükleniyor…",
+  "@sqCodeLoading": {},
+  "sqCodeEmpty": "Tanım bulunamadı",
+  "@sqCodeEmpty": {},
+  "sqQbAddTable": "Tablo ekle",
+  "@sqQbAddTable": {},
+  "sqQbLimit": "Sınır",
+  "@sqQbLimit": {},
+  "sqQbClear": "Temizle",
+  "@sqQbClear": {},
+  "sqQbHint": "Tabloları soldaki ağaçtan buraya sürükleyin ya da “Tablo ekle”ye tıklayın. Bir kolonu başka tablonun kolonuna sürükleyerek JOIN oluşturun.",
+  "@sqQbHint": {},
+  "sqQbColumns": "Kolonlar",
+  "@sqQbColumns": {},
+  "sqQbConditions": "Koşullar",
+  "@sqQbConditions": {},
+  "sqQbResults": "Sonuçlar",
+  "@sqQbResults": {},
+  "sqQbGenerated": "Üretilen SQL",
+  "@sqQbGenerated": {},
+  "sqQbRegenerate": "Diyagramdan yeniden üret",
+  "@sqQbRegenerate": {},
+  "sqQbOtherDb": "Sorgu oluşturucu tek bir veritabanındaki tablolarla çalışır.",
+  "@sqQbOtherDb": {},
+  "sqQbDragJoin": "JOIN için başka tablonun kolonuna sürükleyin",
+  "@sqQbDragJoin": {},
+  "sqQbSwapJoin": "Yönü değiştir",
+  "@sqQbSwapJoin": {},
+  "sqQbDeleteJoin": "JOIN’i sil",
+  "@sqQbDeleteJoin": {},
+  "sqQbNoColumns": "Tablolardaki kolon kutucuklarını işaretleyin (boşsa SELECT *).",
+  "@sqQbNoColumns": {},
+  "sqQbOutput": "Göster",
+  "@sqQbOutput": {},
+  "sqQbColumn": "Kolon",
+  "@sqQbColumn": {},
+  "sqQbAlias": "Takma ad",
+  "@sqQbAlias": {},
+  "sqQbAggregate": "Toplama",
+  "@sqQbAggregate": {},
+  "sqQbSort": "Sıralama",
+  "@sqQbSort": {},
+  "sqQbAddCondition": "Koşul ekle",
+  "@sqQbAddCondition": {},
+  "sqQbTabTitle": "Sorgu {n}",
+  "@sqQbTabTitle": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqRoTitle": "Salt okunur kip",
+  "@sqRoTitle": {},
+  "sqRoMessage": "Bu bağlantı salt okunur kipte. Aşağıdaki ifadeler veri ya da şemayı değiştirebilir:",
+  "@sqRoMessage": {},
+  "sqRoHint": "Yalnızca bu çalıştırma için izin verebilirsiniz; kip ardından yeniden açılır.",
+  "@sqRoHint": {},
+  "sqRoRunOnce": "Bu seferlik çalıştır",
+  "@sqRoRunOnce": {},
+  "sqRoNotRun": "Salt okunur kip: çalıştırılmadı",
+  "@sqRoNotRun": {},
+  "sqRoBlockedMsg": "Salt okunur kip: {n} ifade onay bekliyor.",
+  "@sqRoBlockedMsg": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqExpTitle": "Dışa aktar",
+  "@sqExpTitle": {},
+  "sqExpHint": "Sorgu sınırsız olarak yeniden çalıştırılır ve sonuçlar belleğe alınmadan doğrudan dosyaya yazılır.",
+  "@sqExpHint": {},
+  "sqExpRunning": "Dışa aktarılıyor…",
+  "@sqExpRunning": {},
+  "sqExpDone": "{n} satır dışa aktarıldı",
+  "@sqExpDone": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "sqExpFailed": "Dışa aktarım başarısız",
+  "@sqExpFailed": {},
+  "sqErrRefused": "Bağlantı reddedildi: port kapalı ya da sunucu çalışmıyor.",
+  "@sqErrRefused": {},
+  "sqErrDns": "Sunucu adı çözümlenemedi (DNS).",
+  "@sqErrDns": {},
+  "sqErrTimeout": "Zaman aşımı: sunucuya ulaşılamadı.",
+  "@sqErrTimeout": {},
+  "sqErrReset": "Sunucu bağlantıyı kapattı.",
+  "@sqErrReset": {},
+  "sqErrUnreach": "Sunucuya ağ üzerinden ulaşılamıyor.",
+  "@sqErrUnreach": {},
+  "sqErrSshAuth": "SSH girişi başarısız: kullanıcı adı, anahtar ya da parola hatalı.",
+  "@sqErrSshAuth": {},
+  "sqErrTls": "TLS/SSL hatası — sertifika doğrulanamadı ya da sunucu TLS desteklemiyor. ({msg})",
+  "@sqErrTls": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "sqErrHostExit": "Veritabanı süreci beklenmedik şekilde kapandı.",
+  "@sqErrHostExit": {},
+  "sqErrUnknown": "Bilinmeyen hata",
+  "@sqErrUnknown": {},
+  "sqMainCloseAnyway": "Yine de kapat",
+  "@sqMainCloseAnyway": {},
+  "sqMainCloseRunning": "Çalışan sorgular var. Pencere kapanırsa iptal edilecek.",
+  "@sqMainCloseRunning": {},
+  "sqMainCopySuffix": " (kopya)",
+  "@sqMainCopySuffix": {},
+  "sqMainErrConnNotFound": "Bağlantı bulunamadı",
+  "@sqMainErrConnNotFound": {},
+  "sqMainErrNoSession": "Bu pencerenin bağlantısı yok",
+  "@sqMainErrNoSession": {},
+  "sqMainErrKeyFile": "SSH anahtar dosyası okunamadı: {path}",
+  "@sqMainErrKeyFile": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "sqMainTrayShow": "SQL Master’ı göster",
+  "@sqMainTrayShow": {},
+  "sqMainTrayQuick": "Hızlı bağlan",
+  "@sqMainTrayQuick": {},
+  "sqMainTrayNone": "Kayıtlı bağlantı yok",
+  "@sqMainTrayNone": {},
+  "sqMainTrayQuit": "Çıkış",
+  "@sqMainTrayQuit": {},
+  "npKindSsh": "SSH Projesi",
+  "@npKindSsh": {},
+  "npKindFtp": "FTP Projesi",
+  "@npKindFtp": {},
+  "npKindLocal": "Lokal Klasör",
+  "@npKindLocal": {},
+  "npKindFile": "Proje Dosyası",
+  "@npKindFile": {},
+  "npKindSshHint": "SSH (SFTP) ile sunucudaki klasör",
+  "@npKindSshHint": {},
+  "npKindFtpHint": "FTP, FTPS veya SFTP sunucusu",
+  "@npKindFtpHint": {},
+  "npKindLocalHint": "Bu bilgisayardaki bir klasör",
+  "@npKindLocalHint": {},
+  "npKindFileHint": "Tek bir dosyayı düzenle",
+  "@npKindFileHint": {},
+  "npAppSearchPh": "Bağlantılarda ara…  (Ctrl+F)",
+  "@npAppSearchPh": {},
+  "npAppNewConn": "Yeni bağlantı",
+  "@npAppNewConn": {},
+  "npAppSettings": "Ayarlar",
+  "@npAppSettings": {},
+  "npAppStats": "{c} bağlantı · {f} klasör",
+  "@npAppStats": {
+    "placeholders": {
+      "c": {
+        "type": "String"
+      },
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppWelcome": "Hoş geldiniz",
+  "@npAppWelcome": {},
+  "npAppResults": "“{q}” için sonuçlar",
+  "@npAppResults": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppAll": "Tüm bağlantılar",
+  "@npAppAll": {},
+  "npAppWelcomeHint": "SSH, FTP, lokal klasör ya da tek dosya ekleyin.<br>Karta çift tıklayınca proje ayrı pencerede açılır.",
+  "@npAppWelcomeHint": {},
+  "npAppFolders": "Klasörler",
+  "@npAppFolders": {},
+  "npAppConnections": "Bağlantılar",
+  "@npAppConnections": {},
+  "npAppDblHint": "Açmak için karta çift tıklayın",
+  "@npAppDblHint": {},
+  "npAppNoMatch": "Eşleşen bağlantı bulunamadı.",
+  "@npAppNoMatch": {},
+  "npAppFolderCount": "{n} bağlantı",
+  "@npAppFolderCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppNewConnHere": "Bu klasörde yeni bağlantı",
+  "@npAppNewConnHere": {},
+  "npAppNewSubfolder": "Alt klasör oluştur",
+  "@npAppNewSubfolder": {},
+  "npAppKeyTag": "Anahtar",
+  "@npAppKeyTag": {},
+  "npAppDuplicate": "Kopyasını oluştur",
+  "@npAppDuplicate": {},
+  "npAppMoveToFolder": "Klasöre taşı…",
+  "@npAppMoveToFolder": {},
+  "npAppConnMoved": "Bağlantı taşındı",
+  "@npAppConnMoved": {},
+  "npAppFolderIntoSelf": "Klasör kendi içine taşınamaz",
+  "@npAppFolderIntoSelf": {},
+  "npAppFolderPh": "Örn. Müşteriler",
+  "@npAppFolderPh": {},
+  "npAppRenameFolder": "Klasörü yeniden adlandır",
+  "@npAppRenameFolder": {},
+  "npAppDeleteFolder": "Klasörü sil",
+  "@npAppDeleteFolder": {},
+  "npAppDeleteFolderMsg": "<b>{name}</b> klasörü silinsin mi?",
+  "@npAppDeleteFolderMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppDeleteFolderConns": "<br>İçindeki {n} bağlantı üst klasöre taşınacak.",
+  "@npAppDeleteFolderConns": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppRootFolder": "Ana dizin (klasörsüz)",
+  "@npAppRootFolder": {},
+  "npAppMoveTitle": "“{name}” taşı",
+  "@npAppMoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppTargetFolder": "Hedef klasör",
+  "@npAppTargetFolder": {},
+  "npAppDeleteConn": "Bağlantıyı sil",
+  "@npAppDeleteConn": {},
+  "npAppDeleteConnMsg": "<b>{name}</b> ({target}) bağlantısı silinsin mi?<br>Sunucudaki ya da klasördeki dosyalara dokunulmaz; yalnız bu bağlantı ve çalışma kopyası silinir.",
+  "@npAppDeleteConnMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "npAppNoLocalPath": "Bu bilgisayarda yol seçilmedi — açınca sorulur",
+  "@npAppNoLocalPath": {},
+  "npAppChangeLocalPath": "Bu bilgisayardaki yolu değiştir…",
+  "@npAppChangeLocalPath": {},
+  "npAppOpenTabs": "Açık sekmeler",
+  "@npAppOpenTabs": {},
+  "npAppCustomEditor": "Bağlantıya özel editör ayarları",
+  "@npAppCustomEditor": {},
+  "npFormTitleNew": "Yeni bağlantı",
+  "@npFormTitleNew": {},
+  "npFormTitleEdit": "Bağlantı: {name}",
+  "@npFormTitleEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npFormTabConn": "Bağlantı",
+  "@npFormTabConn": {},
+  "npFormTabProject": "Proje",
+  "@npFormTabProject": {},
+  "npFormTabEditor": "Editör (Notepad++)",
+  "@npFormTabEditor": {},
+  "npFormName": "Ad (görünen)",
+  "@npFormName": {},
+  "npFormNamePh": "Örn. Şirket web sitesi",
+  "@npFormNamePh": {},
+  "npFormHost": "Sunucu adresi",
+  "@npFormHost": {},
+  "npFormHostPh": "sunucu.ornek.com veya 192.168.1.10",
+  "@npFormHostPh": {},
+  "npFormPort": "Port",
+  "@npFormPort": {},
+  "npFormUser": "Kullanıcı adı",
+  "@npFormUser": {},
+  "npFormPassword": "Şifre",
+  "@npFormPassword": {},
+  "npFormPwSaved": "•••••••• (kayıtlı, değiştirmek için yazın)",
+  "@npFormPwSaved": {},
+  "npFormLoginMethod": "Giriş yöntemi",
+  "@npFormLoginMethod": {},
+  "npFormLoginNormal": "Normal",
+  "@npFormLoginNormal": {},
+  "npFormLoginAnon": "Anonim",
+  "@npFormLoginAnon": {},
+  "npFormAuth": "SSH kimlik doğrulama",
+  "@npFormAuth": {},
+  "npFormPrivateKey": "Özel anahtar",
+  "@npFormPrivateKey": {},
+  "npFormKeyFile": "Özel anahtar dosyası",
+  "@npFormKeyFile": {},
+  "npFormPassphrase": "Anahtar parolası",
+  "@npFormPassphrase": {},
+  "npFormPassSaved": "(kayıtlı)",
+  "@npFormPassSaved": {},
+  "npFormPassEmpty": "Yoksa boş bırakın",
+  "@npFormPassEmpty": {},
+  "npFormFolder": "Klasör",
+  "@npFormFolder": {},
+  "npFormColor": "Renk",
+  "@npFormColor": {},
+  "npFormComments": "Notlar",
+  "@npFormComments": {},
+  "npFormRootDir": "Proje klasörü (sunucuda)",
+  "@npFormRootDir": {},
+  "npFormBrowse": "Klasör seç",
+  "@npFormBrowse": {},
+  "npFormBrowseHint": "Klasörü sunucuda gezerek seçmek için önce “Bağlantıyı dene”ye basın. Boş bırakılırsa giriş klasörü açılır.",
+  "@npFormBrowseHint": {},
+  "npFormBrowseTitle": "Sunucuda klasör seçin",
+  "@npFormBrowseTitle": {},
+  "npFormBrowseSelect": "Bu klasörü seç",
+  "@npFormBrowseSelect": {},
+  "npFormBrowseEmpty": "Alt klasör yok",
+  "@npFormBrowseEmpty": {},
+  "npFormFolderPath": "Klasör",
+  "@npFormFolderPath": {},
+  "npFormFilePath": "Dosya",
+  "@npFormFilePath": {},
+  "npFormLocalPathHint": "Yerel yol yalnız bu bilgisayarda saklanır; diğer bilgisayarlarda ilk açılışta sorulur.",
+  "@npFormLocalPathHint": {},
+  "npFormCacheNote": "Açılan her dosya, klasör yapısıyla birlikte çalışma kopyasına (önbellek) kaydedilir. Kaydedince dosya sunucuya yüklenir ve çalışma kopyası güncellenir.",
+  "@npFormCacheNote": {},
+  "npFormRestoreTabs": "Açık sekmeleri hatırla",
+  "@npFormRestoreTabs": {},
+  "npFormRestoreTabsHint": "Proje bir sonraki açılışta aynı dosyalarla açılır (yalnız bu bilgisayarda).",
+  "@npFormRestoreTabsHint": {},
+  "npFormShowHidden": "Gizli dosyaları göster",
+  "@npFormShowHidden": {},
+  "npFormShowHiddenHint": "Noktayla başlayan dosya ve klasörler (.env, .htaccess, .git…)",
+  "@npFormShowHiddenHint": {},
+  "npFormExclude": "Ağaçta gösterme",
+  "@npFormExclude": {},
+  "npFormExcludeHint": "Virgülle ayrılmış adlar ya da kalıplar; * ve ? kullanılabilir.",
+  "@npFormExcludeHint": {},
+  "npFormEditorMode": "Editör ayarları",
+  "@npFormEditorMode": {},
+  "npFormEdGlobal": "Genel editör ayarlarını kullan (Ayarlar › Editör)",
+  "@npFormEdGlobal": {},
+  "npFormEdCustom": "Bu bağlantıya özel ayarlar kullan",
+  "@npFormEdCustom": {},
+  "npFormTest": "Bağlantıyı dene",
+  "@npFormTest": {},
+  "npFormSaveOpen": "Kaydet ve aç",
+  "@npFormSaveOpen": {},
+  "npFormConnecting": "Bağlanılıyor…",
+  "@npFormConnecting": {},
+  "npFormTestOk": "Bağlantı başarılı",
+  "@npFormTestOk": {},
+  "npFormTestFail": "Bağlantı kurulamadı",
+  "@npFormTestFail": {},
+  "npFormHomeDir": "Giriş klasörü: {dir}",
+  "@npFormHomeDir": {
+    "placeholders": {
+      "dir": {
+        "type": "String"
+      }
+    }
+  },
+  "npFormRootMissing": "Uyarı: proje klasörü açılamadı.",
+  "@npFormRootMissing": {},
+  "npFormHostKey": "SSH host anahtarı (SHA256): {fp}",
+  "@npFormHostKey": {
+    "placeholders": {
+      "fp": {
+        "type": "String"
+      }
+    }
+  },
+  "npFormSaved": "Bağlantı kaydedildi",
+  "@npFormSaved": {},
+  "npFormChangesSaved": "Değişiklikler kaydedildi",
+  "@npFormChangesSaved": {},
+  "npTypeProtocol": "Protokol",
+  "@npTypeProtocol": {},
+  "npTypeFtp": "FTP (standart)",
+  "@npTypeFtp": {},
+  "npTypeFtpsImplicit": "FTPS — TLS/SSL Implicit (port 990)",
+  "@npTypeFtpsImplicit": {},
+  "npTypeFtpsSsl": "FTPS — Explicit (AUTH SSL)",
+  "@npTypeFtpsSsl": {},
+  "npTypeFtpsTls": "FTPS — Explicit (AUTH TLS)",
+  "@npTypeFtpsTls": {},
+  "npTypeSftp": "SFTP — SSH2",
+  "@npTypeSftp": {},
+  "npTypeNoteFtp": "Standart FTP; şifre ve dosyalar şifrelenmeden (düz metin) gönderilir.",
+  "@npTypeNoteFtp": {},
+  "npTypeNoteFtpsImplicit": "Bağlantı en baştan TLS/SSL ile şifrelenir (genellikle port 990).",
+  "@npTypeNoteFtpsImplicit": {},
+  "npTypeNoteFtpsSsl": "Düz FTP ile bağlanıp AUTH SSL komutuyla şifreli oturuma geçilir.",
+  "@npTypeNoteFtpsSsl": {},
+  "npTypeNoteFtpsTls": "Düz FTP ile bağlanıp AUTH TLS komutuyla şifreli oturuma geçilir (en yaygın FTPS türü).",
+  "@npTypeNoteFtpsTls": {},
+  "npTypeNoteSftp": "SSH üzerinden şifreli dosya erişimi (port 22). Sunucu host anahtarı ilk bağlantıda kaydedilir.",
+  "@npTypeNoteSftp": {},
+  "npOptEncoding": "Dosya adı kodlaması",
+  "@npOptEncoding": {},
+  "npOptEncAuto": "Otomatik",
+  "@npOptEncAuto": {},
+  "npEdSecEncoding": "Kodlama ve satır sonu",
+  "@npEdSecEncoding": {},
+  "npEdEncoding": "Dosyaları açarken kodlama",
+  "@npEdEncoding": {},
+  "npEdEncAuto": "Otomatik algıla (BOM / UTF-8)",
+  "@npEdEncAuto": {},
+  "npEdFallback": "UTF-8 değilse (ANSI)",
+  "@npEdFallback": {},
+  "npEdEol": "Satır sonu",
+  "@npEdEol": {},
+  "npEdEolAuto": "Dosyanınkini koru",
+  "@npEdEolAuto": {},
+  "npEdEolConvert": "Açarken {eol} biçimine çevir",
+  "@npEdEolConvert": {
+    "placeholders": {
+      "eol": {
+        "type": "String"
+      }
+    }
+  },
+  "npEdNewDoc": "Yeni dosya: kodlama · satır sonu",
+  "@npEdNewDoc": {},
+  "npEdSecIndent": "Girinti ve dil",
+  "@npEdSecIndent": {},
+  "npEdTabSize": "Sekme genişliği",
+  "@npEdTabSize": {},
+  "npEdLanguage": "Dil (sözdizimi)",
+  "@npEdLanguage": {},
+  "npEdLangAuto": "Otomatik (uzantı / ilk satır)",
+  "@npEdLangAuto": {},
+  "npEdInsertSpaces": "Sekme yerine boşluk kullan",
+  "@npEdInsertSpaces": {},
+  "npEdDetectIndent": "Girintiyi dosyadan algıla",
+  "@npEdDetectIndent": {},
+  "npEdDetectIndentHint": "Dosya sekme kullanıyorsa sekmeyle devam eder.",
+  "@npEdDetectIndentHint": {},
+  "npEdAutoIndent": "Otomatik girinti",
+  "@npEdAutoIndent": {},
+  "npEdAutoClose": "Parantez ve tırnakları otomatik kapat",
+  "@npEdAutoClose": {},
+  "npEdSecLook": "Görünüm",
+  "@npEdSecLook": {},
+  "npEdTheme": "Renk teması",
+  "@npEdTheme": {},
+  "npEdThemeAuto": "Otomatik (uygulama temasına göre)",
+  "@npEdThemeAuto": {},
+  "npEdWhitespace": "Boşluk ve sekmeleri göster",
+  "@npEdWhitespace": {},
+  "npEdWsNone": "Gösterme",
+  "@npEdWsNone": {},
+  "npEdWsBoundary": "Sözcük aralarındakiler hariç",
+  "@npEdWsBoundary": {},
+  "npEdWsTrailing": "Yalnız satır sonundakiler",
+  "@npEdWsTrailing": {},
+  "npEdWsAll": "Tümü",
+  "@npEdWsAll": {},
+  "npEdFont": "Yazı tipi",
+  "@npEdFont": {},
+  "npEdFontSize": "Boyut",
+  "@npEdFontSize": {},
+  "npEdRulers": "Kenar çizgileri",
+  "@npEdRulers": {},
+  "npEdWordWrap": "Satır kaydır",
+  "@npEdWordWrap": {},
+  "npEdLineNumbers": "Satır numaraları",
+  "@npEdLineNumbers": {},
+  "npEdHighlightLine": "Geçerli satırı vurgula",
+  "@npEdHighlightLine": {},
+  "npEdSmartHighlight": "Akıllı vurgulama (aynı sözcükler)",
+  "@npEdSmartHighlight": {},
+  "npEdIndentGuides": "Girinti kılavuzları",
+  "@npEdIndentGuides": {},
+  "npEdFolding": "Kod katlama",
+  "@npEdFolding": {},
+  "npEdBracketColors": "Parantez çiftlerini renklendir",
+  "@npEdBracketColors": {},
+  "npEdMinimap": "Mini harita (belge haritası)",
+  "@npEdMinimap": {},
+  "npEdControlChars": "Görünmez karakterleri göster",
+  "@npEdControlChars": {},
+  "npEdSecSave": "Kaydetme",
+  "@npEdSecSave": {},
+  "npEdTrimTrailing": "Kaydederken satır sonu boşluklarını sil",
+  "@npEdTrimTrailing": {},
+  "npEdFinalNewline": "Dosya sonuna satır sonu ekle",
+  "@npEdFinalNewline": {},
+  "npEdCheckRemote": "Kaydetmeden önce değişiklik kontrolü",
+  "@npEdCheckRemote": {},
+  "npEdCheckRemoteHint": "Dosya açıldıktan sonra sunucuda başkası değiştirdiyse sorar.",
+  "@npEdCheckRemoteHint": {},
+  "npEdAutoSave": "Otomatik kaydet",
+  "@npEdAutoSave": {},
+  "npEdSec": "sn",
+  "@npEdSec": {},
+  "npEdAutoSaveHint": "0 = kapalı. Açıkken değişiklikten bu kadar sonra kaydedilip sunucuya yüklenir.",
+  "@npEdAutoSaveHint": {},
+  "npMainBalloonTitle": "Notepad Master arka planda çalışıyor",
+  "@npMainBalloonTitle": {},
+  "npMainBalloonBody": "Tekrar açmak için tepsideki simgeye tıklayın.",
+  "@npMainBalloonBody": {},
+  "npMainTrayShow": "Notepad Master’ı göster",
+  "@npMainTrayShow": {},
+  "npMainTrayQuick": "Hızlı aç",
+  "@npMainTrayQuick": {},
+  "npMainTrayNone": "Kayıtlı bağlantı yok",
+  "@npMainTrayNone": {},
+  "npMainTrayQuit": "Çıkış",
+  "@npMainTrayQuit": {},
+  "npProjToggleTree": "Klasör ağacını aç/kapat (Ctrl+B)",
+  "@npProjToggleTree": {},
+  "npProjReconnect": "Yeniden bağlan",
+  "@npProjReconnect": {},
+  "npProjReconnected": "Yeniden bağlanıldı",
+  "@npProjReconnected": {},
+  "npProjConnectFail": "Bağlanılamadı",
+  "@npProjConnectFail": {},
+  "npProjStatusOn": "Bağlı",
+  "@npProjStatusOn": {},
+  "npProjStatusOff": "Bağlantı yok",
+  "@npProjStatusOff": {},
+  "npProjStatusConnecting": "Bağlanılıyor…",
+  "@npProjStatusConnecting": {},
+  "npProjSave": "Kaydet",
+  "@npProjSave": {},
+  "npProjSaveAll": "Tümünü kaydet",
+  "@npProjSaveAll": {},
+  "npProjUndo": "Geri al",
+  "@npProjUndo": {},
+  "npProjRedo": "Yinele",
+  "@npProjRedo": {},
+  "npProjFind": "Bul",
+  "@npProjFind": {},
+  "npProjReplace": "Değiştir",
+  "@npProjReplace": {},
+  "npProjGoto": "Satıra git",
+  "@npProjGoto": {},
+  "npProjShowWs": "Boşluk ve sekmeleri göster",
+  "@npProjShowWs": {},
+  "npProjZoomIn": "Yakınlaştır",
+  "@npProjZoomIn": {},
+  "npProjZoomOut": "Uzaklaştır",
+  "@npProjZoomOut": {},
+  "npProjShowCache": "Çalışma kopyasını göster",
+  "@npProjShowCache": {},
+  "npProjPalette": "Komut paleti",
+  "@npProjPalette": {},
+  "npProjCloseTab": "Kapat",
+  "@npProjCloseTab": {},
+  "npProjCloseOthers": "Diğerlerini kapat",
+  "@npProjCloseOthers": {},
+  "npProjCloseAll": "Tümünü kapat",
+  "@npProjCloseAll": {},
+  "npProjReload": "Yeniden yükle",
+  "@npProjReload": {},
+  "npProjReloadMsg": "<b>{name}</b> içindeki kaydedilmemiş değişiklikler kaybolacak. Dosya yeniden yüklensin mi?",
+  "@npProjReloadMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjRevealTree": "Ağaçta göster",
+  "@npProjRevealTree": {},
+  "npProjUnsavedTitle": "Kaydedilmemiş değişiklikler",
+  "@npProjUnsavedTitle": {},
+  "npProjUnsavedMsg": "<b>{name}</b> dosyasındaki değişiklikler kaydedilsin mi?",
+  "@npProjUnsavedMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjDontSave": "Kaydetme",
+  "@npProjDontSave": {},
+  "npProjOpenFail": "{name} açılamadı",
+  "@npProjOpenFail": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjTooLarge": "{name} çok büyük ({size}); en fazla 50 MB açılabilir.",
+  "@npProjTooLarge": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjBinary": "{name} metin dosyası değil (ikili); editörde açılmadı.",
+  "@npProjBinary": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSaveFail": "{name} kaydedilemedi",
+  "@npProjSaveFail": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSaved": "{name} kaydedildi",
+  "@npProjSaved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSavedRemote": "{name} kaydedildi ve yüklendi",
+  "@npProjSavedRemote": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjLossyTitle": "Kodlama uyarısı",
+  "@npProjLossyTitle": {},
+  "npProjLossyMsg": "Metindeki bazı karakterler <b>{enc}</b> kodlamasında saklanamıyor ve “?” olarak kaydedilecek. Durum çubuğundan UTF-8’e çevirmeniz önerilir.",
+  "@npProjLossyMsg": {
+    "placeholders": {
+      "enc": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSaveAnyway": "Yine de kaydet",
+  "@npProjSaveAnyway": {},
+  "npProjConflictTitle": "Dosya başka yerde değişmiş",
+  "@npProjConflictTitle": {},
+  "npProjConflictMsg": "<b>{name}</b> siz açtıktan sonra sunucuda değiştirilmiş. Ne yapılsın?",
+  "@npProjConflictMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjConflictOverwrite": "Üzerine yaz",
+  "@npProjConflictOverwrite": {},
+  "npProjConflictReload": "Sunucudakini yükle",
+  "@npProjConflictReload": {},
+  "npProjConflictAuto": "{name} sunucuda değişmiş; otomatik kaydetme yapılmadı.",
+  "@npProjConflictAuto": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjPos": "Sat {ln}, Süt {col}",
+  "@npProjPos": {
+    "placeholders": {
+      "col": {
+        "type": "String"
+      },
+      "ln": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSel": "{n} seçili",
+  "@npProjSel": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjSpaces": "Boşluk: {n}",
+  "@npProjSpaces": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjTabWidth": "Sekme: {n}",
+  "@npProjTabWidth": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjIndentToSpaces": "Girintiyi boşluğa çevir",
+  "@npProjIndentToSpaces": {},
+  "npProjIndentToTabs": "Girintiyi sekmeye çevir",
+  "@npProjIndentToTabs": {},
+  "npProjEncTitle": "Kodlama: {name}",
+  "@npProjEncTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjEncConvert": "Bu kodlamaya çevir (kaydedince)",
+  "@npProjEncConvert": {},
+  "npProjEncConvertHint": "Metin aynı kalır; dosya kaydedilirken seçilen kodlamayla yazılır.",
+  "@npProjEncConvertHint": {},
+  "npProjEncReopen": "Bu kodlamayla yeniden aç",
+  "@npProjEncReopen": {},
+  "npProjEncReopenHint": "Karakterler bozuk görünüyorsa dosyayı doğru kodlamayla yeniden okuyun.",
+  "@npProjEncReopenHint": {},
+  "npProjEolTo": "{eol} biçimine çevir",
+  "@npProjEolTo": {
+    "placeholders": {
+      "eol": {
+        "type": "String"
+      }
+    }
+  },
+  "npProjLangTitle": "Dil seçin",
+  "@npProjLangTitle": {},
+  "npProjLangSearch": "Dil ara…",
+  "@npProjLangSearch": {},
+  "npProjCacheCopy": "Çalışma kopyası",
+  "@npProjCacheCopy": {},
+  "npProjInitFail": "Proje penceresi başlatılamadı",
+  "@npProjInitFail": {},
+  "npProjEmptyHint": "Soldaki ağaçta bir dosyaya çift tıklayın; dosya diline uygun renklendirmeyle burada sekme olarak açılır.",
+  "@npProjEmptyHint": {},
+  "npProjEmptyFile": "Dosya açılıyor…",
+  "@npProjEmptyFile": {},
+  "npTreeNewFile": "Yeni dosya",
+  "@npTreeNewFile": {},
+  "npTreeFileName": "Dosya adı",
+  "@npTreeFileName": {},
+  "npTreeBadName": "Geçersiz ad",
+  "@npTreeBadName": {},
+  "npTreeCreateFail": "Oluşturulamadı",
+  "@npTreeCreateFail": {},
+  "npTreeRenameFail": "Yeniden adlandırılamadı",
+  "@npTreeRenameFail": {},
+  "npTreeRenameDirty": "Önce bu klasördeki açık dosyaları kaydedin.",
+  "@npTreeRenameDirty": {},
+  "npTreeDeleteTitle": "Sil",
+  "@npTreeDeleteTitle": {},
+  "npTreeDeleteMsg": "<b>{name}</b> dosyası silinsin mi?",
+  "@npTreeDeleteMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npTreeDeleteDirMsg": "<b>{name}</b> klasörü ve içindeki her şey silinsin mi?",
+  "@npTreeDeleteDirMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "npTreeDeleteFail": "Silinemedi",
+  "@npTreeDeleteFail": {},
+  "npTreeTrashNote": "Yerel dosyalar Geri Dönüşüm Kutusu’na taşınır.",
+  "@npTreeTrashNote": {},
+  "npTreeEmpty": "Boş klasör",
+  "@npTreeEmpty": {},
+  "npTreeCollapseAll": "Tümünü daralt",
+  "@npTreeCollapseAll": {},
+  "npTreeShowExplorer": "Gezgin’de göster",
+  "@npTreeShowExplorer": {},
+  "npTreeUp": "Üst klasör",
+  "@npTreeUp": {},
+  "npTreeHome": "Giriş klasörü",
+  "@npTreeHome": {},
+  "npMainErrAuth": "Giriş başarısız: kullanıcı adı veya şifre hatalı.",
+  "@npMainErrAuth": {},
+  "npMainErrRefused": "Bağlantı reddedildi: port kapalı veya sunucu çalışmıyor.",
+  "@npMainErrRefused": {},
+  "npMainErrTimeout": "Zaman aşımı: sunucuya ulaşılamadı.",
+  "@npMainErrTimeout": {},
+  "npMainErrDns": "Sunucu adresi çözümlenemedi (DNS).",
+  "@npMainErrDns": {},
+  "npMainErrUnreach": "Sunucuya ağ üzerinden erişilemiyor.",
+  "@npMainErrUnreach": {},
+  "npMainErrReset": "Sunucu bağlantıyı kapattı.",
+  "@npMainErrReset": {},
+  "npMainErrNotFound": "Dosya veya klasör bulunamadı.",
+  "@npMainErrNotFound": {},
+  "npMainErrPerm": "Erişim izni yok.",
+  "@npMainErrPerm": {},
+  "npMainErrExists": "Bu adda bir dosya veya klasör zaten var.",
+  "@npMainErrExists": {},
+  "npMainErr550": "Sunucu işlemi reddetti (550): {msg}",
+  "@npMainErr550": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "npMainErr553": "Dosya adı sunucu tarafından kabul edilmedi (553).",
+  "@npMainErr553": {},
+  "npMainErrTls": "TLS/SSL hatası — protokolü veya portu kontrol edin. ({msg})",
+  "@npMainErrTls": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "npMainErrHostKey": "Sunucunun host anahtarı değişmiş! Kayıtlı: {oldVal}, gelen: {newVal}. Güvenlik için bağlantı reddedildi.",
+  "@npMainErrHostKey": {
+    "placeholders": {
+      "newVal": {
+        "type": "String"
+      },
+      "oldVal": {
+        "type": "String"
+      }
+    }
+  },
+  "npMainErrNoKey": "Özel anahtar dosyası okunamadı.",
+  "@npMainErrNoKey": {},
+  "npMainErrKey": "Özel anahtar okunamadı: parola yanlış ya da biçim desteklenmiyor.",
+  "@npMainErrKey": {},
+  "npMainErrNoLocal": "Klasör ya da dosya bu bilgisayarda bulunamadı. Ana pencerede kartın menüsünden yolu değiştirin.",
+  "@npMainErrNoLocal": {},
+  "npMainErrConnNotFound": "Bağlantı bulunamadı",
+  "@npMainErrConnNotFound": {},
+  "npMainErrNoSession": "Bağlı değil",
+  "@npMainErrNoSession": {},
+  "npMainErrHost": "Sunucu adresi gerekli.",
+  "@npMainErrHost": {},
+  "npMainErrUser": "Kullanıcı adı gerekli (veya Anonim girişi seçin).",
+  "@npMainErrUser": {},
+  "npMainPickKey": "Özel anahtar dosyası seçin",
+  "@npMainPickKey": {},
+  "npMainCopySuffix": " (kopya)",
+  "@npMainCopySuffix": {},
+  "npMainCloseDirty": "Kaydedilmemiş dosyalar var. Pencere kapatılırsa değişiklikler kaybolacak.",
+  "@npMainCloseDirty": {},
+  "npMainCloseDiscard": "Kaydetmeden kapat",
+  "@npMainCloseDiscard": {},
+  "ipAppNewFolder": "Yeni klasör",
+  "@ipAppNewFolder": {},
+  "ipAppNewRecord": "Yeni kayıt",
+  "@ipAppNewRecord": {},
+  "ipAppSearchPh": "Kayıt, IP, ad, MAC ya da servis ara…",
+  "@ipAppSearchPh": {},
+  "ipAppStats": "{n} kayıt",
+  "@ipAppStats": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipColIp": "IP",
+  "@ipColIp": {},
+  "ipColMac": "MAC",
+  "@ipColMac": {},
+  "ipColName": "Ad",
+  "@ipColName": {},
+  "ipColRtt": "Yanıt",
+  "@ipColRtt": {},
+  "ipColServices": "Servisler",
+  "@ipColServices": {},
+  "ipColStatus": "Durum",
+  "@ipColStatus": {},
+  "ipColVendor": "Üretici",
+  "@ipColVendor": {},
+  "ipCtxCopyIp": "IP adresini kopyala",
+  "@ipCtxCopyIp": {},
+  "ipCtxCopyMac": "MAC adresini kopyala",
+  "@ipCtxCopyMac": {},
+  "ipCtxCopyName": "Adı kopyala",
+  "@ipCtxCopyName": {},
+  "ipCtxCopyRange": "Aralığı kopyala",
+  "@ipCtxCopyRange": {},
+  "ipCtxOpenWeb": "Tarayıcıda aç",
+  "@ipCtxOpenWeb": {},
+  "ipFolderDeleteMsg": "“{name}” klasörü silinecek; içindeki kayıtlar ve klasörler üst klasöre taşınır.",
+  "@ipFolderDeleteMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ipFolderEmpty": "Boş klasör",
+  "@ipFolderEmpty": {},
+  "ipFolderName": "Klasör adı",
+  "@ipFolderName": {},
+  "ipFolderRename": "Klasörü yeniden adlandır",
+  "@ipFolderRename": {},
+  "ipHostAlive": "Canlılık",
+  "@ipHostAlive": {},
+  "ipHostBanner": "Karşılama",
+  "@ipHostBanner": {},
+  "ipHostCert": "Sertifika",
+  "@ipHostCert": {},
+  "ipHostCertExpires": "Geçerlilik sonu",
+  "@ipHostCertExpires": {},
+  "ipHostCertIssuer": "Veren",
+  "@ipHostCertIssuer": {},
+  "ipHostDetails": "Ayrıntılar",
+  "@ipHostDetails": {},
+  "ipHostLocalMac": "özel adres",
+  "@ipHostLocalMac": {},
+  "ipHostNoServices": "Listedeki portlardan hiçbiri açık değil.",
+  "@ipHostNoServices": {},
+  "ipHostSelfSigned": "kendinden imzalı",
+  "@ipHostSelfSigned": {},
+  "ipHostServer": "Sunucu",
+  "@ipHostServer": {},
+  "ipHostTitle": "Başlık",
+  "@ipHostTitle": {},
+  "ipHostUnknown": "(ad çözülemedi)",
+  "@ipHostUnknown": {},
+  "ipNoticeAccept": "Anladım",
+  "@ipNoticeAccept": {},
+  "ipNoticeBody": "IP Tools yalnız yerel ağınızı keşfeder: cihazları ping ile bulur, kısa bir port listesine bağlanmayı dener ve adlarını çözer. Yalnız sahibi olduğunuz ya da yetkili olduğunuz ağları tarayın.",
+  "@ipNoticeBody": {},
+  "ipNoticeLimits": "Tasarım gereği yalnız özel adresler (10.x, 172.16–31.x, 192.168.x, 169.254.x) taranır; zafiyet denemesi, parola deneme ya da geniş port taraması yapılmaz.",
+  "@ipNoticeLimits": {},
+  "ipNoticeShort": "Yalnız yetkili olduğunuz ağları tarayın",
+  "@ipNoticeShort": {},
+  "ipNoticeText": "Yalnız sahibi olduğunuz ya da yetkili olduğunuz ağları tarayın.",
+  "@ipNoticeText": {},
+  "ipNoticeTitle": "Yerel ağ keşfi",
+  "@ipNoticeTitle": {},
+  "ipPrivacyNote": "Gizlilik: tarama sonuçları yalnız bu bilgisayarda saklanır ve hiçbir yere gönderilmez. Yalnız özel/yerel adresler taranır.",
+  "@ipPrivacyNote": {},
+  "ipRangeErrEmpty": "Bir IP aralığı girin.",
+  "@ipRangeErrEmpty": {},
+  "ipRangeErrInvalid": "Geçersiz adres ya da aralık: {token}",
+  "@ipRangeErrInvalid": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRangeErrIpv6": "IPv6 adresleri desteklenmiyor: {token}",
+  "@ipRangeErrIpv6": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRangeErrNotPrivate": "Yalnız özel/yerel adresler taranabilir (10.x, 172.16–31.x, 192.168.x, 169.254.x): {token}",
+  "@ipRangeErrNotPrivate": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRangeErrReversed": "Aralığın başlangıcı bitişinden büyük: {token}",
+  "@ipRangeErrReversed": {
+    "placeholders": {
+      "token": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRangeErrTooMany": "Aralık çok geniş (en çok 65.536 adres, bir /16): {count}",
+  "@ipRangeErrTooMany": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRangeOk": "{n} adres taranacak",
+  "@ipRangeOk": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecColor": "Renk",
+  "@ipRecColor": {},
+  "ipRecDeleteMsg": "“{name}” kaydı ve bu bilgisayardaki tarama sonucu silinecek.",
+  "@ipRecDeleteMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecDevices": "{n} cihaz",
+  "@ipRecDevices": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecEdit": "Kaydı düzenle",
+  "@ipRecEdit": {},
+  "ipRecFolder": "Klasör",
+  "@ipRecFolder": {},
+  "ipRecItems": "{n} öğe",
+  "@ipRecItems": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecLastScan": "Son tarama: {time}",
+  "@ipRecLastScan": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecMove": "Taşı",
+  "@ipRecMove": {},
+  "ipRecMoveTitle": "Kaydı taşı",
+  "@ipRecMoveTitle": {},
+  "ipRecName": "Ad",
+  "@ipRecName": {},
+  "ipRecNever": "Henüz taranmadı",
+  "@ipRecNever": {},
+  "ipRecNewDevices": "{n} yeni",
+  "@ipRecNewDevices": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipRecRange": "IP aralığı",
+  "@ipRecRange": {},
+  "ipRecRangeHint": "Örnekler: 192.168.1.0/24 · 192.168.1.1-192.168.1.255 · 10.0.0.5 · virgülle birden çok. En çok /16.",
+  "@ipRecRangeHint": {},
+  "ipRecRootFolder": "Kayıtlar",
+  "@ipRecRootFolder": {},
+  "ipRecSaved": "Kayıt kaydedildi",
+  "@ipRecSaved": {},
+  "ipScanBusy": "Başka bir tarama sürüyor; önce onu durdurun.",
+  "@ipScanBusy": {},
+  "ipScanDone": "Tarama bitti: {n} cihaz",
+  "@ipScanDone": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipScanEmptyBody": "Tara düğmesine basın ya da karttaki ▶ simgesine tıklayın. Bulunan cihazlar burada listelenir.",
+  "@ipScanEmptyBody": {},
+  "ipScanEmptyTitle": "Bu kayıt henüz taranmadı",
+  "@ipScanEmptyTitle": {},
+  "ipScanExport": "Dışa aktar",
+  "@ipScanExport": {},
+  "ipScanExportCsv": "CSV olarak kaydet…",
+  "@ipScanExportCsv": {},
+  "ipScanExportJson": "JSON olarak kaydet…",
+  "@ipScanExportJson": {},
+  "ipScanExported": "Dışa aktarıldı",
+  "@ipScanExported": {},
+  "ipScanFailed": "Tarama yapılamadı: {msg}",
+  "@ipScanFailed": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "ipScanFilter": "Filtre",
+  "@ipScanFilter": {},
+  "ipScanFilterAll": "Tümü",
+  "@ipScanFilterAll": {},
+  "ipScanFilterGone": "Kaybolan",
+  "@ipScanFilterGone": {},
+  "ipScanFilterNew": "Yeni",
+  "@ipScanFilterNew": {},
+  "ipScanFilterServices": "Servisli",
+  "@ipScanFilterServices": {},
+  "ipScanFound": "{n} cihaz bulundu",
+  "@ipScanFound": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "ipScanNoMatch": "Filtreye uyan cihaz yok.",
+  "@ipScanNoMatch": {},
+  "ipScanPhaseNames": "Adlar çözülüyor",
+  "@ipScanPhaseNames": {},
+  "ipScanPhasePing": "Cihazlar aranıyor",
+  "@ipScanPhasePing": {},
+  "ipScanPhasePorts": "Servisler deneniyor",
+  "@ipScanPhasePorts": {},
+  "ipScanProgress": "{done}/{total}",
+  "@ipScanProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "ipScanRateLimited": "Aynı kayıt en erken {s} sn sonra yeniden taranabilir.",
+  "@ipScanRateLimited": {
+    "placeholders": {
+      "s": {
+        "type": "String"
+      }
+    }
+  },
+  "ipScanScan": "Tara",
+  "@ipScanScan": {},
+  "ipScanScanning": "Taranıyor…",
+  "@ipScanScanning": {},
+  "ipScanSelectHint": "Soldaki bir kayda tıklayın: aralık taranır ve bulunan cihazlar burada listelenir.",
+  "@ipScanSelectHint": {},
+  "ipScanSelectRecord": "Bir kayıt seçin",
+  "@ipScanSelectRecord": {},
+  "ipScanStop": "Durdur",
+  "@ipScanStop": {},
+  "ipScanStopped": "Tarama durduruldu",
+  "@ipScanStopped": {},
+  "ipStatusAliveArp": "ARP tablosunda görüldü (ping'e yanıt vermedi)",
+  "@ipStatusAliveArp": {},
+  "ipStatusAlivePing": "Ping'e yanıt verdi",
+  "@ipStatusAlivePing": {},
+  "ipStatusGone": "Kayboldu (önceki taramada vardı)",
+  "@ipStatusGone": {},
+  "ipStatusLive": "Taranıyor",
+  "@ipStatusLive": {},
+  "ipStatusNew": "Yeni (önceki taramada yoktu)",
+  "@ipStatusNew": {},
+  "ipStatusSame": "Çevrimiçi",
+  "@ipStatusSame": {},
+  "ipTagCopied": "Panoya kopyalandı: {text}",
+  "@ipTagCopied": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "ipTagFailed": "Açılamadı",
+  "@ipTagFailed": {},
+  "ipTagGroupCamera": "Kamera (RTSP)",
+  "@ipTagGroupCamera": {},
+  "ipTagGroupDb": "Veritabanı",
+  "@ipTagGroupDb": {},
+  "ipTagGroupFtp": "FTP",
+  "@ipTagGroupFtp": {},
+  "ipTagGroupPrinter": "Yazıcı",
+  "@ipTagGroupPrinter": {},
+  "ipTagGroupRdp": "Uzak Masaüstü",
+  "@ipTagGroupRdp": {},
+  "ipTagGroupSmb": "Dosya paylaşımı",
+  "@ipTagGroupSmb": {},
+  "ipTagGroupSsh": "SSH",
+  "@ipTagGroupSsh": {},
+  "ipTagGroupVnc": "VNC",
+  "@ipTagGroupVnc": {},
+  "ipTagGroupWeb": "Web",
+  "@ipTagGroupWeb": {},
+  "ipTagOpened": "Açılıyor: {text}",
+  "@ipTagOpened": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "ipTrayHiddenHint": "IP Tools tepside çalışmaya devam ediyor. Simgeye tıklayınca pencere geri açılır.",
+  "@ipTrayHiddenHint": {},
+  "ipTrayQuit": "Çıkış",
+  "@ipTrayQuit": {},
+  "ipTrayShow": "IP Tools'u göster",
+  "@ipTrayShow": {},
+  "ipWelcomeBody": "Bir IP aralığı kaydedin (ör. 192.168.1.0/24). Kayda tıkladığınızda aralık taranır; bulunan cihazların adı, üreticisi ve açık servisleri listelenir. Servis etiketine tıklayınca ilgili uygulama açılır.",
+  "@ipWelcomeBody": {},
+  "ipWelcomeTitle": "Yerel ağınızda ne var?",
+  "@ipWelcomeTitle": {},
+  "cvTypeVideo": "Video",
+  "@cvTypeVideo": {},
+  "cvTypeImage": "Resim",
+  "@cvTypeImage": {},
+  "cvTypeAudio": "Ses",
+  "@cvTypeAudio": {},
+  "cvTypeVideoHint": "MP4, MKV, AVI, MOV…",
+  "@cvTypeVideoHint": {},
+  "cvTypeImageHint": "JPG, PNG, WEBP, AVIF…",
+  "@cvTypeImageHint": {},
+  "cvTypeAudioHint": "MP3, WAV, FLAC, M4A…",
+  "@cvTypeAudioHint": {},
+  "cvTypeVideoAll": "Tüm video dosyaları",
+  "@cvTypeVideoAll": {},
+  "cvTypeImageAll": "Tüm resim dosyaları",
+  "@cvTypeImageAll": {},
+  "cvTypeAudioAll": "Tüm ses dosyaları",
+  "@cvTypeAudioAll": {},
+  "cvAppSearchPh": "Projelerde ara…  (Ctrl+F)",
+  "@cvAppSearchPh": {},
+  "cvAppNewProject": "Yeni proje",
+  "@cvAppNewProject": {},
+  "cvAppSettings": "Ayarlar",
+  "@cvAppSettings": {},
+  "cvAppStats": "{c} proje · {f} klasör",
+  "@cvAppStats": {
+    "placeholders": {
+      "c": {
+        "type": "String"
+      },
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppWelcome": "Hoş geldiniz",
+  "@cvAppWelcome": {},
+  "cvAppResults": "“{q}” için sonuçlar",
+  "@cvAppResults": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppAll": "Tüm projeler",
+  "@cvAppAll": {},
+  "cvAppWelcomeHint": "İlk dönüştürme projenizi oluşturun.<br>Video, resim ya da ses seçin, kaynak ve hedef uzantıyı belirleyin, dosya veya klasörü gösterin.",
+  "@cvAppWelcomeHint": {},
+  "cvAppFolders": "Klasörler",
+  "@cvAppFolders": {},
+  "cvAppProjects": "Projeler",
+  "@cvAppProjects": {},
+  "cvAppDblHint": "Açmak için projeye çift tıklayın",
+  "@cvAppDblHint": {},
+  "cvAppNoMatch": "Eşleşen proje bulunamadı.",
+  "@cvAppNoMatch": {},
+  "cvAppFolderCount": "{n} proje",
+  "@cvAppFolderCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppNewProjectHere": "Bu klasörde yeni proje",
+  "@cvAppNewProjectHere": {},
+  "cvAppNewSubfolder": "Alt klasör oluştur",
+  "@cvAppNewSubfolder": {},
+  "cvAppDuplicate": "Kopyasını oluştur",
+  "@cvAppDuplicate": {},
+  "cvAppMoveToFolder": "Klasöre taşı…",
+  "@cvAppMoveToFolder": {},
+  "cvAppProjectMoved": "Proje taşındı",
+  "@cvAppProjectMoved": {},
+  "cvAppFolderIntoSelf": "Klasör kendi içine taşınamaz",
+  "@cvAppFolderIntoSelf": {},
+  "cvAppFolderPh": "Örn. Müşteri videoları",
+  "@cvAppFolderPh": {},
+  "cvAppRenameFolder": "Klasörü yeniden adlandır",
+  "@cvAppRenameFolder": {},
+  "cvAppDeleteFolder": "Klasörü sil",
+  "@cvAppDeleteFolder": {},
+  "cvAppDeleteFolderMsg": "<b>{name}</b> klasörü silinsin mi?",
+  "@cvAppDeleteFolderMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppDeleteFolderProjects": "<br>İçindeki {n} proje üst klasöre taşınacak.",
+  "@cvAppDeleteFolderProjects": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppRootFolder": "Ana dizin (klasörsüz)",
+  "@cvAppRootFolder": {},
+  "cvAppMoveTitle": "“{name}” taşı",
+  "@cvAppMoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppTargetFolder": "Hedef klasör",
+  "@cvAppTargetFolder": {},
+  "cvAppDeleteProject": "Projeyi sil",
+  "@cvAppDeleteProject": {},
+  "cvAppDeleteProjectMsg": "<b>{name}</b> projesi silinsin mi?<br>Bu projenin dönüştürülmüş dosyaları ve metinleri de silinir. Kaynak dosyalarınıza dokunulmaz.",
+  "@cvAppDeleteProjectMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppProjectSettings": "Proje ayarları",
+  "@cvAppProjectSettings": {},
+  "cvAppNoSource": "Bu bilgisayarda kaynak seçilmedi",
+  "@cvAppNoSource": {},
+  "cvAppAllExts": "Tümü",
+  "@cvAppAllExts": {},
+  "cvAppRunning": "Çalışıyor",
+  "@cvAppRunning": {},
+  "cvAppDoneCount": "{n} tamam",
+  "@cvAppDoneCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppErrorCount": "{n} hata",
+  "@cvAppErrorCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvAppProjectSaved": "Proje kaydedildi",
+  "@cvAppProjectSaved": {},
+  "cvAppClearOutputs": "Çevrilmiş dosyaları sil",
+  "@cvAppClearOutputs": {},
+  "cvAppClearOutputsMsg": "<b>{name}</b> projesinin dönüştürülmüş dosyaları silinsin mi? Kaynak dosyalarınıza dokunulmaz; istediğinizde yeniden dönüştürebilirsiniz.",
+  "@cvAppClearOutputsMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPfTitleNew": "Yeni proje",
+  "@cvPfTitleNew": {},
+  "cvPfTitleEdit": "Proje ayarları: {name}",
+  "@cvPfTitleEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPfCreate": "Kaydet",
+  "@cvPfCreate": {},
+  "cvPfTabGeneral": "Genel",
+  "@cvPfTabGeneral": {},
+  "cvPfTabOutput": "Dönüştürme ayarları",
+  "@cvPfTabOutput": {},
+  "cvPfTabSpeech": "Konuşma",
+  "@cvPfTabSpeech": {},
+  "cvPfName": "Proje ismi",
+  "@cvPfName": {},
+  "cvPfNamePh": "Örn. Tatil videoları",
+  "@cvPfNamePh": {},
+  "cvPfType": "Tür",
+  "@cvPfType": {},
+  "cvPfSourceExt": "Kaynak dosya uzantısı",
+  "@cvPfSourceExt": {},
+  "cvPfTargetExt": "Hedef dosya uzantısı",
+  "@cvPfTargetExt": {},
+  "cvPfSelectAll": "Tümünü seç",
+  "@cvPfSelectAll": {},
+  "cvPfSelectNone": "Hiçbiri",
+  "@cvPfSelectNone": {},
+  "cvPfGroupVideo": "Video",
+  "@cvPfGroupVideo": {},
+  "cvPfGroupAnim": "Animasyon",
+  "@cvPfGroupAnim": {},
+  "cvPfGroupAudioOnly": "Yalnız ses (videodan ses çıkar)",
+  "@cvPfGroupAudioOnly": {},
+  "cvPfAudioOnlyHint": "Videonun yalnız sesi alınır.",
+  "@cvPfAudioOnlyHint": {},
+  "cvPfGifHint": "Animasyonlu GIF (en fazla 30 kare/sn).",
+  "@cvPfGifHint": {},
+  "cvPfSource": "Kaynak",
+  "@cvPfSource": {},
+  "cvPfModeFile": "Dosya",
+  "@cvPfModeFile": {},
+  "cvPfModeFolder": "Klasör",
+  "@cvPfModeFolder": {},
+  "cvPfPathFile": "Dönüştürülecek dosya",
+  "@cvPfPathFile": {},
+  "cvPfPathFolder": "Dönüştürülecek klasör",
+  "@cvPfPathFolder": {},
+  "cvPfPathNone": "Henüz seçilmedi — Seç… düğmesine basın",
+  "@cvPfPathNone": {},
+  "cvPfSubfolders": "Alt klasörleri de dahil et",
+  "@cvPfSubfolders": {},
+  "cvPfConcurrency": "Aynı anda çevrilecek dosya sayısı",
+  "@cvPfConcurrency": {},
+  "cvPfConcurrencyHint": "Yüksek değer daha hızlı bitirir ama işlemciyi ve diski daha çok yorar.",
+  "@cvPfConcurrencyHint": {},
+  "cvPfFolder": "Proje klasörü",
+  "@cvPfFolder": {},
+  "cvPfSpeechAsk": "Konuşmayı metne çevir (speech)",
+  "@cvPfSpeechAsk": {},
+  "cvPfSpeechAskHint": "Video veya sesteki konuşma metne çevrilir: cümlenin geçtiği saniye, dil ve metin ayrı sütunlarda görünür.",
+  "@cvPfSpeechAskHint": {},
+  "cvPfSpeechModel": "Konuşma modeli",
+  "@cvPfSpeechModel": {},
+  "cvPfSpeechLang": "Konuşma dili",
+  "@cvPfSpeechLang": {},
+  "cvPfPerWindow": "Her 30 saniyede dili yeniden algıla",
+  "@cvPfPerWindow": {},
+  "cvPfPerWindowHint": "Birden çok dil konuşulan kayıtlar için. Daha yavaştır.",
+  "@cvPfPerWindowHint": {},
+  "cvPfModels": "Modeller",
+  "@cvPfModels": {},
+  "cvPfSpeechNote": "Konuşma tanıma bu bilgisayarda, çevrimdışı çalışır (whisper.cpp); ses hiçbir sunucuya gönderilmez. Model ilk kullanımda bir kez indirilir.",
+  "@cvPfSpeechNote": {},
+  "cvPfErrExt": "En az bir kaynak uzantısı seçin.",
+  "@cvPfErrExt": {},
+  "cvOutQuality": "Kalite",
+  "@cvOutQuality": {},
+  "cvOutQHigh": "Yüksek (büyük dosya)",
+  "@cvOutQHigh": {},
+  "cvOutQMedium": "Orta (önerilen)",
+  "@cvOutQMedium": {},
+  "cvOutQLow": "Düşük (küçük dosya)",
+  "@cvOutQLow": {},
+  "cvOutResolution": "Çözünürlük",
+  "@cvOutResolution": {},
+  "cvOutAsSource": "Kaynakla aynı",
+  "@cvOutAsSource": {},
+  "cvOutResolutionHint": "Yalnız küçültür; daha küçük videolar büyütülmez.",
+  "@cvOutResolutionHint": {},
+  "cvOutFps": "Kare hızı",
+  "@cvOutFps": {},
+  "cvOutCodec": "Video kodeği",
+  "@cvOutCodec": {},
+  "cvOutH264": "H.264 (en uyumlu)",
+  "@cvOutH264": {},
+  "cvOutH265": "H.265 / HEVC (daha küçük)",
+  "@cvOutH265": {},
+  "cvOutCodecHint": "H.265 yalnız MP4, MKV, MOV ve M4V hedeflerinde kullanılır.",
+  "@cvOutCodecHint": {},
+  "cvOutSpeed": "Kodlama hızı",
+  "@cvOutSpeed": {},
+  "cvOutSpeedVeryfast": "Çok hızlı",
+  "@cvOutSpeedVeryfast": {},
+  "cvOutSpeedFast": "Hızlı",
+  "@cvOutSpeedFast": {},
+  "cvOutSpeedMedium": "Dengeli",
+  "@cvOutSpeedMedium": {},
+  "cvOutSpeedSlow": "Yavaş (daha küçük dosya)",
+  "@cvOutSpeedSlow": {},
+  "cvOutAudioBitrate": "Ses bit hızı",
+  "@cvOutAudioBitrate": {},
+  "cvOutNoAudio": "Sesi kaldır",
+  "@cvOutNoAudio": {},
+  "cvOutImgQuality": "Kalite",
+  "@cvOutImgQuality": {},
+  "cvOutImgQualityHint": "JPG, WEBP, AVIF ve TIFF için. PNG kayıpsızdır; 80 altında renk paleti kullanılır.",
+  "@cvOutImgQualityHint": {},
+  "cvOutMaxWidth": "En fazla genişlik",
+  "@cvOutMaxWidth": {},
+  "cvOutMaxHeight": "En fazla yükseklik",
+  "@cvOutMaxHeight": {},
+  "cvOutNoLimit": "Sınırsız",
+  "@cvOutNoLimit": {},
+  "cvOutResizeHint": "En-boy oranı korunur; küçük resimler büyütülmez.",
+  "@cvOutResizeHint": {},
+  "cvOutKeepMeta": "Meta verileri koru (EXIF, renk profili)",
+  "@cvOutKeepMeta": {},
+  "cvOutKeepMetaHint": "Kapalıyken konum gibi kişisel bilgiler çıktıya yazılmaz.",
+  "@cvOutKeepMetaHint": {},
+  "cvOutBitrate": "Bit hızı",
+  "@cvOutBitrate": {},
+  "cvOutBitrateHint": "WAV, FLAC ve AIFF kayıpsızdır; bit hızı uygulanmaz.",
+  "@cvOutBitrateHint": {},
+  "cvOutSampleRate": "Örnekleme hızı",
+  "@cvOutSampleRate": {},
+  "cvOutChannels": "Kanallar",
+  "@cvOutChannels": {},
+  "cvOutStereo": "Stereo",
+  "@cvOutStereo": {},
+  "cvOutMono": "Mono",
+  "@cvOutMono": {},
+  "cvSpeechModelTiny": "Çok küçük (en hızlı)",
+  "@cvSpeechModelTiny": {},
+  "cvSpeechModelBase": "Temel (önerilen)",
+  "@cvSpeechModelBase": {},
+  "cvSpeechModelSmall": "Küçük (daha doğru)",
+  "@cvSpeechModelSmall": {},
+  "cvSpeechModelMedium": "Orta (yüksek doğruluk)",
+  "@cvSpeechModelMedium": {},
+  "cvSpeechModelTurbo": "Large v3 Turbo (en doğru)",
+  "@cvSpeechModelTurbo": {},
+  "cvSpeechLangAuto": "Otomatik algıla",
+  "@cvSpeechLangAuto": {},
+  "cvSpeechDownload": "İndir",
+  "@cvSpeechDownload": {},
+  "cvSpeechInstalled": "Yüklü · {size}",
+  "@cvSpeechInstalled": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "cvSpeechDownloadFailed": "Model indirilemedi",
+  "@cvSpeechDownloadFailed": {},
+  "cvSpeechDlEngine": "Konuşma motoru indiriliyor",
+  "@cvSpeechDlEngine": {},
+  "cvSpeechDlModel": "Konuşma modeli indiriliyor: {model}",
+  "@cvSpeechDlModel": {
+    "placeholders": {
+      "model": {
+        "type": "String"
+      }
+    }
+  },
+  "cvSpeechEngineAuto": "Konuşma motoru (whisper.cpp) ilk kullanımda indirilecek.",
+  "@cvSpeechEngineAuto": {},
+  "cvSpeechEngineMissing": "Konuşma motoru (whisper-cli) bulunamadı.",
+  "@cvSpeechEngineMissing": {},
+  "cvPjOriginal": "Orijinal",
+  "@cvPjOriginal": {},
+  "cvPjConverted": "Dönüştürülmüş",
+  "@cvPjConverted": {},
+  "cvPjFolders": "Klasörler",
+  "@cvPjFolders": {},
+  "cvPjFiles": "Dosyalar",
+  "@cvPjFiles": {},
+  "cvPjTranscript": "Metin",
+  "@cvPjTranscript": {},
+  "cvPjTrSecond": "Saniye",
+  "@cvPjTrSecond": {},
+  "cvPjTrLang": "Dil",
+  "@cvPjTrLang": {},
+  "cvPjTrText": "Metin",
+  "@cvPjTrText": {},
+  "cvPjSecUnit": "sn",
+  "@cvPjSecUnit": {},
+  "cvPjStart": "Başlat",
+  "@cvPjStart": {},
+  "cvPjStop": "Durdur",
+  "@cvPjStop": {},
+  "cvPjChangeSource": "Kaynağı değiştir",
+  "@cvPjChangeSource": {},
+  "cvPjPickSource": "Kaynak seç",
+  "@cvPjPickSource": {},
+  "cvPjOpenOutDir": "Dönüştürülmüş dosyalar klasörünü aç",
+  "@cvPjOpenOutDir": {},
+  "cvPjExportOutputs": "Dönüştürülmüş dosyaları başka klasöre kopyala…",
+  "@cvPjExportOutputs": {},
+  "cvPjClearOutputs": "Çevrilmiş dosyaları sil",
+  "@cvPjClearOutputs": {},
+  "cvPjLinkPreview": "İki önizlemeyi birlikte oynat",
+  "@cvPjLinkPreview": {},
+  "cvPjFilterPh": "Dosyalarda ara",
+  "@cvPjFilterPh": {},
+  "cvPjFAll": "Tümü",
+  "@cvPjFAll": {},
+  "cvPjFPending": "Bekleyen",
+  "@cvPjFPending": {},
+  "cvPjFActive": "Süren",
+  "@cvPjFActive": {},
+  "cvPjFDone": "Tamamlanan",
+  "@cvPjFDone": {},
+  "cvPjFError": "Hatalı",
+  "@cvPjFError": {},
+  "cvPjExpandAll": "Tümünü aç",
+  "@cvPjExpandAll": {},
+  "cvPjCollapseAll": "Tümünü kapat",
+  "@cvPjCollapseAll": {},
+  "cvPjRescan": "Yeniden tara",
+  "@cvPjRescan": {},
+  "cvPjColName": "Ad",
+  "@cvPjColName": {},
+  "cvPjColFolder": "Klasör",
+  "@cvPjColFolder": {},
+  "cvPjColSize": "Boyut",
+  "@cvPjColSize": {},
+  "cvPjColProgress": "İlerleme",
+  "@cvPjColProgress": {},
+  "cvPjColStatus": "Durum",
+  "@cvPjColStatus": {},
+  "cvPjColSpeech": "Metin",
+  "@cvPjColSpeech": {},
+  "cvPjColOut": "Çıktı",
+  "@cvPjColOut": {},
+  "cvPjSegments": "{n} cümle",
+  "@cvPjSegments": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjNoAudio": "Ses yok",
+  "@cvPjNoAudio": {},
+  "cvPjNoFiles": "Bu klasörde seçili uzantılarda dosya yok ({exts}).",
+  "@cvPjNoFiles": {
+    "placeholders": {
+      "exts": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjNoMatch": "Eşleşen dosya yok.",
+  "@cvPjNoMatch": {},
+  "cvPjNoneChecked": "Listede dosya yok. Soldaki ağaçtan dönüştürülecek dosyaları işaretleyin.",
+  "@cvPjNoneChecked": {},
+  "cvPjConvertThis": "Bu dosyayı dönüştür",
+  "@cvPjConvertThis": {},
+  "cvPjReconvert": "Yeniden dönüştür",
+  "@cvPjReconvert": {},
+  "cvPjTranscribeThis": "Metne çevir",
+  "@cvPjTranscribeThis": {},
+  "cvPjRetranscribe": "Yeniden metne çevir",
+  "@cvPjRetranscribe": {},
+  "cvPjOpenOut": "Dönüştürülmüş dosyayı aç",
+  "@cvPjOpenOut": {},
+  "cvPjRevealOut": "Dönüştürülmüşü klasörde göster",
+  "@cvPjRevealOut": {},
+  "cvPjOpenSrc": "Orijinal dosyayı aç",
+  "@cvPjOpenSrc": {},
+  "cvPjRevealSrc": "Orijinali klasörde göster",
+  "@cvPjRevealSrc": {},
+  "cvPjExportThis": "Başka klasöre kopyala…",
+  "@cvPjExportThis": {},
+  "cvPjDeleteOut": "Dönüştürülmüş dosyayı sil",
+  "@cvPjDeleteOut": {},
+  "cvPjUncheck": "Listeden çıkar",
+  "@cvPjUncheck": {},
+  "cvPjExported": "{n} dosya kopyalandı",
+  "@cvPjExported": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjFileMissing": "Kaynak dosya bulunamadı.",
+  "@cvPjFileMissing": {},
+  "cvPjPickToPreview": "Önizlemek için listeden bir dosya seçin.",
+  "@cvPjPickToPreview": {},
+  "cvPjOutPreviewHint": "Dönüştürülünce burada görünecek.",
+  "@cvPjOutPreviewHint": {},
+  "cvPjConverting": "Dönüştürülüyor…",
+  "@cvPjConverting": {},
+  "cvPjCantPlay": "Bu biçim burada doğrudan oynatılamıyor.",
+  "@cvPjCantPlay": {},
+  "cvPjMakePreview": "Önizleme oluştur",
+  "@cvPjMakePreview": {},
+  "cvPjMakingPreview": "Önizleme hazırlanıyor…",
+  "@cvPjMakingPreview": {},
+  "cvPjNoSourceTitle": "Bu bilgisayarda kaynak seçilmedi",
+  "@cvPjNoSourceTitle": {},
+  "cvPjNoSourceHint": "Proje başka bir cihazdan senkronlandı ya da kaynak henüz seçilmedi. Dönüştürülecek dosyayı veya klasörü seçin.",
+  "@cvPjNoSourceHint": {},
+  "cvPjSourceGone": "Kaynak bulunamadı",
+  "@cvPjSourceGone": {},
+  "cvPjTrImage": "Konuşmadan metne yalnız video ve ses projelerinde kullanılır.",
+  "@cvPjTrImage": {},
+  "cvPjTrPick": "Metnini görmek için bir dosya seçin.",
+  "@cvPjTrPick": {},
+  "cvPjTrAfter": "Dosya dönüştürülünce konuşma metne çevrilecek.",
+  "@cvPjTrAfter": {},
+  "cvPjTrOff": "Bu projede konuşmadan metne kapalı. İsterseniz bu dosya için şimdi çalıştırın.",
+  "@cvPjTrOff": {},
+  "cvPjTrRunning": "Konuşma metne çevriliyor… %{p}",
+  "@cvPjTrRunning": {
+    "placeholders": {
+      "p": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjTrNone": "Bu dosyada konuşma bulunamadı.",
+  "@cvPjTrNone": {},
+  "cvPjTrNoExport": "Dışa aktarılacak metin yok.",
+  "@cvPjTrNoExport": {},
+  "cvPjTrSaved": "Metin kaydedildi",
+  "@cvPjTrSaved": {},
+  "cvPjExportTranscript": "Metni dışa aktar",
+  "@cvPjExportTranscript": {},
+  "cvPjFmtSrt": "SRT altyazı",
+  "@cvPjFmtSrt": {},
+  "cvPjFmtVtt": "WebVTT altyazı",
+  "@cvPjFmtVtt": {},
+  "cvPjFmtTxt": "Düz metin (TXT)",
+  "@cvPjFmtTxt": {},
+  "cvPjFmtCsv": "Tablo (CSV)",
+  "@cvPjFmtCsv": {},
+  "cvPjStTotal": "{n} dosya",
+  "@cvPjStTotal": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStDone": "{n} tamam",
+  "@cvPjStDone": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStErr": "{n} hata",
+  "@cvPjStErr": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStActive": "{n} dönüştürülüyor",
+  "@cvPjStActive": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStSpeech": "{n} metne çevriliyor",
+  "@cvPjStSpeech": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStOut": "Çıktı: {size}",
+  "@cvPjStOut": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjStConc": "Aynı anda: {n}",
+  "@cvPjStConc": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjFinished": "Dönüştürme tamamlandı",
+  "@cvPjFinished": {},
+  "cvPjFinishedSub": "{done}/{total} dosya tamam · {err} hata",
+  "@cvPjFinishedSub": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "err": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "cvStPending": "Bekliyor",
+  "@cvStPending": {},
+  "cvStQueued": "Sırada",
+  "@cvStQueued": {},
+  "cvStConverting": "Dönüştürülüyor",
+  "@cvStConverting": {},
+  "cvStDone": "Tamamlandı",
+  "@cvStDone": {},
+  "cvStError": "Hata",
+  "@cvStError": {},
+  "cvStCanceled": "İptal edildi",
+  "@cvStCanceled": {},
+  "cvMainBalloonTitle": "Convert Master çalışmaya devam ediyor",
+  "@cvMainBalloonTitle": {},
+  "cvMainBalloonBody": "Tepsideki simgeye tıklayarak pencereyi yeniden açabilirsiniz.",
+  "@cvMainBalloonBody": {},
+  "cvMainTrayShow": "Convert Master'ı göster",
+  "@cvMainTrayShow": {},
+  "cvMainTrayProjects": "Projeler",
+  "@cvMainTrayProjects": {},
+  "cvMainTrayNone": "(proje yok)",
+  "@cvMainTrayNone": {},
+  "cvMainTrayQuit": "Çık",
+  "@cvMainTrayQuit": {},
+  "cvErrCanceled": "İptal edildi",
+  "@cvErrCanceled": {},
+  "cvErrNoVideo": "Dosyada video akışı yok.",
+  "@cvErrNoVideo": {},
+  "cvErrNoAudio": "Dosyada ses yok.",
+  "@cvErrNoAudio": {},
+  "cvPjOcrThis": "Metni oku (OCR)",
+  "@cvPjOcrThis": {},
+  "cvPjReocr": "Metni yeniden oku (OCR)",
+  "@cvPjReocr": {},
+  "cvPjNoText": "Metin yok",
+  "@cvPjNoText": {},
+  "cvPjNoTextHint": "Resimde okunabilir metin bulunamadı.",
+  "@cvPjNoTextHint": {},
+  "cvPjOcrPanel": "Metin (OCR)",
+  "@cvPjOcrPanel": {},
+  "cvPjTrLine": "Satır",
+  "@cvPjTrLine": {},
+  "cvPjTrConf": "Güven",
+  "@cvPjTrConf": {},
+  "cvPjLines": "{n} satır",
+  "@cvPjLines": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjOcrAfter": "Resim dönüştürülünce içindeki metin okunacak.",
+  "@cvPjOcrAfter": {},
+  "cvPjOcrOff": "Bu projede OCR kapalı. İsterseniz bu resim için şimdi çalıştırın.",
+  "@cvPjOcrOff": {},
+  "cvPjOcrRunning": "Metin okunuyor… %{p}",
+  "@cvPjOcrRunning": {
+    "placeholders": {
+      "p": {
+        "type": "String"
+      }
+    }
+  },
+  "cvPjCopyAll": "Tümünü kopyala",
+  "@cvPjCopyAll": {},
+  "cvPjCopied": "Metin panoya kopyalandı",
+  "@cvPjCopied": {},
+  "cvOcrDl": "OCR dil verisi indiriliyor: {lang}",
+  "@cvOcrDl": {
+    "placeholders": {
+      "lang": {
+        "type": "String"
+      }
+    }
+  },
+  "cvOcrNotInstalled": "İlk kullanımda indirilir",
+  "@cvOcrNotInstalled": {},
+  "cvOcrDownloadFailed": "OCR dil verisi indirilemedi",
+  "@cvOcrDownloadFailed": {},
+  "cvPfTabOcr": "OCR",
+  "@cvPfTabOcr": {},
+  "cvPfOcrAsk": "Resimdeki metni oku (OCR)",
+  "@cvPfOcrAsk": {},
+  "cvPfOcrAskHint": "Resimlerdeki yazılar metne çevrilir: her satır, okuma güveni ve metin ayrı sütunlarda görünür. İstemezseniz kapalı bırakın.",
+  "@cvPfOcrAskHint": {},
+  "cvPfOcrLangs": "Resimdeki metnin dili",
+  "@cvPfOcrLangs": {},
+  "cvPfOcrLangsHint": "En çok 6 dil seçilebilir; az dil daha hızlı ve doğrudur.",
+  "@cvPfOcrLangsHint": {},
+  "cvPfOcrData": "Dil verileri",
+  "@cvPfOcrData": {},
+  "cvPfOcrNote": "OCR bu bilgisayarda, çevrimdışı çalışır (Tesseract); resimler hiçbir sunucuya gönderilmez. Her dilin verisi ilk kullanımda bir kez indirilir.",
+  "@cvPfOcrNote": {},
+  "cvErrOcr": "Metin okunamadı: {msg}",
+  "@cvErrOcr": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "cvErrUnreadable": "Dosya okunamadı (bozuk ya da desteklenmeyen dosya).",
+  "@cvErrUnreadable": {},
+  "cvErrUnsupported": "Bu dönüşüm desteklenmiyor.",
+  "@cvErrUnsupported": {},
+  "cvErrFfmpegMissing": "Dönüştürme motoru (ffmpeg) çalıştırılamadı: {msg}",
+  "@cvErrFfmpegMissing": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "cvErrEngineMissing": "Konuşma motoru (whisper.cpp) bulunamadı.",
+  "@cvErrEngineMissing": {},
+  "cvErrDownload": "İndirme başarısız: {msg}",
+  "@cvErrDownload": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "cvErrNotFound": "Dosya bulunamadı.",
+  "@cvErrNotFound": {},
+  "cvErrAccess": "Erişim reddedildi.",
+  "@cvErrAccess": {},
+  "cvErrBusy": "Dosya başka bir program tarafından kullanılıyor.",
+  "@cvErrBusy": {},
+  "cvErrNoSpace": "Diskte yer kalmadı.",
+  "@cvErrNoSpace": {},
+  "cvErrFfmpeg": "Dönüştürülemedi: {msg}",
+  "@cvErrFfmpeg": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "cvErrWhisper": "Metne çevrilemedi: {msg}",
+  "@cvErrWhisper": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "cvMainCloseActive": "Dönüştürme sürüyor. Pencereyi kapatırsanız süren işler durdurulur.",
+  "@cvMainCloseActive": {},
+  "cvMainCloseAnyway": "Yine de kapat",
+  "@cvMainCloseAnyway": {},
+  "cvMainCopySuffix": " (kopya)",
+  "@cvMainCopySuffix": {},
+  "cvMainErrProjectNotFound": "Proje bulunamadı",
+  "@cvMainErrProjectNotFound": {},
+  "cvMainExportTo": "Dönüştürülmüş dosyaların kopyalanacağı klasör",
+  "@cvMainExportTo": {},
+  "cvMainPickFile": "Dönüştürülecek dosyayı seçin",
+  "@cvMainPickFile": {},
+  "cvMainPickFolder": "Dönüştürülecek klasörü seçin",
+  "@cvMainPickFolder": {},
+  "cvMainSaveTranscript": "Metni kaydet",
+  "@cvMainSaveTranscript": {},
+  "cvMainUntitled": "Adsız proje",
+  "@cvMainUntitled": {},
+  "sqOp": "büyük ya da eşit",
+  "@sqOp": {},
+  "sqOpNotcontains": "içermez",
+  "@sqOpNotcontains": {},
+  "sqOpNotlike": "NOT LIKE",
+  "@sqOpNotlike": {},
+  "sqOpNotin": "içinde değil",
+  "@sqOpNotin": {},
+  "sqOpIsnull": "boş (NULL)",
+  "@sqOpIsnull": {},
+  "sqOpIsnotnull": "boş değil",
+  "@sqOpIsnotnull": {}
 }

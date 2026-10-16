@@ -1794,4 +1794,3070 @@ class MtStringsEs extends MtStrings {
 
   @override
   String get fmMainCloseAnyway => 'Cerrar de todos modos';
+
+  @override
+  String get sqAppSearchPh => 'Buscar conexiones…  (Ctrl+F)';
+
+  @override
+  String get sqAppNewConn => 'Añadir conexión';
+
+  @override
+  String get sqAppAddConn => 'Añadir conexión';
+
+  @override
+  String get sqAppSettings => 'Ajustes';
+
+  @override
+  String sqAppStats(String c, String f) {
+    return '$c conexiones · $f carpetas';
+  }
+
+  @override
+  String get sqAppWelcome => 'Bienvenido';
+
+  @override
+  String sqAppResults(String q) {
+    return 'Resultados para «$q»';
+  }
+
+  @override
+  String get sqAppAll => 'Todas las conexiones';
+
+  @override
+  String get sqAppWelcomeHint =>
+      'Conéctate a PostgreSQL, SQL Server, MySQL, SQLite o a archivos CSV/Parquet/Excel.<br>Introduce los datos, prueba la conexión y guárdala.';
+
+  @override
+  String get sqAppFolders => 'Carpetas';
+
+  @override
+  String get sqAppConnections => 'Conexiones';
+
+  @override
+  String get sqAppDblHint => 'Doble clic en una tarjeta para abrirla';
+
+  @override
+  String get sqAppNoMatch => 'No hay conexiones que coincidan.';
+
+  @override
+  String sqAppFolderCount(String n) {
+    return '$n conexiones';
+  }
+
+  @override
+  String get sqAppNewConnHere => 'Nueva conexión en esta carpeta';
+
+  @override
+  String get sqAppNewSubfolder => 'Nueva subcarpeta';
+
+  @override
+  String get sqAppDuplicate => 'Duplicar';
+
+  @override
+  String get sqAppMoveToFolder => 'Mover a carpeta…';
+
+  @override
+  String get sqAppConnMoved => 'Conexión movida';
+
+  @override
+  String get sqAppFolderIntoSelf =>
+      'Una carpeta no se puede mover dentro de sí misma';
+
+  @override
+  String get sqAppFolderPh => 'p. ej. Clientes';
+
+  @override
+  String get sqAppRenameFolder => 'Cambiar nombre de la carpeta';
+
+  @override
+  String get sqAppDeleteFolder => 'Eliminar carpeta';
+
+  @override
+  String sqAppDeleteFolderMsg(String name) {
+    return '¿Eliminar la carpeta <b>$name</b>?';
+  }
+
+  @override
+  String sqAppDeleteFolderConns(String n) {
+    return '<br>Sus $n conexiones se moverán a la carpeta superior.';
+  }
+
+  @override
+  String get sqAppRootFolder => 'Nivel superior (sin carpeta)';
+
+  @override
+  String sqAppMoveTitle(String name) {
+    return 'Mover «$name»';
+  }
+
+  @override
+  String get sqAppTargetFolder => 'Carpeta de destino';
+
+  @override
+  String get sqAppDeleteConn => 'Eliminar conexión';
+
+  @override
+  String sqAppDeleteConnMsg(String name, String target) {
+    return '¿Eliminar la conexión <b>$name</b> ($target)? También se elimina su contraseña guardada.';
+  }
+
+  @override
+  String get sqAppReadOnlyTag => 'Solo lectura';
+
+  @override
+  String get sqAppWriteTag => 'Escritura';
+
+  @override
+  String get sqFormTitleNew => 'Nueva conexión';
+
+  @override
+  String sqFormTitleEdit(String name) {
+    return 'Conexión: $name';
+  }
+
+  @override
+  String get sqFormTabGeneral => 'General';
+
+  @override
+  String get sqFormTabSecurity => 'Seguridad';
+
+  @override
+  String get sqFormTabSsh => 'Túnel SSH';
+
+  @override
+  String get sqFormName => 'Etiqueta (nombre visible)';
+
+  @override
+  String get sqFormNamePh => 'p. ej. Base de datos de producción';
+
+  @override
+  String get sqFormHost => 'Host';
+
+  @override
+  String get sqFormPort => 'Puerto';
+
+  @override
+  String get sqFormUser => 'Usuario';
+
+  @override
+  String get sqFormPassword => 'Contraseña';
+
+  @override
+  String get sqFormPwSaved => '•••••••• (guardada, escribe para cambiarla)';
+
+  @override
+  String get sqFormDatabase => 'Base de datos';
+
+  @override
+  String get sqFormDatabasePh =>
+      'Déjalo vacío para usar la base de datos predeterminada';
+
+  @override
+  String get sqFormFile => 'Archivo de base de datos';
+
+  @override
+  String get sqFormFilePh => 'C:\\Data\\app.db';
+
+  @override
+  String get sqFormSqliteHint =>
+      'Archivo de base de datos SQLite (.db, .sqlite). En modo de solo lectura el archivo nunca se modifica.';
+
+  @override
+  String get sqFormDuckdbHint =>
+      'Elige un archivo .duckdb o déjalo vacío (en memoria). Consulta archivos CSV, Parquet, JSON y Excel directamente: SELECT * FROM \'C:\\data\\sales.csv\'';
+
+  @override
+  String get sqFormInMemory => 'En memoria';
+
+  @override
+  String get sqFormFolder => 'Carpeta';
+
+  @override
+  String get sqFormColor => 'Color';
+
+  @override
+  String get sqFormComments => 'Notas';
+
+  @override
+  String get sqFormReadOnly => 'Modo de solo lectura';
+
+  @override
+  String get sqFormReadOnlyHint =>
+      'Recomendado. INSERT/UPDATE/DELETE y DDL se bloquean antes de ejecutarse; puedes aprobarlos una vez. Donde se admite, la propia sesión también es de solo lectura.';
+
+  @override
+  String get sqFormSavePassword => 'Guardar contraseña';
+
+  @override
+  String get sqFormSavePasswordHint =>
+      'La contraseña se guarda solo en el llavero del sistema (Windows: DPAPI). Si está desactivado, se pide en cada conexión.';
+
+  @override
+  String get sqFormSsl => 'TLS / SSL';
+
+  @override
+  String get sqFormSslPrefer => 'Preferir (cifrado si el servidor lo admite)';
+
+  @override
+  String get sqFormSslRequire => 'Exigir (sin verificar el certificado)';
+
+  @override
+  String get sqFormSslVerify => 'Exigir y verificar el certificado';
+
+  @override
+  String get sqFormSslDisable => 'Desactivado (sin cifrar)';
+
+  @override
+  String get sqFormSslHint =>
+      'TLS se intenta de forma predeterminada; la ventana de conexión avisa si el servidor no lo admite.';
+
+  @override
+  String get sqFormSshEnable => 'Conectar a través de un túnel SSH';
+
+  @override
+  String get sqFormSshHint =>
+      'Primero se accede a un servidor SSH y desde allí a la base de datos. Se recomienda la autenticación con clave.';
+
+  @override
+  String get sqFormSshHost => 'Servidor SSH';
+
+  @override
+  String get sqFormSshAuth => 'Autenticación SSH';
+
+  @override
+  String get sqFormSshKey => 'Clave privada';
+
+  @override
+  String get sqFormSshAgent => 'Agente (Pageant)';
+
+  @override
+  String get sqFormKeyFile => 'Archivo de clave privada';
+
+  @override
+  String get sqFormPassphrase => 'Frase de contraseña de la clave';
+
+  @override
+  String get sqFormPassSaved => '(guardada)';
+
+  @override
+  String get sqFormPassEmpty => 'Déjalo vacío si no tiene';
+
+  @override
+  String get sqFormSshPassword => 'Contraseña SSH';
+
+  @override
+  String sqFormHostKey(String fp) {
+    return 'Clave de host SSH: $fp';
+  }
+
+  @override
+  String get sqFormTest => 'Probar conexión';
+
+  @override
+  String get sqFormSaveConnect => 'Guardar y abrir';
+
+  @override
+  String get sqFormConnecting => 'Conectando…';
+
+  @override
+  String get sqFormTestOk => 'Conexión correcta';
+
+  @override
+  String get sqFormTestFail => 'No se pudo conectar';
+
+  @override
+  String sqFormTestDb(String db, String user) {
+    return 'Base de datos: $db · Usuario: $user';
+  }
+
+  @override
+  String get sqFormNoTls =>
+      'Aviso: la conexión no está cifrada (el servidor no admite TLS).';
+
+  @override
+  String get sqFormSaved => 'Conexión guardada';
+
+  @override
+  String get sqFormChangesSaved => 'Cambios guardados';
+
+  @override
+  String get sqCwObjects => 'Objetos';
+
+  @override
+  String get sqCwCollapseAll => 'Contraer todo';
+
+  @override
+  String get sqCwFilterPh => 'Filtrar objetos cargados…';
+
+  @override
+  String get sqCwEmpty => '(vacío)';
+
+  @override
+  String get sqCwOpenData => 'Abrir datos';
+
+  @override
+  String get sqCwShowDdl => 'Mostrar DDL';
+
+  @override
+  String get sqCwOpenCode => 'Abrir código';
+
+  @override
+  String get sqCwSelectSql => 'Generar SELECT';
+
+  @override
+  String get sqCwAddToBuilder => 'Añadir al generador de consultas';
+
+  @override
+  String get sqCwNewSqlHere => 'Nuevo SQL aquí';
+
+  @override
+  String get sqCwCopyName => 'Copiar nombre';
+
+  @override
+  String get sqCwCopied => 'Copiado al portapapeles';
+
+  @override
+  String get sqCwNewSql => 'Nuevo SQL';
+
+  @override
+  String get sqCwBuilder => 'Generador de consultas';
+
+  @override
+  String get sqCwReconnect => 'Reconectar';
+
+  @override
+  String get sqCwReadOnly => 'Solo lectura';
+
+  @override
+  String get sqCwReadWrite => 'Escritura activada';
+
+  @override
+  String get sqCwReadOnlyTip =>
+      'Solo lectura: DML/DDL requiere aprobación. Haz clic para desactivarlo';
+
+  @override
+  String get sqCwReadWriteTip =>
+      'Escritura activada: los comandos se ejecutan sin aprobación. Haz clic para volver a solo lectura';
+
+  @override
+  String get sqCwDisableRo => '¿Desactivar el modo de solo lectura?';
+
+  @override
+  String get sqCwDisableRoMsg =>
+      'Hasta que se cierre esta ventana, INSERT/UPDATE/DELETE y DDL se ejecutarán sin preguntar.';
+
+  @override
+  String get sqCwDisableRoOk => 'Permitir escritura';
+
+  @override
+  String get sqCwRoOn => 'Modo de solo lectura activado';
+
+  @override
+  String get sqCwRoOff => 'Escritura permitida — ten cuidado';
+
+  @override
+  String get sqCwPasswordTitle => 'Se requiere contraseña';
+
+  @override
+  String sqCwPasswordFor(String host, String user) {
+    return 'Contraseña para $user@$host';
+  }
+
+  @override
+  String get sqCwNotConnected => 'Sin conexión';
+
+  @override
+  String get sqCwConnected => 'Conectado';
+
+  @override
+  String get sqCwConnecting => 'Conectando…';
+
+  @override
+  String get sqCwNoTls => 'Sin cifrar';
+
+  @override
+  String get sqCwConnectFailed => 'No se pudo conectar';
+
+  @override
+  String get sqCwRetry => 'Reintentar';
+
+  @override
+  String get sqCwResetCancel =>
+      'La consulta no respondió a la cancelación; reconectando.';
+
+  @override
+  String get sqCwResetExit =>
+      'Se perdió la conexión con la base de datos; reconectando.';
+
+  @override
+  String get sqCwEmptyWorkspace =>
+      'Haz doble clic en una tabla del árbol o pulsa Ctrl+T para abrir una nueva pestaña SQL.';
+
+  @override
+  String get sqCwCloseTab => '¿Cerrar la pestaña?';
+
+  @override
+  String sqCwCloseTabMsg(String name) {
+    return 'El SQL de «$name» no está guardado.';
+  }
+
+  @override
+  String get sqCwCloseTabOk => 'Cerrar';
+
+  @override
+  String get sqTreeTables => 'Tablas';
+
+  @override
+  String get sqTreeViews => 'Vistas';
+
+  @override
+  String get sqTreeMatviews => 'Vistas materializadas';
+
+  @override
+  String get sqTreeForeignTables => 'Tablas externas';
+
+  @override
+  String get sqTreeFunctions => 'Funciones';
+
+  @override
+  String get sqTreeProcedures => 'Procedimientos';
+
+  @override
+  String get sqTreeTriggers => 'Triggers';
+
+  @override
+  String get sqTreeSequences => 'Secuencias';
+
+  @override
+  String get sqTreeTypes => 'Tipos';
+
+  @override
+  String get sqTreeColumns => 'Columnas';
+
+  @override
+  String get sqTreeIndexes => 'Índices';
+
+  @override
+  String get sqTreeConstraints => 'Restricciones';
+
+  @override
+  String get sqTreeFiles => 'Archivos';
+
+  @override
+  String get sqKindTable => 'Tabla';
+
+  @override
+  String get sqKindView => 'Vista';
+
+  @override
+  String get sqKindMatview => 'Vista materializada';
+
+  @override
+  String get sqKindForeignTable => 'Tabla externa';
+
+  @override
+  String get sqKindFunction => 'Función';
+
+  @override
+  String get sqKindProcedure => 'Procedimiento';
+
+  @override
+  String get sqKindTrigger => 'Trigger';
+
+  @override
+  String get sqKindSequence => 'Secuencia';
+
+  @override
+  String get sqKindType => 'Tipo';
+
+  @override
+  String get sqKindIndex => 'Índice';
+
+  @override
+  String get sqKindConstraint => 'Restricción';
+
+  @override
+  String get sqSqlRun => 'Ejecutar';
+
+  @override
+  String get sqSqlRunStatement => 'Ejecutar sentencia';
+
+  @override
+  String get sqSqlCancel => 'Cancelar';
+
+  @override
+  String get sqSqlDatabase => 'Base de datos';
+
+  @override
+  String get sqSqlHistory => 'Historial';
+
+  @override
+  String get sqSqlExport => 'Exportar';
+
+  @override
+  String get sqSqlRunning => 'Ejecutando…';
+
+  @override
+  String sqSqlDone(String ms) {
+    return 'Listo · $ms ms';
+  }
+
+  @override
+  String sqSqlDoneErrors(String ms, String n) {
+    return '$n errores · $ms ms';
+  }
+
+  @override
+  String get sqSqlDdlHint =>
+      'El esquema cambió: usa Actualizar para recargar el árbol.';
+
+  @override
+  String get sqSqlPlaceholder =>
+      'Escribe SQL… Ctrl+Enter: ejecutar selección/todo · Ctrl+Shift+Enter: sentencia en el cursor · Ctrl+Space: autocompletar';
+
+  @override
+  String sqSqlTabTitle(String n) {
+    return 'SQL $n';
+  }
+
+  @override
+  String get sqSqlHistoryEmpty => 'No hay historial para esta conexión.';
+
+  @override
+  String get sqSqlRowsShort => 'filas';
+
+  @override
+  String sqResResult(String n) {
+    return 'Resultado $n';
+  }
+
+  @override
+  String get sqResMessages => 'Mensajes';
+
+  @override
+  String sqResRows(String ms, String n) {
+    return '$n filas · $ms ms';
+  }
+
+  @override
+  String sqResRowsTruncated(String ms, String n) {
+    return 'Mostrando las primeras $n filas (límite) · $ms ms';
+  }
+
+  @override
+  String get sqResNoRows => 'Sin filas';
+
+  @override
+  String sqResAffected(String cmd, String ms, String n) {
+    return '$cmd: $n filas afectadas · $ms ms';
+  }
+
+  @override
+  String sqResCommand(String cmd, String ms) {
+    return '$cmd · $ms ms';
+  }
+
+  @override
+  String get sqResCancelled => 'Cancelado';
+
+  @override
+  String get sqGridCopy => 'Copiar';
+
+  @override
+  String get sqGridCopyHeaders => 'Copiar con encabezados';
+
+  @override
+  String get sqGridExport => 'Exportar este resultado…';
+
+  @override
+  String get sqDataColumns => 'Columnas';
+
+  @override
+  String sqDataColumnsHidden(String n, String total) {
+    return 'Columnas ($n/$total)';
+  }
+
+  @override
+  String get sqDataAddFilter => 'Filtrar';
+
+  @override
+  String get sqDataLimit => 'Número de filas';
+
+  @override
+  String sqDataFirstN(String n) {
+    return 'Primeras $n';
+  }
+
+  @override
+  String get sqDataAll => 'Todas (con límite)';
+
+  @override
+  String get sqDataOpenInEditor => 'Abrir en el editor SQL';
+
+  @override
+  String get sqDataClearFilters => 'Quitar filtros';
+
+  @override
+  String sqDataRows(String ms, String n) {
+    return '$n filas · $ms ms';
+  }
+
+  @override
+  String sqDataRowsMore(String ms, String n) {
+    return 'Primeras $n filas · $ms ms';
+  }
+
+  @override
+  String get sqDataError => 'No se pudieron cargar los datos';
+
+  @override
+  String get sqDataSortAsc => 'Orden ascendente';
+
+  @override
+  String get sqDataSortDesc => 'Orden descendente';
+
+  @override
+  String get sqDataSortClear => 'Quitar orden';
+
+  @override
+  String get sqDataFilterColumn => 'Filtrar por esta columna…';
+
+  @override
+  String get sqDataHideColumn => 'Ocultar columna';
+
+  @override
+  String get sqDataShowAll => 'Mostrar todas las columnas';
+
+  @override
+  String sqDataFilterEq(String v) {
+    return 'Igual a «$v»';
+  }
+
+  @override
+  String sqDataFilterNe(String v) {
+    return 'Distinto de «$v»';
+  }
+
+  @override
+  String get sqDataFilterNull => 'NULL / no NULL';
+
+  @override
+  String get sqDataColumn => 'Columna';
+
+  @override
+  String get sqDataOperator => 'Condición';
+
+  @override
+  String get sqDataValue => 'Valor';
+
+  @override
+  String get sqDataInHint =>
+      'Para «en la lista», separa los valores con comas.';
+
+  @override
+  String get sqDataFilterTitle => 'Filtro';
+
+  @override
+  String get sqDataSelectAll => 'Todas';
+
+  @override
+  String get sqDataSelectNone => 'Ninguna';
+
+  @override
+  String get sqOpContains => 'contiene';
+
+  @override
+  String get sqOpStarts => 'empieza por';
+
+  @override
+  String get sqOpEnds => 'termina en';
+
+  @override
+  String get sqOpLike => 'LIKE';
+
+  @override
+  String get sqOpIn => 'en la lista';
+
+  @override
+  String get sqCodeExecute => 'Ejecutar';
+
+  @override
+  String get sqCodeLoading => 'Cargando…';
+
+  @override
+  String get sqCodeEmpty => 'No se encontró ninguna definición';
+
+  @override
+  String get sqQbAddTable => 'Añadir tabla';
+
+  @override
+  String get sqQbLimit => 'Límite';
+
+  @override
+  String get sqQbClear => 'Limpiar';
+
+  @override
+  String get sqQbHint =>
+      'Arrastra tablas aquí desde el árbol o haz clic en «Añadir tabla». Arrastra una columna sobre la columna de otra tabla para crear un JOIN.';
+
+  @override
+  String get sqQbColumns => 'Columnas';
+
+  @override
+  String get sqQbConditions => 'Condiciones';
+
+  @override
+  String get sqQbResults => 'Resultados';
+
+  @override
+  String get sqQbGenerated => 'SQL generado';
+
+  @override
+  String get sqQbRegenerate => 'Regenerar desde el diagrama';
+
+  @override
+  String get sqQbOtherDb =>
+      'El generador de consultas funciona con tablas de una sola base de datos.';
+
+  @override
+  String get sqQbDragJoin =>
+      'Arrastra sobre la columna de otra tabla para hacer JOIN';
+
+  @override
+  String get sqQbSwapJoin => 'Invertir dirección';
+
+  @override
+  String get sqQbDeleteJoin => 'Eliminar JOIN';
+
+  @override
+  String get sqQbNoColumns =>
+      'Marca las casillas de columna en las tablas (ninguna = SELECT *).';
+
+  @override
+  String get sqQbOutput => 'Mostrar';
+
+  @override
+  String get sqQbColumn => 'Columna';
+
+  @override
+  String get sqQbAlias => 'Alias';
+
+  @override
+  String get sqQbAggregate => 'Agregado';
+
+  @override
+  String get sqQbSort => 'Orden';
+
+  @override
+  String get sqQbAddCondition => 'Añadir condición';
+
+  @override
+  String sqQbTabTitle(String n) {
+    return 'Consulta $n';
+  }
+
+  @override
+  String get sqRoTitle => 'Modo de solo lectura';
+
+  @override
+  String get sqRoMessage =>
+      'Esta conexión está en modo de solo lectura. Las siguientes sentencias pueden modificar datos o el esquema:';
+
+  @override
+  String get sqRoHint =>
+      'Puedes permitirlas solo para esta ejecución; después se restablece el modo de solo lectura.';
+
+  @override
+  String get sqRoRunOnce => 'Ejecutar esta vez';
+
+  @override
+  String get sqRoNotRun => 'Modo de solo lectura: no se ejecutó';
+
+  @override
+  String sqRoBlockedMsg(String n) {
+    return 'Modo de solo lectura: $n sentencias requieren aprobación.';
+  }
+
+  @override
+  String get sqExpTitle => 'Exportar';
+
+  @override
+  String get sqExpHint =>
+      'La consulta se vuelve a ejecutar sin límite de filas y los resultados se escriben directamente en el archivo.';
+
+  @override
+  String get sqExpRunning => 'Exportando…';
+
+  @override
+  String sqExpDone(String n) {
+    return '$n filas exportadas';
+  }
+
+  @override
+  String get sqExpFailed => 'Error al exportar';
+
+  @override
+  String get sqErrRefused =>
+      'Conexión rechazada: el puerto está cerrado o el servidor no está en ejecución.';
+
+  @override
+  String get sqErrDns => 'No se pudo resolver el nombre de host (DNS).';
+
+  @override
+  String get sqErrTimeout =>
+      'Tiempo de espera agotado: no se pudo acceder al servidor.';
+
+  @override
+  String get sqErrReset => 'El servidor cerró la conexión.';
+
+  @override
+  String get sqErrUnreach => 'El servidor no es accesible en la red.';
+
+  @override
+  String get sqErrSshAuth =>
+      'Error de inicio de sesión SSH: usuario, clave o contraseña incorrectos.';
+
+  @override
+  String sqErrTls(String msg) {
+    return 'Error de TLS/SSL — no se pudo verificar el certificado o el servidor no admite TLS. ($msg)';
+  }
+
+  @override
+  String get sqErrHostExit =>
+      'El proceso de la base de datos terminó inesperadamente.';
+
+  @override
+  String get sqErrUnknown => 'Error desconocido';
+
+  @override
+  String get sqMainCloseAnyway => 'Cerrar de todos modos';
+
+  @override
+  String get sqMainCloseRunning =>
+      'Todavía hay consultas en ejecución. Se cancelarán si cierras esta ventana.';
+
+  @override
+  String get sqMainCopySuffix => ' (copia)';
+
+  @override
+  String get sqMainErrConnNotFound => 'Conexión no encontrada';
+
+  @override
+  String get sqMainErrNoSession => 'Esta ventana no tiene conexión';
+
+  @override
+  String sqMainErrKeyFile(String path) {
+    return 'No se pudo leer el archivo de clave SSH: $path';
+  }
+
+  @override
+  String get sqMainTrayShow => 'Mostrar SQL Master';
+
+  @override
+  String get sqMainTrayQuick => 'Conexión rápida';
+
+  @override
+  String get sqMainTrayNone => 'No hay conexiones guardadas';
+
+  @override
+  String get sqMainTrayQuit => 'Salir';
+
+  @override
+  String get npKindSsh => 'Proyecto SSH';
+
+  @override
+  String get npKindFtp => 'Proyecto FTP';
+
+  @override
+  String get npKindLocal => 'Carpeta local';
+
+  @override
+  String get npKindFile => 'Archivo de proyecto';
+
+  @override
+  String get npKindSshHint => 'Una carpeta del servidor por SSH (SFTP)';
+
+  @override
+  String get npKindFtpHint => 'Un servidor FTP, FTPS o SFTP';
+
+  @override
+  String get npKindLocalHint => 'Una carpeta de este equipo';
+
+  @override
+  String get npKindFileHint => 'Editar un solo archivo';
+
+  @override
+  String get npAppSearchPh => 'Buscar conexiones…  (Ctrl+F)';
+
+  @override
+  String get npAppNewConn => 'Nueva conexión';
+
+  @override
+  String get npAppSettings => 'Ajustes';
+
+  @override
+  String npAppStats(String c, String f) {
+    return '$c conexiones · $f carpetas';
+  }
+
+  @override
+  String get npAppWelcome => 'Bienvenido';
+
+  @override
+  String npAppResults(String q) {
+    return 'Resultados de «$q»';
+  }
+
+  @override
+  String get npAppAll => 'Todas las conexiones';
+
+  @override
+  String get npAppWelcomeHint =>
+      'Añade un servidor SSH o FTP, una carpeta local o un solo archivo.<br>Haz doble clic en una tarjeta para abrir el proyecto en su propia ventana.';
+
+  @override
+  String get npAppFolders => 'Carpetas';
+
+  @override
+  String get npAppConnections => 'Conexiones';
+
+  @override
+  String get npAppDblHint => 'Haz doble clic en una tarjeta para abrirla';
+
+  @override
+  String get npAppNoMatch => 'No hay conexiones que coincidan.';
+
+  @override
+  String npAppFolderCount(String n) {
+    return '$n conexiones';
+  }
+
+  @override
+  String get npAppNewConnHere => 'Nueva conexión en esta carpeta';
+
+  @override
+  String get npAppNewSubfolder => 'Nueva subcarpeta';
+
+  @override
+  String get npAppKeyTag => 'Clave';
+
+  @override
+  String get npAppDuplicate => 'Duplicar';
+
+  @override
+  String get npAppMoveToFolder => 'Mover a carpeta…';
+
+  @override
+  String get npAppConnMoved => 'Conexión movida';
+
+  @override
+  String get npAppFolderIntoSelf =>
+      'Una carpeta no puede moverse dentro de sí misma';
+
+  @override
+  String get npAppFolderPh => 'p. ej. Clientes';
+
+  @override
+  String get npAppRenameFolder => 'Cambiar nombre de la carpeta';
+
+  @override
+  String get npAppDeleteFolder => 'Eliminar carpeta';
+
+  @override
+  String npAppDeleteFolderMsg(String name) {
+    return '¿Eliminar la carpeta <b>$name</b>?';
+  }
+
+  @override
+  String npAppDeleteFolderConns(String n) {
+    return '<br>Sus $n conexiones se moverán a la carpeta superior.';
+  }
+
+  @override
+  String get npAppRootFolder => 'Nivel superior (sin carpeta)';
+
+  @override
+  String npAppMoveTitle(String name) {
+    return 'Mover «$name»';
+  }
+
+  @override
+  String get npAppTargetFolder => 'Carpeta de destino';
+
+  @override
+  String get npAppDeleteConn => 'Eliminar conexión';
+
+  @override
+  String npAppDeleteConnMsg(String name, String target) {
+    return '¿Eliminar la conexión <b>$name</b> ($target)?<br>Los archivos del servidor o de la carpeta no se tocan; solo se eliminan esta conexión y su copia de trabajo.';
+  }
+
+  @override
+  String get npAppNoLocalPath =>
+      'No se ha elegido ninguna ruta en este equipo; se te preguntará al abrir';
+
+  @override
+  String get npAppChangeLocalPath => 'Cambiar la ruta en este equipo…';
+
+  @override
+  String get npAppOpenTabs => 'Pestañas abiertas';
+
+  @override
+  String get npAppCustomEditor => 'Ajustes del editor propios de la conexión';
+
+  @override
+  String get npFormTitleNew => 'Nueva conexión';
+
+  @override
+  String npFormTitleEdit(String name) {
+    return 'Conexión: $name';
+  }
+
+  @override
+  String get npFormTabConn => 'Conexión';
+
+  @override
+  String get npFormTabProject => 'Proyecto';
+
+  @override
+  String get npFormTabEditor => 'Editor (Notepad++)';
+
+  @override
+  String get npFormName => 'Nombre (visible)';
+
+  @override
+  String get npFormNamePh => 'p. ej. Web de la empresa';
+
+  @override
+  String get npFormHost => 'Host';
+
+  @override
+  String get npFormHostPh => 'server.example.com o 192.168.1.10';
+
+  @override
+  String get npFormPort => 'Puerto';
+
+  @override
+  String get npFormUser => 'Usuario';
+
+  @override
+  String get npFormPassword => 'Contraseña';
+
+  @override
+  String get npFormPwSaved => '•••••••• (guardada — escribe para cambiarla)';
+
+  @override
+  String get npFormLoginMethod => 'Método de inicio de sesión';
+
+  @override
+  String get npFormLoginNormal => 'Normal';
+
+  @override
+  String get npFormLoginAnon => 'Anónimo';
+
+  @override
+  String get npFormAuth => 'Autenticación SSH';
+
+  @override
+  String get npFormPrivateKey => 'Clave privada';
+
+  @override
+  String get npFormKeyFile => 'Archivo de clave privada';
+
+  @override
+  String get npFormPassphrase => 'Frase de contraseña de la clave';
+
+  @override
+  String get npFormPassSaved => '(guardada)';
+
+  @override
+  String get npFormPassEmpty => 'Déjalo vacío si no hay';
+
+  @override
+  String get npFormFolder => 'Carpeta';
+
+  @override
+  String get npFormColor => 'Color';
+
+  @override
+  String get npFormComments => 'Notas';
+
+  @override
+  String get npFormRootDir => 'Carpeta del proyecto (en el servidor)';
+
+  @override
+  String get npFormBrowse => 'Elegir carpeta';
+
+  @override
+  String get npFormBrowseHint =>
+      'Pulsa primero «Probar conexión» para explorar el servidor y elegir la carpeta. Si se deja vacío, se abre la carpeta de inicio de sesión.';
+
+  @override
+  String get npFormBrowseTitle => 'Elegir una carpeta del servidor';
+
+  @override
+  String get npFormBrowseSelect => 'Seleccionar esta carpeta';
+
+  @override
+  String get npFormBrowseEmpty => 'No hay subcarpetas';
+
+  @override
+  String get npFormFolderPath => 'Carpeta';
+
+  @override
+  String get npFormFilePath => 'Archivo';
+
+  @override
+  String get npFormLocalPathHint =>
+      'La ruta local solo se guarda en este equipo; los demás equipos la piden la primera vez.';
+
+  @override
+  String get npFormCacheNote =>
+      'Cada archivo abierto se guarda, con su estructura de carpetas, en una copia de trabajo (caché). Al guardar, el archivo se sube al servidor y se actualiza la copia de trabajo.';
+
+  @override
+  String get npFormRestoreTabs => 'Recordar las pestañas abiertas';
+
+  @override
+  String get npFormRestoreTabsHint =>
+      'La próxima vez el proyecto se abre con los mismos archivos (solo en este equipo).';
+
+  @override
+  String get npFormShowHidden => 'Mostrar archivos ocultos';
+
+  @override
+  String get npFormShowHiddenHint =>
+      'Archivos y carpetas que empiezan por punto (.env, .htaccess, .git…)';
+
+  @override
+  String get npFormExclude => 'Ocultar en el árbol';
+
+  @override
+  String get npFormExcludeHint =>
+      'Nombres o patrones separados por comas; se permiten * y ?.';
+
+  @override
+  String get npFormEditorMode => 'Ajustes del editor';
+
+  @override
+  String get npFormEdGlobal =>
+      'Usar los ajustes generales del editor (Ajustes › Editor)';
+
+  @override
+  String get npFormEdCustom => 'Usar ajustes propios de esta conexión';
+
+  @override
+  String get npFormTest => 'Probar conexión';
+
+  @override
+  String get npFormSaveOpen => 'Guardar y abrir';
+
+  @override
+  String get npFormConnecting => 'Conectando…';
+
+  @override
+  String get npFormTestOk => 'Conexión correcta';
+
+  @override
+  String get npFormTestFail => 'No se pudo conectar';
+
+  @override
+  String npFormHomeDir(String dir) {
+    return 'Carpeta de inicio de sesión: $dir';
+  }
+
+  @override
+  String get npFormRootMissing =>
+      'Aviso: no se pudo abrir la carpeta del proyecto.';
+
+  @override
+  String npFormHostKey(String fp) {
+    return 'Clave de host SSH (SHA256): $fp';
+  }
+
+  @override
+  String get npFormSaved => 'Conexión guardada';
+
+  @override
+  String get npFormChangesSaved => 'Cambios guardados';
+
+  @override
+  String get npTypeProtocol => 'Protocolo';
+
+  @override
+  String get npTypeFtp => 'FTP (estándar)';
+
+  @override
+  String get npTypeFtpsImplicit => 'FTPS — TLS/SSL implícito (puerto 990)';
+
+  @override
+  String get npTypeFtpsSsl => 'FTPS — Explícito (AUTH SSL)';
+
+  @override
+  String get npTypeFtpsTls => 'FTPS — Explícito (AUTH TLS)';
+
+  @override
+  String get npTypeSftp => 'SFTP — SSH2';
+
+  @override
+  String get npTypeNoteFtp =>
+      'FTP simple; la contraseña y los archivos se envían sin cifrar.';
+
+  @override
+  String get npTypeNoteFtpsImplicit =>
+      'La conexión se cifra con TLS/SSL desde el principio (normalmente el puerto 990).';
+
+  @override
+  String get npTypeNoteFtpsSsl =>
+      'Se conecta con FTP simple y pasa a una sesión cifrada con AUTH SSL.';
+
+  @override
+  String get npTypeNoteFtpsTls =>
+      'Se conecta con FTP simple y pasa a una sesión cifrada con AUTH TLS (el FTPS más habitual).';
+
+  @override
+  String get npTypeNoteSftp =>
+      'Acceso cifrado a archivos por SSH (puerto 22). La clave de host del servidor se guarda en la primera conexión.';
+
+  @override
+  String get npOptEncoding => 'Codificación de nombres de archivo';
+
+  @override
+  String get npOptEncAuto => 'Automática';
+
+  @override
+  String get npEdSecEncoding => 'Codificación y fin de línea';
+
+  @override
+  String get npEdEncoding => 'Codificación al abrir archivos';
+
+  @override
+  String get npEdEncAuto => 'Detectar automáticamente (BOM / UTF-8)';
+
+  @override
+  String get npEdFallback => 'Si no es UTF-8 (ANSI)';
+
+  @override
+  String get npEdEol => 'Fin de línea';
+
+  @override
+  String get npEdEolAuto => 'Mantener el del archivo';
+
+  @override
+  String npEdEolConvert(String eol) {
+    return 'Convertir a $eol al abrir';
+  }
+
+  @override
+  String get npEdNewDoc => 'Archivo nuevo: codificación · fin de línea';
+
+  @override
+  String get npEdSecIndent => 'Sangría e idioma';
+
+  @override
+  String get npEdTabSize => 'Tamaño de tabulación';
+
+  @override
+  String get npEdLanguage => 'Lenguaje (sintaxis)';
+
+  @override
+  String get npEdLangAuto => 'Automático (extensión / primera línea)';
+
+  @override
+  String get npEdInsertSpaces => 'Insertar espacios en lugar de tabulaciones';
+
+  @override
+  String get npEdDetectIndent => 'Detectar la sangría del archivo';
+
+  @override
+  String get npEdDetectIndentHint =>
+      'Los archivos con sangría de tabulaciones siguen usando tabulaciones.';
+
+  @override
+  String get npEdAutoIndent => 'Sangría automática';
+
+  @override
+  String get npEdAutoClose => 'Cerrar automáticamente paréntesis y comillas';
+
+  @override
+  String get npEdSecLook => 'Apariencia';
+
+  @override
+  String get npEdTheme => 'Tema de color';
+
+  @override
+  String get npEdThemeAuto => 'Automático (según el tema de la aplicación)';
+
+  @override
+  String get npEdWhitespace => 'Mostrar espacios y tabulaciones';
+
+  @override
+  String get npEdWsNone => 'No mostrar';
+
+  @override
+  String get npEdWsBoundary =>
+      'Todos excepto los espacios simples entre palabras';
+
+  @override
+  String get npEdWsTrailing => 'Solo al final de línea';
+
+  @override
+  String get npEdWsAll => 'Todos';
+
+  @override
+  String get npEdFont => 'Fuente';
+
+  @override
+  String get npEdFontSize => 'Tamaño';
+
+  @override
+  String get npEdRulers => 'Reglas';
+
+  @override
+  String get npEdWordWrap => 'Ajuste de línea';
+
+  @override
+  String get npEdLineNumbers => 'Números de línea';
+
+  @override
+  String get npEdHighlightLine => 'Resaltar la línea actual';
+
+  @override
+  String get npEdSmartHighlight => 'Resaltado inteligente (mismas palabras)';
+
+  @override
+  String get npEdIndentGuides => 'Guías de sangría';
+
+  @override
+  String get npEdFolding => 'Plegado de código';
+
+  @override
+  String get npEdBracketColors => 'Colorear pares de paréntesis';
+
+  @override
+  String get npEdMinimap => 'Minimapa (mapa del documento)';
+
+  @override
+  String get npEdControlChars => 'Mostrar caracteres invisibles';
+
+  @override
+  String get npEdSecSave => 'Guardado';
+
+  @override
+  String get npEdTrimTrailing => 'Eliminar espacios finales al guardar';
+
+  @override
+  String get npEdFinalNewline => 'Insertar salto de línea final';
+
+  @override
+  String get npEdCheckRemote => 'Comprobar cambios antes de guardar';
+
+  @override
+  String get npEdCheckRemoteHint =>
+      'Pregunta si alguien cambió el archivo en el servidor después de abrirlo.';
+
+  @override
+  String get npEdAutoSave => 'Guardado automático';
+
+  @override
+  String get npEdSec => 's';
+
+  @override
+  String get npEdAutoSaveHint =>
+      '0 = desactivado. Si está activado, el archivo se guarda y se sube este tiempo después de un cambio.';
+
+  @override
+  String get npMainBalloonTitle =>
+      'Notepad Master se está ejecutando en segundo plano';
+
+  @override
+  String get npMainBalloonBody =>
+      'Haz clic en el icono de la bandeja para volver a abrirlo.';
+
+  @override
+  String get npMainTrayShow => 'Mostrar Notepad Master';
+
+  @override
+  String get npMainTrayQuick => 'Apertura rápida';
+
+  @override
+  String get npMainTrayNone => 'No hay conexiones guardadas';
+
+  @override
+  String get npMainTrayQuit => 'Salir';
+
+  @override
+  String get npProjToggleTree => 'Mostrar/ocultar árbol de carpetas (Ctrl+B)';
+
+  @override
+  String get npProjReconnect => 'Volver a conectar';
+
+  @override
+  String get npProjReconnected => 'Conectado de nuevo';
+
+  @override
+  String get npProjConnectFail => 'No se pudo conectar';
+
+  @override
+  String get npProjStatusOn => 'Conectado';
+
+  @override
+  String get npProjStatusOff => 'Desconectado';
+
+  @override
+  String get npProjStatusConnecting => 'Conectando…';
+
+  @override
+  String get npProjSave => 'Guardar';
+
+  @override
+  String get npProjSaveAll => 'Guardar todo';
+
+  @override
+  String get npProjUndo => 'Deshacer';
+
+  @override
+  String get npProjRedo => 'Rehacer';
+
+  @override
+  String get npProjFind => 'Buscar';
+
+  @override
+  String get npProjReplace => 'Reemplazar';
+
+  @override
+  String get npProjGoto => 'Ir a la línea';
+
+  @override
+  String get npProjShowWs => 'Mostrar espacios y tabulaciones';
+
+  @override
+  String get npProjZoomIn => 'Acercar';
+
+  @override
+  String get npProjZoomOut => 'Alejar';
+
+  @override
+  String get npProjShowCache => 'Mostrar copia de trabajo';
+
+  @override
+  String get npProjPalette => 'Paleta de comandos';
+
+  @override
+  String get npProjCloseTab => 'Cerrar';
+
+  @override
+  String get npProjCloseOthers => 'Cerrar las demás';
+
+  @override
+  String get npProjCloseAll => 'Cerrar todas';
+
+  @override
+  String get npProjReload => 'Recargar';
+
+  @override
+  String npProjReloadMsg(String name) {
+    return 'Se perderán los cambios no guardados de <b>$name</b>. ¿Recargar el archivo?';
+  }
+
+  @override
+  String get npProjRevealTree => 'Mostrar en el árbol';
+
+  @override
+  String get npProjUnsavedTitle => 'Cambios sin guardar';
+
+  @override
+  String npProjUnsavedMsg(String name) {
+    return '¿Guardar los cambios de <b>$name</b>?';
+  }
+
+  @override
+  String get npProjDontSave => 'No guardar';
+
+  @override
+  String npProjOpenFail(String name) {
+    return 'No se pudo abrir $name';
+  }
+
+  @override
+  String npProjTooLarge(String name, String size) {
+    return '$name es demasiado grande ($size); el límite es de 50 MB.';
+  }
+
+  @override
+  String npProjBinary(String name) {
+    return '$name no es un archivo de texto (binario); no se ha abierto en el editor.';
+  }
+
+  @override
+  String npProjSaveFail(String name) {
+    return 'No se pudo guardar $name';
+  }
+
+  @override
+  String npProjSaved(String name) {
+    return '$name guardado';
+  }
+
+  @override
+  String npProjSavedRemote(String name) {
+    return '$name guardado y subido';
+  }
+
+  @override
+  String get npProjLossyTitle => 'Aviso de codificación';
+
+  @override
+  String npProjLossyMsg(String enc) {
+    return 'Algunos caracteres no se pueden guardar en <b>$enc</b> y se guardarán como «?». Se recomienda convertir a UTF-8 desde la barra de estado.';
+  }
+
+  @override
+  String get npProjSaveAnyway => 'Guardar de todos modos';
+
+  @override
+  String get npProjConflictTitle => 'El archivo cambió en otro lugar';
+
+  @override
+  String npProjConflictMsg(String name) {
+    return '<b>$name</b> se modificó en el servidor después de que lo abrieras. ¿Qué quieres hacer?';
+  }
+
+  @override
+  String get npProjConflictOverwrite => 'Sobrescribir';
+
+  @override
+  String get npProjConflictReload => 'Cargar la versión del servidor';
+
+  @override
+  String npProjConflictAuto(String name) {
+    return '$name cambió en el servidor; se omitió el guardado automático.';
+  }
+
+  @override
+  String npProjPos(String col, String ln) {
+    return 'Lín. $ln, col. $col';
+  }
+
+  @override
+  String npProjSel(String n) {
+    return '$n seleccionados';
+  }
+
+  @override
+  String npProjSpaces(String n) {
+    return 'Espacios: $n';
+  }
+
+  @override
+  String npProjTabWidth(String n) {
+    return 'Tabulación: $n';
+  }
+
+  @override
+  String get npProjIndentToSpaces => 'Convertir sangría a espacios';
+
+  @override
+  String get npProjIndentToTabs => 'Convertir sangría a tabulaciones';
+
+  @override
+  String npProjEncTitle(String name) {
+    return 'Codificación: $name';
+  }
+
+  @override
+  String get npProjEncConvert => 'Convertir a esta codificación (al guardar)';
+
+  @override
+  String get npProjEncConvertHint =>
+      'El texto no cambia; el archivo se escribe con la codificación elegida al guardarlo.';
+
+  @override
+  String get npProjEncReopen => 'Volver a abrir con esta codificación';
+
+  @override
+  String get npProjEncReopenHint =>
+      'Si los caracteres se ven mal, vuelve a leer el archivo con la codificación correcta.';
+
+  @override
+  String npProjEolTo(String eol) {
+    return 'Convertir a $eol';
+  }
+
+  @override
+  String get npProjLangTitle => 'Elegir lenguaje';
+
+  @override
+  String get npProjLangSearch => 'Buscar lenguajes…';
+
+  @override
+  String get npProjCacheCopy => 'Copia de trabajo';
+
+  @override
+  String get npProjInitFail => 'No se pudo iniciar la ventana del proyecto';
+
+  @override
+  String get npProjEmptyHint =>
+      'Haz doble clic en un archivo del árbol de la izquierda; se abrirá aquí en una pestaña con el resaltado de sintaxis de su lenguaje.';
+
+  @override
+  String get npProjEmptyFile => 'Abriendo el archivo…';
+
+  @override
+  String get npTreeNewFile => 'Nuevo archivo';
+
+  @override
+  String get npTreeFileName => 'Nombre del archivo';
+
+  @override
+  String get npTreeBadName => 'Nombre no válido';
+
+  @override
+  String get npTreeCreateFail => 'No se pudo crear';
+
+  @override
+  String get npTreeRenameFail => 'No se pudo cambiar el nombre';
+
+  @override
+  String get npTreeRenameDirty =>
+      'Guarda primero los archivos abiertos de esta carpeta.';
+
+  @override
+  String get npTreeDeleteTitle => 'Eliminar';
+
+  @override
+  String npTreeDeleteMsg(String name) {
+    return '¿Eliminar el archivo <b>$name</b>?';
+  }
+
+  @override
+  String npTreeDeleteDirMsg(String name) {
+    return '¿Eliminar la carpeta <b>$name</b> y todo su contenido?';
+  }
+
+  @override
+  String get npTreeDeleteFail => 'No se pudo eliminar';
+
+  @override
+  String get npTreeTrashNote =>
+      'Los archivos locales se mueven a la Papelera de reciclaje.';
+
+  @override
+  String get npTreeEmpty => 'Carpeta vacía';
+
+  @override
+  String get npTreeCollapseAll => 'Contraer todo';
+
+  @override
+  String get npTreeShowExplorer => 'Mostrar en el Explorador';
+
+  @override
+  String get npTreeUp => 'Carpeta superior';
+
+  @override
+  String get npTreeHome => 'Carpeta de inicio de sesión';
+
+  @override
+  String get npMainErrAuth =>
+      'Error de inicio de sesión: usuario o contraseña incorrectos.';
+
+  @override
+  String get npMainErrRefused =>
+      'Conexión rechazada: el puerto está cerrado o el servidor no está en ejecución.';
+
+  @override
+  String get npMainErrTimeout =>
+      'Tiempo agotado: no se pudo alcanzar el servidor.';
+
+  @override
+  String get npMainErrDns => 'No se pudo resolver el nombre del host (DNS).';
+
+  @override
+  String get npMainErrUnreach => 'El servidor no es accesible por la red.';
+
+  @override
+  String get npMainErrReset => 'El servidor cerró la conexión.';
+
+  @override
+  String get npMainErrNotFound => 'No se encontró el archivo o la carpeta.';
+
+  @override
+  String get npMainErrPerm => 'Permiso denegado.';
+
+  @override
+  String get npMainErrExists =>
+      'Ya existe un archivo o carpeta con este nombre.';
+
+  @override
+  String npMainErr550(String msg) {
+    return 'El servidor rechazó la operación (550): $msg';
+  }
+
+  @override
+  String get npMainErr553 =>
+      'El servidor no aceptó el nombre de archivo (553).';
+
+  @override
+  String npMainErrTls(String msg) {
+    return 'Error de TLS/SSL: comprueba el protocolo o el puerto. ($msg)';
+  }
+
+  @override
+  String npMainErrHostKey(String newVal, String oldVal) {
+    return '¡La clave de host del servidor ha cambiado! Guardada: $oldVal, recibida: $newVal. Conexión rechazada por seguridad.';
+  }
+
+  @override
+  String get npMainErrNoKey => 'No se pudo leer el archivo de clave privada.';
+
+  @override
+  String get npMainErrKey =>
+      'No se pudo leer la clave privada: frase de contraseña incorrecta o formato no compatible.';
+
+  @override
+  String get npMainErrNoLocal =>
+      'No se encontró la carpeta o el archivo en este equipo. Cambia la ruta desde el menú de la tarjeta en la ventana principal.';
+
+  @override
+  String get npMainErrConnNotFound => 'Conexión no encontrada';
+
+  @override
+  String get npMainErrNoSession => 'No conectado';
+
+  @override
+  String get npMainErrHost => 'La dirección del host es obligatoria.';
+
+  @override
+  String get npMainErrUser =>
+      'El nombre de usuario es obligatorio (o elige el inicio de sesión anónimo).';
+
+  @override
+  String get npMainPickKey => 'Elegir un archivo de clave privada';
+
+  @override
+  String get npMainCopySuffix => ' (copia)';
+
+  @override
+  String get npMainCloseDirty =>
+      'Hay archivos sin guardar. Si cierras la ventana, se perderán los cambios.';
+
+  @override
+  String get npMainCloseDiscard => 'Cerrar sin guardar';
+
+  @override
+  String get ipAppNewFolder => 'Nueva carpeta';
+
+  @override
+  String get ipAppNewRecord => 'Nuevo registro';
+
+  @override
+  String get ipAppSearchPh => 'Buscar registros, IP, nombres, MAC o servicios…';
+
+  @override
+  String ipAppStats(String n) {
+    return '$n registros';
+  }
+
+  @override
+  String get ipColIp => 'IP';
+
+  @override
+  String get ipColMac => 'MAC';
+
+  @override
+  String get ipColName => 'Nombre';
+
+  @override
+  String get ipColRtt => 'Respuesta';
+
+  @override
+  String get ipColServices => 'Servicios';
+
+  @override
+  String get ipColStatus => 'Estado';
+
+  @override
+  String get ipColVendor => 'Fabricante';
+
+  @override
+  String get ipCtxCopyIp => 'Copiar dirección IP';
+
+  @override
+  String get ipCtxCopyMac => 'Copiar dirección MAC';
+
+  @override
+  String get ipCtxCopyName => 'Copiar nombre';
+
+  @override
+  String get ipCtxCopyRange => 'Copiar rango';
+
+  @override
+  String get ipCtxOpenWeb => 'Abrir en el navegador';
+
+  @override
+  String ipFolderDeleteMsg(String name) {
+    return 'Se eliminará la carpeta «$name»; sus registros y carpetas se mueven a la carpeta superior.';
+  }
+
+  @override
+  String get ipFolderEmpty => 'Carpeta vacía';
+
+  @override
+  String get ipFolderName => 'Nombre de la carpeta';
+
+  @override
+  String get ipFolderRename => 'Cambiar nombre de la carpeta';
+
+  @override
+  String get ipHostAlive => 'Presencia';
+
+  @override
+  String get ipHostBanner => 'Saludo';
+
+  @override
+  String get ipHostCert => 'Certificado';
+
+  @override
+  String get ipHostCertExpires => 'Válido hasta';
+
+  @override
+  String get ipHostCertIssuer => 'Emisor';
+
+  @override
+  String get ipHostDetails => 'Detalles';
+
+  @override
+  String get ipHostLocalMac => 'dirección privada';
+
+  @override
+  String get ipHostNoServices =>
+      'Ninguno de los puertos de la lista está abierto.';
+
+  @override
+  String get ipHostSelfSigned => 'autofirmado';
+
+  @override
+  String get ipHostServer => 'Servidor';
+
+  @override
+  String get ipHostTitle => 'Título';
+
+  @override
+  String get ipHostUnknown => '(nombre no resuelto)';
+
+  @override
+  String get ipNoticeAccept => 'Entendido';
+
+  @override
+  String get ipNoticeBody =>
+      'IP Tools solo descubre su red local: encuentra dispositivos con ping, intenta conectarse a una lista corta de puertos y resuelve sus nombres. Analice solo redes de su propiedad o para las que esté autorizado.';
+
+  @override
+  String get ipNoticeLimits =>
+      'Por diseño solo se analizan direcciones privadas (10.x, 172.16–31.x, 192.168.x, 169.254.x); sin pruebas de vulnerabilidades, sin intentos de contraseña ni análisis amplio de puertos.';
+
+  @override
+  String get ipNoticeShort => 'Analice solo redes autorizadas';
+
+  @override
+  String get ipNoticeText =>
+      'Analice solo redes de su propiedad o para las que esté autorizado.';
+
+  @override
+  String get ipNoticeTitle => 'Descubrimiento de la red local';
+
+  @override
+  String get ipPrivacyNote =>
+      'Privacidad: los resultados de análisis se guardan solo en este equipo y nunca se envían. Solo se analizan direcciones privadas/locales.';
+
+  @override
+  String get ipRangeErrEmpty => 'Introduzca un rango de IP.';
+
+  @override
+  String ipRangeErrInvalid(String token) {
+    return 'Dirección o rango no válido: $token';
+  }
+
+  @override
+  String ipRangeErrIpv6(String token) {
+    return 'Las direcciones IPv6 no son compatibles: $token';
+  }
+
+  @override
+  String ipRangeErrNotPrivate(String token) {
+    return 'Solo se pueden analizar direcciones privadas/locales (10.x, 172.16–31.x, 192.168.x, 169.254.x): $token';
+  }
+
+  @override
+  String ipRangeErrReversed(String token) {
+    return 'El inicio del rango es mayor que su fin: $token';
+  }
+
+  @override
+  String ipRangeErrTooMany(String count) {
+    return 'Rango demasiado grande (como máximo 65 536 direcciones, un /16): $count';
+  }
+
+  @override
+  String ipRangeOk(String n) {
+    return 'Se analizarán $n direcciones';
+  }
+
+  @override
+  String get ipRecColor => 'Color';
+
+  @override
+  String ipRecDeleteMsg(String name) {
+    return 'Se eliminarán el registro «$name» y su resultado de análisis en este equipo.';
+  }
+
+  @override
+  String ipRecDevices(String n) {
+    return '$n dispositivos';
+  }
+
+  @override
+  String get ipRecEdit => 'Editar registro';
+
+  @override
+  String get ipRecFolder => 'Carpeta';
+
+  @override
+  String ipRecItems(String n) {
+    return '$n elementos';
+  }
+
+  @override
+  String ipRecLastScan(String time) {
+    return 'Último análisis: $time';
+  }
+
+  @override
+  String get ipRecMove => 'Mover';
+
+  @override
+  String get ipRecMoveTitle => 'Mover registro';
+
+  @override
+  String get ipRecName => 'Nombre';
+
+  @override
+  String get ipRecNever => 'Sin analizar todavía';
+
+  @override
+  String ipRecNewDevices(String n) {
+    return '$n nuevos';
+  }
+
+  @override
+  String get ipRecRange => 'Rango de IP';
+
+  @override
+  String get ipRecRangeHint =>
+      'Ejemplos: 192.168.1.0/24 · 192.168.1.1-192.168.1.255 · 10.0.0.5 · varios separados por comas. Como máximo /16.';
+
+  @override
+  String get ipRecRootFolder => 'Registros';
+
+  @override
+  String get ipRecSaved => 'Registro guardado';
+
+  @override
+  String get ipScanBusy => 'Hay otro análisis en curso; deténgalo primero.';
+
+  @override
+  String ipScanDone(String n) {
+    return 'Análisis terminado: $n dispositivos';
+  }
+
+  @override
+  String get ipScanEmptyBody =>
+      'Pulse Analizar o haga clic en ▶ en la tarjeta. Los dispositivos encontrados se listan aquí.';
+
+  @override
+  String get ipScanEmptyTitle => 'Este registro aún no se ha analizado';
+
+  @override
+  String get ipScanExport => 'Exportar';
+
+  @override
+  String get ipScanExportCsv => 'Guardar como CSV…';
+
+  @override
+  String get ipScanExportJson => 'Guardar como JSON…';
+
+  @override
+  String get ipScanExported => 'Exportado';
+
+  @override
+  String ipScanFailed(String msg) {
+    return 'El análisis falló: $msg';
+  }
+
+  @override
+  String get ipScanFilter => 'Filtro';
+
+  @override
+  String get ipScanFilterAll => 'Todos';
+
+  @override
+  String get ipScanFilterGone => 'Desaparecidos';
+
+  @override
+  String get ipScanFilterNew => 'Nuevos';
+
+  @override
+  String get ipScanFilterServices => 'Con servicios';
+
+  @override
+  String ipScanFound(String n) {
+    return '$n dispositivos encontrados';
+  }
+
+  @override
+  String get ipScanNoMatch => 'Ningún dispositivo coincide con el filtro.';
+
+  @override
+  String get ipScanPhaseNames => 'Resolviendo nombres';
+
+  @override
+  String get ipScanPhasePing => 'Buscando dispositivos';
+
+  @override
+  String get ipScanPhasePorts => 'Probando servicios';
+
+  @override
+  String ipScanProgress(String done, String total) {
+    return '$done/$total';
+  }
+
+  @override
+  String ipScanRateLimited(String s) {
+    return 'El mismo registro podrá analizarse de nuevo dentro de $s s como mínimo.';
+  }
+
+  @override
+  String get ipScanScan => 'Analizar';
+
+  @override
+  String get ipScanScanning => 'Analizando…';
+
+  @override
+  String get ipScanSelectHint =>
+      'Haga clic en un registro a la izquierda: se analiza el rango y los dispositivos encontrados se listan aquí.';
+
+  @override
+  String get ipScanSelectRecord => 'Seleccione un registro';
+
+  @override
+  String get ipScanStop => 'Detener';
+
+  @override
+  String get ipScanStopped => 'Análisis detenido';
+
+  @override
+  String get ipStatusAliveArp => 'Visto en la tabla ARP (no respondió al ping)';
+
+  @override
+  String get ipStatusAlivePing => 'Respondió al ping';
+
+  @override
+  String get ipStatusGone => 'Desaparecido (presente en el análisis anterior)';
+
+  @override
+  String get ipStatusLive => 'Analizando';
+
+  @override
+  String get ipStatusNew => 'Nuevo (no estaba en el análisis anterior)';
+
+  @override
+  String get ipStatusSame => 'En línea';
+
+  @override
+  String ipTagCopied(String text) {
+    return 'Copiado al portapapeles: $text';
+  }
+
+  @override
+  String get ipTagFailed => 'No se pudo abrir';
+
+  @override
+  String get ipTagGroupCamera => 'Cámara (RTSP)';
+
+  @override
+  String get ipTagGroupDb => 'Base de datos';
+
+  @override
+  String get ipTagGroupFtp => 'FTP';
+
+  @override
+  String get ipTagGroupPrinter => 'Impresora';
+
+  @override
+  String get ipTagGroupRdp => 'Escritorio remoto';
+
+  @override
+  String get ipTagGroupSmb => 'Uso compartido de archivos';
+
+  @override
+  String get ipTagGroupSsh => 'SSH';
+
+  @override
+  String get ipTagGroupVnc => 'VNC';
+
+  @override
+  String get ipTagGroupWeb => 'Web';
+
+  @override
+  String ipTagOpened(String text) {
+    return 'Abriendo: $text';
+  }
+
+  @override
+  String get ipTrayHiddenHint =>
+      'IP Tools sigue funcionando en la bandeja. Haga clic en el icono para recuperar la ventana.';
+
+  @override
+  String get ipTrayQuit => 'Salir';
+
+  @override
+  String get ipTrayShow => 'Mostrar IP Tools';
+
+  @override
+  String get ipWelcomeBody =>
+      'Guarde un rango de IP (p. ej. 192.168.1.0/24). Al hacer clic en el registro se analiza el rango; los dispositivos encontrados se listan con su nombre, fabricante y servicios abiertos. Haga clic en una etiqueta de servicio para abrir la aplicación correspondiente.';
+
+  @override
+  String get ipWelcomeTitle => '¿Qué hay en su red local?';
+
+  @override
+  String get cvTypeVideo => 'Vídeo';
+
+  @override
+  String get cvTypeImage => 'Imagen';
+
+  @override
+  String get cvTypeAudio => 'Audio';
+
+  @override
+  String get cvTypeVideoHint => 'MP4, MKV, AVI, MOV…';
+
+  @override
+  String get cvTypeImageHint => 'JPG, PNG, WEBP, AVIF…';
+
+  @override
+  String get cvTypeAudioHint => 'MP3, WAV, FLAC, M4A…';
+
+  @override
+  String get cvTypeVideoAll => 'Todos los archivos de vídeo';
+
+  @override
+  String get cvTypeImageAll => 'Todos los archivos de imagen';
+
+  @override
+  String get cvTypeAudioAll => 'Todos los archivos de audio';
+
+  @override
+  String get cvAppSearchPh => 'Buscar proyectos…  (Ctrl+F)';
+
+  @override
+  String get cvAppNewProject => 'Nuevo proyecto';
+
+  @override
+  String get cvAppSettings => 'Ajustes';
+
+  @override
+  String cvAppStats(String c, String f) {
+    return '$c proyectos · $f carpetas';
+  }
+
+  @override
+  String get cvAppWelcome => 'Bienvenido';
+
+  @override
+  String cvAppResults(String q) {
+    return 'Resultados de «$q»';
+  }
+
+  @override
+  String get cvAppAll => 'Todos los proyectos';
+
+  @override
+  String get cvAppWelcomeHint =>
+      'Crea tu primer proyecto de conversión.<br>Elige vídeo, imagen o audio, selecciona las extensiones de origen y destino e indica un archivo o una carpeta.';
+
+  @override
+  String get cvAppFolders => 'Carpetas';
+
+  @override
+  String get cvAppProjects => 'Proyectos';
+
+  @override
+  String get cvAppDblHint => 'Haz doble clic en un proyecto para abrirlo';
+
+  @override
+  String get cvAppNoMatch => 'No hay proyectos que coincidan.';
+
+  @override
+  String cvAppFolderCount(String n) {
+    return '$n proyectos';
+  }
+
+  @override
+  String get cvAppNewProjectHere => 'Nuevo proyecto en esta carpeta';
+
+  @override
+  String get cvAppNewSubfolder => 'Crear subcarpeta';
+
+  @override
+  String get cvAppDuplicate => 'Duplicar';
+
+  @override
+  String get cvAppMoveToFolder => 'Mover a carpeta…';
+
+  @override
+  String get cvAppProjectMoved => 'Proyecto movido';
+
+  @override
+  String get cvAppFolderIntoSelf =>
+      'Una carpeta no puede moverse dentro de sí misma';
+
+  @override
+  String get cvAppFolderPh => 'p. ej. Vídeos de clientes';
+
+  @override
+  String get cvAppRenameFolder => 'Cambiar nombre de la carpeta';
+
+  @override
+  String get cvAppDeleteFolder => 'Eliminar carpeta';
+
+  @override
+  String cvAppDeleteFolderMsg(String name) {
+    return '¿Eliminar la carpeta <b>$name</b>?';
+  }
+
+  @override
+  String cvAppDeleteFolderProjects(String n) {
+    return '<br>Sus $n proyectos se moverán a la carpeta superior.';
+  }
+
+  @override
+  String get cvAppRootFolder => 'Nivel superior (sin carpeta)';
+
+  @override
+  String cvAppMoveTitle(String name) {
+    return 'Mover «$name»';
+  }
+
+  @override
+  String get cvAppTargetFolder => 'Carpeta de destino';
+
+  @override
+  String get cvAppDeleteProject => 'Eliminar proyecto';
+
+  @override
+  String cvAppDeleteProjectMsg(String name) {
+    return '¿Eliminar el proyecto <b>$name</b>?<br>También se eliminarán sus archivos convertidos y transcripciones. Tus archivos de origen no se modifican.';
+  }
+
+  @override
+  String get cvAppProjectSettings => 'Ajustes del proyecto';
+
+  @override
+  String get cvAppNoSource => 'No se ha elegido un origen en este equipo';
+
+  @override
+  String get cvAppAllExts => 'Todas';
+
+  @override
+  String get cvAppRunning => 'En curso';
+
+  @override
+  String cvAppDoneCount(String n) {
+    return '$n completados';
+  }
+
+  @override
+  String cvAppErrorCount(String n) {
+    return '$n con error';
+  }
+
+  @override
+  String get cvAppProjectSaved => 'Proyecto guardado';
+
+  @override
+  String get cvAppClearOutputs => 'Eliminar archivos convertidos';
+
+  @override
+  String cvAppClearOutputsMsg(String name) {
+    return '¿Eliminar los archivos convertidos de <b>$name</b>? Tus archivos de origen no se modifican; puedes volver a convertir cuando quieras.';
+  }
+
+  @override
+  String get cvPfTitleNew => 'Nuevo proyecto';
+
+  @override
+  String cvPfTitleEdit(String name) {
+    return 'Ajustes del proyecto: $name';
+  }
+
+  @override
+  String get cvPfCreate => 'Guardar';
+
+  @override
+  String get cvPfTabGeneral => 'General';
+
+  @override
+  String get cvPfTabOutput => 'Ajustes de conversión';
+
+  @override
+  String get cvPfTabSpeech => 'Voz';
+
+  @override
+  String get cvPfName => 'Nombre del proyecto';
+
+  @override
+  String get cvPfNamePh => 'p. ej. Vídeos de vacaciones';
+
+  @override
+  String get cvPfType => 'Tipo';
+
+  @override
+  String get cvPfSourceExt => 'Extensión de origen';
+
+  @override
+  String get cvPfTargetExt => 'Extensión de destino';
+
+  @override
+  String get cvPfSelectAll => 'Seleccionar todo';
+
+  @override
+  String get cvPfSelectNone => 'Ninguna';
+
+  @override
+  String get cvPfGroupVideo => 'Vídeo';
+
+  @override
+  String get cvPfGroupAnim => 'Animación';
+
+  @override
+  String get cvPfGroupAudioOnly => 'Solo audio (extraer del vídeo)';
+
+  @override
+  String get cvPfAudioOnlyHint =>
+      'Solo se conserva la pista de audio del vídeo.';
+
+  @override
+  String get cvPfGifHint => 'GIF animado (máximo 30 fotogramas/s).';
+
+  @override
+  String get cvPfSource => 'Origen';
+
+  @override
+  String get cvPfModeFile => 'Archivo';
+
+  @override
+  String get cvPfModeFolder => 'Carpeta';
+
+  @override
+  String get cvPfPathFile => 'Archivo que se convertirá';
+
+  @override
+  String get cvPfPathFolder => 'Carpeta que se convertirá';
+
+  @override
+  String get cvPfPathNone => 'Aún no elegido — pulsa Examinar…';
+
+  @override
+  String get cvPfSubfolders => 'Incluir subcarpetas';
+
+  @override
+  String get cvPfConcurrency => 'Archivos convertidos a la vez';
+
+  @override
+  String get cvPfConcurrencyHint =>
+      'Los valores altos terminan antes, pero cargan más la CPU y el disco.';
+
+  @override
+  String get cvPfFolder => 'Carpeta del proyecto';
+
+  @override
+  String get cvPfSpeechAsk => 'Convertir voz a texto';
+
+  @override
+  String get cvPfSpeechAskHint =>
+      'Se transcribe la voz del vídeo o audio: el segundo, el idioma y el texto de cada frase aparecen en columnas separadas.';
+
+  @override
+  String get cvPfSpeechModel => 'Modelo de voz';
+
+  @override
+  String get cvPfSpeechLang => 'Idioma hablado';
+
+  @override
+  String get cvPfPerWindow => 'Detectar el idioma de nuevo cada 30 segundos';
+
+  @override
+  String get cvPfPerWindowHint =>
+      'Para grabaciones con varios idiomas. Más lento.';
+
+  @override
+  String get cvPfModels => 'Modelos';
+
+  @override
+  String get cvPfSpeechNote =>
+      'El reconocimiento de voz funciona sin conexión en este equipo (whisper.cpp); el audio nunca se envía a un servidor. El modelo se descarga una sola vez, la primera vez que se usa.';
+
+  @override
+  String get cvPfErrExt => 'Elige al menos una extensión de origen.';
+
+  @override
+  String get cvOutQuality => 'Calidad';
+
+  @override
+  String get cvOutQHigh => 'Alta (archivo grande)';
+
+  @override
+  String get cvOutQMedium => 'Media (recomendada)';
+
+  @override
+  String get cvOutQLow => 'Baja (archivo pequeño)';
+
+  @override
+  String get cvOutResolution => 'Resolución';
+
+  @override
+  String get cvOutAsSource => 'Igual que el origen';
+
+  @override
+  String get cvOutResolutionHint =>
+      'Solo reduce; los vídeos más pequeños no se amplían.';
+
+  @override
+  String get cvOutFps => 'Velocidad de fotogramas';
+
+  @override
+  String get cvOutCodec => 'Códec de vídeo';
+
+  @override
+  String get cvOutH264 => 'H.264 (más compatible)';
+
+  @override
+  String get cvOutH265 => 'H.265 / HEVC (más pequeño)';
+
+  @override
+  String get cvOutCodecHint =>
+      'H.265 solo se usa con destinos MP4, MKV, MOV y M4V.';
+
+  @override
+  String get cvOutSpeed => 'Velocidad de codificación';
+
+  @override
+  String get cvOutSpeedVeryfast => 'Muy rápida';
+
+  @override
+  String get cvOutSpeedFast => 'Rápida';
+
+  @override
+  String get cvOutSpeedMedium => 'Equilibrada';
+
+  @override
+  String get cvOutSpeedSlow => 'Lenta (archivo más pequeño)';
+
+  @override
+  String get cvOutAudioBitrate => 'Tasa de bits de audio';
+
+  @override
+  String get cvOutNoAudio => 'Quitar el audio';
+
+  @override
+  String get cvOutImgQuality => 'Calidad';
+
+  @override
+  String get cvOutImgQualityHint =>
+      'Para JPG, WEBP, AVIF y TIFF. PNG es sin pérdida; por debajo de 80 se usa una paleta de colores.';
+
+  @override
+  String get cvOutMaxWidth => 'Ancho máximo';
+
+  @override
+  String get cvOutMaxHeight => 'Alto máximo';
+
+  @override
+  String get cvOutNoLimit => 'Sin límite';
+
+  @override
+  String get cvOutResizeHint =>
+      'Se mantiene la relación de aspecto; las imágenes más pequeñas no se amplían.';
+
+  @override
+  String get cvOutKeepMeta => 'Conservar metadatos (EXIF, perfil de color)';
+
+  @override
+  String get cvOutKeepMetaHint =>
+      'Si está desactivado, los datos personales como la ubicación no se escriben en el resultado.';
+
+  @override
+  String get cvOutBitrate => 'Tasa de bits';
+
+  @override
+  String get cvOutBitrateHint =>
+      'WAV, FLAC y AIFF son sin pérdida; la tasa de bits no se aplica.';
+
+  @override
+  String get cvOutSampleRate => 'Frecuencia de muestreo';
+
+  @override
+  String get cvOutChannels => 'Canales';
+
+  @override
+  String get cvOutStereo => 'Estéreo';
+
+  @override
+  String get cvOutMono => 'Mono';
+
+  @override
+  String get cvSpeechModelTiny => 'Tiny (el más rápido)';
+
+  @override
+  String get cvSpeechModelBase => 'Base (recomendado)';
+
+  @override
+  String get cvSpeechModelSmall => 'Small (más preciso)';
+
+  @override
+  String get cvSpeechModelMedium => 'Medium (alta precisión)';
+
+  @override
+  String get cvSpeechModelTurbo => 'Large v3 Turbo (el más preciso)';
+
+  @override
+  String get cvSpeechLangAuto => 'Detectar automáticamente';
+
+  @override
+  String get cvSpeechDownload => 'Descargar';
+
+  @override
+  String cvSpeechInstalled(String size) {
+    return 'Instalado · $size';
+  }
+
+  @override
+  String get cvSpeechDownloadFailed => 'No se pudo descargar el modelo';
+
+  @override
+  String get cvSpeechDlEngine => 'Descargando el motor de voz';
+
+  @override
+  String cvSpeechDlModel(String model) {
+    return 'Descargando el modelo de voz: $model';
+  }
+
+  @override
+  String get cvSpeechEngineAuto =>
+      'El motor de voz (whisper.cpp) se descargará la primera vez que se use.';
+
+  @override
+  String get cvSpeechEngineMissing =>
+      'No se encontró el motor de voz (whisper-cli).';
+
+  @override
+  String get cvPjOriginal => 'Original';
+
+  @override
+  String get cvPjConverted => 'Convertido';
+
+  @override
+  String get cvPjFolders => 'Carpetas';
+
+  @override
+  String get cvPjFiles => 'Archivos';
+
+  @override
+  String get cvPjTranscript => 'Texto';
+
+  @override
+  String get cvPjTrSecond => 'Segundo';
+
+  @override
+  String get cvPjTrLang => 'Idioma';
+
+  @override
+  String get cvPjTrText => 'Texto';
+
+  @override
+  String get cvPjSecUnit => 's';
+
+  @override
+  String get cvPjStart => 'Iniciar';
+
+  @override
+  String get cvPjStop => 'Detener';
+
+  @override
+  String get cvPjChangeSource => 'Cambiar origen';
+
+  @override
+  String get cvPjPickSource => 'Elegir origen';
+
+  @override
+  String get cvPjOpenOutDir => 'Abrir la carpeta de archivos convertidos';
+
+  @override
+  String get cvPjExportOutputs =>
+      'Copiar los archivos convertidos a otra carpeta…';
+
+  @override
+  String get cvPjClearOutputs => 'Eliminar archivos convertidos';
+
+  @override
+  String get cvPjLinkPreview => 'Reproducir ambas vistas previas a la vez';
+
+  @override
+  String get cvPjFilterPh => 'Buscar archivos';
+
+  @override
+  String get cvPjFAll => 'Todos';
+
+  @override
+  String get cvPjFPending => 'Pendientes';
+
+  @override
+  String get cvPjFActive => 'En curso';
+
+  @override
+  String get cvPjFDone => 'Completados';
+
+  @override
+  String get cvPjFError => 'Con error';
+
+  @override
+  String get cvPjExpandAll => 'Expandir todo';
+
+  @override
+  String get cvPjCollapseAll => 'Contraer todo';
+
+  @override
+  String get cvPjRescan => 'Volver a examinar';
+
+  @override
+  String get cvPjColName => 'Nombre';
+
+  @override
+  String get cvPjColFolder => 'Carpeta';
+
+  @override
+  String get cvPjColSize => 'Tamaño';
+
+  @override
+  String get cvPjColProgress => 'Progreso';
+
+  @override
+  String get cvPjColStatus => 'Estado';
+
+  @override
+  String get cvPjColSpeech => 'Texto';
+
+  @override
+  String get cvPjColOut => 'Resultado';
+
+  @override
+  String cvPjSegments(String n) {
+    return '$n frases';
+  }
+
+  @override
+  String get cvPjNoAudio => 'Sin audio';
+
+  @override
+  String cvPjNoFiles(String exts) {
+    return 'No hay archivos con las extensiones elegidas en esta carpeta ($exts).';
+  }
+
+  @override
+  String get cvPjNoMatch => 'No hay archivos que coincidan.';
+
+  @override
+  String get cvPjNoneChecked =>
+      'La lista está vacía. Marca los archivos que quieras convertir en el árbol de la izquierda.';
+
+  @override
+  String get cvPjConvertThis => 'Convertir este archivo';
+
+  @override
+  String get cvPjReconvert => 'Volver a convertir';
+
+  @override
+  String get cvPjTranscribeThis => 'Transcribir';
+
+  @override
+  String get cvPjRetranscribe => 'Volver a transcribir';
+
+  @override
+  String get cvPjOpenOut => 'Abrir archivo convertido';
+
+  @override
+  String get cvPjRevealOut => 'Mostrar el convertido en la carpeta';
+
+  @override
+  String get cvPjOpenSrc => 'Abrir archivo original';
+
+  @override
+  String get cvPjRevealSrc => 'Mostrar el original en la carpeta';
+
+  @override
+  String get cvPjExportThis => 'Copiar a otra carpeta…';
+
+  @override
+  String get cvPjDeleteOut => 'Eliminar archivo convertido';
+
+  @override
+  String get cvPjUncheck => 'Quitar de la lista';
+
+  @override
+  String cvPjExported(String n) {
+    return '$n archivos copiados';
+  }
+
+  @override
+  String get cvPjFileMissing => 'No se encontró el archivo de origen.';
+
+  @override
+  String get cvPjPickToPreview =>
+      'Selecciona un archivo de la lista para previsualizarlo.';
+
+  @override
+  String get cvPjOutPreviewHint => 'Aparecerá aquí cuando se convierta.';
+
+  @override
+  String get cvPjConverting => 'Convirtiendo…';
+
+  @override
+  String get cvPjCantPlay =>
+      'Este formato no se puede reproducir aquí directamente.';
+
+  @override
+  String get cvPjMakePreview => 'Crear vista previa';
+
+  @override
+  String get cvPjMakingPreview => 'Preparando vista previa…';
+
+  @override
+  String get cvPjNoSourceTitle => 'No se ha elegido un origen en este equipo';
+
+  @override
+  String get cvPjNoSourceHint =>
+      'El proyecto se sincronizó desde otro dispositivo o aún no se ha elegido un origen. Elige el archivo o la carpeta que quieras convertir.';
+
+  @override
+  String get cvPjSourceGone => 'No se encontró el origen';
+
+  @override
+  String get cvPjTrImage =>
+      'La conversión de voz a texto está disponible en proyectos de vídeo y audio.';
+
+  @override
+  String get cvPjTrPick => 'Selecciona un archivo para ver su texto.';
+
+  @override
+  String get cvPjTrAfter =>
+      'La voz se transcribirá cuando se convierta el archivo.';
+
+  @override
+  String get cvPjTrOff =>
+      'La conversión de voz a texto está desactivada en este proyecto. Puedes ejecutarla ahora para este archivo.';
+
+  @override
+  String cvPjTrRunning(String p) {
+    return 'Transcribiendo… $p%';
+  }
+
+  @override
+  String get cvPjTrNone => 'No se encontró voz en este archivo.';
+
+  @override
+  String get cvPjTrNoExport => 'No hay texto para exportar.';
+
+  @override
+  String get cvPjTrSaved => 'Texto guardado';
+
+  @override
+  String get cvPjExportTranscript => 'Exportar texto';
+
+  @override
+  String get cvPjFmtSrt => 'Subtítulos SRT';
+
+  @override
+  String get cvPjFmtVtt => 'Subtítulos WebVTT';
+
+  @override
+  String get cvPjFmtTxt => 'Texto sin formato (TXT)';
+
+  @override
+  String get cvPjFmtCsv => 'Hoja de cálculo (CSV)';
+
+  @override
+  String cvPjStTotal(String n) {
+    return '$n archivos';
+  }
+
+  @override
+  String cvPjStDone(String n) {
+    return '$n completados';
+  }
+
+  @override
+  String cvPjStErr(String n) {
+    return '$n con error';
+  }
+
+  @override
+  String cvPjStActive(String n) {
+    return '$n convirtiéndose';
+  }
+
+  @override
+  String cvPjStSpeech(String n) {
+    return '$n transcribiéndose';
+  }
+
+  @override
+  String cvPjStOut(String size) {
+    return 'Resultado: $size';
+  }
+
+  @override
+  String cvPjStConc(String n) {
+    return 'A la vez: $n';
+  }
+
+  @override
+  String get cvPjFinished => 'Conversión finalizada';
+
+  @override
+  String cvPjFinishedSub(String done, String err, String total) {
+    return '$done/$total archivos completados · $err con error';
+  }
+
+  @override
+  String get cvStPending => 'Pendiente';
+
+  @override
+  String get cvStQueued => 'En cola';
+
+  @override
+  String get cvStConverting => 'Convirtiendo';
+
+  @override
+  String get cvStDone => 'Completado';
+
+  @override
+  String get cvStError => 'Error';
+
+  @override
+  String get cvStCanceled => 'Cancelado';
+
+  @override
+  String get cvMainBalloonTitle => 'Convert Master sigue en ejecución';
+
+  @override
+  String get cvMainBalloonBody =>
+      'Haz clic en el icono de la bandeja para volver a abrir la ventana.';
+
+  @override
+  String get cvMainTrayShow => 'Mostrar Convert Master';
+
+  @override
+  String get cvMainTrayProjects => 'Proyectos';
+
+  @override
+  String get cvMainTrayNone => '(sin proyectos)';
+
+  @override
+  String get cvMainTrayQuit => 'Salir';
+
+  @override
+  String get cvErrCanceled => 'Cancelado';
+
+  @override
+  String get cvErrNoVideo => 'El archivo no tiene pista de vídeo.';
+
+  @override
+  String get cvErrNoAudio => 'El archivo no tiene audio.';
+
+  @override
+  String get cvPjOcrThis => 'Leer texto (OCR)';
+
+  @override
+  String get cvPjReocr => 'Volver a leer el texto (OCR)';
+
+  @override
+  String get cvPjNoText => 'Sin texto';
+
+  @override
+  String get cvPjNoTextHint => 'No se encontró texto legible en la imagen.';
+
+  @override
+  String get cvPjOcrPanel => 'Texto (OCR)';
+
+  @override
+  String get cvPjTrLine => 'Línea';
+
+  @override
+  String get cvPjTrConf => 'Confianza';
+
+  @override
+  String cvPjLines(String n) {
+    return '$n líneas';
+  }
+
+  @override
+  String get cvPjOcrAfter =>
+      'El texto de la imagen se leerá cuando se convierta.';
+
+  @override
+  String get cvPjOcrOff =>
+      'El OCR está desactivado en este proyecto. Puedes ejecutarlo ahora para esta imagen.';
+
+  @override
+  String cvPjOcrRunning(String p) {
+    return 'Leyendo texto… $p %';
+  }
+
+  @override
+  String get cvPjCopyAll => 'Copiar todo';
+
+  @override
+  String get cvPjCopied => 'Texto copiado al portapapeles';
+
+  @override
+  String cvOcrDl(String lang) {
+    return 'Descargando datos de idioma para OCR: $lang';
+  }
+
+  @override
+  String get cvOcrNotInstalled => 'Se descarga en el primer uso';
+
+  @override
+  String get cvOcrDownloadFailed =>
+      'No se pudieron descargar los datos de idioma para OCR';
+
+  @override
+  String get cvPfTabOcr => 'OCR';
+
+  @override
+  String get cvPfOcrAsk => 'Leer el texto de las imágenes (OCR)';
+
+  @override
+  String get cvPfOcrAskHint =>
+      'Se extrae el texto de las imágenes: cada línea, su confianza de lectura y el texto aparecen en columnas separadas. Déjalo desactivado si no lo necesitas.';
+
+  @override
+  String get cvPfOcrLangs => 'Idioma del texto de las imágenes';
+
+  @override
+  String get cvPfOcrLangsHint =>
+      'Hasta 6 idiomas; menos idiomas es más rápido y preciso.';
+
+  @override
+  String get cvPfOcrData => 'Datos de idioma';
+
+  @override
+  String get cvPfOcrNote =>
+      'El OCR funciona sin conexión en este equipo (Tesseract); las imágenes nunca se envían a un servidor. Cada idioma se descarga una sola vez en el primer uso.';
+
+  @override
+  String cvErrOcr(String msg) {
+    return 'No se pudo leer el texto: $msg';
+  }
+
+  @override
+  String get cvErrUnreadable =>
+      'No se pudo leer el archivo (dañado o no compatible).';
+
+  @override
+  String get cvErrUnsupported => 'Esta conversión no es compatible.';
+
+  @override
+  String cvErrFfmpegMissing(String msg) {
+    return 'No se pudo iniciar el motor de conversión (ffmpeg): $msg';
+  }
+
+  @override
+  String get cvErrEngineMissing =>
+      'No se encontró el motor de voz (whisper.cpp).';
+
+  @override
+  String cvErrDownload(String msg) {
+    return 'Error en la descarga: $msg';
+  }
+
+  @override
+  String get cvErrNotFound => 'No se encontró el archivo.';
+
+  @override
+  String get cvErrAccess => 'Acceso denegado.';
+
+  @override
+  String get cvErrBusy => 'Otro programa está usando el archivo.';
+
+  @override
+  String get cvErrNoSpace => 'El disco está lleno.';
+
+  @override
+  String cvErrFfmpeg(String msg) {
+    return 'No se pudo convertir: $msg';
+  }
+
+  @override
+  String cvErrWhisper(String msg) {
+    return 'No se pudo transcribir: $msg';
+  }
+
+  @override
+  String get cvMainCloseActive =>
+      'Hay una conversión en curso. Si cierras la ventana, se detendrá.';
+
+  @override
+  String get cvMainCloseAnyway => 'Cerrar de todos modos';
+
+  @override
+  String get cvMainCopySuffix => ' (copia)';
+
+  @override
+  String get cvMainErrProjectNotFound => 'No se encontró el proyecto';
+
+  @override
+  String get cvMainExportTo =>
+      'Carpeta a la que copiar los archivos convertidos';
+
+  @override
+  String get cvMainPickFile => 'Elige el archivo que quieras convertir';
+
+  @override
+  String get cvMainPickFolder => 'Elige la carpeta que quieras convertir';
+
+  @override
+  String get cvMainSaveTranscript => 'Guardar texto';
+
+  @override
+  String get cvMainUntitled => 'Proyecto sin título';
+
+  @override
+  String get sqOp => 'mayor o igual';
+
+  @override
+  String get sqOpNotcontains => 'no contiene';
+
+  @override
+  String get sqOpNotlike => 'NOT LIKE';
+
+  @override
+  String get sqOpNotin => 'no en la lista';
+
+  @override
+  String get sqOpIsnull => 'es NULL';
+
+  @override
+  String get sqOpIsnotnull => 'no es NULL';
 }
