@@ -9,6 +9,7 @@ import 'core/module.dart';
 import 'core/module_host.dart';
 import 'core/prefs.dart';
 import 'core/theme.dart';
+import 'modules/convert/convert_module.dart';
 import 'modules/ftp/ftp_module.dart';
 import 'modules/iptools/ip_module.dart';
 import 'modules/ssh/ssh_module.dart';
@@ -26,7 +27,7 @@ Map<String, MtModule> buildModules([ModuleHost? host]) => {
       'fm': host == null ? PlaceholderModule('fm', Icons.cloud_sync_outlined, const Color(0xFFF59E0B)) : FtpModule(host),
       'sq': PlaceholderModule('sq', Icons.storage_outlined, const Color(0xFF8B5CF6)),
       'np': PlaceholderModule('np', Icons.edit_note, const Color(0xFF10B981)),
-      'cv': PlaceholderModule('cv', Icons.swap_horiz, const Color(0xFFEC4899)),
+      'cv': host == null ? PlaceholderModule('cv', Icons.swap_horiz, const Color(0xFFEC4899)) : ConvertModule(host),
       'ip': host == null ? PlaceholderModule('ip', Icons.lan_outlined, const Color(0xFF3B82F6)) : IpToolsModule(host),
     };
 

@@ -24,6 +24,10 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Dönüştürmek istediğiniz fotoğraf ve videoları seçmek için.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Galeriden video seçerken sistem gerektirebilir; kayıt yapılmaz.</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>IP Tools, yalnız sahibi ya da yetkilisi olduğunuz yerel ağdaki cihazları ve servisleri bulmak için yerel ağa erişir.</string>
 	<key>NSBonjourServices</key>
