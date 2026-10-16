@@ -1,9 +1,38 @@
 // ffmpeg komut satırı üretimi — masaüstü convertmaster/src/media.js (scaleFilter, audioArgs, audioShape, fixOpusRate,
 // videoArgs, audioOnlyArgs, ffImageArgs) birebir; saf Dart, FFmpegKit'e bağımlı değil (birim testi: test/cv_ffmpeg_args_test.dart).
-// Kodlayıcı kümesi: FFmpegKit full-gpl'de bulunanlar varsayılan (libx264, libx265, libvpx-vp9, libxvid, libmp3lame, libopus,
-// libvorbis, libtheora); `encoders` ile daraltılırsa media.js'teki pick() yedekleri devreye girer.
+// Kodlayıcı kümesi: ffmpeg_kit_flutter_new_full (LGPL 3.0; x264/x265/xvid YOK). H.264/H.265 cihazın donanım kodlayıcısıyla:
+// iOS h264_videotoolbox / hevc_videotoolbox, Android h264_mediacodec / hevc_mediacodec; yazılım yedeği mpeg4 (H.264 yerine) ve
+// libkvazaar (HEVC). Donanım kodlayıcılar CRF bilmez → kalite × çözünürlük tablosundan bit hızı (-b:v). media.js'teki
+// pick() yedek sırası korunur; `encoders` ile daraltılabilir (testler).
 
-const kFfmpegKitEncoders = {'libx264', 'libx265', 'libvpx-vp9', 'libxvid', 'mpeg4', 'libmp3lame', 'libopus', 'libvorbis', 'libtheora', 'aac', 'wmav2', 'wmv2', 'mpeg2video', 'mp2', 'ac3', 'flac', 'pcm_s16le', 'pcm_s16be', 'libwebp', 'png', 'mjpeg', 'gif', 'bmp', 'targa'};
+const _kCommonEncoders = {'libvpx-vp9', 'mpeg4', 'libkvazaar', 'flv', 'libmp3lame', 'libopus', 'libvorbis', 'libtheora', 'aac', 'wmav2', 'wmv2', 'mpeg2video', 'mp2', 'ac3', 'flac', 'pcm_s16le', 'pcm_s16be', 'libwebp', 'png', 'mjpeg', 'gif', 'bmp', 'targa'};
+const kFfmpegKitEncodersIos = {..._kCommonEncoders, 'h264_videotoolbox', 'hevc_videotoolbox'};
+const kFfmpegKitEncodersAndroid = {..._kCommonEncoders, 'h264_mediacodec', 'hevc_mediacodec'};
+Set<String> encodersFor(String platform) => platform == 'ios' ? kFfmpegKitEncodersIos : kFfmpegKitEncodersAndroid;
+
+/// Donanım kodlayıcı bit hızları (kbps) — çıktı yüksekliği sınıfı × kalite (high / medium / low). H.265 için ×0.6.
+const kHwBitrates = <int, Map<String, int>>{
+  2160: {'high': 35000, 'medium': 20000, 'low': 12000},
+  1440: {'high': 16000, 'medium': 10000, 'low': 6000},
+  1080: {'high': 8000, 'medium': 5000, 'low': 3000},
+  720: {'high': 5000, 'medium': 2500, 'low': 1500},
+  480: {'high': 2500, 'medium': 1200, 'low': 700},
+  360: {'high': 1200, 'medium': 700, 'low': 400},
+};
+
+/// Çıktının kısa kenarı: seçilen çözünürlük (küçültme) ile kaynağın kısa kenarının küçüğü; bilinmiyorsa 1080.
+int outputHeight(Object? res, CvMediaInfo info) {
+  final src = info.width > 0 && info.height > 0 ? (info.width < info.height ? info.width : info.height) : 0;
+  final r = res == null || res == 'source' ? 0 : int.tryParse(res.toString()) ?? 0;
+  if (r > 0 && src > 0) return r < src ? r : src;
+  return r > 0 ? r : (src > 0 ? src : 1080);
+}
+
+int hwBitrate(String quality, int height, {bool hevc = false}) {
+  final cls = kHwBitrates.keys.where((h) => height >= h).fold<int>(360, (a, h) => h > a ? h : a);
+  final kb = kHwBitrates[cls]![quality] ?? kHwBitrates[cls]!['medium']!;
+  return hevc ? (kb * 0.6).round() : kb;
+}
 
 class CvConvertError implements Exception {
   CvConvertError(this.code, [this.message = '', this.detail = '']);
@@ -73,8 +102,8 @@ List<String> fixOpusRate(List<String> args, String target) {
   return args;
 }
 
-List<String> videoArgs(String target, Map<String, dynamic> o, CvMediaInfo info, {Set<String> encoders = kFfmpegKitEncoders}) {
-  final enc = encoders;
+List<String> videoArgs(String target, Map<String, dynamic> o, CvMediaInfo info, {String platform = 'android', Set<String>? encoders}) {
+  final enc = encoders ?? encodersFor(platform);
   final q = kQualityOf(o['quality']);
   final sf = scaleFilter(o['resolution']);
   final fpsV = o['fps']?.toString();
@@ -103,7 +132,7 @@ List<String> videoArgs(String target, Map<String, dynamic> o, CvMediaInfo info, 
         '-cpu-used', speed == 'slow' ? '1' : speed == 'medium' ? '2' : '4', '-pix_fmt', 'yuv420p'];
       a = ['-c:a', 'libopus', '-b:a', '${ab ?? 160}k'];
     case 'avi':
-      v = ['-c:v', _pick(enc, ['libxvid', 'mpeg4']), '-q:v', '${_crf['q']![q]}', '-vtag', 'XVID', '-pix_fmt', 'yuv420p'];
+      v = ['-c:v', 'mpeg4', '-q:v', '${_crf['q']![q]}', '-vtag', 'XVID', '-pix_fmt', 'yuv420p'];
       a = ['-c:a', 'libmp3lame', '-b:a', '${ab ?? 192}k'];
     case 'wmv':
       v = ['-c:v', 'wmv2', '-q:v', '${_crf['q']![q]}'];
@@ -116,12 +145,22 @@ List<String> videoArgs(String target, Map<String, dynamic> o, CvMediaInfo info, 
       v = ['-c:v', 'libtheora', '-q:v', '${_crf['theora']![q]}'];
       a = ['-c:a', 'libvorbis', '-b:a', '${ab ?? 160}k'];
     default:
-      // mp4, m4v, mov, mkv, flv, 3gp: H.264 (veya mp4/mkv/mov'da H.265) + AAC
-      final hevc = o['codec'] == 'h265' && const ['mp4', 'm4v', 'mov', 'mkv'].contains(target) && enc.contains('libx265');
-      v = hevc
-          ? ['-c:v', 'libx265', '-crf', '${_crf['x265']![q]}', '-preset', speed, '-tag:v', 'hvc1', '-pix_fmt', 'yuv420p']
-          : ['-c:v', _pick(enc, ['libx264']), '-crf', '${_crf['x264']![q]}', '-preset', speed, '-pix_fmt', 'yuv420p'];
-      if (target == '3gp') v.addAll(['-profile:v', 'baseline']);
+      // mp4, m4v, mov, mkv, flv, 3gp: H.264 (veya mp4/mkv/mov/m4v'de H.265) — donanım kodlayıcı + bit hızı; yedek yazılım kodlayıcı
+      final h = outputHeight(o['resolution'], info);
+      final wantHevc = o['codec'] == 'h265' && const ['mp4', 'm4v', 'mov', 'mkv'].contains(target);
+      final hevcEnc = wantHevc ? [_hwHevc(platform), 'libkvazaar'].where(enc.contains).firstOrNull : null;
+      final h264Enc = [_hwH264(platform)].where(enc.contains).firstOrNull;
+      if (hevcEnc != null) {
+        v = hevcEnc == 'libkvazaar'
+            ? ['-c:v', 'libkvazaar', '-b:v', '${hwBitrate(q, h, hevc: true)}k', '-kvazaar-params', 'preset=$speed', '-tag:v', 'hvc1', '-pix_fmt', 'yuv420p']
+            : ['-c:v', hevcEnc, '-b:v', '${hwBitrate(q, h, hevc: true)}k', '-tag:v', 'hvc1', '-pix_fmt', 'yuv420p'];
+      } else if (h264Enc != null) {
+        v = ['-c:v', h264Enc, '-b:v', '${hwBitrate(q, h)}k', '-pix_fmt', 'yuv420p'];
+        if (target == '3gp' && platform == 'ios') v.addAll(['-profile:v', 'baseline']);
+      } else {
+        // Yazılım yedeği: flv kabı mpeg4 almaz → Sorenson (flv1); diğerleri MPEG-4 Part 2
+        v = target == 'flv' ? ['-c:v', 'flv', '-q:v', '${_crf['q']![q]}'] : ['-c:v', 'mpeg4', '-q:v', '${_crf['q']![q]}', '-pix_fmt', 'yuv420p'];
+      }
       a = audioArgs('m4a', {'audioBitrate': ab});
       if (target == 'flv') a.addAll(['-ar', '44100']);
   }
@@ -129,6 +168,9 @@ List<String> videoArgs(String target, Map<String, dynamic> o, CvMediaInfo info, 
   final extra = const ['mp4', 'm4v', 'mov'].contains(target) ? ['-movflags', '+faststart'] : <String>[];
   return [...maps, ...v, '-vf', vf, ...fps, ...(noA ? <String>[] : a), '-map_metadata', '0', ...extra];
 }
+
+String _hwH264(String p) => p == 'ios' ? 'h264_videotoolbox' : 'h264_mediacodec';
+String _hwHevc(String p) => p == 'ios' ? 'hevc_videotoolbox' : 'hevc_mediacodec';
 
 String kQualityOf(Object? q) => const ['high', 'medium', 'low'].contains(q) ? q.toString() : 'medium';
 
@@ -152,7 +194,7 @@ List<String> ffImageArgs(String target, Map<String, dynamic> o) {
 }
 
 /// Tam komut satırı: `ffmpeg -hide_banner -nostdin -y -i src <args> out` (media.js runFfmpeg; -progress yerine FFmpegKit Statistics).
-List<String> buildCommand({required String src, required String out, required String type, required String target, required Map<String, dynamic> options, required CvMediaInfo info}) {
+List<String> buildCommand({required String src, required String out, required String type, required String target, required Map<String, dynamic> options, required CvMediaInfo info, String platform = 'android'}) {
   final List<String> args;
   if (type == 'image') {
     args = ffImageArgs(target, (options['image'] as Map?)?.cast<String, dynamic>() ?? const {});
@@ -161,7 +203,7 @@ List<String> buildCommand({required String src, required String out, required St
     if (type == 'video' && !info.hasVideo) throw CvConvertError('no_video');
     if (type == 'audio' && !info.hasAudio) throw CvConvertError('no_audio');
     args = type == 'video'
-        ? videoArgs(target, (options['video'] as Map?)?.cast<String, dynamic>() ?? const {}, info)
+        ? videoArgs(target, (options['video'] as Map?)?.cast<String, dynamic>() ?? const {}, info, platform: platform)
         : audioOnlyArgs(target, (options['audio'] as Map?)?.cast<String, dynamic>() ?? const {});
   }
   return ['-hide_banner', '-nostdin', '-y', '-i', src, ...args, out];

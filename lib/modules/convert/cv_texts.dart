@@ -28,7 +28,7 @@ class CvT {
   static const detail = 'Ayrıntı';
   static const original = 'Orijinal';
   static const output = 'Çıktı';
-  static const license = 'Video ve ses dönüştürme FFmpegKit (LGPL/GPL) ile yapılır.';
+  static const license = 'Video ve ses dönüştürme FFmpegKit (LGPL 3.0, GPL bileşeni yok) ile yapılır; H.264 / H.265 kodlama cihazın donanım kodlayıcısını (iOS VideoToolbox, Android MediaCodec) kullanır.';
   static String converted(int n) => '$n dosya dönüştürüldü';
   static String filesCount(int n) => '$n dosya';
 }

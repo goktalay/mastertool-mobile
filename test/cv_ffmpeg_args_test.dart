@@ -6,6 +6,7 @@ import 'package:master_tool/modules/convert/cv_formats.dart';
 void main() {
   const av = CvMediaInfo(duration: 120, hasVideo: true, hasAudio: true);
   const vOnly = CvMediaInfo(duration: 10, hasVideo: true, hasAudio: false);
+  const av1080 = CvMediaInfo(duration: 120, hasVideo: true, hasAudio: true, width: 1920, height: 1080);
   final dv = (defaultOptions()['video'] as Map).cast<String, dynamic>();
   final da = (defaultOptions()['audio'] as Map).cast<String, dynamic>();
 
@@ -15,29 +16,63 @@ void main() {
     expect(scaleFilter('720'), "scale='if(gt(iw,ih),-2,min(iw,720))':'if(gt(iw,ih),min(ih,720),-2)'");
   });
 
-  test('mp4 varsayılan: H.264 crf 23 preset medium + AAC 192k + faststart', () {
-    final a = videoArgs('mp4', dv, av);
-    expect(a, ['-map', '0:v:0', '-map', '0:a:0', '-c:v', 'libx264', '-crf', '23', '-preset', 'medium', '-pix_fmt', 'yuv420p',
+  test('mp4 varsayılan (Android): h264_mediacodec, 1080p sınıfı orta → 5000k + AAC 192k + faststart', () {
+    final a = videoArgs('mp4', dv, av1080);
+    expect(a, ['-map', '0:v:0', '-map', '0:a:0', '-c:v', 'h264_mediacodec', '-b:v', '5000k', '-pix_fmt', 'yuv420p',
       '-vf', "scale='trunc(iw/2)*2':'trunc(ih/2)*2'", '-c:a', 'aac', '-b:a', '192k', '-map_metadata', '0', '-movflags', '+faststart']);
   });
 
-  test('mkv H.265 yüksek kalite, 1080p, 30 fps, sessiz', () {
-    final a = videoArgs('mkv', {...dv, 'codec': 'h265', 'quality': 'high', 'resolution': '1080', 'fps': '30', 'noAudio': true}, av);
+  test('mp4 varsayılan (iOS): h264_videotoolbox', () {
+    final a = videoArgs('mp4', dv, av1080, platform: 'ios');
+    expect(a, containsAllInOrder(['-c:v', 'h264_videotoolbox', '-b:v', '5000k', '-pix_fmt', 'yuv420p']));
+    expect(a, isNot(contains('-crf')));
+  });
+
+  test('bit hızı: kalite × çıktı yüksekliği (küçültme ve kaynak boyutu dikkate alınır)', () {
+    expect(outputHeight('source', av1080), 1080);
+    expect(outputHeight('720', av1080), 720);
+    expect(outputHeight('2160', av1080), 1080); // büyütme yok
+    expect(outputHeight('720', av), 720);
+    expect(outputHeight('source', av), 1080); // boyut bilinmiyor
+    expect(hwBitrate('high', 2160), 35000);
+    expect(hwBitrate('low', 480), 700);
+    expect(hwBitrate('medium', 600), 1200); // 480 sınıfı
+    expect(hwBitrate('medium', 1080, hevc: true), 3000);
+    final a = videoArgs('mp4', {...dv, 'quality': 'high', 'resolution': '720'}, av1080);
+    expect(a, containsAllInOrder(['-b:v', '5000k', '-vf', scaleFilter('720')]));
+  });
+
+  test('mkv H.265 yüksek kalite, 1080p, 30 fps, sessiz: Android hevc_mediacodec, iOS hevc_videotoolbox', () {
+    final o = {...dv, 'codec': 'h265', 'quality': 'high', 'resolution': '1080', 'fps': '30', 'noAudio': true};
+    final a = videoArgs('mkv', o, av);
     expect(a.sublist(0, 3), ['-map', '0:v:0', '-an']);
-    expect(a, containsAllInOrder(['-c:v', 'libx265', '-crf', '22', '-preset', 'medium', '-tag:v', 'hvc1']));
+    expect(a, containsAllInOrder(['-c:v', 'hevc_mediacodec', '-b:v', '4800k', '-tag:v', 'hvc1', '-pix_fmt', 'yuv420p']));
     expect(a, containsAllInOrder(['-vf', scaleFilter('1080'), '-r', '30', '-map_metadata', '0']));
     expect(a, isNot(contains('-c:a')));
     expect(a, isNot(contains('-movflags')));
+    expect(videoArgs('mkv', o, av, platform: 'ios'), containsAllInOrder(['-c:v', 'hevc_videotoolbox', '-b:v', '4800k', '-tag:v', 'hvc1']));
   });
 
-  test('H.265 yalnız mp4/mkv/mov/m4v; avi\'de xvid kalır', () {
+  test('H.265 yalnız mp4/mkv/mov/m4v; avi\'de mpeg4 (xvid etiketi) kalır', () {
     final a = videoArgs('avi', {...dv, 'codec': 'h265', 'quality': 'low'}, av);
-    expect(a, containsAllInOrder(['-c:v', 'libxvid', '-q:v', '7', '-vtag', 'XVID', '-c:a', 'libmp3lame', '-b:a', '192k']));
+    expect(a, containsAllInOrder(['-c:v', 'mpeg4', '-q:v', '7', '-vtag', 'XVID', '-c:a', 'libmp3lame', '-b:a', '192k']));
   });
 
-  test('libx265 yoksa H.264\'e düşer', () {
-    final a = videoArgs('mp4', {...dv, 'codec': 'h265'}, av, encoders: {'libx264', 'aac'});
-    expect(a, containsAllInOrder(['-c:v', 'libx264', '-crf', '23']));
+  test('donanım HEVC yoksa libkvazaar; H.264 donanımı yoksa mpeg4 (flv\'de flv1)', () {
+    final sw = {'libkvazaar', 'mpeg4', 'flv', 'aac'};
+    expect(videoArgs('mp4', {...dv, 'codec': 'h265'}, av1080, encoders: sw), containsAllInOrder(['-c:v', 'libkvazaar', '-b:v', '3000k', '-kvazaar-params', 'preset=medium', '-tag:v', 'hvc1']));
+    expect(videoArgs('mp4', dv, av, encoders: {'mpeg4', 'aac'}), containsAllInOrder(['-c:v', 'mpeg4', '-q:v', '4', '-pix_fmt', 'yuv420p']));
+    expect(videoArgs('flv', dv, av, encoders: {'mpeg4', 'flv', 'aac'}), containsAllInOrder(['-c:v', 'flv', '-q:v', '4']));
+    expect(videoArgs('mp4', {...dv, 'codec': 'h265'}, av, encoders: {'h264_mediacodec', 'aac'}), containsAllInOrder(['-c:v', 'h264_mediacodec'])); // HEVC yoksa H.264
+  });
+
+  test('kodlayıcı kümeleri LGPL: x264/x265/xvid yok, donanım kodlayıcılar platforma göre', () {
+    for (final e in [kFfmpegKitEncodersIos, kFfmpegKitEncodersAndroid]) {
+      expect(e, isNot(anyElement(isIn(['libx264', 'libx265', 'libxvid']))));
+    }
+    expect(encodersFor('ios'), containsAll(['h264_videotoolbox', 'hevc_videotoolbox', 'libvpx-vp9', 'libtheora', 'libmp3lame']));
+    expect(encodersFor('android'), containsAll(['h264_mediacodec', 'hevc_mediacodec']));
+    expect(encodersFor('android'), isNot(contains('h264_videotoolbox')));
   });
 
   test('webm: vp9 crf + opus; hız → cpu-used', () {
@@ -46,8 +81,9 @@ void main() {
     expect(a, containsAllInOrder(['-c:a', 'libopus', '-b:a', '128k']));
   });
 
-  test('3gp baseline profil, flv 44.1 kHz, mpg mp2 en az 128k', () {
-    expect(videoArgs('3gp', dv, av), containsAllInOrder(['-profile:v', 'baseline']));
+  test('3gp baseline profil (yalnız VideoToolbox), flv 44.1 kHz, mpg mp2 en az 128k', () {
+    expect(videoArgs('3gp', dv, av, platform: 'ios'), containsAllInOrder(['-c:v', 'h264_videotoolbox', '-profile:v', 'baseline']));
+    expect(videoArgs('3gp', dv, av), isNot(contains('-profile:v')));
     expect(videoArgs('flv', dv, av), containsAllInOrder(['-c:a', 'aac', '-b:a', '192k', '-ar', '44100']));
     expect(videoArgs('mpg', {...dv, 'audioBitrate': '64'}, av), containsAllInOrder(['-c:v', 'mpeg2video', '-c:a', 'mp2', '-b:a', '128k']));
   });
@@ -90,7 +126,9 @@ void main() {
   test('buildCommand: tam satır; okunamaz / video yok hataları', () {
     final cmd = buildCommand(src: '/a/x.mkv', out: '/b/x.mp4', type: 'video', target: 'mp4', options: defaultOptions(), info: av);
     expect(cmd.sublist(0, 5), ['-hide_banner', '-nostdin', '-y', '-i', '/a/x.mkv']);
+    expect(cmd, contains('h264_mediacodec'));
     expect(cmd.last, '/b/x.mp4');
+    expect(buildCommand(src: '/a/x.mkv', out: '/b/x.mp4', type: 'video', target: 'mp4', options: defaultOptions(), info: av, platform: 'ios'), contains('h264_videotoolbox'));
     expect(() => buildCommand(src: 'a', out: 'b', type: 'video', target: 'mp4', options: defaultOptions(), info: const CvMediaInfo(unreadable: true)),
         throwsA(isA<CvConvertError>().having((e) => e.code, 'code', 'unreadable')));
     expect(() => buildCommand(src: 'a', out: 'b', type: 'video', target: 'mp4', options: defaultOptions(), info: const CvMediaInfo(hasAudio: true)),
