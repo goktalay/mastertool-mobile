@@ -8,6 +8,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -245,6 +246,34 @@ class AccountService extends ChangeNotifier {
       if (e.sessionExpired) await _dropLocal();
       rethrow;
     }
+  }
+
+  // ---- cihaz kimliği ve cihaz anahtarı (oturumdan bağımsız; yerel kitaplık dosyaları bununla şifrelenir, çıkışta kalır)
+  Uint8List? _deviceKey;
+  String? _deviceId;
+
+  Future<Uint8List> deviceKey() async {
+    if (_deviceKey != null) return _deviceKey!;
+    final raw = await _store.read('mastertool.devicekey');
+    if (raw != null) return _deviceKey = base64.decode(raw);
+    final r = Random.secure();
+    final k = Uint8List.fromList(List.generate(32, (_) => r.nextInt(256)));
+    await _store.write('mastertool.devicekey', base64.encode(k));
+    return _deviceKey = k;
+  }
+
+  Future<String> deviceId() async {
+    if (_deviceId != null) return _deviceId!;
+    final raw = await _store.read('mastertool.deviceid');
+    if (raw != null) return _deviceId = raw;
+    final r = Random.secure();
+    final b = List<int>.generate(16, (_) => r.nextInt(256));
+    b[6] = (b[6] & 0x0f) | 0x40;
+    b[8] = (b[8] & 0x3f) | 0x80;
+    final h = b.map((x) => x.toRadixString(16).padLeft(2, '0')).join();
+    final id = '${h.substring(0, 8)}-${h.substring(8, 12)}-${h.substring(12, 16)}-${h.substring(16, 20)}-${h.substring(20)}';
+    await _store.write('mastertool.deviceid', id);
+    return _deviceId = id;
   }
 }
 

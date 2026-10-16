@@ -331,4 +331,691 @@ class MtStringsZh extends MtStrings {
 
   @override
   String get mobVisitSite => '访问网站';
+
+  @override
+  String get smAppSearchPh => '搜索连接…  (Ctrl+F)';
+
+  @override
+  String get smAppNewConn => '新建连接';
+
+  @override
+  String smAppSplit(String n) {
+    return '分屏打开 ($n)';
+  }
+
+  @override
+  String get smAppSplitTitle => '在一个窗口中分屏打开所选连接';
+
+  @override
+  String get smAppSettings => '设置';
+
+  @override
+  String smAppStats(String c, String f) {
+    return '$c 个连接 · $f 个文件夹';
+  }
+
+  @override
+  String get smAppWelcome => '欢迎';
+
+  @override
+  String smAppResults(String q) {
+    return '“$q”的搜索结果';
+  }
+
+  @override
+  String get smAppAll => '全部连接';
+
+  @override
+  String get smAppWelcomeHint => '创建你的第一个 SSH 连接。<br>输入服务器信息，测试后保存。';
+
+  @override
+  String get smAppFolders => '文件夹';
+
+  @override
+  String get smAppConnections => '连接';
+
+  @override
+  String get smAppMultiHint => '按住 Ctrl 单击可多选，并在一个窗口中分屏打开';
+
+  @override
+  String get smAppNoMatch => '没有匹配的连接。';
+
+  @override
+  String smAppFolderCount(String n) {
+    return '$n 个连接';
+  }
+
+  @override
+  String get smAppFolderOpenSplit => '分屏打开文件夹中的连接';
+
+  @override
+  String get smAppNewConnHere => '在此文件夹中新建连接';
+
+  @override
+  String get smAppNewSubfolder => '新建子文件夹';
+
+  @override
+  String get smAppKeyTag => '密钥';
+
+  @override
+  String get smAppLastDir => '上次的文件夹';
+
+  @override
+  String get smAppLastDirTag => '上次的文件夹';
+
+  @override
+  String smAppMultiOpenSplit(String n) {
+    return '在一个窗口中分屏打开 $n 个连接';
+  }
+
+  @override
+  String get smAppOpenSeparate => '每个连接在单独窗口中打开';
+
+  @override
+  String get smAppClearSelection => '清除选择';
+
+  @override
+  String get smAppSideBySide => '并排打开两个会话';
+
+  @override
+  String get smAppDuplicate => '创建副本';
+
+  @override
+  String get smAppMoveToFolder => '移动到文件夹…';
+
+  @override
+  String get smAppResetLastDir => '重置上次的文件夹';
+
+  @override
+  String get smAppConnMoved => '连接已移动';
+
+  @override
+  String get smAppFolderIntoSelf => '文件夹不能移动到自己的子文件夹中';
+
+  @override
+  String get smAppFolderPh => '例如：生产服务器';
+
+  @override
+  String get smAppRenameFolder => '重命名文件夹';
+
+  @override
+  String get smAppDeleteFolder => '删除文件夹';
+
+  @override
+  String smAppDeleteFolderMsg(String name) {
+    return '将删除文件夹 <b>$name</b>。';
+  }
+
+  @override
+  String smAppDeleteFolderConns(String n) {
+    return ' 其中的 $n 个连接不会被删除，而是移到上一级。';
+  }
+
+  @override
+  String get smAppRootFolder => '全部连接（根目录）';
+
+  @override
+  String smAppMoveTitle(String name) {
+    return '移动“$name”';
+  }
+
+  @override
+  String get smAppTargetFolder => '目标文件夹';
+
+  @override
+  String get smAppDeleteConn => '删除连接';
+
+  @override
+  String smAppDeleteConnMsg(String name, String target) {
+    return '<b>$name</b>（$target）将被永久删除。';
+  }
+
+  @override
+  String get smAppMaxPanes => '最多可打开 6 个窗格';
+
+  @override
+  String get smAppMaxPanesSub => '已打开前 6 个连接';
+
+  @override
+  String get smFormTitleNew => '新建 SSH 连接';
+
+  @override
+  String get smFormTitleEdit => '编辑连接';
+
+  @override
+  String get smFormName => '连接名称';
+
+  @override
+  String get smFormNamePh => '例如：Web 服务器';
+
+  @override
+  String get smFormHost => 'IP 地址 / 主机';
+
+  @override
+  String get smFormHostPh => '192.168.1.10 或 server.com';
+
+  @override
+  String get smFormPort => '端口';
+
+  @override
+  String get smFormUser => '用户名';
+
+  @override
+  String get smFormAuth => '身份验证';
+
+  @override
+  String get smFormPassword => '密码';
+
+  @override
+  String get smFormPrivateKey => '私钥';
+
+  @override
+  String get smFormPwSaved => '••••••••（已保存 — 输入以更改）';
+
+  @override
+  String get smFormKeyFile => '密钥文件';
+
+  @override
+  String get smFormPassphrase => '密钥口令（如有）';
+
+  @override
+  String get smFormPassSaved => '••••••••（已保存）';
+
+  @override
+  String get smFormPassEmpty => '没有则留空';
+
+  @override
+  String get smFormFolder => '文件夹';
+
+  @override
+  String get smFormColor => '颜色';
+
+  @override
+  String get smFormPalette => '终端配色方案';
+
+  @override
+  String get smFormLastDir => '转到上次所在的文件夹';
+
+  @override
+  String get smFormLastDirHint => '连接后，终端和文件管理器会在你上次工作的文件夹中打开。';
+
+  @override
+  String get smFormLastDirNow => '当前：';
+
+  @override
+  String get smFormConnecting => '正在连接…';
+
+  @override
+  String get smFormTestOk => '连接成功';
+
+  @override
+  String smFormHostKey(String fp) {
+    return '主机密钥 (SHA256)：$fp';
+  }
+
+  @override
+  String get smFormTestFail => '连接失败';
+
+  @override
+  String get smFormSaved => '连接已保存';
+
+  @override
+  String get smFormChangesSaved => '更改已保存';
+
+  @override
+  String get smFormTest => '测试连接';
+
+  @override
+  String get smFormSaveConnect => '保存并连接';
+
+  @override
+  String get smPaneToggleSidebar => '显示/隐藏侧边栏 (Ctrl+B)';
+
+  @override
+  String get smPaneDefaultName => '连接';
+
+  @override
+  String get smPaneSplitRight => '向右拆分';
+
+  @override
+  String get smPaneSplitDown => '向下拆分';
+
+  @override
+  String get smPaneReconnect => '重新连接';
+
+  @override
+  String get smPaneClose => '关闭窗格';
+
+  @override
+  String get smPaneSaveSelShortcut => '将所选内容保存为快捷命令';
+
+  @override
+  String get smPanePaletteMenu => '终端配色方案…';
+
+  @override
+  String get smPaneSelectAll => '全选';
+
+  @override
+  String get smPaneClear => '清屏';
+
+  @override
+  String get smPaneStatusConnecting => '正在连接…';
+
+  @override
+  String get smPaneStatusNoConn => '未连接';
+
+  @override
+  String get smPaneStatusClosed => '连接已关闭';
+
+  @override
+  String get smTermConnecting => '正在连接…';
+
+  @override
+  String get smTermConnectFailed => '无法连接：';
+
+  @override
+  String get smTermRetryEnter => '按 Enter 重试。';
+
+  @override
+  String get smTermClosed => '连接已关闭。';
+
+  @override
+  String get smTermReconnectEnter => '按 Enter 重新连接。';
+
+  @override
+  String smTermMaxPanes(String n) {
+    return '一个窗口最多可打开 $n 个窗格';
+  }
+
+  @override
+  String smTermSessions(String n) {
+    return '$n 个会话';
+  }
+
+  @override
+  String get smTermToggleAll => '显示/隐藏所有侧边栏';
+
+  @override
+  String get smTermSplitRightTitle => '向右拆分当前窗格 (Ctrl+Shift+E)';
+
+  @override
+  String get smTermSplitDownTitle => '向下拆分当前窗格 (Ctrl+Shift+O)';
+
+  @override
+  String get smTermSyncOn => '正在向所有窗格输入';
+
+  @override
+  String get smTermSyncOff => '向所有窗格输入';
+
+  @override
+  String get smTermSyncTitle => '你输入的内容会发送到所有已连接的窗格';
+
+  @override
+  String get smPickerSearch => '搜索连接…';
+
+  @override
+  String get smPickerSameServer => '同一服务器';
+
+  @override
+  String get smPickerNone => '没有匹配的连接';
+
+  @override
+  String get smPickerTitleRight => '向右拆分 — 选择连接';
+
+  @override
+  String get smPickerTitleDown => '向下拆分 — 选择连接';
+
+  @override
+  String get smPaletteTitle => '终端配色方案';
+
+  @override
+  String smPaletteHint(String name) {
+    return '所选配色会立即在此窗格中预览。保存后，此连接（$name）的所有会话都会使用它。';
+  }
+
+  @override
+  String get smPaletteSaved => '配色方案已保存';
+
+  @override
+  String get smScTitleNew => '新建快捷命令';
+
+  @override
+  String get smScTitleEdit => '编辑快捷命令';
+
+  @override
+  String get smScName => '快捷命令名称';
+
+  @override
+  String get smScNamePh => '例如：重启 Nginx';
+
+  @override
+  String get smScCommand => '命令';
+
+  @override
+  String get smScEnter => '粘贴后按 Enter';
+
+  @override
+  String get smScEnterHint => '关闭时只会在光标处输入命令，由你自己执行。';
+
+  @override
+  String get smScEmpty => '还没有快捷命令。<br>用 <b>+</b> 添加常用命令，双击即可粘贴到终端。';
+
+  @override
+  String get smScItemTitle => '双击：粘贴到此窗格的终端';
+
+  @override
+  String get smScAutoEnter => '自动回车';
+
+  @override
+  String get smScPaste => '粘贴到终端';
+
+  @override
+  String get smScPasteNoEnter => '粘贴但不回车';
+
+  @override
+  String get smScPasteRun => '粘贴并执行';
+
+  @override
+  String get smScCopy => '复制到剪贴板';
+
+  @override
+  String get smScNew => '新建快捷命令';
+
+  @override
+  String get smSbShortcuts => '快捷命令';
+
+  @override
+  String get smSbAddShortcut => '添加快捷命令';
+
+  @override
+  String get smSbServer => '服务器';
+
+  @override
+  String smSbServerHost(String host) {
+    return '服务器 · $host';
+  }
+
+  @override
+  String get smSbFollow => '跟随终端所在文件夹';
+
+  @override
+  String get smSbHome => '主目录';
+
+  @override
+  String get smSbUp => '上级文件夹';
+
+  @override
+  String get smSbComputer => '此电脑';
+
+  @override
+  String get smSbPlaces => '驱动器和位置';
+
+  @override
+  String get smSbResize => '拖动以调整宽度';
+
+  @override
+  String get smFmLoading => '正在加载…';
+
+  @override
+  String smFmOpenFailed(String msg) {
+    return '无法打开：$msg';
+  }
+
+  @override
+  String get smFmEmpty => '文件夹为空';
+
+  @override
+  String get smFmNoConn => '未连接。';
+
+  @override
+  String get smFmClosed => '连接已关闭。';
+
+  @override
+  String get smFmWaiting => '正在等待连接…';
+
+  @override
+  String smFmDownloadTo(String path) {
+    return '下载 → $path';
+  }
+
+  @override
+  String smFmUploadTo(String path) {
+    return '上传 → $path';
+  }
+
+  @override
+  String get smFmServer => '服务器';
+
+  @override
+  String get smFmCdHere => '在终端中转到此文件夹';
+
+  @override
+  String get smFmPastePath => '将路径粘贴到终端';
+
+  @override
+  String smFmDeleteWhat(String what) {
+    return '删除（$what）';
+  }
+
+  @override
+  String smFmNItems(String n) {
+    return '$n 项';
+  }
+
+  @override
+  String get smFmOpenDefault => '用默认应用打开';
+
+  @override
+  String get smFmReveal => '在资源管理器中显示';
+
+  @override
+  String get smFmOpenExplorer => '在资源管理器中打开';
+
+  @override
+  String get smFmFollowing => '文件管理器正在跟随终端所在文件夹';
+
+  @override
+  String get smFmFollowOff => '已关闭跟随';
+
+  @override
+  String get smFmNewRemote => '在服务器上新建文件夹';
+
+  @override
+  String get smFmDeleteTitle => '从服务器删除';
+
+  @override
+  String smFmAndMore(String n) {
+    return ' 以及另外 $n 项';
+  }
+
+  @override
+  String smFmDeleteMsg(String names) {
+    return '$names 将从服务器<b>永久</b>删除。文件夹会连同其内容一起删除。';
+  }
+
+  @override
+  String get smPlaceDesktop => '桌面';
+
+  @override
+  String get smPlaceDownloads => '下载';
+
+  @override
+  String get smPlaceDocuments => '文档';
+
+  @override
+  String get smPlaceHome => '用户文件夹';
+
+  @override
+  String smPlaceDrive(String d) {
+    return '本地磁盘 ($d)';
+  }
+
+  @override
+  String get smErrNoConn => '未连接';
+
+  @override
+  String get smErrConnectFirst => '请先连接到服务器';
+
+  @override
+  String get smErrMkdir => '无法创建文件夹';
+
+  @override
+  String get smErrRename => '无法重命名';
+
+  @override
+  String smErrDelete(String name) {
+    return '无法删除：$name';
+  }
+
+  @override
+  String get smTrPanelTitle => '传输';
+
+  @override
+  String get smTrClearDone => '清除已完成';
+
+  @override
+  String get smTrQueued => '排队中';
+
+  @override
+  String get smTrScanning => '正在扫描文件…';
+
+  @override
+  String smTrFileCount(String i, String n) {
+    return '$i / $n 个文件';
+  }
+
+  @override
+  String smTrEta(String time) {
+    return '剩余约 $time';
+  }
+
+  @override
+  String smTrDownloading(String name) {
+    return '正在下载：$name';
+  }
+
+  @override
+  String smTrUploading(String name) {
+    return '正在上传：$name';
+  }
+
+  @override
+  String get smTrDone => '已完成';
+
+  @override
+  String get smTrCancelled => '已取消';
+
+  @override
+  String get smTrFailed => '失败';
+
+  @override
+  String get smTrRemoveFromList => '从列表中移除';
+
+  @override
+  String get smTrAlwaysBackground => '以后始终在后台显示大型传输';
+
+  @override
+  String get smTrShowInBackground => '在后台运行';
+
+  @override
+  String get smTrDownloadDone => '下载完成';
+
+  @override
+  String get smTrUploadDone => '上传完成';
+
+  @override
+  String smTrDownloadFailed(String name) {
+    return '下载失败：$name';
+  }
+
+  @override
+  String smTrUploadFailed(String name) {
+    return '上传失败：$name';
+  }
+
+  @override
+  String get smTrCancelledToast => '传输已取消';
+
+  @override
+  String smTimeHm(String h, String m) {
+    return '$h 小时 $m 分';
+  }
+
+  @override
+  String smTimeMs(String m, String s) {
+    return '$m 分 $s 秒';
+  }
+
+  @override
+  String smTimeS(String s) {
+    return '$s 秒';
+  }
+
+  @override
+  String get smMainErrAuth => '身份验证失败：用户名或密码错误。';
+
+  @override
+  String get smMainErrRefused => '连接被拒绝：端口未开放或 SSH 服务未运行。';
+
+  @override
+  String get smMainErrTimeout => '超时：无法访问服务器。';
+
+  @override
+  String get smMainErrDns => '无法解析主机名 (DNS)。';
+
+  @override
+  String get smMainErrUnreach => '无法通过网络访问服务器。';
+
+  @override
+  String get smMainErrKeyFile => '找不到密钥文件。';
+
+  @override
+  String smMainErrHostKey(String newFp, String oldFp) {
+    return '服务器主机密钥已更改！已保存：$oldFp，收到：$newFp。出于安全考虑已拒绝连接。';
+  }
+
+  @override
+  String get smMainErrConnNotFound => '找不到连接';
+
+  @override
+  String get smMainErrNoSession => '没有活动的 SSH 会话';
+
+  @override
+  String get smMainErrHostUser => '需要填写服务器地址和用户名。';
+
+  @override
+  String get smMainTrayShow => '显示 SSH Master';
+
+  @override
+  String get smMainTrayQuick => '快速连接';
+
+  @override
+  String get smMainTrayNone => '没有已保存的连接';
+
+  @override
+  String get smMainTrayQuit => '退出';
+
+  @override
+  String get smMainBalloonTitle => 'SSH Master 正在后台运行';
+
+  @override
+  String get smMainBalloonBody => '单击托盘图标可重新打开。';
+
+  @override
+  String get smMainPickKey => '选择私钥文件';
+
+  @override
+  String get smMainCopySuffix => '（副本）';
+
+  @override
+  String get smMainDefDisk => '磁盘使用情况';
+
+  @override
+  String get smMainDefMem => '内存';
+
+  @override
+  String get smMainDefTop => '进程 (top)';
+
+  @override
+  String get smAppNotesLabel => '备注';
 }

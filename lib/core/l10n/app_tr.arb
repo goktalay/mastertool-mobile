@@ -276,5 +276,635 @@
   "mobTapToOpen": "Kullanıma hazır",
   "@mobTapToOpen": {},
   "mobVisitSite": "Web sitesini ziyaret et",
-  "@mobVisitSite": {}
+  "@mobVisitSite": {},
+  "smAppSearchPh": "Bağlantılarda ara…  (Ctrl+F)",
+  "@smAppSearchPh": {},
+  "smAppNewConn": "Yeni bağlantı",
+  "@smAppNewConn": {},
+  "smAppSplit": "Bölünmüş aç ({n})",
+  "@smAppSplit": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppSplitTitle": "Seçili bağlantıları tek pencerede bölünmüş aç",
+  "@smAppSplitTitle": {},
+  "smAppSettings": "Ayarlar",
+  "@smAppSettings": {},
+  "smAppStats": "{c} bağlantı · {f} klasör",
+  "@smAppStats": {
+    "placeholders": {
+      "c": {
+        "type": "String"
+      },
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppWelcome": "Hoş geldiniz",
+  "@smAppWelcome": {},
+  "smAppResults": "“{q}” için sonuçlar",
+  "@smAppResults": {
+    "placeholders": {
+      "q": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppAll": "Tüm bağlantılar",
+  "@smAppAll": {},
+  "smAppWelcomeHint": "İlk SSH bağlantınızı oluşturun.<br>Sunucu bilgilerini girin, test edin ve kaydedin.",
+  "@smAppWelcomeHint": {},
+  "smAppFolders": "Klasörler",
+  "@smAppFolders": {},
+  "smAppConnections": "Bağlantılar",
+  "@smAppConnections": {},
+  "smAppMultiHint": "Ctrl+tık ile birden fazla seçip tek pencerede bölünmüş açabilirsiniz",
+  "@smAppMultiHint": {},
+  "smAppNoMatch": "Eşleşen bağlantı bulunamadı.",
+  "@smAppNoMatch": {},
+  "smAppFolderCount": "{n} bağlantı",
+  "@smAppFolderCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppFolderOpenSplit": "Klasördeki bağlantıları bölünmüş aç",
+  "@smAppFolderOpenSplit": {},
+  "smAppNewConnHere": "Bu klasörde yeni bağlantı",
+  "@smAppNewConnHere": {},
+  "smAppNewSubfolder": "Alt klasör oluştur",
+  "@smAppNewSubfolder": {},
+  "smAppKeyTag": "Anahtar",
+  "@smAppKeyTag": {},
+  "smAppLastDir": "Son klasör",
+  "@smAppLastDir": {},
+  "smAppLastDirTag": "son klasör",
+  "@smAppLastDirTag": {},
+  "smAppMultiOpenSplit": "{n} bağlantıyı tek pencerede bölünmüş aç",
+  "@smAppMultiOpenSplit": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppOpenSeparate": "Her birini ayrı pencerede aç",
+  "@smAppOpenSeparate": {},
+  "smAppClearSelection": "Seçimi temizle",
+  "@smAppClearSelection": {},
+  "smAppSideBySide": "Yan yana iki oturum aç",
+  "@smAppSideBySide": {},
+  "smAppDuplicate": "Kopyasını oluştur",
+  "@smAppDuplicate": {},
+  "smAppMoveToFolder": "Klasöre taşı…",
+  "@smAppMoveToFolder": {},
+  "smAppResetLastDir": "Son klasörü sıfırla",
+  "@smAppResetLastDir": {},
+  "smAppConnMoved": "Bağlantı taşındı",
+  "@smAppConnMoved": {},
+  "smAppFolderIntoSelf": "Klasör kendi alt klasörüne taşınamaz",
+  "@smAppFolderIntoSelf": {},
+  "smAppFolderPh": "ör. Üretim sunucuları",
+  "@smAppFolderPh": {},
+  "smAppRenameFolder": "Klasörü yeniden adlandır",
+  "@smAppRenameFolder": {},
+  "smAppDeleteFolder": "Klasörü sil",
+  "@smAppDeleteFolder": {},
+  "smAppDeleteFolderMsg": "<b>{name}</b> klasörü silinecek.",
+  "@smAppDeleteFolderMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppDeleteFolderConns": " İçindeki {n} bağlantı silinmez, bir üst klasöre taşınır.",
+  "@smAppDeleteFolderConns": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppRootFolder": "Tüm bağlantılar (kök)",
+  "@smAppRootFolder": {},
+  "smAppMoveTitle": "“{name}” taşı",
+  "@smAppMoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppTargetFolder": "Hedef klasör",
+  "@smAppTargetFolder": {},
+  "smAppDeleteConn": "Bağlantıyı sil",
+  "@smAppDeleteConn": {},
+  "smAppDeleteConnMsg": "<b>{name}</b> ({target}) kalıcı olarak silinecek.",
+  "@smAppDeleteConnMsg": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "target": {
+        "type": "String"
+      }
+    }
+  },
+  "smAppMaxPanes": "En fazla 6 bölme açılabilir",
+  "@smAppMaxPanes": {},
+  "smAppMaxPanesSub": "İlk 6 bağlantı açıldı",
+  "@smAppMaxPanesSub": {},
+  "smFormTitleNew": "Yeni SSH bağlantısı",
+  "@smFormTitleNew": {},
+  "smFormTitleEdit": "Bağlantıyı düzenle",
+  "@smFormTitleEdit": {},
+  "smFormName": "Bağlantı adı",
+  "@smFormName": {},
+  "smFormNamePh": "ör. Web sunucusu",
+  "@smFormNamePh": {},
+  "smFormHost": "IP adresi / Sunucu",
+  "@smFormHost": {},
+  "smFormHostPh": "192.168.1.10 veya sunucu.com",
+  "@smFormHostPh": {},
+  "smFormPort": "Port",
+  "@smFormPort": {},
+  "smFormUser": "Kullanıcı adı",
+  "@smFormUser": {},
+  "smFormAuth": "Kimlik doğrulama",
+  "@smFormAuth": {},
+  "smFormPassword": "Şifre",
+  "@smFormPassword": {},
+  "smFormPrivateKey": "Özel anahtar",
+  "@smFormPrivateKey": {},
+  "smFormPwSaved": "•••••••• (kayıtlı — değiştirmek için yazın)",
+  "@smFormPwSaved": {},
+  "smFormKeyFile": "Anahtar dosyası",
+  "@smFormKeyFile": {},
+  "smFormPassphrase": "Anahtar parolası (varsa)",
+  "@smFormPassphrase": {},
+  "smFormPassSaved": "•••••••• (kayıtlı)",
+  "@smFormPassSaved": {},
+  "smFormPassEmpty": "Yoksa boş bırakın",
+  "@smFormPassEmpty": {},
+  "smFormFolder": "Klasör",
+  "@smFormFolder": {},
+  "smFormColor": "Renk",
+  "@smFormColor": {},
+  "smFormPalette": "Konsol renk paleti",
+  "@smFormPalette": {},
+  "smFormLastDir": "Son kaldığım klasöre git",
+  "@smFormLastDir": {},
+  "smFormLastDirHint": "Bağlanınca terminal ve dosya yöneticisi en son çalıştığınız klasörde açılır.",
+  "@smFormLastDirHint": {},
+  "smFormLastDirNow": "Şu an:",
+  "@smFormLastDirNow": {},
+  "smFormConnecting": "Bağlanılıyor…",
+  "@smFormConnecting": {},
+  "smFormTestOk": "Bağlantı başarılı",
+  "@smFormTestOk": {},
+  "smFormHostKey": "Host anahtarı (SHA256): {fp}",
+  "@smFormHostKey": {
+    "placeholders": {
+      "fp": {
+        "type": "String"
+      }
+    }
+  },
+  "smFormTestFail": "Bağlantı başarısız",
+  "@smFormTestFail": {},
+  "smFormSaved": "Bağlantı kaydedildi",
+  "@smFormSaved": {},
+  "smFormChangesSaved": "Değişiklikler kaydedildi",
+  "@smFormChangesSaved": {},
+  "smFormTest": "Bağlantıyı test et",
+  "@smFormTest": {},
+  "smFormSaveConnect": "Kaydet ve bağlan",
+  "@smFormSaveConnect": {},
+  "smPaneToggleSidebar": "Sol paneli aç/kapat (Ctrl+B)",
+  "@smPaneToggleSidebar": {},
+  "smPaneDefaultName": "Bağlantı",
+  "@smPaneDefaultName": {},
+  "smPaneSplitRight": "Sağa böl",
+  "@smPaneSplitRight": {},
+  "smPaneSplitDown": "Aşağı böl",
+  "@smPaneSplitDown": {},
+  "smPaneReconnect": "Yeniden bağlan",
+  "@smPaneReconnect": {},
+  "smPaneClose": "Bölmeyi kapat",
+  "@smPaneClose": {},
+  "smPaneSaveSelShortcut": "Seçimi kısayol olarak kaydet",
+  "@smPaneSaveSelShortcut": {},
+  "smPanePaletteMenu": "Konsol renk paleti…",
+  "@smPanePaletteMenu": {},
+  "smPaneSelectAll": "Tümünü seç",
+  "@smPaneSelectAll": {},
+  "smPaneClear": "Ekranı temizle",
+  "@smPaneClear": {},
+  "smPaneStatusConnecting": "bağlanılıyor…",
+  "@smPaneStatusConnecting": {},
+  "smPaneStatusNoConn": "bağlantı yok",
+  "@smPaneStatusNoConn": {},
+  "smPaneStatusClosed": "bağlantı kapandı",
+  "@smPaneStatusClosed": {},
+  "smTermConnecting": "Bağlanılıyor…",
+  "@smTermConnecting": {},
+  "smTermConnectFailed": "Bağlantı kurulamadı:",
+  "@smTermConnectFailed": {},
+  "smTermRetryEnter": "Yeniden denemek için Enter'a basın.",
+  "@smTermRetryEnter": {},
+  "smTermClosed": "Bağlantı kapandı.",
+  "@smTermClosed": {},
+  "smTermReconnectEnter": "Yeniden bağlanmak için Enter'a basın.",
+  "@smTermReconnectEnter": {},
+  "smTermMaxPanes": "Bir pencerede en fazla {n} bölme açılabilir",
+  "@smTermMaxPanes": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smTermSessions": "{n} oturum",
+  "@smTermSessions": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smTermToggleAll": "Tüm sol panelleri aç/kapat",
+  "@smTermToggleAll": {},
+  "smTermSplitRightTitle": "Aktif bölmeyi sağa böl (Ctrl+Shift+E)",
+  "@smTermSplitRightTitle": {},
+  "smTermSplitDownTitle": "Aktif bölmeyi aşağı böl (Ctrl+Shift+O)",
+  "@smTermSplitDownTitle": {},
+  "smTermSyncOn": "Tüm bölmelere yazılıyor",
+  "@smTermSyncOn": {},
+  "smTermSyncOff": "Tüm bölmelere yaz",
+  "@smTermSyncOff": {},
+  "smTermSyncTitle": "Yazdıklarınız tüm bağlı bölmelere gönderilir",
+  "@smTermSyncTitle": {},
+  "smPickerSearch": "Bağlantı ara…",
+  "@smPickerSearch": {},
+  "smPickerSameServer": "aynı sunucu",
+  "@smPickerSameServer": {},
+  "smPickerNone": "Eşleşen bağlantı yok",
+  "@smPickerNone": {},
+  "smPickerTitleRight": "Sağa böl — bağlantı seç",
+  "@smPickerTitleRight": {},
+  "smPickerTitleDown": "Aşağı böl — bağlantı seç",
+  "@smPickerTitleDown": {},
+  "smPaletteTitle": "Konsol renk paleti",
+  "@smPaletteTitle": {},
+  "smPaletteHint": "Seçtiğiniz palet bu bölmede anında önizlenir. Kaydederseniz bu bağlantının ({name}) tüm oturumlarında kullanılır.",
+  "@smPaletteHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smPaletteSaved": "Renk paleti kaydedildi",
+  "@smPaletteSaved": {},
+  "smScTitleNew": "Yeni kısayol",
+  "@smScTitleNew": {},
+  "smScTitleEdit": "Kısayolu düzenle",
+  "@smScTitleEdit": {},
+  "smScName": "Kısayol adı",
+  "@smScName": {},
+  "smScNamePh": "ör. Nginx yeniden başlat",
+  "@smScNamePh": {},
+  "smScCommand": "Komut",
+  "@smScCommand": {},
+  "smScEnter": "Yapıştırdıktan sonra Enter'a bas",
+  "@smScEnter": {},
+  "smScEnterHint": "Kapalıysa komut sadece imlecin olduğu yere yazılır, siz çalıştırırsınız.",
+  "@smScEnterHint": {},
+  "smScEmpty": "Henüz kısayol yok.<br>Sık kullandığınız komutları <b>+</b> ile ekleyin, çift tıklayarak terminale yapıştırın.",
+  "@smScEmpty": {},
+  "smScItemTitle": "Çift tıkla: bu bölmenin terminaline yapıştır",
+  "@smScItemTitle": {},
+  "smScAutoEnter": "Otomatik Enter",
+  "@smScAutoEnter": {},
+  "smScPaste": "Terminale yapıştır",
+  "@smScPaste": {},
+  "smScPasteNoEnter": "Enter olmadan yapıştır",
+  "@smScPasteNoEnter": {},
+  "smScPasteRun": "Yapıştır ve çalıştır",
+  "@smScPasteRun": {},
+  "smScCopy": "Panoya kopyala",
+  "@smScCopy": {},
+  "smScNew": "Yeni kısayol",
+  "@smScNew": {},
+  "smSbShortcuts": "Kısayollar",
+  "@smSbShortcuts": {},
+  "smSbAddShortcut": "Kısayol ekle",
+  "@smSbAddShortcut": {},
+  "smSbServer": "Sunucu",
+  "@smSbServer": {},
+  "smSbServerHost": "Sunucu · {host}",
+  "@smSbServerHost": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "smSbFollow": "Terminal klasörünü takip et",
+  "@smSbFollow": {},
+  "smSbHome": "Ev klasörü",
+  "@smSbHome": {},
+  "smSbUp": "Üst klasör",
+  "@smSbUp": {},
+  "smSbComputer": "Bilgisayarım",
+  "@smSbComputer": {},
+  "smSbPlaces": "Sürücüler ve konumlar",
+  "@smSbPlaces": {},
+  "smSbResize": "Sürükleyerek genişliği değiştirin",
+  "@smSbResize": {},
+  "smFmLoading": "Yükleniyor…",
+  "@smFmLoading": {},
+  "smFmOpenFailed": "Açılamadı: {msg}",
+  "@smFmOpenFailed": {
+    "placeholders": {
+      "msg": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmEmpty": "Klasör boş",
+  "@smFmEmpty": {},
+  "smFmNoConn": "Bağlantı yok.",
+  "@smFmNoConn": {},
+  "smFmClosed": "Bağlantı kapandı.",
+  "@smFmClosed": {},
+  "smFmWaiting": "Bağlantı bekleniyor…",
+  "@smFmWaiting": {},
+  "smFmDownloadTo": "İndir → {path}",
+  "@smFmDownloadTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmUploadTo": "Yükle → {path}",
+  "@smFmUploadTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmServer": "sunucu",
+  "@smFmServer": {},
+  "smFmCdHere": "Terminalde bu klasöre git",
+  "@smFmCdHere": {},
+  "smFmPastePath": "Yolu terminale yapıştır",
+  "@smFmPastePath": {},
+  "smFmDeleteWhat": "Sil ({what})",
+  "@smFmDeleteWhat": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmNItems": "{n} öğe",
+  "@smFmNItems": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmOpenDefault": "Varsayılan uygulamayla aç",
+  "@smFmOpenDefault": {},
+  "smFmReveal": "Gezgin’de göster",
+  "@smFmReveal": {},
+  "smFmOpenExplorer": "Gezgin’de aç",
+  "@smFmOpenExplorer": {},
+  "smFmFollowing": "Dosya yöneticisi terminal klasörünü takip ediyor",
+  "@smFmFollowing": {},
+  "smFmFollowOff": "Takip kapatıldı",
+  "@smFmFollowOff": {},
+  "smFmNewRemote": "Sunucuda yeni klasör",
+  "@smFmNewRemote": {},
+  "smFmDeleteTitle": "Sunucudan sil",
+  "@smFmDeleteTitle": {},
+  "smFmAndMore": " ve {n} öğe daha",
+  "@smFmAndMore": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smFmDeleteMsg": "{names} sunucudan <b>kalıcı olarak</b> silinecek. Klasörler içerikleriyle birlikte silinir.",
+  "@smFmDeleteMsg": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "smPlaceDesktop": "Masaüstü",
+  "@smPlaceDesktop": {},
+  "smPlaceDownloads": "İndirilenler",
+  "@smPlaceDownloads": {},
+  "smPlaceDocuments": "Belgeler",
+  "@smPlaceDocuments": {},
+  "smPlaceHome": "Kullanıcı klasörü",
+  "@smPlaceHome": {},
+  "smPlaceDrive": "Yerel Disk ({d})",
+  "@smPlaceDrive": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
+  "smErrNoConn": "Bağlantı yok",
+  "@smErrNoConn": {},
+  "smErrConnectFirst": "Önce sunucuya bağlanın",
+  "@smErrConnectFirst": {},
+  "smErrMkdir": "Klasör oluşturulamadı",
+  "@smErrMkdir": {},
+  "smErrRename": "Yeniden adlandırılamadı",
+  "@smErrRename": {},
+  "smErrDelete": "Silinemedi: {name}",
+  "@smErrDelete": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrPanelTitle": "Aktarımlar",
+  "@smTrPanelTitle": {},
+  "smTrClearDone": "Bitenleri temizle",
+  "@smTrClearDone": {},
+  "smTrQueued": "Sırada",
+  "@smTrQueued": {},
+  "smTrScanning": "Dosyalar taranıyor…",
+  "@smTrScanning": {},
+  "smTrFileCount": "{i} / {n} dosya",
+  "@smTrFileCount": {
+    "placeholders": {
+      "i": {
+        "type": "String"
+      },
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrEta": "~{time} kaldı",
+  "@smTrEta": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrDownloading": "İndiriliyor: {name}",
+  "@smTrDownloading": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrUploading": "Yükleniyor: {name}",
+  "@smTrUploading": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrDone": "Tamamlandı",
+  "@smTrDone": {},
+  "smTrCancelled": "İptal edildi",
+  "@smTrCancelled": {},
+  "smTrFailed": "Başarısız",
+  "@smTrFailed": {},
+  "smTrRemoveFromList": "Listeden kaldır",
+  "@smTrRemoveFromList": {},
+  "smTrAlwaysBackground": "Büyük aktarımları bundan sonra hep arka planda göster",
+  "@smTrAlwaysBackground": {},
+  "smTrShowInBackground": "Arka planda göster",
+  "@smTrShowInBackground": {},
+  "smTrDownloadDone": "İndirme tamamlandı",
+  "@smTrDownloadDone": {},
+  "smTrUploadDone": "Yükleme tamamlandı",
+  "@smTrUploadDone": {},
+  "smTrDownloadFailed": "İndirilemedi: {name}",
+  "@smTrDownloadFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrUploadFailed": "Yüklenemedi: {name}",
+  "@smTrUploadFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "smTrCancelledToast": "Aktarım iptal edildi",
+  "@smTrCancelledToast": {},
+  "smTimeHm": "{h} sa {m} dk",
+  "@smTimeHm": {
+    "placeholders": {
+      "h": {
+        "type": "String"
+      },
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "smTimeMs": "{m} dk {s} sn",
+  "@smTimeMs": {
+    "placeholders": {
+      "m": {
+        "type": "String"
+      },
+      "s": {
+        "type": "String"
+      }
+    }
+  },
+  "smTimeS": "{s} sn",
+  "@smTimeS": {
+    "placeholders": {
+      "s": {
+        "type": "String"
+      }
+    }
+  },
+  "smMainErrAuth": "Kimlik doğrulama başarısız: kullanıcı adı veya şifre hatalı.",
+  "@smMainErrAuth": {},
+  "smMainErrRefused": "Bağlantı reddedildi: port kapalı veya SSH servisi çalışmıyor.",
+  "@smMainErrRefused": {},
+  "smMainErrTimeout": "Zaman aşımı: sunucuya ulaşılamadı.",
+  "@smMainErrTimeout": {},
+  "smMainErrDns": "Sunucu adı çözümlenemedi (DNS).",
+  "@smMainErrDns": {},
+  "smMainErrUnreach": "Sunucuya ağ üzerinden ulaşılamıyor.",
+  "@smMainErrUnreach": {},
+  "smMainErrKeyFile": "Anahtar dosyası bulunamadı.",
+  "@smMainErrKeyFile": {},
+  "smMainErrHostKey": "Sunucu host anahtarı değişmiş! Kayıtlı: {oldFp}, gelen: {newFp}. Güvenlik nedeniyle bağlantı reddedildi.",
+  "@smMainErrHostKey": {
+    "placeholders": {
+      "newFp": {
+        "type": "String"
+      },
+      "oldFp": {
+        "type": "String"
+      }
+    }
+  },
+  "smMainErrConnNotFound": "Bağlantı bulunamadı",
+  "@smMainErrConnNotFound": {},
+  "smMainErrNoSession": "Aktif SSH oturumu yok",
+  "@smMainErrNoSession": {},
+  "smMainErrHostUser": "Sunucu adresi ve kullanıcı adı gerekli.",
+  "@smMainErrHostUser": {},
+  "smMainTrayShow": "SSH Master’ı göster",
+  "@smMainTrayShow": {},
+  "smMainTrayQuick": "Hızlı bağlan",
+  "@smMainTrayQuick": {},
+  "smMainTrayNone": "Kayıtlı bağlantı yok",
+  "@smMainTrayNone": {},
+  "smMainTrayQuit": "Çıkış",
+  "@smMainTrayQuit": {},
+  "smMainBalloonTitle": "SSH Master arka planda çalışıyor",
+  "@smMainBalloonTitle": {},
+  "smMainBalloonBody": "Tekrar açmak için tepsideki simgeye tıklayın.",
+  "@smMainBalloonBody": {},
+  "smMainPickKey": "Özel anahtar dosyası seç",
+  "@smMainPickKey": {},
+  "smMainCopySuffix": " (kopya)",
+  "@smMainCopySuffix": {},
+  "smMainDefDisk": "Disk kullanımı",
+  "@smMainDefDisk": {},
+  "smMainDefMem": "Bellek",
+  "@smMainDefMem": {},
+  "smMainDefTop": "Süreçler (top)",
+  "@smMainDefTop": {},
+  "smAppNotesLabel": "Notlar",
+  "@smAppNotesLabel": {}
 }

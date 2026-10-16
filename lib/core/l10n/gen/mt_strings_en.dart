@@ -342,4 +342,703 @@ class MtStringsEn extends MtStrings {
 
   @override
   String get mobVisitSite => 'Visit website';
+
+  @override
+  String get smAppSearchPh => 'Search connections…  (Ctrl+F)';
+
+  @override
+  String get smAppNewConn => 'New connection';
+
+  @override
+  String smAppSplit(String n) {
+    return 'Open split ($n)';
+  }
+
+  @override
+  String get smAppSplitTitle =>
+      'Open the selected connections split in one window';
+
+  @override
+  String get smAppSettings => 'Settings';
+
+  @override
+  String smAppStats(String c, String f) {
+    return '$c connections · $f folders';
+  }
+
+  @override
+  String get smAppWelcome => 'Welcome';
+
+  @override
+  String smAppResults(String q) {
+    return 'Results for “$q”';
+  }
+
+  @override
+  String get smAppAll => 'All connections';
+
+  @override
+  String get smAppWelcomeHint =>
+      'Create your first SSH connection.<br>Enter the server details, test and save.';
+
+  @override
+  String get smAppFolders => 'Folders';
+
+  @override
+  String get smAppConnections => 'Connections';
+
+  @override
+  String get smAppMultiHint =>
+      'Ctrl+click to select several and open them split in one window';
+
+  @override
+  String get smAppNoMatch => 'No matching connections.';
+
+  @override
+  String smAppFolderCount(String n) {
+    return '$n connections';
+  }
+
+  @override
+  String get smAppFolderOpenSplit => 'Open folder connections split';
+
+  @override
+  String get smAppNewConnHere => 'New connection in this folder';
+
+  @override
+  String get smAppNewSubfolder => 'Create subfolder';
+
+  @override
+  String get smAppKeyTag => 'Key';
+
+  @override
+  String get smAppLastDir => 'Last folder';
+
+  @override
+  String get smAppLastDirTag => 'last folder';
+
+  @override
+  String smAppMultiOpenSplit(String n) {
+    return 'Open $n connections split in one window';
+  }
+
+  @override
+  String get smAppOpenSeparate => 'Open each in its own window';
+
+  @override
+  String get smAppClearSelection => 'Clear selection';
+
+  @override
+  String get smAppSideBySide => 'Open two sessions side by side';
+
+  @override
+  String get smAppDuplicate => 'Duplicate';
+
+  @override
+  String get smAppMoveToFolder => 'Move to folder…';
+
+  @override
+  String get smAppResetLastDir => 'Reset last folder';
+
+  @override
+  String get smAppConnMoved => 'Connection moved';
+
+  @override
+  String get smAppFolderIntoSelf =>
+      'A folder cannot be moved into its own subfolder';
+
+  @override
+  String get smAppFolderPh => 'e.g. Production servers';
+
+  @override
+  String get smAppRenameFolder => 'Rename folder';
+
+  @override
+  String get smAppDeleteFolder => 'Delete folder';
+
+  @override
+  String smAppDeleteFolderMsg(String name) {
+    return 'The folder <b>$name</b> will be deleted.';
+  }
+
+  @override
+  String smAppDeleteFolderConns(String n) {
+    return ' Its $n connections are not deleted; they move up one level.';
+  }
+
+  @override
+  String get smAppRootFolder => 'All connections (root)';
+
+  @override
+  String smAppMoveTitle(String name) {
+    return 'Move “$name”';
+  }
+
+  @override
+  String get smAppTargetFolder => 'Target folder';
+
+  @override
+  String get smAppDeleteConn => 'Delete connection';
+
+  @override
+  String smAppDeleteConnMsg(String name, String target) {
+    return '<b>$name</b> ($target) will be permanently deleted.';
+  }
+
+  @override
+  String get smAppMaxPanes => 'At most 6 panes can be opened';
+
+  @override
+  String get smAppMaxPanesSub => 'The first 6 connections were opened';
+
+  @override
+  String get smFormTitleNew => 'New SSH connection';
+
+  @override
+  String get smFormTitleEdit => 'Edit connection';
+
+  @override
+  String get smFormName => 'Connection name';
+
+  @override
+  String get smFormNamePh => 'e.g. Web server';
+
+  @override
+  String get smFormHost => 'IP address / Host';
+
+  @override
+  String get smFormHostPh => '192.168.1.10 or server.com';
+
+  @override
+  String get smFormPort => 'Port';
+
+  @override
+  String get smFormUser => 'Username';
+
+  @override
+  String get smFormAuth => 'Authentication';
+
+  @override
+  String get smFormPassword => 'Password';
+
+  @override
+  String get smFormPrivateKey => 'Private key';
+
+  @override
+  String get smFormPwSaved => '•••••••• (saved — type to change)';
+
+  @override
+  String get smFormKeyFile => 'Key file';
+
+  @override
+  String get smFormPassphrase => 'Key passphrase (if any)';
+
+  @override
+  String get smFormPassSaved => '•••••••• (saved)';
+
+  @override
+  String get smFormPassEmpty => 'Leave empty if none';
+
+  @override
+  String get smFormFolder => 'Folder';
+
+  @override
+  String get smFormColor => 'Color';
+
+  @override
+  String get smFormPalette => 'Console color palette';
+
+  @override
+  String get smFormLastDir => 'Go to the folder I left off in';
+
+  @override
+  String get smFormLastDirHint =>
+      'On connect, the terminal and file manager open in the folder you last worked in.';
+
+  @override
+  String get smFormLastDirNow => 'Currently:';
+
+  @override
+  String get smFormConnecting => 'Connecting…';
+
+  @override
+  String get smFormTestOk => 'Connection successful';
+
+  @override
+  String smFormHostKey(String fp) {
+    return 'Host key (SHA256): $fp';
+  }
+
+  @override
+  String get smFormTestFail => 'Connection failed';
+
+  @override
+  String get smFormSaved => 'Connection saved';
+
+  @override
+  String get smFormChangesSaved => 'Changes saved';
+
+  @override
+  String get smFormTest => 'Test connection';
+
+  @override
+  String get smFormSaveConnect => 'Save and connect';
+
+  @override
+  String get smPaneToggleSidebar => 'Toggle side panel (Ctrl+B)';
+
+  @override
+  String get smPaneDefaultName => 'Connection';
+
+  @override
+  String get smPaneSplitRight => 'Split right';
+
+  @override
+  String get smPaneSplitDown => 'Split down';
+
+  @override
+  String get smPaneReconnect => 'Reconnect';
+
+  @override
+  String get smPaneClose => 'Close pane';
+
+  @override
+  String get smPaneSaveSelShortcut => 'Save selection as shortcut';
+
+  @override
+  String get smPanePaletteMenu => 'Console color palette…';
+
+  @override
+  String get smPaneSelectAll => 'Select all';
+
+  @override
+  String get smPaneClear => 'Clear screen';
+
+  @override
+  String get smPaneStatusConnecting => 'connecting…';
+
+  @override
+  String get smPaneStatusNoConn => 'not connected';
+
+  @override
+  String get smPaneStatusClosed => 'connection closed';
+
+  @override
+  String get smTermConnecting => 'Connecting…';
+
+  @override
+  String get smTermConnectFailed => 'Could not connect:';
+
+  @override
+  String get smTermRetryEnter => 'Press Enter to try again.';
+
+  @override
+  String get smTermClosed => 'Connection closed.';
+
+  @override
+  String get smTermReconnectEnter => 'Press Enter to reconnect.';
+
+  @override
+  String smTermMaxPanes(String n) {
+    return 'At most $n panes can be opened in a window';
+  }
+
+  @override
+  String smTermSessions(String n) {
+    return '$n sessions';
+  }
+
+  @override
+  String get smTermToggleAll => 'Toggle all side panels';
+
+  @override
+  String get smTermSplitRightTitle =>
+      'Split the active pane right (Ctrl+Shift+E)';
+
+  @override
+  String get smTermSplitDownTitle =>
+      'Split the active pane down (Ctrl+Shift+O)';
+
+  @override
+  String get smTermSyncOn => 'Typing to all panes';
+
+  @override
+  String get smTermSyncOff => 'Type to all panes';
+
+  @override
+  String get smTermSyncTitle => 'What you type is sent to all connected panes';
+
+  @override
+  String get smPickerSearch => 'Search connections…';
+
+  @override
+  String get smPickerSameServer => 'same server';
+
+  @override
+  String get smPickerNone => 'No matching connections';
+
+  @override
+  String get smPickerTitleRight => 'Split right — choose a connection';
+
+  @override
+  String get smPickerTitleDown => 'Split down — choose a connection';
+
+  @override
+  String get smPaletteTitle => 'Console color palette';
+
+  @override
+  String smPaletteHint(String name) {
+    return 'The palette you pick is previewed in this pane right away. If you save it, all sessions of this connection ($name) use it.';
+  }
+
+  @override
+  String get smPaletteSaved => 'Color palette saved';
+
+  @override
+  String get smScTitleNew => 'New shortcut';
+
+  @override
+  String get smScTitleEdit => 'Edit shortcut';
+
+  @override
+  String get smScName => 'Shortcut name';
+
+  @override
+  String get smScNamePh => 'e.g. Restart Nginx';
+
+  @override
+  String get smScCommand => 'Command';
+
+  @override
+  String get smScEnter => 'Press Enter after pasting';
+
+  @override
+  String get smScEnterHint =>
+      'When off, the command is only typed at the cursor and you run it yourself.';
+
+  @override
+  String get smScEmpty =>
+      'No shortcuts yet.<br>Add the commands you use often with <b>+</b> and double-click to paste them into the terminal.';
+
+  @override
+  String get smScItemTitle => 'Double-click: paste into this pane’s terminal';
+
+  @override
+  String get smScAutoEnter => 'Auto Enter';
+
+  @override
+  String get smScPaste => 'Paste into terminal';
+
+  @override
+  String get smScPasteNoEnter => 'Paste without Enter';
+
+  @override
+  String get smScPasteRun => 'Paste and run';
+
+  @override
+  String get smScCopy => 'Copy to clipboard';
+
+  @override
+  String get smScNew => 'New shortcut';
+
+  @override
+  String get smSbShortcuts => 'Shortcuts';
+
+  @override
+  String get smSbAddShortcut => 'Add shortcut';
+
+  @override
+  String get smSbServer => 'Server';
+
+  @override
+  String smSbServerHost(String host) {
+    return 'Server · $host';
+  }
+
+  @override
+  String get smSbFollow => 'Follow terminal folder';
+
+  @override
+  String get smSbHome => 'Home folder';
+
+  @override
+  String get smSbUp => 'Parent folder';
+
+  @override
+  String get smSbComputer => 'This PC';
+
+  @override
+  String get smSbPlaces => 'Drives and places';
+
+  @override
+  String get smSbResize => 'Drag to resize';
+
+  @override
+  String get smFmLoading => 'Loading…';
+
+  @override
+  String smFmOpenFailed(String msg) {
+    return 'Could not open: $msg';
+  }
+
+  @override
+  String get smFmEmpty => 'Folder is empty';
+
+  @override
+  String get smFmNoConn => 'Not connected.';
+
+  @override
+  String get smFmClosed => 'Connection closed.';
+
+  @override
+  String get smFmWaiting => 'Waiting for connection…';
+
+  @override
+  String smFmDownloadTo(String path) {
+    return 'Download → $path';
+  }
+
+  @override
+  String smFmUploadTo(String path) {
+    return 'Upload → $path';
+  }
+
+  @override
+  String get smFmServer => 'server';
+
+  @override
+  String get smFmCdHere => 'Go to this folder in terminal';
+
+  @override
+  String get smFmPastePath => 'Paste path into terminal';
+
+  @override
+  String smFmDeleteWhat(String what) {
+    return 'Delete ($what)';
+  }
+
+  @override
+  String smFmNItems(String n) {
+    return '$n items';
+  }
+
+  @override
+  String get smFmOpenDefault => 'Open with default app';
+
+  @override
+  String get smFmReveal => 'Show in Explorer';
+
+  @override
+  String get smFmOpenExplorer => 'Open in Explorer';
+
+  @override
+  String get smFmFollowing => 'File manager is following the terminal folder';
+
+  @override
+  String get smFmFollowOff => 'Following turned off';
+
+  @override
+  String get smFmNewRemote => 'New folder on server';
+
+  @override
+  String get smFmDeleteTitle => 'Delete from server';
+
+  @override
+  String smFmAndMore(String n) {
+    return ' and $n more';
+  }
+
+  @override
+  String smFmDeleteMsg(String names) {
+    return '$names will be <b>permanently</b> deleted from the server. Folders are deleted with their contents.';
+  }
+
+  @override
+  String get smPlaceDesktop => 'Desktop';
+
+  @override
+  String get smPlaceDownloads => 'Downloads';
+
+  @override
+  String get smPlaceDocuments => 'Documents';
+
+  @override
+  String get smPlaceHome => 'User folder';
+
+  @override
+  String smPlaceDrive(String d) {
+    return 'Local Disk ($d)';
+  }
+
+  @override
+  String get smErrNoConn => 'Not connected';
+
+  @override
+  String get smErrConnectFirst => 'Connect to the server first';
+
+  @override
+  String get smErrMkdir => 'Could not create folder';
+
+  @override
+  String get smErrRename => 'Could not rename';
+
+  @override
+  String smErrDelete(String name) {
+    return 'Could not delete: $name';
+  }
+
+  @override
+  String get smTrPanelTitle => 'Transfers';
+
+  @override
+  String get smTrClearDone => 'Clear finished';
+
+  @override
+  String get smTrQueued => 'Queued';
+
+  @override
+  String get smTrScanning => 'Scanning files…';
+
+  @override
+  String smTrFileCount(String i, String n) {
+    return '$i / $n files';
+  }
+
+  @override
+  String smTrEta(String time) {
+    return '~$time left';
+  }
+
+  @override
+  String smTrDownloading(String name) {
+    return 'Downloading: $name';
+  }
+
+  @override
+  String smTrUploading(String name) {
+    return 'Uploading: $name';
+  }
+
+  @override
+  String get smTrDone => 'Completed';
+
+  @override
+  String get smTrCancelled => 'Cancelled';
+
+  @override
+  String get smTrFailed => 'Failed';
+
+  @override
+  String get smTrRemoveFromList => 'Remove from list';
+
+  @override
+  String get smTrAlwaysBackground =>
+      'Always show large transfers in the background from now on';
+
+  @override
+  String get smTrShowInBackground => 'Run in background';
+
+  @override
+  String get smTrDownloadDone => 'Download complete';
+
+  @override
+  String get smTrUploadDone => 'Upload complete';
+
+  @override
+  String smTrDownloadFailed(String name) {
+    return 'Download failed: $name';
+  }
+
+  @override
+  String smTrUploadFailed(String name) {
+    return 'Upload failed: $name';
+  }
+
+  @override
+  String get smTrCancelledToast => 'Transfer cancelled';
+
+  @override
+  String smTimeHm(String h, String m) {
+    return '$h h $m min';
+  }
+
+  @override
+  String smTimeMs(String m, String s) {
+    return '$m min $s s';
+  }
+
+  @override
+  String smTimeS(String s) {
+    return '$s s';
+  }
+
+  @override
+  String get smMainErrAuth =>
+      'Authentication failed: wrong username or password.';
+
+  @override
+  String get smMainErrRefused =>
+      'Connection refused: the port is closed or the SSH service is not running.';
+
+  @override
+  String get smMainErrTimeout => 'Timed out: the server could not be reached.';
+
+  @override
+  String get smMainErrDns => 'The host name could not be resolved (DNS).';
+
+  @override
+  String get smMainErrUnreach => 'The server is unreachable over the network.';
+
+  @override
+  String get smMainErrKeyFile => 'Key file not found.';
+
+  @override
+  String smMainErrHostKey(String newFp, String oldFp) {
+    return 'The server host key has changed! Saved: $oldFp, received: $newFp. The connection was refused for security.';
+  }
+
+  @override
+  String get smMainErrConnNotFound => 'Connection not found';
+
+  @override
+  String get smMainErrNoSession => 'No active SSH session';
+
+  @override
+  String get smMainErrHostUser => 'Server address and username are required.';
+
+  @override
+  String get smMainTrayShow => 'Show SSH Master';
+
+  @override
+  String get smMainTrayQuick => 'Quick connect';
+
+  @override
+  String get smMainTrayNone => 'No saved connections';
+
+  @override
+  String get smMainTrayQuit => 'Quit';
+
+  @override
+  String get smMainBalloonTitle => 'SSH Master is running in the background';
+
+  @override
+  String get smMainBalloonBody => 'Click the tray icon to open it again.';
+
+  @override
+  String get smMainPickKey => 'Choose a private key file';
+
+  @override
+  String get smMainCopySuffix => ' (copy)';
+
+  @override
+  String get smMainDefDisk => 'Disk usage';
+
+  @override
+  String get smMainDefMem => 'Memory';
+
+  @override
+  String get smMainDefTop => 'Processes (top)';
+
+  @override
+  String get smAppNotesLabel => 'Notes';
 }

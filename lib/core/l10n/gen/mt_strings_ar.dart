@@ -341,4 +341,699 @@ class MtStringsAr extends MtStrings {
 
   @override
   String get mobVisitSite => 'زيارة الموقع';
+
+  @override
+  String get smAppSearchPh => 'ابحث في الاتصالات…  (Ctrl+F)';
+
+  @override
+  String get smAppNewConn => 'اتصال جديد';
+
+  @override
+  String smAppSplit(String n) {
+    return 'فتح مقسّم ($n)';
+  }
+
+  @override
+  String get smAppSplitTitle => 'فتح الاتصالات المحددة مقسّمة في نافذة واحدة';
+
+  @override
+  String get smAppSettings => 'الإعدادات';
+
+  @override
+  String smAppStats(String c, String f) {
+    return '$c اتصال · $f مجلد';
+  }
+
+  @override
+  String get smAppWelcome => 'مرحبًا';
+
+  @override
+  String smAppResults(String q) {
+    return 'نتائج «$q»';
+  }
+
+  @override
+  String get smAppAll => 'كل الاتصالات';
+
+  @override
+  String get smAppWelcomeHint =>
+      'أنشئ أول اتصال SSH لك.<br>أدخل بيانات الخادم ثم اختبرها واحفظها.';
+
+  @override
+  String get smAppFolders => 'المجلدات';
+
+  @override
+  String get smAppConnections => 'الاتصالات';
+
+  @override
+  String get smAppMultiHint =>
+      'استخدم Ctrl+نقر لتحديد عدة اتصالات وفتحها مقسّمة في نافذة واحدة';
+
+  @override
+  String get smAppNoMatch => 'لا توجد اتصالات مطابقة.';
+
+  @override
+  String smAppFolderCount(String n) {
+    return '$n اتصال';
+  }
+
+  @override
+  String get smAppFolderOpenSplit => 'فتح اتصالات المجلد مقسّمة';
+
+  @override
+  String get smAppNewConnHere => 'اتصال جديد في هذا المجلد';
+
+  @override
+  String get smAppNewSubfolder => 'إنشاء مجلد فرعي';
+
+  @override
+  String get smAppKeyTag => 'مفتاح';
+
+  @override
+  String get smAppLastDir => 'آخر مجلد';
+
+  @override
+  String get smAppLastDirTag => 'آخر مجلد';
+
+  @override
+  String smAppMultiOpenSplit(String n) {
+    return 'فتح $n اتصالات مقسّمة في نافذة واحدة';
+  }
+
+  @override
+  String get smAppOpenSeparate => 'فتح كل اتصال في نافذة مستقلة';
+
+  @override
+  String get smAppClearSelection => 'إلغاء التحديد';
+
+  @override
+  String get smAppSideBySide => 'فتح جلستين جنبًا إلى جنب';
+
+  @override
+  String get smAppDuplicate => 'إنشاء نسخة';
+
+  @override
+  String get smAppMoveToFolder => 'نقل إلى مجلد…';
+
+  @override
+  String get smAppResetLastDir => 'إعادة تعيين آخر مجلد';
+
+  @override
+  String get smAppConnMoved => 'تم نقل الاتصال';
+
+  @override
+  String get smAppFolderIntoSelf => 'لا يمكن نقل مجلد إلى أحد مجلداته الفرعية';
+
+  @override
+  String get smAppFolderPh => 'مثال: خوادم الإنتاج';
+
+  @override
+  String get smAppRenameFolder => 'إعادة تسمية المجلد';
+
+  @override
+  String get smAppDeleteFolder => 'حذف المجلد';
+
+  @override
+  String smAppDeleteFolderMsg(String name) {
+    return 'سيتم حذف المجلد <b>$name</b>.';
+  }
+
+  @override
+  String smAppDeleteFolderConns(String n) {
+    return ' لن تُحذف اتصالاته الـ$n، بل تُنقل مستوى واحدًا للأعلى.';
+  }
+
+  @override
+  String get smAppRootFolder => 'كل الاتصالات (الجذر)';
+
+  @override
+  String smAppMoveTitle(String name) {
+    return 'نقل «$name»';
+  }
+
+  @override
+  String get smAppTargetFolder => 'المجلد الهدف';
+
+  @override
+  String get smAppDeleteConn => 'حذف الاتصال';
+
+  @override
+  String smAppDeleteConnMsg(String name, String target) {
+    return 'سيتم حذف <b>$name</b> ($target) نهائيًا.';
+  }
+
+  @override
+  String get smAppMaxPanes => 'يمكن فتح 6 أجزاء كحد أقصى';
+
+  @override
+  String get smAppMaxPanesSub => 'تم فتح أول 6 اتصالات';
+
+  @override
+  String get smFormTitleNew => 'اتصال SSH جديد';
+
+  @override
+  String get smFormTitleEdit => 'تعديل الاتصال';
+
+  @override
+  String get smFormName => 'اسم الاتصال';
+
+  @override
+  String get smFormNamePh => 'مثال: خادم الويب';
+
+  @override
+  String get smFormHost => 'عنوان IP / الخادم';
+
+  @override
+  String get smFormHostPh => '192.168.1.10 أو server.com';
+
+  @override
+  String get smFormPort => 'المنفذ';
+
+  @override
+  String get smFormUser => 'اسم المستخدم';
+
+  @override
+  String get smFormAuth => 'المصادقة';
+
+  @override
+  String get smFormPassword => 'كلمة المرور';
+
+  @override
+  String get smFormPrivateKey => 'مفتاح خاص';
+
+  @override
+  String get smFormPwSaved => '•••••••• (محفوظة — اكتب لتغييرها)';
+
+  @override
+  String get smFormKeyFile => 'ملف المفتاح';
+
+  @override
+  String get smFormPassphrase => 'عبارة مرور المفتاح (إن وجدت)';
+
+  @override
+  String get smFormPassSaved => '•••••••• (محفوظة)';
+
+  @override
+  String get smFormPassEmpty => 'اتركها فارغة إن لم توجد';
+
+  @override
+  String get smFormFolder => 'المجلد';
+
+  @override
+  String get smFormColor => 'اللون';
+
+  @override
+  String get smFormPalette => 'لوحة ألوان الطرفية';
+
+  @override
+  String get smFormLastDir => 'الانتقال إلى آخر مجلد عملت فيه';
+
+  @override
+  String get smFormLastDirHint =>
+      'عند الاتصال تُفتح الطرفية ومدير الملفات في آخر مجلد عملت فيه.';
+
+  @override
+  String get smFormLastDirNow => 'حاليًا:';
+
+  @override
+  String get smFormConnecting => 'جارٍ الاتصال…';
+
+  @override
+  String get smFormTestOk => 'نجح الاتصال';
+
+  @override
+  String smFormHostKey(String fp) {
+    return 'مفتاح المضيف (SHA256): $fp';
+  }
+
+  @override
+  String get smFormTestFail => 'فشل الاتصال';
+
+  @override
+  String get smFormSaved => 'تم حفظ الاتصال';
+
+  @override
+  String get smFormChangesSaved => 'تم حفظ التغييرات';
+
+  @override
+  String get smFormTest => 'اختبار الاتصال';
+
+  @override
+  String get smFormSaveConnect => 'حفظ واتصال';
+
+  @override
+  String get smPaneToggleSidebar => 'إظهار/إخفاء اللوحة الجانبية (Ctrl+B)';
+
+  @override
+  String get smPaneDefaultName => 'اتصال';
+
+  @override
+  String get smPaneSplitRight => 'تقسيم أفقي';
+
+  @override
+  String get smPaneSplitDown => 'تقسيم عمودي';
+
+  @override
+  String get smPaneReconnect => 'إعادة الاتصال';
+
+  @override
+  String get smPaneClose => 'إغلاق الجزء';
+
+  @override
+  String get smPaneSaveSelShortcut => 'حفظ التحديد كاختصار';
+
+  @override
+  String get smPanePaletteMenu => 'لوحة ألوان الطرفية…';
+
+  @override
+  String get smPaneSelectAll => 'تحديد الكل';
+
+  @override
+  String get smPaneClear => 'مسح الشاشة';
+
+  @override
+  String get smPaneStatusConnecting => 'جارٍ الاتصال…';
+
+  @override
+  String get smPaneStatusNoConn => 'غير متصل';
+
+  @override
+  String get smPaneStatusClosed => 'أُغلق الاتصال';
+
+  @override
+  String get smTermConnecting => 'جارٍ الاتصال…';
+
+  @override
+  String get smTermConnectFailed => 'تعذّر الاتصال:';
+
+  @override
+  String get smTermRetryEnter => 'اضغط Enter للمحاولة مجددًا.';
+
+  @override
+  String get smTermClosed => 'أُغلق الاتصال.';
+
+  @override
+  String get smTermReconnectEnter => 'اضغط Enter لإعادة الاتصال.';
+
+  @override
+  String smTermMaxPanes(String n) {
+    return 'يمكن فتح $n أجزاء كحد أقصى في النافذة';
+  }
+
+  @override
+  String smTermSessions(String n) {
+    return '$n جلسات';
+  }
+
+  @override
+  String get smTermToggleAll => 'إظهار/إخفاء كل اللوحات الجانبية';
+
+  @override
+  String get smTermSplitRightTitle => 'تقسيم الجزء النشط أفقيًا (Ctrl+Shift+E)';
+
+  @override
+  String get smTermSplitDownTitle => 'تقسيم الجزء النشط عموديًا (Ctrl+Shift+O)';
+
+  @override
+  String get smTermSyncOn => 'الكتابة في كل الأجزاء';
+
+  @override
+  String get smTermSyncOff => 'الكتابة في كل الأجزاء';
+
+  @override
+  String get smTermSyncTitle => 'يُرسَل ما تكتبه إلى كل الأجزاء المتصلة';
+
+  @override
+  String get smPickerSearch => 'ابحث عن اتصال…';
+
+  @override
+  String get smPickerSameServer => 'الخادم نفسه';
+
+  @override
+  String get smPickerNone => 'لا توجد اتصالات مطابقة';
+
+  @override
+  String get smPickerTitleRight => 'تقسيم أفقي — اختر اتصالًا';
+
+  @override
+  String get smPickerTitleDown => 'تقسيم عمودي — اختر اتصالًا';
+
+  @override
+  String get smPaletteTitle => 'لوحة ألوان الطرفية';
+
+  @override
+  String smPaletteHint(String name) {
+    return 'تُعرض اللوحة التي تختارها في هذا الجزء فورًا. إذا حفظتها فستُستخدم في كل جلسات هذا الاتصال ($name).';
+  }
+
+  @override
+  String get smPaletteSaved => 'تم حفظ لوحة الألوان';
+
+  @override
+  String get smScTitleNew => 'اختصار جديد';
+
+  @override
+  String get smScTitleEdit => 'تعديل الاختصار';
+
+  @override
+  String get smScName => 'اسم الاختصار';
+
+  @override
+  String get smScNamePh => 'مثال: إعادة تشغيل Nginx';
+
+  @override
+  String get smScCommand => 'الأمر';
+
+  @override
+  String get smScEnter => 'الضغط على Enter بعد اللصق';
+
+  @override
+  String get smScEnterHint =>
+      'عند الإيقاف يُكتب الأمر عند المؤشر فقط وتشغّله أنت.';
+
+  @override
+  String get smScEmpty =>
+      'لا توجد اختصارات بعد.<br>أضف الأوامر التي تستخدمها كثيرًا بـ <b>+</b> وانقر نقرًا مزدوجًا للصقها في الطرفية.';
+
+  @override
+  String get smScItemTitle => 'نقر مزدوج: لصق في طرفية هذا الجزء';
+
+  @override
+  String get smScAutoEnter => 'Enter تلقائي';
+
+  @override
+  String get smScPaste => 'لصق في الطرفية';
+
+  @override
+  String get smScPasteNoEnter => 'لصق دون Enter';
+
+  @override
+  String get smScPasteRun => 'لصق وتشغيل';
+
+  @override
+  String get smScCopy => 'نسخ إلى الحافظة';
+
+  @override
+  String get smScNew => 'اختصار جديد';
+
+  @override
+  String get smSbShortcuts => 'الاختصارات';
+
+  @override
+  String get smSbAddShortcut => 'إضافة اختصار';
+
+  @override
+  String get smSbServer => 'الخادم';
+
+  @override
+  String smSbServerHost(String host) {
+    return 'الخادم · $host';
+  }
+
+  @override
+  String get smSbFollow => 'تتبّع مجلد الطرفية';
+
+  @override
+  String get smSbHome => 'المجلد الرئيسي';
+
+  @override
+  String get smSbUp => 'المجلد الأعلى';
+
+  @override
+  String get smSbComputer => 'هذا الكمبيوتر';
+
+  @override
+  String get smSbPlaces => 'الأقراص والمواقع';
+
+  @override
+  String get smSbResize => 'اسحب لتغيير العرض';
+
+  @override
+  String get smFmLoading => 'جارٍ التحميل…';
+
+  @override
+  String smFmOpenFailed(String msg) {
+    return 'تعذّر الفتح: $msg';
+  }
+
+  @override
+  String get smFmEmpty => 'المجلد فارغ';
+
+  @override
+  String get smFmNoConn => 'غير متصل.';
+
+  @override
+  String get smFmClosed => 'أُغلق الاتصال.';
+
+  @override
+  String get smFmWaiting => 'بانتظار الاتصال…';
+
+  @override
+  String smFmDownloadTo(String path) {
+    return 'تنزيل ← $path';
+  }
+
+  @override
+  String smFmUploadTo(String path) {
+    return 'رفع ← $path';
+  }
+
+  @override
+  String get smFmServer => 'الخادم';
+
+  @override
+  String get smFmCdHere => 'الانتقال إلى هذا المجلد في الطرفية';
+
+  @override
+  String get smFmPastePath => 'لصق المسار في الطرفية';
+
+  @override
+  String smFmDeleteWhat(String what) {
+    return 'حذف ($what)';
+  }
+
+  @override
+  String smFmNItems(String n) {
+    return '$n عناصر';
+  }
+
+  @override
+  String get smFmOpenDefault => 'فتح بالتطبيق الافتراضي';
+
+  @override
+  String get smFmReveal => 'إظهار في المستكشف';
+
+  @override
+  String get smFmOpenExplorer => 'فتح في المستكشف';
+
+  @override
+  String get smFmFollowing => 'مدير الملفات يتتبّع مجلد الطرفية';
+
+  @override
+  String get smFmFollowOff => 'تم إيقاف التتبّع';
+
+  @override
+  String get smFmNewRemote => 'مجلد جديد على الخادم';
+
+  @override
+  String get smFmDeleteTitle => 'حذف من الخادم';
+
+  @override
+  String smFmAndMore(String n) {
+    return ' و$n عناصر أخرى';
+  }
+
+  @override
+  String smFmDeleteMsg(String names) {
+    return 'سيتم حذف $names من الخادم <b>نهائيًا</b>. تُحذف المجلدات مع محتوياتها.';
+  }
+
+  @override
+  String get smPlaceDesktop => 'سطح المكتب';
+
+  @override
+  String get smPlaceDownloads => 'التنزيلات';
+
+  @override
+  String get smPlaceDocuments => 'المستندات';
+
+  @override
+  String get smPlaceHome => 'مجلد المستخدم';
+
+  @override
+  String smPlaceDrive(String d) {
+    return 'القرص المحلي ($d)';
+  }
+
+  @override
+  String get smErrNoConn => 'غير متصل';
+
+  @override
+  String get smErrConnectFirst => 'اتصل بالخادم أولًا';
+
+  @override
+  String get smErrMkdir => 'تعذّر إنشاء المجلد';
+
+  @override
+  String get smErrRename => 'تعذّرت إعادة التسمية';
+
+  @override
+  String smErrDelete(String name) {
+    return 'تعذّر الحذف: $name';
+  }
+
+  @override
+  String get smTrPanelTitle => 'عمليات النقل';
+
+  @override
+  String get smTrClearDone => 'مسح المكتملة';
+
+  @override
+  String get smTrQueued => 'في الانتظار';
+
+  @override
+  String get smTrScanning => 'جارٍ فحص الملفات…';
+
+  @override
+  String smTrFileCount(String i, String n) {
+    return '$i / $n ملفات';
+  }
+
+  @override
+  String smTrEta(String time) {
+    return 'متبقٍ ~$time';
+  }
+
+  @override
+  String smTrDownloading(String name) {
+    return 'جارٍ التنزيل: $name';
+  }
+
+  @override
+  String smTrUploading(String name) {
+    return 'جارٍ الرفع: $name';
+  }
+
+  @override
+  String get smTrDone => 'اكتمل';
+
+  @override
+  String get smTrCancelled => 'أُلغي';
+
+  @override
+  String get smTrFailed => 'فشل';
+
+  @override
+  String get smTrRemoveFromList => 'إزالة من القائمة';
+
+  @override
+  String get smTrAlwaysBackground =>
+      'عرض عمليات النقل الكبيرة في الخلفية دائمًا من الآن';
+
+  @override
+  String get smTrShowInBackground => 'تشغيل في الخلفية';
+
+  @override
+  String get smTrDownloadDone => 'اكتمل التنزيل';
+
+  @override
+  String get smTrUploadDone => 'اكتمل الرفع';
+
+  @override
+  String smTrDownloadFailed(String name) {
+    return 'فشل التنزيل: $name';
+  }
+
+  @override
+  String smTrUploadFailed(String name) {
+    return 'فشل الرفع: $name';
+  }
+
+  @override
+  String get smTrCancelledToast => 'أُلغيت عملية النقل';
+
+  @override
+  String smTimeHm(String h, String m) {
+    return '$h س $m د';
+  }
+
+  @override
+  String smTimeMs(String m, String s) {
+    return '$m د $s ث';
+  }
+
+  @override
+  String smTimeS(String s) {
+    return '$s ث';
+  }
+
+  @override
+  String get smMainErrAuth =>
+      'فشلت المصادقة: اسم المستخدم أو كلمة المرور غير صحيحة.';
+
+  @override
+  String get smMainErrRefused =>
+      'رُفض الاتصال: المنفذ مغلق أو خدمة SSH لا تعمل.';
+
+  @override
+  String get smMainErrTimeout => 'انتهت المهلة: تعذّر الوصول إلى الخادم.';
+
+  @override
+  String get smMainErrDns => 'تعذّر تحليل اسم المضيف (DNS).';
+
+  @override
+  String get smMainErrUnreach => 'لا يمكن الوصول إلى الخادم عبر الشبكة.';
+
+  @override
+  String get smMainErrKeyFile => 'لم يُعثر على ملف المفتاح.';
+
+  @override
+  String smMainErrHostKey(String newFp, String oldFp) {
+    return 'تغيّر مفتاح مضيف الخادم! المحفوظ: $oldFp، المستلم: $newFp. رُفض الاتصال لأسباب أمنية.';
+  }
+
+  @override
+  String get smMainErrConnNotFound => 'لم يُعثر على الاتصال';
+
+  @override
+  String get smMainErrNoSession => 'لا توجد جلسة SSH نشطة';
+
+  @override
+  String get smMainErrHostUser => 'عنوان الخادم واسم المستخدم مطلوبان.';
+
+  @override
+  String get smMainTrayShow => 'إظهار SSH Master';
+
+  @override
+  String get smMainTrayQuick => 'اتصال سريع';
+
+  @override
+  String get smMainTrayNone => 'لا توجد اتصالات محفوظة';
+
+  @override
+  String get smMainTrayQuit => 'خروج';
+
+  @override
+  String get smMainBalloonTitle => 'يعمل SSH Master في الخلفية';
+
+  @override
+  String get smMainBalloonBody => 'انقر أيقونة العلبة لفتحه مجددًا.';
+
+  @override
+  String get smMainPickKey => 'اختر ملف مفتاح خاص';
+
+  @override
+  String get smMainCopySuffix => ' (نسخة)';
+
+  @override
+  String get smMainDefDisk => 'استخدام القرص';
+
+  @override
+  String get smMainDefMem => 'الذاكرة';
+
+  @override
+  String get smMainDefTop => 'العمليات (top)';
+
+  @override
+  String get smAppNotesLabel => 'ملاحظات';
 }

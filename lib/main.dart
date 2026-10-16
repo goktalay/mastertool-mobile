@@ -1,4 +1,4 @@
-// Master Tool — Android / iPhone. Mastertool ailesinin tek mobil uygulaması: hesap, ortak oturum ve modüller
+// Master Tool — Android / iPhone / tablet. Mastertool ailesinin tek mobil uygulaması: hesap, ortak oturum ve modüller
 // (SSH Master, FTP Masters, SQL Master, Notepad Master, Convert Master, IP Tools).
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,8 +6,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'core/account.dart';
 import 'core/l10n/gen/mt_strings.dart';
 import 'core/module.dart';
+import 'core/module_host.dart';
 import 'core/prefs.dart';
 import 'core/theme.dart';
+import 'modules/ssh/ssh_module.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 
@@ -17,8 +19,8 @@ void main() {
 }
 
 /// Modül kayıtları: yazıldıkça PlaceholderModule yerine gerçek modül konur.
-Map<String, MtModule> buildModules() => {
-      'sm': PlaceholderModule('sm', Icons.terminal, const Color(0xFF22D3EE)),
+Map<String, MtModule> buildModules([ModuleHost? host]) => {
+      'sm': host == null ? PlaceholderModule('sm', Icons.terminal, const Color(0xFF22D3EE)) : SshModule(host),
       'fm': PlaceholderModule('fm', Icons.cloud_sync_outlined, const Color(0xFFF59E0B)),
       'sq': PlaceholderModule('sq', Icons.storage_outlined, const Color(0xFF8B5CF6)),
       'np': PlaceholderModule('np', Icons.edit_note, const Color(0xFF10B981)),
@@ -34,14 +36,31 @@ class MasterToolApp extends StatefulWidget {
   State<MasterToolApp> createState() => _MasterToolAppState();
 }
 
-class _MasterToolAppState extends State<MasterToolApp> {
-  late final Map<String, MtModule> _modules = buildModules();
+class _MasterToolAppState extends State<MasterToolApp> with WidgetsBindingObserver {
+  late final ModuleHost _host = ModuleHost(widget.account);
+  late final Map<String, MtModule> _modules = buildModules(_host);
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     widget.prefs.init();
     widget.account.init();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _host.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      if (widget.account.signedIn) widget.account.refreshModules();
+      _host.resumeAll();
+    }
   }
 
   @override

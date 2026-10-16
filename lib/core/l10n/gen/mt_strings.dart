@@ -696,6 +696,1248 @@ abstract class MtStrings {
   /// In tr, this message translates to:
   /// **'Web sitesini ziyaret et'**
   String get mobVisitSite;
+
+  /// No description provided for @smAppSearchPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantılarda ara…  (Ctrl+F)'**
+  String get smAppSearchPh;
+
+  /// No description provided for @smAppNewConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni bağlantı'**
+  String get smAppNewConn;
+
+  /// No description provided for @smAppSplit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bölünmüş aç ({n})'**
+  String smAppSplit(String n);
+
+  /// No description provided for @smAppSplitTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçili bağlantıları tek pencerede bölünmüş aç'**
+  String get smAppSplitTitle;
+
+  /// No description provided for @smAppSettings.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ayarlar'**
+  String get smAppSettings;
+
+  /// No description provided for @smAppStats.
+  ///
+  /// In tr, this message translates to:
+  /// **'{c} bağlantı · {f} klasör'**
+  String smAppStats(String c, String f);
+
+  /// No description provided for @smAppWelcome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hoş geldiniz'**
+  String get smAppWelcome;
+
+  /// No description provided for @smAppResults.
+  ///
+  /// In tr, this message translates to:
+  /// **'“{q}” için sonuçlar'**
+  String smAppResults(String q);
+
+  /// No description provided for @smAppAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm bağlantılar'**
+  String get smAppAll;
+
+  /// No description provided for @smAppWelcomeHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlk SSH bağlantınızı oluşturun.<br>Sunucu bilgilerini girin, test edin ve kaydedin.'**
+  String get smAppWelcomeHint;
+
+  /// No description provided for @smAppFolders.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörler'**
+  String get smAppFolders;
+
+  /// No description provided for @smAppConnections.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantılar'**
+  String get smAppConnections;
+
+  /// No description provided for @smAppMultiHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ctrl+tık ile birden fazla seçip tek pencerede bölünmüş açabilirsiniz'**
+  String get smAppMultiHint;
+
+  /// No description provided for @smAppNoMatch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşleşen bağlantı bulunamadı.'**
+  String get smAppNoMatch;
+
+  /// No description provided for @smAppFolderCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} bağlantı'**
+  String smAppFolderCount(String n);
+
+  /// No description provided for @smAppFolderOpenSplit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasördeki bağlantıları bölünmüş aç'**
+  String get smAppFolderOpenSplit;
+
+  /// No description provided for @smAppNewConnHere.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu klasörde yeni bağlantı'**
+  String get smAppNewConnHere;
+
+  /// No description provided for @smAppNewSubfolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alt klasör oluştur'**
+  String get smAppNewSubfolder;
+
+  /// No description provided for @smAppKeyTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar'**
+  String get smAppKeyTag;
+
+  /// No description provided for @smAppLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son klasör'**
+  String get smAppLastDir;
+
+  /// No description provided for @smAppLastDirTag.
+  ///
+  /// In tr, this message translates to:
+  /// **'son klasör'**
+  String get smAppLastDirTag;
+
+  /// No description provided for @smAppMultiOpenSplit.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} bağlantıyı tek pencerede bölünmüş aç'**
+  String smAppMultiOpenSplit(String n);
+
+  /// No description provided for @smAppOpenSeparate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Her birini ayrı pencerede aç'**
+  String get smAppOpenSeparate;
+
+  /// No description provided for @smAppClearSelection.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçimi temizle'**
+  String get smAppClearSelection;
+
+  /// No description provided for @smAppSideBySide.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yan yana iki oturum aç'**
+  String get smAppSideBySide;
+
+  /// No description provided for @smAppDuplicate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kopyasını oluştur'**
+  String get smAppDuplicate;
+
+  /// No description provided for @smAppMoveToFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasöre taşı…'**
+  String get smAppMoveToFolder;
+
+  /// No description provided for @smAppResetLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son klasörü sıfırla'**
+  String get smAppResetLastDir;
+
+  /// No description provided for @smAppConnMoved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı taşındı'**
+  String get smAppConnMoved;
+
+  /// No description provided for @smAppFolderIntoSelf.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör kendi alt klasörüne taşınamaz'**
+  String get smAppFolderIntoSelf;
+
+  /// No description provided for @smAppFolderPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'ör. Üretim sunucuları'**
+  String get smAppFolderPh;
+
+  /// No description provided for @smAppRenameFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörü yeniden adlandır'**
+  String get smAppRenameFolder;
+
+  /// No description provided for @smAppDeleteFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasörü sil'**
+  String get smAppDeleteFolder;
+
+  /// No description provided for @smAppDeleteFolderMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> klasörü silinecek.'**
+  String smAppDeleteFolderMsg(String name);
+
+  /// No description provided for @smAppDeleteFolderConns.
+  ///
+  /// In tr, this message translates to:
+  /// **' İçindeki {n} bağlantı silinmez, bir üst klasöre taşınır.'**
+  String smAppDeleteFolderConns(String n);
+
+  /// No description provided for @smAppRootFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm bağlantılar (kök)'**
+  String get smAppRootFolder;
+
+  /// No description provided for @smAppMoveTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'“{name}” taşı'**
+  String smAppMoveTitle(String name);
+
+  /// No description provided for @smAppTargetFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef klasör'**
+  String get smAppTargetFolder;
+
+  /// No description provided for @smAppDeleteConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantıyı sil'**
+  String get smAppDeleteConn;
+
+  /// No description provided for @smAppDeleteConnMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'<b>{name}</b> ({target}) kalıcı olarak silinecek.'**
+  String smAppDeleteConnMsg(String name, String target);
+
+  /// No description provided for @smAppMaxPanes.
+  ///
+  /// In tr, this message translates to:
+  /// **'En fazla 6 bölme açılabilir'**
+  String get smAppMaxPanes;
+
+  /// No description provided for @smAppMaxPanesSub.
+  ///
+  /// In tr, this message translates to:
+  /// **'İlk 6 bağlantı açıldı'**
+  String get smAppMaxPanesSub;
+
+  /// No description provided for @smFormTitleNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni SSH bağlantısı'**
+  String get smFormTitleNew;
+
+  /// No description provided for @smFormTitleEdit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantıyı düzenle'**
+  String get smFormTitleEdit;
+
+  /// No description provided for @smFormName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı adı'**
+  String get smFormName;
+
+  /// No description provided for @smFormNamePh.
+  ///
+  /// In tr, this message translates to:
+  /// **'ör. Web sunucusu'**
+  String get smFormNamePh;
+
+  /// No description provided for @smFormHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'IP adresi / Sunucu'**
+  String get smFormHost;
+
+  /// No description provided for @smFormHostPh.
+  ///
+  /// In tr, this message translates to:
+  /// **'192.168.1.10 veya sunucu.com'**
+  String get smFormHostPh;
+
+  /// No description provided for @smFormPort.
+  ///
+  /// In tr, this message translates to:
+  /// **'Port'**
+  String get smFormPort;
+
+  /// No description provided for @smFormUser.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı adı'**
+  String get smFormUser;
+
+  /// No description provided for @smFormAuth.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimlik doğrulama'**
+  String get smFormAuth;
+
+  /// No description provided for @smFormPassword.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şifre'**
+  String get smFormPassword;
+
+  /// No description provided for @smFormPrivateKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Özel anahtar'**
+  String get smFormPrivateKey;
+
+  /// No description provided for @smFormPwSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'•••••••• (kayıtlı — değiştirmek için yazın)'**
+  String get smFormPwSaved;
+
+  /// No description provided for @smFormKeyFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar dosyası'**
+  String get smFormKeyFile;
+
+  /// No description provided for @smFormPassphrase.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar parolası (varsa)'**
+  String get smFormPassphrase;
+
+  /// No description provided for @smFormPassSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'•••••••• (kayıtlı)'**
+  String get smFormPassSaved;
+
+  /// No description provided for @smFormPassEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yoksa boş bırakın'**
+  String get smFormPassEmpty;
+
+  /// No description provided for @smFormFolder.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör'**
+  String get smFormFolder;
+
+  /// No description provided for @smFormColor.
+  ///
+  /// In tr, this message translates to:
+  /// **'Renk'**
+  String get smFormColor;
+
+  /// No description provided for @smFormPalette.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konsol renk paleti'**
+  String get smFormPalette;
+
+  /// No description provided for @smFormLastDir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son kaldığım klasöre git'**
+  String get smFormLastDir;
+
+  /// No description provided for @smFormLastDirHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanınca terminal ve dosya yöneticisi en son çalıştığınız klasörde açılır.'**
+  String get smFormLastDirHint;
+
+  /// No description provided for @smFormLastDirNow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şu an:'**
+  String get smFormLastDirNow;
+
+  /// No description provided for @smFormConnecting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanılıyor…'**
+  String get smFormConnecting;
+
+  /// No description provided for @smFormTestOk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı başarılı'**
+  String get smFormTestOk;
+
+  /// No description provided for @smFormHostKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Host anahtarı (SHA256): {fp}'**
+  String smFormHostKey(String fp);
+
+  /// No description provided for @smFormTestFail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı başarısız'**
+  String get smFormTestFail;
+
+  /// No description provided for @smFormSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kaydedildi'**
+  String get smFormSaved;
+
+  /// No description provided for @smFormChangesSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Değişiklikler kaydedildi'**
+  String get smFormChangesSaved;
+
+  /// No description provided for @smFormTest.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantıyı test et'**
+  String get smFormTest;
+
+  /// No description provided for @smFormSaveConnect.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kaydet ve bağlan'**
+  String get smFormSaveConnect;
+
+  /// No description provided for @smPaneToggleSidebar.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sol paneli aç/kapat (Ctrl+B)'**
+  String get smPaneToggleSidebar;
+
+  /// No description provided for @smPaneDefaultName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı'**
+  String get smPaneDefaultName;
+
+  /// No description provided for @smPaneSplitRight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sağa böl'**
+  String get smPaneSplitRight;
+
+  /// No description provided for @smPaneSplitDown.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aşağı böl'**
+  String get smPaneSplitDown;
+
+  /// No description provided for @smPaneReconnect.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden bağlan'**
+  String get smPaneReconnect;
+
+  /// No description provided for @smPaneClose.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bölmeyi kapat'**
+  String get smPaneClose;
+
+  /// No description provided for @smPaneSaveSelShortcut.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçimi kısayol olarak kaydet'**
+  String get smPaneSaveSelShortcut;
+
+  /// No description provided for @smPanePaletteMenu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konsol renk paleti…'**
+  String get smPanePaletteMenu;
+
+  /// No description provided for @smPaneSelectAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tümünü seç'**
+  String get smPaneSelectAll;
+
+  /// No description provided for @smPaneClear.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekranı temizle'**
+  String get smPaneClear;
+
+  /// No description provided for @smPaneStatusConnecting.
+  ///
+  /// In tr, this message translates to:
+  /// **'bağlanılıyor…'**
+  String get smPaneStatusConnecting;
+
+  /// No description provided for @smPaneStatusNoConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'bağlantı yok'**
+  String get smPaneStatusNoConn;
+
+  /// No description provided for @smPaneStatusClosed.
+  ///
+  /// In tr, this message translates to:
+  /// **'bağlantı kapandı'**
+  String get smPaneStatusClosed;
+
+  /// No description provided for @smTermConnecting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlanılıyor…'**
+  String get smTermConnecting;
+
+  /// No description provided for @smTermConnectFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kurulamadı:'**
+  String get smTermConnectFailed;
+
+  /// No description provided for @smTermRetryEnter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden denemek için Enter\'a basın.'**
+  String get smTermRetryEnter;
+
+  /// No description provided for @smTermClosed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kapandı.'**
+  String get smTermClosed;
+
+  /// No description provided for @smTermReconnectEnter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden bağlanmak için Enter\'a basın.'**
+  String get smTermReconnectEnter;
+
+  /// No description provided for @smTermMaxPanes.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir pencerede en fazla {n} bölme açılabilir'**
+  String smTermMaxPanes(String n);
+
+  /// No description provided for @smTermSessions.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} oturum'**
+  String smTermSessions(String n);
+
+  /// No description provided for @smTermToggleAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm sol panelleri aç/kapat'**
+  String get smTermToggleAll;
+
+  /// No description provided for @smTermSplitRightTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktif bölmeyi sağa böl (Ctrl+Shift+E)'**
+  String get smTermSplitRightTitle;
+
+  /// No description provided for @smTermSplitDownTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktif bölmeyi aşağı böl (Ctrl+Shift+O)'**
+  String get smTermSplitDownTitle;
+
+  /// No description provided for @smTermSyncOn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm bölmelere yazılıyor'**
+  String get smTermSyncOn;
+
+  /// No description provided for @smTermSyncOff.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm bölmelere yaz'**
+  String get smTermSyncOff;
+
+  /// No description provided for @smTermSyncTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yazdıklarınız tüm bağlı bölmelere gönderilir'**
+  String get smTermSyncTitle;
+
+  /// No description provided for @smPickerSearch.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı ara…'**
+  String get smPickerSearch;
+
+  /// No description provided for @smPickerSameServer.
+  ///
+  /// In tr, this message translates to:
+  /// **'aynı sunucu'**
+  String get smPickerSameServer;
+
+  /// No description provided for @smPickerNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eşleşen bağlantı yok'**
+  String get smPickerNone;
+
+  /// No description provided for @smPickerTitleRight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sağa böl — bağlantı seç'**
+  String get smPickerTitleRight;
+
+  /// No description provided for @smPickerTitleDown.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aşağı böl — bağlantı seç'**
+  String get smPickerTitleDown;
+
+  /// No description provided for @smPaletteTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konsol renk paleti'**
+  String get smPaletteTitle;
+
+  /// No description provided for @smPaletteHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçtiğiniz palet bu bölmede anında önizlenir. Kaydederseniz bu bağlantının ({name}) tüm oturumlarında kullanılır.'**
+  String smPaletteHint(String name);
+
+  /// No description provided for @smPaletteSaved.
+  ///
+  /// In tr, this message translates to:
+  /// **'Renk paleti kaydedildi'**
+  String get smPaletteSaved;
+
+  /// No description provided for @smScTitleNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni kısayol'**
+  String get smScTitleNew;
+
+  /// No description provided for @smScTitleEdit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayolu düzenle'**
+  String get smScTitleEdit;
+
+  /// No description provided for @smScName.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayol adı'**
+  String get smScName;
+
+  /// No description provided for @smScNamePh.
+  ///
+  /// In tr, this message translates to:
+  /// **'ör. Nginx yeniden başlat'**
+  String get smScNamePh;
+
+  /// No description provided for @smScCommand.
+  ///
+  /// In tr, this message translates to:
+  /// **'Komut'**
+  String get smScCommand;
+
+  /// No description provided for @smScEnter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yapıştırdıktan sonra Enter\'a bas'**
+  String get smScEnter;
+
+  /// No description provided for @smScEnterHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kapalıysa komut sadece imlecin olduğu yere yazılır, siz çalıştırırsınız.'**
+  String get smScEnterHint;
+
+  /// No description provided for @smScEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz kısayol yok.<br>Sık kullandığınız komutları <b>+</b> ile ekleyin, çift tıklayarak terminale yapıştırın.'**
+  String get smScEmpty;
+
+  /// No description provided for @smScItemTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çift tıkla: bu bölmenin terminaline yapıştır'**
+  String get smScItemTitle;
+
+  /// No description provided for @smScAutoEnter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Otomatik Enter'**
+  String get smScAutoEnter;
+
+  /// No description provided for @smScPaste.
+  ///
+  /// In tr, this message translates to:
+  /// **'Terminale yapıştır'**
+  String get smScPaste;
+
+  /// No description provided for @smScPasteNoEnter.
+  ///
+  /// In tr, this message translates to:
+  /// **'Enter olmadan yapıştır'**
+  String get smScPasteNoEnter;
+
+  /// No description provided for @smScPasteRun.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yapıştır ve çalıştır'**
+  String get smScPasteRun;
+
+  /// No description provided for @smScCopy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Panoya kopyala'**
+  String get smScCopy;
+
+  /// No description provided for @smScNew.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeni kısayol'**
+  String get smScNew;
+
+  /// No description provided for @smSbShortcuts.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayollar'**
+  String get smSbShortcuts;
+
+  /// No description provided for @smSbAddShortcut.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kısayol ekle'**
+  String get smSbAddShortcut;
+
+  /// No description provided for @smSbServer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu'**
+  String get smSbServer;
+
+  /// No description provided for @smSbServerHost.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu · {host}'**
+  String smSbServerHost(String host);
+
+  /// No description provided for @smSbFollow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Terminal klasörünü takip et'**
+  String get smSbFollow;
+
+  /// No description provided for @smSbHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ev klasörü'**
+  String get smSbHome;
+
+  /// No description provided for @smSbUp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Üst klasör'**
+  String get smSbUp;
+
+  /// No description provided for @smSbComputer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bilgisayarım'**
+  String get smSbComputer;
+
+  /// No description provided for @smSbPlaces.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürücüler ve konumlar'**
+  String get smSbPlaces;
+
+  /// No description provided for @smSbResize.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürükleyerek genişliği değiştirin'**
+  String get smSbResize;
+
+  /// No description provided for @smFmLoading.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleniyor…'**
+  String get smFmLoading;
+
+  /// No description provided for @smFmOpenFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açılamadı: {msg}'**
+  String smFmOpenFailed(String msg);
+
+  /// No description provided for @smFmEmpty.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör boş'**
+  String get smFmEmpty;
+
+  /// No description provided for @smFmNoConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı yok.'**
+  String get smFmNoConn;
+
+  /// No description provided for @smFmClosed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı kapandı.'**
+  String get smFmClosed;
+
+  /// No description provided for @smFmWaiting.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı bekleniyor…'**
+  String get smFmWaiting;
+
+  /// No description provided for @smFmDownloadTo.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndir → {path}'**
+  String smFmDownloadTo(String path);
+
+  /// No description provided for @smFmUploadTo.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükle → {path}'**
+  String smFmUploadTo(String path);
+
+  /// No description provided for @smFmServer.
+  ///
+  /// In tr, this message translates to:
+  /// **'sunucu'**
+  String get smFmServer;
+
+  /// No description provided for @smFmCdHere.
+  ///
+  /// In tr, this message translates to:
+  /// **'Terminalde bu klasöre git'**
+  String get smFmCdHere;
+
+  /// No description provided for @smFmPastePath.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yolu terminale yapıştır'**
+  String get smFmPastePath;
+
+  /// No description provided for @smFmDeleteWhat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sil ({what})'**
+  String smFmDeleteWhat(String what);
+
+  /// No description provided for @smFmNItems.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} öğe'**
+  String smFmNItems(String n);
+
+  /// No description provided for @smFmOpenDefault.
+  ///
+  /// In tr, this message translates to:
+  /// **'Varsayılan uygulamayla aç'**
+  String get smFmOpenDefault;
+
+  /// No description provided for @smFmReveal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezgin’de göster'**
+  String get smFmReveal;
+
+  /// No description provided for @smFmOpenExplorer.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gezgin’de aç'**
+  String get smFmOpenExplorer;
+
+  /// No description provided for @smFmFollowing.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya yöneticisi terminal klasörünü takip ediyor'**
+  String get smFmFollowing;
+
+  /// No description provided for @smFmFollowOff.
+  ///
+  /// In tr, this message translates to:
+  /// **'Takip kapatıldı'**
+  String get smFmFollowOff;
+
+  /// No description provided for @smFmNewRemote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuda yeni klasör'**
+  String get smFmNewRemote;
+
+  /// No description provided for @smFmDeleteTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucudan sil'**
+  String get smFmDeleteTitle;
+
+  /// No description provided for @smFmAndMore.
+  ///
+  /// In tr, this message translates to:
+  /// **' ve {n} öğe daha'**
+  String smFmAndMore(String n);
+
+  /// No description provided for @smFmDeleteMsg.
+  ///
+  /// In tr, this message translates to:
+  /// **'{names} sunucudan <b>kalıcı olarak</b> silinecek. Klasörler içerikleriyle birlikte silinir.'**
+  String smFmDeleteMsg(String names);
+
+  /// No description provided for @smPlaceDesktop.
+  ///
+  /// In tr, this message translates to:
+  /// **'Masaüstü'**
+  String get smPlaceDesktop;
+
+  /// No description provided for @smPlaceDownloads.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirilenler'**
+  String get smPlaceDownloads;
+
+  /// No description provided for @smPlaceDocuments.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belgeler'**
+  String get smPlaceDocuments;
+
+  /// No description provided for @smPlaceHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kullanıcı klasörü'**
+  String get smPlaceHome;
+
+  /// No description provided for @smPlaceDrive.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yerel Disk ({d})'**
+  String smPlaceDrive(String d);
+
+  /// No description provided for @smErrNoConn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı yok'**
+  String get smErrNoConn;
+
+  /// No description provided for @smErrConnectFirst.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önce sunucuya bağlanın'**
+  String get smErrConnectFirst;
+
+  /// No description provided for @smErrMkdir.
+  ///
+  /// In tr, this message translates to:
+  /// **'Klasör oluşturulamadı'**
+  String get smErrMkdir;
+
+  /// No description provided for @smErrRename.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeniden adlandırılamadı'**
+  String get smErrRename;
+
+  /// No description provided for @smErrDelete.
+  ///
+  /// In tr, this message translates to:
+  /// **'Silinemedi: {name}'**
+  String smErrDelete(String name);
+
+  /// No description provided for @smTrPanelTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarımlar'**
+  String get smTrPanelTitle;
+
+  /// No description provided for @smTrClearDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bitenleri temizle'**
+  String get smTrClearDone;
+
+  /// No description provided for @smTrQueued.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sırada'**
+  String get smTrQueued;
+
+  /// No description provided for @smTrScanning.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosyalar taranıyor…'**
+  String get smTrScanning;
+
+  /// No description provided for @smTrFileCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{i} / {n} dosya'**
+  String smTrFileCount(String i, String n);
+
+  /// No description provided for @smTrEta.
+  ///
+  /// In tr, this message translates to:
+  /// **'~{time} kaldı'**
+  String smTrEta(String time);
+
+  /// No description provided for @smTrDownloading.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndiriliyor: {name}'**
+  String smTrDownloading(String name);
+
+  /// No description provided for @smTrUploading.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleniyor: {name}'**
+  String smTrUploading(String name);
+
+  /// No description provided for @smTrDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tamamlandı'**
+  String get smTrDone;
+
+  /// No description provided for @smTrCancelled.
+  ///
+  /// In tr, this message translates to:
+  /// **'İptal edildi'**
+  String get smTrCancelled;
+
+  /// No description provided for @smTrFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başarısız'**
+  String get smTrFailed;
+
+  /// No description provided for @smTrRemoveFromList.
+  ///
+  /// In tr, this message translates to:
+  /// **'Listeden kaldır'**
+  String get smTrRemoveFromList;
+
+  /// No description provided for @smTrAlwaysBackground.
+  ///
+  /// In tr, this message translates to:
+  /// **'Büyük aktarımları bundan sonra hep arka planda göster'**
+  String get smTrAlwaysBackground;
+
+  /// No description provided for @smTrShowInBackground.
+  ///
+  /// In tr, this message translates to:
+  /// **'Arka planda göster'**
+  String get smTrShowInBackground;
+
+  /// No description provided for @smTrDownloadDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirme tamamlandı'**
+  String get smTrDownloadDone;
+
+  /// No description provided for @smTrUploadDone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yükleme tamamlandı'**
+  String get smTrUploadDone;
+
+  /// No description provided for @smTrDownloadFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'İndirilemedi: {name}'**
+  String smTrDownloadFailed(String name);
+
+  /// No description provided for @smTrUploadFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yüklenemedi: {name}'**
+  String smTrUploadFailed(String name);
+
+  /// No description provided for @smTrCancelledToast.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktarım iptal edildi'**
+  String get smTrCancelledToast;
+
+  /// No description provided for @smTimeHm.
+  ///
+  /// In tr, this message translates to:
+  /// **'{h} sa {m} dk'**
+  String smTimeHm(String h, String m);
+
+  /// No description provided for @smTimeMs.
+  ///
+  /// In tr, this message translates to:
+  /// **'{m} dk {s} sn'**
+  String smTimeMs(String m, String s);
+
+  /// No description provided for @smTimeS.
+  ///
+  /// In tr, this message translates to:
+  /// **'{s} sn'**
+  String smTimeS(String s);
+
+  /// No description provided for @smMainErrAuth.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kimlik doğrulama başarısız: kullanıcı adı veya şifre hatalı.'**
+  String get smMainErrAuth;
+
+  /// No description provided for @smMainErrRefused.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı reddedildi: port kapalı veya SSH servisi çalışmıyor.'**
+  String get smMainErrRefused;
+
+  /// No description provided for @smMainErrTimeout.
+  ///
+  /// In tr, this message translates to:
+  /// **'Zaman aşımı: sunucuya ulaşılamadı.'**
+  String get smMainErrTimeout;
+
+  /// No description provided for @smMainErrDns.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adı çözümlenemedi (DNS).'**
+  String get smMainErrDns;
+
+  /// No description provided for @smMainErrUnreach.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya ağ üzerinden ulaşılamıyor.'**
+  String get smMainErrUnreach;
+
+  /// No description provided for @smMainErrKeyFile.
+  ///
+  /// In tr, this message translates to:
+  /// **'Anahtar dosyası bulunamadı.'**
+  String get smMainErrKeyFile;
+
+  /// No description provided for @smMainErrHostKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu host anahtarı değişmiş! Kayıtlı: {oldFp}, gelen: {newFp}. Güvenlik nedeniyle bağlantı reddedildi.'**
+  String smMainErrHostKey(String newFp, String oldFp);
+
+  /// No description provided for @smMainErrConnNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bağlantı bulunamadı'**
+  String get smMainErrConnNotFound;
+
+  /// No description provided for @smMainErrNoSession.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aktif SSH oturumu yok'**
+  String get smMainErrNoSession;
+
+  /// No description provided for @smMainErrHostUser.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucu adresi ve kullanıcı adı gerekli.'**
+  String get smMainErrHostUser;
+
+  /// No description provided for @smMainTrayShow.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH Master’ı göster'**
+  String get smMainTrayShow;
+
+  /// No description provided for @smMainTrayQuick.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hızlı bağlan'**
+  String get smMainTrayQuick;
+
+  /// No description provided for @smMainTrayNone.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıtlı bağlantı yok'**
+  String get smMainTrayNone;
+
+  /// No description provided for @smMainTrayQuit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çıkış'**
+  String get smMainTrayQuit;
+
+  /// No description provided for @smMainBalloonTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'SSH Master arka planda çalışıyor'**
+  String get smMainBalloonTitle;
+
+  /// No description provided for @smMainBalloonBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tekrar açmak için tepsideki simgeye tıklayın.'**
+  String get smMainBalloonBody;
+
+  /// No description provided for @smMainPickKey.
+  ///
+  /// In tr, this message translates to:
+  /// **'Özel anahtar dosyası seç'**
+  String get smMainPickKey;
+
+  /// No description provided for @smMainCopySuffix.
+  ///
+  /// In tr, this message translates to:
+  /// **' (kopya)'**
+  String get smMainCopySuffix;
+
+  /// No description provided for @smMainDefDisk.
+  ///
+  /// In tr, this message translates to:
+  /// **'Disk kullanımı'**
+  String get smMainDefDisk;
+
+  /// No description provided for @smMainDefMem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bellek'**
+  String get smMainDefMem;
+
+  /// No description provided for @smMainDefTop.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süreçler (top)'**
+  String get smMainDefTop;
+
+  /// No description provided for @smAppNotesLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Notlar'**
+  String get smAppNotesLabel;
 }
 
 class _MtStringsDelegate extends LocalizationsDelegate<MtStrings> {
