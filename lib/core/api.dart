@@ -10,11 +10,13 @@ import 'package:http/http.dart' as http;
 const kDefaultBaseUrls = ['https://mastertool.download'];
 
 class MtError implements Exception {
-  MtError(this.status, this.code, this.message, {this.detail});
+  MtError(this.status, this.code, this.message, {this.detail, this.body = const {}});
   final int status;
   final String code;
   final String message;
   final Object? detail;
+  /// Sunucu gövdesinin tamamı (409 çakışmada {version, blob} buradan okunur)
+  final Map<String, dynamic> body;
   bool get sessionExpired => status == 401 && code != 'bad_credentials';
   bool get network => status == 0;
   @override
@@ -69,7 +71,7 @@ class MtApi {
     }
     if (res.statusCode >= 200 && res.statusCode < 300) return j;
     throw MtError(res.statusCode, (j['code'] ?? 'http_${res.statusCode}').toString(),
-        (j['message'] ?? 'İstek başarısız (${res.statusCode})').toString(), detail: j['detail']);
+        (j['message'] ?? 'İstek başarısız (${res.statusCode})').toString(), detail: j['detail'], body: j);
   }
 
   // ---- Master Tool (ortak oturum)

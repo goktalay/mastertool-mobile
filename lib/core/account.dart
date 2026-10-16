@@ -5,6 +5,7 @@
 //  • encKey(modül) = HKDF(master, "<önek>-enc-v1") — masaüstüyle aynı; kitaplık senkronu bu anahtarla çözülür.
 //  • Herhangi bir istekte 401 (session_expired): sunucu aileyi kapatmıştır → yerel oturum silinir, giriş ekranına dönülür.
 //    Yerel veriler (bağlantılar, projeler, ayarlar) SİLİNMEZ.
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -247,4 +248,3 @@ class AccountService extends ChangeNotifier {
   }
 }
 
-void unawaited(Future<void> f) {}
