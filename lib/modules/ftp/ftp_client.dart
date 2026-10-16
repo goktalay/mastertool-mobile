@@ -76,7 +76,7 @@ class FtpClient {
     }
     final f = await cmd('FEAT');
     final feat = f.text.toUpperCase();
-    _mlsd = feat.contains('MLSD');
+    _mlsd = feat.contains('MLSD') || feat.contains('MLST');   // MLST ilan eden sunucu MLSD'yi de destekler
     if (feat.contains('UTF8') && encoding != 'ascii') {
       await cmd('OPTS UTF8 ON');
       _utf8 = true;
@@ -103,6 +103,7 @@ class FtpClient {
   }
 
   void _attach(Socket sock) {
+    if (_ctl != null && _ctl != sock) unawaited(_lines.cancel());   // TLS'e geçişte eski düz soket dinleyicisi bırakılır
     _ctl = sock;
     _lines = StreamQueue(sock.cast<List<int>>().transform(latin1.decoder).transform(const LineSplitter()));
   }
@@ -166,10 +167,15 @@ class FtpClient {
   Future<List<int>> _dataAll(String command) async {
     final sock = await _data(command);
     final out = <int>[];
-    await for (final chunk in sock) {
-      out.addAll(chunk);
+    try {
+      await for (final chunk in sock) {
+        out.addAll(chunk);
+      }
+    } finally {
+      sock.destroy();
     }
-    await _read(); // 226
+    final r = await _read(); // 226
+    if (!r.ok) throw FtpException(r.text, code: r.code);
     return out;
   }
 
@@ -193,8 +199,14 @@ class FtpClient {
         _mlsd = false;
       }
     }
-    final raw = _enc.decode(await _dataAll('LIST -a $p'));
-    return _parseList(raw);
+    List<int> data;
+    try {
+      data = await _dataAll('LIST -a $p');   // gizli dosyalar; desteklemeyen sunucuda düz LIST
+    } on FtpException catch (e) {
+      if (e.code != 550 && e.code != 501 && e.code != 500) rethrow;
+      data = await _dataAll('LIST $p');
+    }
+    return _parseList(_enc.decode(data));
   }
 
   List<RemoteEntry> _parseMlsd(String raw) {
@@ -292,10 +304,14 @@ class FtpClient {
   Stream<List<int>> download(String path, {int offset = 0, void Function(int)? onProgress}) async* {
     final sock = await _data('RETR $path', rest: offset);
     var n = offset;
-    await for (final chunk in sock) {
-      n += chunk.length;
-      onProgress?.call(n);
-      yield chunk;
+    try {
+      await for (final chunk in sock) {
+        n += chunk.length;
+        onProgress?.call(n);
+        yield chunk;
+      }
+    } finally {
+      sock.destroy();
     }
     final r = await _read();
     if (!r.ok) throw FtpException(r.text, code: r.code);
@@ -303,14 +319,20 @@ class FtpClient {
 
   Future<void> upload(String path, Stream<List<int>> data, {bool append = false, void Function(int)? onProgress}) async {
     final sock = await _data(append ? 'APPE $path' : 'STOR $path');
+    final drain = sock.listen((_) {}, onError: (_) {}, cancelOnError: true);   // TLS'te karşı tarafın close_notify'ı işlensin
     var n = 0;
-    await for (final chunk in data) {
-      sock.add(chunk);
-      n += chunk.length;
-      onProgress?.call(n);
+    try {
+      await for (final chunk in data) {
+        sock.add(chunk);
+        n += chunk.length;
+        onProgress?.call(n);
+      }
+      await sock.flush();
+      await sock.close().timeout(const Duration(seconds: 5), onTimeout: () {});
+    } finally {
+      sock.destroy();   // TCP'yi kesin kapat: sunucu EOF görüp 226 gönderir
+      await drain.cancel();
     }
-    await sock.flush();
-    await sock.close();
     final r = await _read();
     if (!r.ok) throw FtpException(r.text, code: r.code);
   }

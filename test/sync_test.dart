@@ -6,8 +6,19 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:master_tool/core/account.dart';
 import 'package:master_tool/core/sync.dart';
+import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
+
+class _FakePath extends PathProviderPlatform {
+  _FakePath(this.dir);
+  final String dir;
+  @override
+  Future<String?> getApplicationSupportPath() async => dir;
+}
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  PathProviderPlatform.instance = _FakePath(Directory.systemTemp.createTempSync('mtsync').path);
+
   test('stable(): anahtarlar alfabetik, dizi sırası korunur, null', () {
     expect(stableJson({'b': 1, 'a': [3, {'z': null, 'y': 'ü'}]}), '{"a":[3,{"y":"ü","z":null}],"b":1}');
   });
