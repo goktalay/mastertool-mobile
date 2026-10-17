@@ -52,3 +52,4 @@ android/upload.jks
 android/key.properties
 *.p12
 *.mobileprovision
+test/promo/
