@@ -25,6 +25,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with: { flutter-version: ${{ env.FLUTTER_VERSION }}, channel: stable, cache: true }
       - run: flutter pub get
+      - run: ./tools/prepare_duckdb.sh   # dart_duckdb: yayımlanmış DuckDB ikilileri (bkz. betik)
       - run: flutter gen-l10n
       - run: flutter analyze
       - run: flutter test
@@ -51,7 +52,7 @@ jobs:
           keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
           keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
           EOF
-      - run: flutter pub get && flutter gen-l10n
+      - run: flutter pub get && ./tools/prepare_duckdb.sh && flutter gen-l10n
       - name: Sürüm numarası etiketten
         run: echo "BUILD_NAME=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV && echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
       - run: flutter build appbundle --release --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER
@@ -102,7 +103,7 @@ jobs:
           security list-keychain -d user -s "$KC"
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           echo "$PROV_B64" | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/mastertool.mobileprovision
-      - run: flutter pub get && flutter gen-l10n
+      - run: flutter pub get && ./tools/prepare_duckdb.sh && flutter gen-l10n
       - name: Sürüm numarası etiketten
         run: echo "BUILD_NAME=${GITHUB_REF_NAME#v}" >> $GITHUB_ENV && echo "BUILD_NUMBER=${{ github.run_number }}" >> $GITHUB_ENV
       - run: flutter build ipa --release --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER --export-options-plist=ios/ExportOptions.plist
