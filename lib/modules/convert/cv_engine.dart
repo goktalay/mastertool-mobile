@@ -4,7 +4,12 @@
 //  • Sıra: projenin "aynı anda" ayarı (mobilde en çok 2). Resim: saf Dart `image` (isolate); video/ses: FFmpegKit, ilerleme
 //    Statistics.time / süre; iptal FFmpegKit.cancel(sessionId).
 //  • Dönüştürme işlevi (CvConvertFn) enjekte edilebilir — testlerde FFmpegKit çağrılmaz.
+//  • Metin işleri (masaüstü jobs.js speech/ocr kuyruğu): proje speech.enabled (video/ses → whisper) ya da ocr.enabled (resim →
+//    ML Kit) ise Başlat ile dönüştürmeden bağımsız ayrı kuyruğa girer (aynı anda 1); tek dosya için kapalıyken de çalıştırılır.
+//    Çıktı: <belgeler>/cv/text/<projeId>/<kök>.json (konuşma: cümleler; OCR: satırlar+koordinat) + <kök>.srt (konuşma) / <kök>.txt (OCR).
+//    Motorlar (CvOcrEngine, CvSpeechEngine), model deposu ve WAV dönüşümü enjekte edilebilir — testlerde native kütüphane yoktur.
 import 'dart:async';
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:ffmpeg_kit_flutter_new_full/ffmpeg_kit.dart';
@@ -18,8 +23,35 @@ import 'cv_ffmpeg_args.dart';
 import 'cv_formats.dart';
 import 'cv_image.dart';
 import 'cv_model.dart';
+import 'cv_ocr.dart';
+import 'cv_speech.dart';
+import 'cv_text_formats.dart';
 
 enum CvStatus { pending, queued, converting, done, error, canceled }
+
+/// Metin işinin aşaması (ilerleme belirsiz; aşama gösterilir): model indirme (ilerleme bilinir), WAV'a çevirme, tanıma.
+enum CvTextPhase { none, download, wav, run }
+
+/// Konuşma / OCR işi durumu (jobs[name].text). `out` metin JSON dosyası (text klasörüne göre), `count` cümle / satır sayısı,
+/// `note` 'no_audio' (sessiz dosya) ya da 'no_text' (metin bulunamadı), `lang` konuşma dili (seçilen; auto → '').
+class CvTextJob {
+  CvTextJob({this.status = CvStatus.pending, this.progress = 0, this.phase = CvTextPhase.none, this.out, this.count = 0, this.note, this.lang = '', this.error});
+  CvStatus status;
+  double progress;
+  CvTextPhase phase;
+  String? out;
+  int count;
+  String? note;
+  String lang;
+  String? error;
+  Map<String, dynamic> toJson() => {'status': status.name, 'out': out, 'count': count, 'note': note, 'lang': lang, 'error': error};
+  factory CvTextJob.fromJson(Map<String, dynamic> j) {
+    final st = CvStatus.values.where((x) => x.name == j['status']).firstOrNull ?? CvStatus.pending;
+    return CvTextJob(status: st == CvStatus.converting || st == CvStatus.queued ? CvStatus.pending : st, progress: st == CvStatus.done ? 1 : 0,
+        out: j['out'] as String?, count: (j['count'] as num?)?.toInt() ?? 0, note: j['note'] as String?, lang: (j['lang'] ?? '').toString(), error: j['error'] as String?);
+  }
+  void reset() { status = CvStatus.pending; progress = 0; phase = CvTextPhase.none; out = null; count = 0; note = null; error = null; }
+}
 
 class CvSource {
   CvSource({required this.name, required this.size, required this.mtime});
@@ -30,17 +62,20 @@ class CvSource {
 }
 
 class CvJob {
-  CvJob({this.status = CvStatus.pending, this.progress = 0, this.out, this.outSize = 0, this.error});
+  CvJob({this.status = CvStatus.pending, this.progress = 0, this.out, this.outSize = 0, this.error, CvTextJob? text}) : text = text ?? CvTextJob();
   CvStatus status;
   double progress;
   String? out; // çıktı dosya adı (klasöre göre)
   int outSize;
   String? error; // hata kodu ya da ffmpeg mesajı
-  Map<String, dynamic> toJson() => {'status': status.name, 'out': out, 'outSize': outSize, 'error': error};
+  /// Konuşma / OCR işi (dönüştürmeden bağımsız).
+  final CvTextJob text;
+  Map<String, dynamic> toJson() => {'status': status.name, 'out': out, 'outSize': outSize, 'error': error, 'text': text.toJson()};
   factory CvJob.fromJson(Map<String, dynamic> j) {
     final st = CvStatus.values.where((x) => x.name == j['status']).firstOrNull ?? CvStatus.pending;
+    final t = (j['text'] as Map?)?.cast<String, dynamic>();
     return CvJob(status: st == CvStatus.converting || st == CvStatus.queued ? CvStatus.pending : st, progress: st == CvStatus.done ? 1 : 0,
-        out: j['out'] as String?, outSize: (j['outSize'] as num?)?.toInt() ?? 0, error: j['error'] as String?);
+        out: j['out'] as String?, outSize: (j['outSize'] as num?)?.toInt() ?? 0, error: j['error'] as String?, text: t == null ? null : CvTextJob.fromJson(t));
   }
 }
 
@@ -48,6 +83,14 @@ class CvCancelToken {
   bool canceled = false;
   int? sessionId;
   void Function()? onCancel;
+}
+
+/// Metin işinin iptali: aşamaya göre indirme döngüsü, FFmpeg oturumu ya da whisper abort.
+class CvTextCancelToken {
+  bool canceled = false;
+  final List<void Function()> _hooks = [];
+  void onCancel(void Function() f) { if (canceled) { f(); } else { _hooks.add(f); } }
+  void cancel() { canceled = true; for (final f in _hooks.toList()) { f(); } _hooks.clear(); }
 }
 
 /// Bir kaynağı dönüştürür; çıktı boyutunu döner. Hata: CvConvertError.
@@ -68,30 +111,61 @@ Future<int> dirSize(Directory d) async {
 }
 
 class CvRunner extends ChangeNotifier {
-  CvRunner({required this.projectId, required this.engine, required this.baseDir, CvConvertFn? convert}) : _convert = convert ?? cvConvertDefault {
+  CvRunner({required this.projectId, required this.engine, required this.baseDir, CvConvertFn? convert, CvOcrEngine? ocr, CvSpeechEngine? speech, CvSpeechModels? models, CvWavFn? toWav, Future<CvMediaInfo> Function(String path)? probe})
+      : _convert = convert ?? cvConvertDefault, _ocr = ocr, _speech = speech, _toWav = toWav ?? cvToWavDefault, _probe = probe ?? cvProbe, // ignore: prefer_initializing_formals
+        models = models ?? CvSpeechModels(Directory('${baseDir.path}/models')) {
     _load();
   }
   final String projectId;
   final SyncEngine engine;
   final Directory baseDir;
   final CvConvertFn _convert;
+  final CvOcrEngine? _ocr;
+  final CvSpeechEngine? _speech;
+  final CvWavFn _toWav;
+  final Future<CvMediaInfo> Function(String path) _probe;
+  /// Konuşma modeli deposu (projeler arası paylaşılır: CvRunners.of aynı örneği verir).
+  final CvSpeechModels models;
+
+  /// Motorlar yoksa (testler) varsayılanlar: ML Kit ve whisper_ggml_plus.
+  CvOcrEngine get ocrEngine => _ocr ?? (_defaultOcr ??= CvMlKitOcr());
+  CvSpeechEngine get speechEngine => _speech ?? (_defaultSpeech ??= CvWhisperEngine());
+  static CvOcrEngine? _defaultOcr;
+  static CvSpeechEngine? _defaultSpeech;
 
   final List<CvSource> sources = [];
   final Map<String, CvJob> jobs = {};
   final Map<String, CvCancelToken> _active = {};
   final List<String> _queue = [];
+  final Map<String, CvTextCancelToken> _textActive = {};
+  final List<String> _textQueue = [];
   bool running = false;
+  bool _disposed = false;
+
+  /// İşler dispose sonrasında da bitebilir (iptal → finally): bildirim sessizce yutulur.
+  @override
+  void notifyListeners() { if (!_disposed) super.notifyListeners(); }
+
+  @override
+  void dispose() { _disposed = true; super.dispose(); }
 
   Directory get srcDir => Directory('${baseDir.path}/src/$projectId');
   Directory get outDir => Directory('${baseDir.path}/converted/$projectId');
+  Directory get textDir => Directory('${baseDir.path}/text/$projectId');
   CvProject? get project { final it = engine.library.items[projectId]; return it == null ? null : CvProject(projectId, it.$2); }
   int get activeCount => _active.length;
   int get doneCount => jobs.values.where((j) => j.status == CvStatus.done).length;
   int get errorCount => jobs.values.where((j) => j.status == CvStatus.error).length;
   int get outTotal => jobs.values.fold(0, (a, j) => a + (j.status == CvStatus.done ? j.outSize : 0));
   double get overall => sources.isEmpty ? 0 : sources.fold(0.0, (a, s) => a + (jobs[s.name]?.status == CvStatus.done ? 1 : jobs[s.name]?.progress ?? 0)) / sources.length;
+  int get textActiveCount => _textActive.length;
+  int get textQueuedCount => _textQueue.length;
+  int get textDoneCount => jobs.values.where((j) => j.text.status == CvStatus.done).length;
+  bool get textRunning => _textActive.isNotEmpty || _textQueue.isNotEmpty;
   String srcPath(String name) => '${srcDir.path}/$name';
   String? outPath(String name) { final o = jobs[name]?.out; return o == null ? null : '${outDir.path}/$o'; }
+  String? textPath(String name) { final o = jobs[name]?.text.out; return o == null ? null : '${textDir.path}/$o'; }
+  static String baseName(String name) { final ext = extOf(name); return ext.isEmpty ? name : name.substring(0, name.length - ext.length - 1); }
 
   void _load() {
     final p = project;
@@ -161,8 +235,10 @@ class CvRunner extends ChangeNotifier {
 
   Future<void> remove(String name) async {
     cancel(name);
+    cancelText(name);
     sources.removeWhere((s) => s.name == name);
     await deleteOutput(name, persist: false);
+    await deleteText(name, persist: false);
     jobs.remove(name);
     try { await File(srcPath(name)).delete(); } catch (_) {}
     notifyListeners();
@@ -178,23 +254,162 @@ class CvRunner extends ChangeNotifier {
     if (persist) await _persist();
   }
 
+  /// Çevrilmiş dosyaları ve metinleri siler (masaüstü: metinler isteğe bağlı; mobilde birlikte).
   Future<void> clearOutputs() async {
     stop();
     try { await outDir.delete(recursive: true); } catch (_) {}
-    for (final j in jobs.values) { j..status = CvStatus.pending..progress = 0..out = null..outSize = 0..error = null; }
+    try { await textDir.delete(recursive: true); } catch (_) {}
+    for (final j in jobs.values) { j..status = CvStatus.pending..progress = 0..out = null..outSize = 0..error = null; j.text.reset(); }
     notifyListeners();
     await _persist();
   }
 
-  /// Başlat: bitmemiş tüm dosyalar sıraya girer.
+  /// Başlat: bitmemiş tüm dosyalar sıraya girer; projede açıksa metin işleri de.
   void start() {
     running = true;
+    final p = project;
+    final text = p != null && p.textEnabled;
     for (final s in sources) {
       final j = jobs.putIfAbsent(s.name, CvJob.new);
       if (j.status == CvStatus.pending || j.status == CvStatus.error || j.status == CvStatus.canceled) { j.status = CvStatus.queued; j.error = null; _queue.add(s.name); }
+      final t = j.text;
+      if (text && (t.status == CvStatus.pending || t.status == CvStatus.error || t.status == CvStatus.canceled) && !_textQueue.contains(s.name)) { t.status = CvStatus.queued; t.error = null; _textQueue.add(s.name); }
     }
     notifyListeners();
     _pump();
+    _pumpText();
+  }
+
+  /// Tek dosyayı (yeniden) metne çevir / metnini oku — projede kapalıyken de (masaüstü "İsterseniz şimdi çalıştırın").
+  void transcribeOne(String name) {
+    final t = jobs.putIfAbsent(name, CvJob.new).text;
+    if (t.status == CvStatus.converting || t.status == CvStatus.queued) return;
+    t..status = CvStatus.queued..progress = 0..error = null;
+    _textQueue.add(name);
+    notifyListeners();
+    _pumpText();
+  }
+
+  void cancelText(String name) {
+    _textActive[name]?.cancel();
+    _textQueue.remove(name);
+    final t = jobs[name]?.text;
+    if (t != null && t.status == CvStatus.queued) t.status = CvStatus.pending;
+  }
+
+  Future<void> deleteText(String name, {bool persist = true}) async {
+    final j = jobs[name];
+    if (j == null) return;
+    final base = baseName(name);
+    for (final f in ['$base.json', '$base.srt', '$base.txt']) { try { await File('${textDir.path}/$f').delete(); } catch (_) {} }
+    if (j.text.status != CvStatus.converting) j.text.reset();
+    notifyListeners();
+    if (persist) await _persist();
+  }
+
+  void _pumpText() {
+    final p = project;
+    if (p == null) return;
+    while (_textActive.isEmpty && _textQueue.isNotEmpty) { // mobilde aynı anda 1 metin işi
+      final name = _textQueue.removeAt(0);
+      unawaited(_runText(p, name));
+    }
+    if (_textActive.isEmpty && _textQueue.isEmpty && (_speech != null || _defaultSpeech != null)) unawaited(speechEngine.release());
+    notifyListeners();
+  }
+
+  Future<void> _runText(CvProject p, String name) async {
+    final t = jobs.putIfAbsent(name, CvJob.new).text;
+    final token = CvTextCancelToken();
+    _textActive[name] = token;
+    t..status = CvStatus.converting..progress = 0..phase = CvTextPhase.run..out = null..count = 0..note = null..error = null;
+    notifyListeners();
+    await textDir.create(recursive: true);
+    final base = baseName(name);
+    String? wav;
+    try {
+      if (p.type == 'image') {
+        final r = await ocrEngine.recognize(srcPath(name), p.ocrLanguages, workDir: textDir, isCanceled: () => token.canceled);
+        if (token.canceled) throw CvConvertError('canceled');
+        await File('${textDir.path}/$base.json').writeAsString(jsonEncode(r.toJson()), flush: true);
+        await File('${textDir.path}/$base.txt').writeAsString(exportOcr(r, 'txt'), flush: true);
+        t..status = CvStatus.done..progress = 1..out = '$base.json'..count = r.lines.length..note = r.lines.isEmpty ? 'no_text' : null;
+      } else {
+        final info = await _probe(srcPath(name));
+        if (info.unreadable) throw CvConvertError('unreadable');
+        if (!info.hasAudio) {
+          await File('${textDir.path}/$base.json').writeAsString('[]', flush: true);
+          t..status = CvStatus.done..progress = 1..out = '$base.json'..count = 0..note = 'no_audio';
+        } else {
+          final modelKey = mobileSpeechModel(p.speechModel);
+          t.phase = CvTextPhase.download;
+          notifyListeners();
+          final modelPath = await models.ensure(modelKey, onProgress: (v) { t.progress = v; notifyListeners(); }, isCanceled: () => token.canceled);
+          if (token.canceled) throw CvConvertError('canceled');
+          t..phase = CvTextPhase.wav..progress = 0;
+          notifyListeners();
+          wav = '${textDir.path}/.~$base.wav';
+          await _toWav(srcPath(name), wav, (sid) => token.onCancel(() => FFmpegKit.cancel(sid)));
+          if (token.canceled) throw CvConvertError('canceled');
+          t.phase = CvTextPhase.run;
+          notifyListeners();
+          token.onCancel(() => speechEngine.abort());
+          final lang = p.speechLanguage == 'auto' ? '' : p.speechLanguage;
+          final raw = await speechEngine.transcribe(wavPath: wav, modelPath: modelPath, language: p.speechLanguage, threads: (Platform.numberOfProcessors - 1).clamp(1, 4));
+          if (token.canceled) throw CvConvertError('canceled');
+          final segs = segmentsFromWhisper(raw, lang: lang);
+          await File('${textDir.path}/$base.json').writeAsString(exportTranscript(segs, 'json'), flush: true);
+          await File('${textDir.path}/$base.srt').writeAsString(exportTranscript(segs, 'srt'), flush: true);
+          t..status = CvStatus.done..progress = 1..out = '$base.json'..count = segs.length..lang = lang..note = segs.isEmpty ? 'no_text' : null;
+        }
+      }
+    } on CvConvertError catch (e) {
+      if (e.code == 'canceled' || token.canceled) { t..status = CvStatus.canceled..progress = 0; } else { t..status = CvStatus.error..error = e.message.isEmpty ? e.code : '${e.code}:${e.message}'; }
+    } catch (e) {
+      t..status = token.canceled ? CvStatus.canceled : CvStatus.error..error = token.canceled ? null : (p.type == 'image' ? 'ocr_failed:$e' : 'whisper_failed:$e');
+    } finally {
+      t.phase = CvTextPhase.none;
+      if (wav != null) { try { await File(wav).delete(); } catch (_) {} }
+      _textActive.remove(name);
+      await _persist();
+      _pumpText();
+    }
+  }
+
+  /// Kayıtlı konuşma metni (cümleler); yoksa boş.
+  Future<List<CvSegment>> readSegments(String name) async {
+    final p = textPath(name);
+    if (p == null) return const [];
+    try {
+      final j = jsonDecode(await File(p).readAsString());
+      return [for (final x in (j as List)) CvSegment.fromJson((x as Map).cast<String, dynamic>())];
+    } catch (_) { return const []; }
+  }
+
+  /// Kayıtlı OCR sonucu; yoksa null.
+  Future<CvOcrResult?> readOcr(String name) async {
+    final p = textPath(name);
+    if (p == null) return null;
+    try { return CvOcrResult.fromJson((jsonDecode(await File(p).readAsString()) as Map).cast<String, dynamic>()); } catch (_) { return null; }
+  }
+
+  /// Metni istenen biçimde (srt/vtt/txt/csv/json) geçici dosyaya yazar, yolunu döner (paylaşım için); metin yoksa null.
+  Future<String?> exportText(String name, String format) async {
+    final p = project;
+    if (p == null || textPath(name) == null) return null;
+    final String content;
+    if (p.type == 'image') {
+      final r = await readOcr(name);
+      if (r == null) return null;
+      content = exportOcr(r, kOcrExportFormats.contains(format) ? format : 'txt');
+    } else {
+      content = exportTranscript(await readSegments(name), kTranscriptFormats.contains(format) ? format : 'srt');
+    }
+    final dir = Directory('${textDir.path}/.export');
+    await dir.create(recursive: true);
+    final f = File('${dir.path}/${baseName(name)}.$format');
+    await f.writeAsString(content, flush: true);
+    return f.path;
   }
 
   /// Tek dosya (yeniden) dönüştür.
@@ -214,6 +429,9 @@ class CvRunner extends ChangeNotifier {
     for (final n in _queue) { final j = jobs[n]; if (j != null && j.status == CvStatus.queued) j.status = CvStatus.pending; }
     _queue.clear();
     for (final n in _active.keys.toList()) { cancel(n); }
+    for (final n in _textQueue) { final t = jobs[n]?.text; if (t != null && t.status == CvStatus.queued) t.status = CvStatus.pending; }
+    _textQueue.clear();
+    for (final n in _textActive.keys.toList()) { cancelText(n); }
     notifyListeners();
   }
 
@@ -347,10 +565,13 @@ Future<int> cvConvertDefault(CvProject p, String src, String out, void Function(
 class CvRunners {
   CvRunners._();
   static final _m = <String, CvRunner>{};
+  static CvSpeechModels? _models;
+  /// Paylaşılan konuşma modeli deposu (`<belgeler>/cv/models`).
+  static Future<CvSpeechModels> models() async => _models ??= CvSpeechModels(Directory('${(await cvBaseDir()).path}/models'));
   static Future<CvRunner> of(String projectId, SyncEngine engine, {CvConvertFn? convert}) async {
     final r = _m[projectId];
     if (r != null) return r;
-    return _m[projectId] = CvRunner(projectId: projectId, engine: engine, baseDir: await cvBaseDir(), convert: convert);
+    return _m[projectId] = CvRunner(projectId: projectId, engine: engine, baseDir: await cvBaseDir(), convert: convert, models: await models());
   }
   static CvRunner? peek(String projectId) => _m[projectId];
   static Iterable<CvRunner> get all => _m.values;

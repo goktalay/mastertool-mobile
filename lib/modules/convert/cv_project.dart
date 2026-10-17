@@ -2,10 +2,13 @@
 // menü (dosya ekle, galeriden ekle, çıktıları paylaş, çevrilmiş dosyaları sil, proje ayarları, modül ayarları); dosya listesi
 // (# · ad · boyut · ilerleme · durum · çıktı), filtre (Tümü / Bekleyen / Süren / Tamamlanan / Hatalı) ve arama; tablette sağda
 // Orijinal / Dönüştürülmüş paneli (resimde önizleme), telefonda alt sayfa; altta durum çubuğu (dosya · tamam · hata · ilerleme · çıktı · aynı anda).
+// Metin paneli (masaüstü Metin / Metin (OCR) paneli): metin işi durumu + aşama, cümleler (saniye · dil · metin) ya da OCR satırları
+// (satır · güven · metin), Tümünü kopyala, Metni dışa aktar (SRT/VTT/TXT/CSV/JSON → paylaş), Metne çevir / Metni oku, Metni sil.
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show Clipboard, ClipboardData;
 import 'package:image_picker/image_picker.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -16,6 +19,20 @@ import '../../widgets/mt_widgets.dart';
 import 'cv_engine.dart';
 import 'cv_formats.dart';
 import 'cv_model.dart';
+import 'cv_text_formats.dart';
+
+// Sabit metinler (ARB'ye henüz eklenmedi; TR)
+const _tShareAllTexts = 'Tüm metinleri paylaş';
+const _tShareText = 'Metni paylaş';
+const _tDeleteText = 'Metni sil';
+const _tCancelText = 'Metin işini iptal et';
+const _tPhaseDownload = 'Konuşma modeli indiriliyor';
+const _tPhaseWav = 'Ses hazırlanıyor (16 kHz WAV)…';
+const _tPhaseRunSpeech = 'Konuşma metne çevriliyor… (süre dosya uzunluğuna bağlı)';
+const _tPhaseRunOcr = 'Metin okunuyor…';
+const _tTextsCount = 'metin';
+const _tNoTextsYet = 'Henüz metin yok.';
+const _tFmtJson = 'JSON';
 
 class CvProjectScreen extends StatefulWidget {
   const CvProjectScreen({super.key, required this.projectId, required this.engine, this.runner, required this.onEditProject, required this.onModuleSettings});
@@ -108,6 +125,7 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       PopupMenuItem(value: 'add', child: mi(Icons.note_add_outlined, s.cvMobAddFiles)),
       if (p.type != 'audio') PopupMenuItem(value: 'gallery', child: mi(Icons.photo_library_outlined, s.cvMobAddFromGallery)),
       PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareAllOutputs)),
+      if (_r!.textDoneCount > 0) PopupMenuItem(value: 'sharetext', child: mi(Icons.text_snippet_outlined, _tShareAllTexts)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'edit', child: mi(Icons.tune, s.cvAppProjectSettings)),
       PopupMenuItem(value: 'settings', child: mi(Icons.settings_outlined, s.cvMobModuleSettings)),
@@ -119,6 +137,16 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       case 'add': await _addFiles();
       case 'gallery': await _addFromGallery();
       case 'share': await _share([for (final src in _r!.sources) if (_r!.outPath(src.name) != null) _r!.outPath(src.name)!], p.name);
+      case 'sharetext':
+        final paths = <String>[];
+        for (final src in _r!.sources) {
+          if (_r!.jobs[src.name]?.text.status != CvStatus.done) continue;
+          final f = await _r!.exportText(src.name, p.type == 'image' ? 'txt' : 'srt');
+          if (f != null) paths.add(f);
+        }
+        if (!mounted) return;
+        if (paths.isEmpty) { mtToast(context, _tNoTextsYet); return; }
+        await _share(paths, p.name);
       case 'edit': await widget.onEditProject(context);
       case 'settings': widget.onModuleSettings(context);
       case 'clear':
@@ -133,11 +161,19 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     final c = MtColors.of(context);
     Widget mi(IconData i, String t, {bool danger = false}) => Row(children: [Icon(i, size: 16, color: danger ? c.err : null), const SizedBox(width: 10), Text(t)]);
     final active = j.status == CvStatus.converting || j.status == CvStatus.queued;
+    final t = j.text;
+    final tActive = t.status == CvStatus.converting || t.status == CvStatus.queued;
+    final isImg = _p!.type == 'image';
     final res = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy), items: [
       if (active) PopupMenuItem(value: 'cancel', child: mi(Icons.stop_circle_outlined, s.commonCancel))
       else PopupMenuItem(value: 'convert', child: mi(Icons.play_arrow, j.status == CvStatus.done ? s.cvPjReconvert : s.cvPjConvertThis)),
       if (j.status == CvStatus.done) PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareOutput)),
       if (j.status == CvStatus.done) PopupMenuItem(value: 'delout', child: mi(Icons.delete_outline, s.cvPjDeleteOut)),
+      const PopupMenuDivider(),
+      if (tActive) PopupMenuItem(value: 'tcancel', child: mi(Icons.stop_circle_outlined, _tCancelText))
+      else PopupMenuItem(value: 'text', child: mi(isImg ? Icons.text_fields : Icons.mic_none, _textActionLabel(s, t, isImg))),
+      if (t.status == CvStatus.done) PopupMenuItem(value: 'tshare', child: mi(Icons.ios_share, _tShareText)),
+      if (t.status == CvStatus.done) PopupMenuItem(value: 'tdel', child: mi(Icons.delete_outline, _tDeleteText)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'remove', child: mi(Icons.playlist_remove, s.cvPjUncheck, danger: true)),
     ]);
@@ -147,8 +183,46 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       case 'convert': r.convertOne(src.name);
       case 'share': await _share([r.outPath(src.name)!], src.name);
       case 'delout': await r.deleteOutput(src.name);
+      case 'tcancel': r.cancelText(src.name); setState(() {});
+      case 'text': r.transcribeOne(src.name);
+      case 'tshare': await _shareText(src.name, pos);
+      case 'tdel': await r.deleteText(src.name);
       case 'remove': await r.remove(src.name); if (_selected == src.name) _selected = null;
     }
+  }
+
+  String _textActionLabel(MtStrings s, CvTextJob t, bool isImg) =>
+      isImg ? (t.status == CvStatus.done ? s.cvPjReocr : s.cvPjOcrThis) : (t.status == CvStatus.done ? s.cvPjRetranscribe : s.cvPjTranscribeThis);
+
+  /// Biçim seç (SRT/VTT/TXT/CSV/JSON ya da OCR için TXT/CSV/JSON) → geçici dosya → paylaş.
+  Future<void> _shareText(String name, Offset pos) async {
+    final s = MtStrings.of(context);
+    final isImg = _p!.type == 'image';
+    final fmts = isImg ? kOcrExportFormats : kTranscriptFormats;
+    String label(String f) => switch (f) { 'srt' => s.cvPjFmtSrt, 'vtt' => s.cvPjFmtVtt, 'txt' => s.cvPjFmtTxt, 'csv' => s.cvPjFmtCsv, _ => _tFmtJson };
+    final f = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy),
+        items: [for (final x in fmts) PopupMenuItem(value: x, child: Text(label(x)))]);
+    if (f == null || !mounted) return;
+    final path = await _r!.exportText(name, f);
+    if (!mounted) return;
+    if (path == null) { mtToast(context, s.cvPjTrNoExport); return; }
+    await _share([path], name);
+  }
+
+  Future<void> _copyText(String name) async {
+    final s = MtStrings.of(context);
+    final r = _r!;
+    final String text;
+    if (_p!.type == 'image') {
+      final o = await r.readOcr(name);
+      text = o == null ? '' : o.lines.map((l) => l.text).join('\n');
+    } else {
+      text = (await r.readSegments(name)).map((x) => x.text).join('\n');
+    }
+    if (!mounted) return;
+    if (text.isEmpty) { mtToast(context, s.cvPjTrNoExport); return; }
+    await Clipboard.setData(ClipboardData(text: text));
+    if (mounted) mtToast(context, s.cvPjCopied, type: 'ok');
   }
 
   String _statusText(MtStrings s, CvJob? j) => switch (j?.status ?? CvStatus.pending) {
@@ -159,8 +233,16 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
     final (code, msg) = CvRunner.splitError(e);
     return switch (code) {
       'canceled' => s.cvErrCanceled, 'no_video' => s.cvErrNoVideo, 'no_audio' => s.cvErrNoAudio, 'unreadable' => s.cvErrUnreadable,
-      'unsupported' => s.cvErrUnsupported, 'ffmpeg_missing' => s.cvErrFfmpegMissing(msg), 'ffmpeg_failed' => s.cvErrFfmpeg(msg), _ => e ?? '' };
+      'unsupported' => s.cvErrUnsupported, 'ffmpeg_missing' => s.cvErrFfmpegMissing(msg), 'ffmpeg_failed' => s.cvErrFfmpeg(msg),
+      'ocr_failed' => s.cvErrOcr(msg), 'whisper_failed' => s.cvErrWhisper(msg), 'download_failed' => s.cvErrDownload(msg), _ => e ?? '' };
   }
+
+  /// Metin işi aşaması (ilerleme bilinmez; indirmede yüzde gösterilir).
+  String _phaseText(MtStrings s, CvTextJob t, bool isImg) => switch (t.phase) {
+        CvTextPhase.download => '$_tPhaseDownload… %${(t.progress * 100).round()}',
+        CvTextPhase.wav => _tPhaseWav,
+        CvTextPhase.run => isImg ? _tPhaseRunOcr : _tPhaseRunSpeech,
+        CvTextPhase.none => t.status == CvStatus.queued ? s.cvStQueued : '' };
 
   @override
   Widget build(BuildContext context) {
@@ -268,6 +350,10 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
         Text(s.cvPjStDone('$done'), style: MtText.tiny.copyWith(color: c.text2)),
         if (err > 0) ...[const SizedBox(width: 12), Icon(Icons.error_outline, size: 13, color: c.err), const SizedBox(width: 4), Text(s.cvPjStErr('$err'), style: MtText.tiny.copyWith(color: c.text2))],
         if (r.activeCount > 0) ...[const SizedBox(width: 12), MtSpinner(size: 11, color: c.accent), const SizedBox(width: 4), Text(s.cvPjStActive('${r.activeCount}'), style: MtText.tiny.copyWith(color: c.text2))],
+        if (r.textRunning) ...[const SizedBox(width: 12), Icon(p.type == 'image' ? Icons.text_fields : Icons.mic_none, size: 13, color: c.accent), const SizedBox(width: 4),
+            Text(s.cvPjStSpeech('${r.textActiveCount + r.textQueuedCount}'), style: MtText.tiny.copyWith(color: c.text2))]
+        else if (r.textDoneCount > 0) ...[const SizedBox(width: 12), Icon(Icons.text_snippet_outlined, size: 13, color: c.ok), const SizedBox(width: 4),
+            Text('${r.textDoneCount} $_tTextsCount', style: MtText.tiny.copyWith(color: c.text2))],
         const SizedBox(width: 12),
         Expanded(child: _bar(c, r.overall, height: 5)),
         const SizedBox(width: 8),
@@ -316,6 +402,9 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       CvStatus.queued => (Icons.schedule, c.text2), CvStatus.canceled => (Icons.block, c.warn), CvStatus.pending => (Icons.schedule, c.text3) };
     final typeIcon = switch (p.type) { 'image' => Icons.image_outlined, 'audio' => Icons.music_note_outlined, _ => Icons.videocam_outlined };
     final prog = j.status == CvStatus.done ? 1.0 : j.progress;
+    final t = j.text;
+    final (Color tCol, bool tShow) = switch (t.status) {
+      CvStatus.done => (c.ok, true), CvStatus.error => (c.err, true), CvStatus.converting => (c.accent, true), CvStatus.queued => (c.text2, true), _ => (c.text3, false) };
     return GestureDetector(
       onLongPressStart: (d) => _fileMenu(src, d.globalPosition),
       onSecondaryTapDown: (d) => _fileMenu(src, d.globalPosition),
@@ -334,8 +423,12 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
                   Text(src.name, maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.body.copyWith(color: c.text)),
                   if (!wide) Padding(padding: const EdgeInsets.only(top: 4, right: 8), child: _bar(c, prog, height: 4)),
                   if (j.status == CvStatus.error && j.error != null) Text(_errText(s, j.error), maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.tiny.copyWith(color: c.err)),
+                  if (t.status == CvStatus.converting) Text(_phaseText(s, t, p.type == 'image'), maxLines: 1, overflow: TextOverflow.ellipsis, style: MtText.tiny.copyWith(color: c.accent)),
                 ])),
               ])),
+              if (tShow) Padding(padding: const EdgeInsets.only(left: 6), child: t.status == CvStatus.converting
+                  ? MtSpinner(size: 11, color: tCol)
+                  : Icon(p.type == 'image' ? Icons.text_fields : Icons.mic_none, size: 13, color: tCol)),
               SizedBox(width: 64, child: Text(fmtSize(src.size), textAlign: TextAlign.end, style: MtText.tiny.copyWith(color: c.text2))),
               if (wide) SizedBox(width: 140, child: Padding(padding: const EdgeInsets.only(left: 12), child: Row(children: [
                 Expanded(child: _bar(c, prog)), const SizedBox(width: 6),
@@ -411,7 +504,98 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
         if (j.status == CvStatus.done) MtButton(label: s.cvPjDeleteOut, small: true, icon: Icons.delete_outline, onPressed: () => r.deleteOutput(src.name)),
         MtButton(label: s.cvPjUncheck, small: true, icon: Icons.playlist_remove, kind: MtBtnKind.danger, onPressed: () async { await r.remove(src.name); if (sheet && mounted) Navigator.of(context).pop(); }),
       ]),
+      const SizedBox(height: 18),
+      ..._textSection(s, c, p, r, src, j.text),
     ]);
+  }
+
+  // ---- Metin paneli (konuşma cümleleri / OCR satırları)
+  List<Widget> _textSection(MtStrings s, MtColors c, CvProject p, CvRunner r, CvSource src, CvTextJob t) {
+    final isImg = p.type == 'image';
+    final active = t.status == CvStatus.converting || t.status == CvStatus.queued;
+    final Widget body;
+    if (active) {
+      body = Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        Text(_phaseText(s, t, isImg), style: MtText.small.copyWith(color: c.text2)),
+        const SizedBox(height: 6),
+        t.phase == CvTextPhase.download ? _bar(c, t.progress) : ClipRRect(borderRadius: BorderRadius.circular(6), child: LinearProgressIndicator(minHeight: 6, color: c.accent, backgroundColor: c.surface3)),
+      ]);
+    } else if (t.status == CvStatus.error) {
+      body = MtBox(_errText(s, t.error), kind: MtBoxKind.error, icon: Icons.error_outline);
+    } else if (t.status == CvStatus.done) {
+      body = t.note == 'no_audio'
+          ? Text(s.cvPjNoAudio, style: MtText.small.copyWith(color: c.text3))
+          : t.note == 'no_text'
+              ? Text(isImg ? s.cvPjNoTextHint : s.cvPjTrNone, style: MtText.small.copyWith(color: c.text3))
+              : _TextPreview(key: ValueKey('${src.name}|${t.out}|${t.count}'), runner: r, name: src.name, isImage: isImg);
+    } else {
+      body = Text(p.textEnabled ? (isImg ? s.cvPjOcrAfter : s.cvPjTrAfter) : (isImg ? s.cvPjOcrOff : s.cvPjTrOff), style: MtText.small.copyWith(color: c.text3, height: 1.45));
+    }
+    final count = t.status == CvStatus.done && t.note == null ? (isImg ? s.cvPjLines('${t.count}') : s.cvPjSegments('${t.count}')) : null;
+    return [
+      MtSectionTitle(isImg ? s.cvPjOcrPanel : s.cvPjTranscript, hint: count == null ? null : (t.lang.isEmpty ? count : '$count · ${t.lang.toUpperCase()}')),
+      const SizedBox(height: 8),
+      body,
+      const SizedBox(height: 12),
+      Wrap(spacing: 8, runSpacing: 8, children: [
+        if (active)
+          MtButton(label: s.commonCancel, small: true, icon: Icons.stop_circle_outlined, kind: MtBtnKind.danger, onPressed: () { r.cancelText(src.name); setState(() {}); })
+        else
+          MtButton(label: _textActionLabel(s, t, isImg), small: true, icon: isImg ? Icons.text_fields : Icons.mic_none, onPressed: () => r.transcribeOne(src.name)),
+        if (t.status == CvStatus.done && t.note == null) ...[
+          MtButton(label: s.cvPjCopyAll, small: true, icon: Icons.copy_outlined, onPressed: () => _copyText(src.name)),
+          Builder(builder: (ctx) => MtButton(label: s.cvPjExportTranscript, small: true, icon: Icons.ios_share, onPressed: () {
+            final b = ctx.findRenderObject() as RenderBox;
+            _shareText(src.name, b.localToGlobal(Offset(0, b.size.height)));
+          })),
+        ],
+        if (t.status == CvStatus.done) MtButton(label: _tDeleteText, small: true, icon: Icons.delete_outline, onPressed: () => r.deleteText(src.name)),
+      ]),
+    ];
+  }
+}
+
+/// Kayıtlı metnin önizlemesi: konuşma → [HH:MM:SS] (dil) metin; OCR → satır no · güven % · metin. En çok 200 satır.
+class _TextPreview extends StatefulWidget {
+  const _TextPreview({super.key, required this.runner, required this.name, required this.isImage});
+  final CvRunner runner;
+  final String name;
+  final bool isImage;
+  @override
+  State<_TextPreview> createState() => _TextPreviewState();
+}
+
+class _TextPreviewState extends State<_TextPreview> {
+  late final Future<List<(String, String, String)>> _rows = _load();
+
+  Future<List<(String, String, String)>> _load() async {
+    if (widget.isImage) {
+      final o = await widget.runner.readOcr(widget.name);
+      return [for (var i = 0; i < (o?.lines.length ?? 0); i++) ('${i + 1}', o!.lines[i].conf > 0 ? '%${o.lines[i].conf}' : '', o.lines[i].text)];
+    }
+    final segs = await widget.runner.readSegments(widget.name);
+    return [for (final x in segs) (fmtTime(x.start, '.').substring(0, 8), x.lang.toUpperCase(), x.text)];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final c = MtColors.of(context);
+    return FutureBuilder(future: _rows, builder: (_, snap) {
+      final rows = snap.data;
+      if (rows == null) return Padding(padding: const EdgeInsets.all(8), child: MtSpinner(size: 14, color: c.accent));
+      return Container(
+        decoration: BoxDecoration(color: c.bg2, borderRadius: BorderRadius.circular(10), border: Border.all(color: c.border)),
+        constraints: const BoxConstraints(maxHeight: 320),
+        child: ListView.builder(shrinkWrap: true, padding: const EdgeInsets.symmetric(vertical: 4), itemCount: rows.length > 200 ? 200 : rows.length, itemBuilder: (_, i) {
+          final (a, b, t) = rows[i];
+          return Padding(padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3), child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            SizedBox(width: widget.isImage ? 28 : 62, child: Text(a, style: MtText.mono.copyWith(color: c.text3, fontSize: 11))),
+            SizedBox(width: 34, child: Text(b, style: MtText.mono.copyWith(color: c.text3, fontSize: 11))),
+            Expanded(child: SelectableText(t, style: MtText.small.copyWith(color: c.text, height: 1.4))),
+          ]));
+        }),
+      );
+    });
   }
 }
 

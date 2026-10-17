@@ -1,7 +1,8 @@
 // Convert Master proje formu — masaüstü "Yeni proje" penceresi (3 sekme): Genel (proje ismi, tür kartları, kaynak uzantı çipleri,
 // hedef uzantı, kaynak Dosya/Klasör, alt klasörler, aynı anda çevrilecek dosya sayısı, proje klasörü, renk, notlar) ·
-// Dönüştürme ayarları (türe göre video / resim / ses seçenekleri) · Konuşma (video, ses) ya da OCR (resim) — mobilde kapalı,
-// veri korunur. Kaydet → (data, aç?) döner.
+// Dönüştürme ayarları (türe göre video / resim / ses seçenekleri) · Konuşma (video, ses: whisper.cpp; model tiny/base/small,
+// medium/turbo ve "her 30 sn'de dil algıla" mobilde kapalı) ya da OCR (resim: ML Kit; Kiril/Arap/İbrani/Yunan dilleri mobilde
+// okunamaz, seçimi korunur). Kaydet → (data, aç?) döner.
 import 'package:flutter/material.dart';
 
 import '../../core/l10n/gen/mt_strings.dart';
@@ -10,6 +11,17 @@ import '../../widgets/mt_widgets.dart';
 import '../ssh/ssh_model.dart' show kCardColors, parseHex;
 import 'cv_formats.dart';
 import 'cv_model.dart';
+import 'cv_text_formats.dart';
+
+// Sabit metinler (ARB'ye henüz eklenmedi; TR)
+const _tSpeechNote = 'Konuşma tanıma cihazda, çevrimdışı çalışır (whisper.cpp); ses hiçbir sunucuya gönderilmez. Model ilk kullanımda bir kez indirilir '
+    '(Çok küçük 75 MB · Temel 142 MB · Küçük 466 MB; Wi-Fi önerilir) ve Ayarlar › Konuşma modelleri bölümünden yönetilir.';
+const _tSpeechModelFallback = 'Bu model mobilde kullanılamaz; bu cihazda Temel (base) model kullanılır. Masaüstünde seçiminiz geçerlidir.';
+const _tPerWindowMob = 'Mobil sürüm algılanan dili bildirmez; bu seçenek masaüstünde uygulanır.';
+const _tOcrNote = 'Resimden metin cihazda çalışır (Google ML Kit); resimler hiçbir sunucuya gönderilmez. Tanınan betikler: Latin alfabesi '
+    '(Türkçe dahil), Çince, Japonca, Korece ve Devanagari (Hintçe). Android\'de tanıma modeli uygulamayla gelir.';
+const _tOcrUnsupported = 'Mobilde okunamaz (ML Kit modeli yok); masaüstünde kullanılır';
+const _tOcrMax = 'En çok 6 dil seçilebilir.';
 
 class CvFormScreen extends StatefulWidget {
   const CvFormScreen({super.key, this.existing, required this.folders, this.folderId, this.settings});
@@ -269,40 +281,51 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
   void _setV(String k, Object? v) => setState(() => _opt = {..._opt, 'video': {..._vo, k: v}});
   void _setA(String k, Object? v) => setState(() => _opt = {..._opt, 'audio': {..._ao, k: v}});
 
-  // ---- Konuşma (mobilde kapalı; veri korunur)
+  // ---- Konuşma (whisper.cpp; model tiny/base/small — medium/turbo ve perWindow mobilde kapalı, veri korunur)
   Widget _speechTab(MtStrings s, MtColors col, bool wide) {
     final modelLabel = {'tiny': s.cvSpeechModelTiny, 'base': s.cvSpeechModelBase, 'small': s.cvSpeechModelSmall, 'medium': s.cvSpeechModelMedium, 'turbo': s.cvSpeechModelTurbo};
+    final on = _speech['enabled'] == true;
+    final model = _speech['model'].toString();
+    final mobileOk = kMobileSpeechModels.contains(model);
     return ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-      MtBox(s.cvMobSpeechNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
+      MtCheck(value: on, onChanged: (v) => setState(() => _speech['enabled'] = v), label: s.cvPfSpeechAsk, hint: s.cvPfSpeechAskHint),
       const SizedBox(height: 14),
-      Opacity(opacity: .5, child: IgnorePointer(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        MtCheck(value: _speech['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfSpeechAsk} · ${s.cvMobNotOnMobile}', hint: s.cvPfSpeechAskHint),
-        const SizedBox(height: 14),
+      Opacity(opacity: on ? 1 : .5, child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         _row(wide, [
-          MtField(label: s.cvPfSpeechModel, child: _select<String>(_speech['model'].toString(), [for (final m in kSpeechModels) (m, modelLabel[m] ?? m)], (_) {})),
-          MtField(label: s.cvPfSpeechLang, child: _select<String>(_speech['language'].toString(), [for (final l in kSpeechLangs) (l, l == 'auto' ? s.cvSpeechLangAuto : l.toUpperCase())], (_) {})),
+          MtField(label: s.cvPfSpeechModel, hint: mobileOk ? null : _tSpeechModelFallback,
+              child: _select<String>(model, [for (final m in kSpeechModels) (m, kMobileSpeechModels.contains(m) ? (modelLabel[m] ?? m) : '${modelLabel[m] ?? m} — ${s.cvMobNotOnMobile}')],
+                  (v) { if (v != null && kMobileSpeechModels.contains(v)) setState(() => _speech['model'] = v); })),
+          MtField(label: s.cvPfSpeechLang, child: _select<String>(_speech['language'].toString(), [for (final l in kSpeechLangs) (l, l == 'auto' ? s.cvSpeechLangAuto : l.toUpperCase())],
+              (v) { if (v != null) setState(() => _speech['language'] = v); })),
         ]),
         const SizedBox(height: 14),
-        MtCheck(value: _speech['perWindow'] == true, onChanged: (_) {}, label: s.cvPfPerWindow, hint: s.cvPfPerWindowHint),
-      ]))),
+        Opacity(opacity: .5, child: IgnorePointer(child: MtCheck(value: _speech['perWindow'] == true, onChanged: (_) {}, label: '${s.cvPfPerWindow} · ${s.cvMobNotOnMobile}', hint: _tPerWindowMob))),
+      ])),
       const SizedBox(height: 14),
-      Text(s.cvPfSpeechNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
+      Text(_tSpeechNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
     ]);
   }
 
-  // ---- OCR (mobilde kapalı; veri korunur)
+  // ---- OCR (ML Kit; Kiril/Arap/İbrani/Yunan dilleri mobilde okunmaz, seçim masaüstü için korunur)
   Widget _ocrTab(MtStrings s, MtColors col) {
     final langs = ((_ocr['languages'] as List?) ?? const []).map((x) => x.toString()).toList();
+    final on = _ocr['enabled'] == true;
+    final unsupported = ocrUnsupportedIn(langs);
+    void toggle(String l) {
+      if (langs.contains(l)) { if (langs.length > 1) langs.remove(l); }
+      else if (langs.length >= 6) { mtToast(context, _tOcrMax, type: 'err'); return; }
+      else { langs.add(l); }
+      setState(() => _ocr['languages'] = langs);
+    }
     return ListView(padding: const EdgeInsets.fromLTRB(22, 18, 22, 24), children: [
-      MtBox(s.cvMobOcrNote, kind: MtBoxKind.notice, icon: Icons.phone_android),
+      MtCheck(value: on, onChanged: (v) => setState(() => _ocr['enabled'] = v), label: s.cvPfOcrAsk, hint: s.cvPfOcrAskHint),
       const SizedBox(height: 14),
-      Opacity(opacity: .5, child: IgnorePointer(child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        MtCheck(value: _ocr['enabled'] == true, onChanged: (_) {}, label: '${s.cvPfOcrAsk} · ${s.cvMobNotOnMobile}', hint: s.cvPfOcrAskHint),
-        const SizedBox(height: 14),
-        MtField(label: s.cvPfOcrLangs, hint: s.cvPfOcrLangsHint, child: Wrap(spacing: 6, runSpacing: 6, children: [for (final l in kOcrLangs) _chip(col, l, langs.contains(l), false, () {})])),
+      Opacity(opacity: on ? 1 : .5, child: MtField(label: s.cvPfOcrLangs, hint: s.cvPfOcrLangsHint, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Wrap(spacing: 6, runSpacing: 6, children: [for (final l in kOcrLangs) Opacity(opacity: kOcrUnsupportedMobile.contains(l) ? .55 : 1, child: _chip(col, l, langs.contains(l), false, () => toggle(l)))]),
+        if (unsupported.isNotEmpty) ...[const SizedBox(height: 6), Text('${unsupported.join(', ')}: $_tOcrUnsupported', style: MtText.small.copyWith(color: col.warn))],
       ]))),
       const SizedBox(height: 14),
-      Text(s.cvPfOcrNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
+      Text(_tOcrNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
     ]);
   }
 

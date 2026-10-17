@@ -26,6 +26,14 @@ class CvProject {
   int get concurrency => (raw['concurrency'] as num?)?.toInt() ?? 2;
   Map<String, dynamic> get speech => (raw['speech'] as Map?)?.cast<String, dynamic>() ?? defaultSpeech();
   Map<String, dynamic> get ocr => (raw['ocr'] as Map?)?.cast<String, dynamic>() ?? defaultOcr();
+  bool get speechEnabled => (type == 'video' || type == 'audio') && speech['enabled'] == true;
+  String get speechModel => (speech['model'] ?? 'base').toString();
+  String get speechLanguage => (speech['language'] ?? 'auto').toString();
+  bool get ocrEnabled => type == 'image' && ocr['enabled'] == true;
+  List<String> get ocrLanguages => ((ocr['languages'] as List?) ?? const ['tur', 'eng']).map((x) => x.toString()).toList();
+  /// Bu projenin dosyaları için metin işi var mı (resim → OCR, video/ses → konuşma).
+  bool get textEnabled => type == 'image' ? ocrEnabled : speechEnabled;
+  int get textDoneCount => outputs.values.where((x) => x is Map && x['text'] is Map && (x['text'] as Map)['status'] == 'done').length;
   Map<String, dynamic> get options => cleanOptions((raw['options'] as Map?)?.cast<String, dynamic>());
   String? get folderId => raw['folderId'] as String?;
   String get color => (raw['color'] ?? typeInfo.color).toString();
