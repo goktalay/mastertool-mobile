@@ -84,7 +84,8 @@ void main() {
     if (tmp.existsSync()) tmp.deleteSync(recursive: true);
     tmp.createSync();
     PathProviderPlatform.instance = _FakePath(tmp.path);
-    proj = Directory('${tmp.path}/kurumsal')..createSync();
+    // Belgeler kökü (mock) altında "Notepad Master/kurumsal": ekranlarda "Belgeler/Notepad Master/kurumsal" olarak kısaltılır
+    proj = Directory('${tmp.path}/Notepad Master/kurumsal')..createSync(recursive: true);
     for (final d in ['assets/css', 'assets/js', 'config', 'public', 'templates']) {
       Directory('${proj.path}/$d').createSync(recursive: true);
     }
@@ -106,8 +107,8 @@ void main() {
     lib.items['f1'] = ('folder', {'name': 'Müşteriler', 'parentId': null});
     lib.items['c1'] = ('connection', {...NpConnection.blank(kind: 'ftp'), 'name': 'Kampanya sitesi', 'host': 'ftp.ornek.com', 'username': 'kampanya', 'protocol': 'ftps-tls', 'rootDir': '/public_html', 'color': '#a855f7', 'editorMode': 'custom'});
     lib.items['c2'] = ('connection', {...NpConnection.blank(kind: 'ssh'), 'name': 'Kurumsal site', 'host': 'web-01.ornek.com', 'username': 'deploy', 'rootDir': '/var/www/kurumsal', 'color': '#22d3ee', 'openTabs': ['/var/www/kurumsal/index.php']});
-    lib.items['c3'] = ('connection', {...NpConnection.blank(kind: 'local'), 'name': 'Mağaza teması', 'localPath': '/Projeler/magaza-tema', 'color': '#34d399'});
-    lib.items['c4'] = ('connection', {...NpConnection.blank(kind: 'file'), 'name': 'nginx.conf', 'localPath': '/Projeler/nginx.conf', 'color': '#fbbf24'});
+    lib.items['c3'] = ('connection', {...NpConnection.blank(kind: 'local'), 'name': 'Mağaza teması', 'localPath': '${tmp.path}/Notepad Master/magaza-tema', 'color': '#34d399'});
+    lib.items['c4'] = ('connection', {...NpConnection.blank(kind: 'file'), 'name': 'nginx.conf', 'localPath': '${tmp.path}/Notepad Master/files/ab12/nginx.conf', 'color': '#fbbf24'});
     lib.items['c5'] = ('connection', {...NpConnection.blank(kind: 'local'), 'name': 'Kurumsal (yerel)', 'localPath': proj.path, 'color': '#22d3ee', 'openTabs': ['${proj.path}/index.php'], 'activeTab': '${proj.path}/index.php'});
   });
   tearDown(() => host.dispose());

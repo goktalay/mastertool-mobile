@@ -20,6 +20,15 @@ import 'np_editor_form.dart';
 import 'np_model.dart';
 import 'np_remote.dart';
 
+/// Uygulama belgeleri dizini (yol kısaltma için; alınamazsa null)
+Future<String?> npDocumentsRoot() async {
+  try {
+    return (await getApplicationDocumentsDirectory()).path;
+  } catch (_) {
+    return null;
+  }
+}
+
 /// Cihazdaki yerel proje kökü: `belgeler/Notepad Master`
 Future<Directory> npLocalRoot() async {
   final d = Directory('${(await getApplicationDocumentsDirectory()).path}/Notepad Master');

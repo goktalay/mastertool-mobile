@@ -214,6 +214,19 @@ String npDirName(String p) {
   return i == 0 ? '/' : s.substring(0, i);
 }
 
+/// Cihazdaki yerel yolu belgeler köküne göre kısaltır: `Belgeler/Notepad Master/ad/…` ([docsRoot] = uygulama belgeleri dizini;
+/// bilinmiyorsa "/Notepad Master/" parçasından kırpılır). Belgeler altında değilse olduğu gibi döner.
+String npShortLocalPath(String p, [String? docsRoot]) {
+  if (p.isEmpty) return p;
+  if (docsRoot != null && docsRoot.isNotEmpty) {
+    final r = docsRoot.endsWith('/') ? docsRoot.substring(0, docsRoot.length - 1) : docsRoot;
+    if (p == r) return 'Belgeler';
+    if (p.startsWith('$r/')) return 'Belgeler/${p.substring(r.length + 1)}';
+  }
+  final i = p.indexOf('/Notepad Master/');
+  return i < 0 ? p : 'Belgeler${p.substring(i)}';
+}
+
 String npJoin(String dir, String name) => dir.endsWith('/') ? '$dir$name' : '$dir/$name';
 
 String npFmtSize(int n) => n < 1024 ? '$n B' : n < 1048576 ? '${(n / 1024).toStringAsFixed(1)} KB' : n < 1073741824 ? '${(n / 1048576).toStringAsFixed(1)} MB' : '${(n / 1073741824).toStringAsFixed(2)} GB';

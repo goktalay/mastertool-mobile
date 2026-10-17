@@ -80,13 +80,14 @@ ThemeData mtTheme(Brightness b) {
     canvasColor: c.surface,
     dividerColor: c.border,
     splashFactory: InkSparkle.splashFactory,
+    // Tipografinin yazı tipi ailesi (sistem fontu) korunarak Mastertool ölçüleri bindirilir (merge)
     textTheme: base.copyWith(
-      bodyMedium: MtText.body.copyWith(color: c.text), bodyLarge: MtText.body.copyWith(color: c.text),
-      bodySmall: MtText.small.copyWith(color: c.text2), labelLarge: MtText.body.copyWith(color: c.text, fontWeight: FontWeight.w600),
-      titleMedium: MtText.h2.copyWith(color: c.text), titleLarge: MtText.h1.copyWith(color: c.text),
+      bodyMedium: base.bodyMedium!.merge(MtText.body.copyWith(color: c.text)), bodyLarge: base.bodyLarge!.merge(MtText.body.copyWith(color: c.text)),
+      bodySmall: base.bodySmall!.merge(MtText.small.copyWith(color: c.text2)), labelLarge: base.labelLarge!.merge(MtText.body.copyWith(color: c.text, fontWeight: FontWeight.w600)),
+      titleMedium: base.titleMedium!.merge(MtText.h2.copyWith(color: c.text)), titleLarge: base.titleLarge!.merge(MtText.h1.copyWith(color: c.text)),
     ),
     appBarTheme: AppBarTheme(backgroundColor: c.bg, foregroundColor: c.text, elevation: 0, scrolledUnderElevation: 0, centerTitle: false,
-        titleTextStyle: MtText.brand.copyWith(color: c.text)),
+        titleTextStyle: base.titleLarge!.merge(MtText.brand.copyWith(color: c.text))),
     inputDecorationTheme: InputDecorationTheme(
       filled: true, fillColor: c.bg2, isDense: true, contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 9),
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(MtDim.radiusSm), borderSide: BorderSide(color: c.border)),

@@ -17,6 +17,7 @@ import '../../widgets/mt_widgets.dart';
 import '../ftp/ftp_model.dart' show kFtpProtocols;
 import 'np_editor.dart';
 import 'np_lang.dart';
+import 'np_form.dart' show npDocumentsRoot;
 import 'np_model.dart';
 import 'np_remote.dart';
 import 'np_session.dart';
@@ -66,6 +67,8 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
   NpStatus _status = NpStatus.connecting;
   String? _error;
   String _root = '';
+  String? _docs; // belgeler kökü: yerel yollar "Belgeler/Notepad Master/…" olarak kısaltılır
+  String _short(String p) => _isRemote ? p : npShortLocalPath(p, _docs);
   final List<NpTab> _tabs = [];
   NpTab? _active;
   bool _showTree = true;
@@ -107,6 +110,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
       _proj = p;
       final (root, _) = await p.open();
       _root = root;
+      if (!_isRemote) _docs = await npDocumentsRoot();
       _tree.errorText = (t) => t;
       if (!mounted) return;
       setState(() => _error = null);
@@ -605,7 +609,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
     final tab = _active;
     final (Color dot, String dotTip) = switch (_status) { NpStatus.on => (c.ok, s.npProjStatusOn), NpStatus.off => (c.err, s.npProjStatusOff), _ => (c.warn, s.npProjStatusConnecting) };
     final kindLabel = switch (conn.kind) { 'ssh' => 'SSH', 'ftp' => kFtpProtocols[conn.protocol]?.$1.split(' ').first ?? 'FTP', 'local' => s.npKindLocal, _ => s.npKindFile };
-    final sub = _isRemote ? '${conn.anonymous ? 'anonymous' : conn.username}@${conn.host}:${_root.isEmpty ? conn.rootDir : _root}' : (_root.isEmpty ? conn.localPath : _root);
+    final sub = _isRemote ? '${conn.anonymous ? 'anonymous' : conn.username}@${conn.host}:${_root.isEmpty ? conn.rootDir : _root}' : _short(_root.isEmpty ? conn.localPath : _root);
     final showTreeNow = wide ? _treeOpen : _showTree;
 
     final topBar = Container(
@@ -724,7 +728,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
       height: 28, padding: const EdgeInsetsDirectional.only(start: 12, end: 8),
       decoration: BoxDecoration(color: c.bg2, border: Border(top: BorderSide(color: c.border))),
       child: Row(children: [
-        Expanded(child: Text(tab?.path ?? '', maxLines: 1, overflow: TextOverflow.ellipsis, textDirection: TextDirection.ltr, style: TextStyle(fontSize: 11.5, fontFamily: 'monospace', color: c.text3))),
+        Expanded(child: Tooltip(message: tab?.path ?? '', child: Text(tab == null ? '' : _short(tab.path), maxLines: 1, overflow: TextOverflow.ellipsis, textDirection: TextDirection.ltr, style: TextStyle(fontSize: 11.5, fontFamily: 'monospace', color: c.text3)))),
         if (tab != null) ...[
           ValueListenableBuilder<CodeLineEditingValue>(valueListenable: tab.controller, builder: (_, v, _) {
             final sel = v.selection;

@@ -145,6 +145,12 @@ void main() {
       expect(npLanguageFor('/x/noext'), 'plaintext');
       expect(npLanguageFor('/x/style.SCSS'), 'scss');
     });
+    test('yerel yol kısaltma', () {
+      expect(npShortLocalPath('/data/user/0/app/files/Notepad Master/site/index.php', '/data/user/0/app/files'), 'Belgeler/Notepad Master/site/index.php');
+      expect(npShortLocalPath('/tmp/x/Notepad Master/site'), 'Belgeler/Notepad Master/site');
+      expect(npShortLocalPath('/Projeler/site', '/data/docs'), '/Projeler/site');
+      expect(npShortLocalPath('/data/docs', '/data/docs/'), 'Belgeler');
+    });
     test('yol yardımcıları', () {
       expect(npBaseName('/a/b/c.txt'), 'c.txt');
       expect(npDirName('/a/b/c.txt'), '/a/b');
