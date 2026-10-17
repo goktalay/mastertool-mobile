@@ -4,6 +4,7 @@
 // ssh {enabled, host, port 22, user, auth key|password|agent, hostKey}, password, sshPassword, sshPassphrase, sshPrivateKey (PEM)};
 // kind folder {name, parentId}; kind settings (id "settings") {appTheme, language, rowLimit 10000, previewRows 100, editorFontSize 13}.
 // Yerel (senkron dışı): filePath (cihaz dosyası), ssh.keyPath, lastUsedAt. Bilinmeyen alanlar korunur.
+import 'dart:io';
 import 'dart:ui';
 
 import '../ssh/ssh_model.dart' show parseHex;
@@ -11,14 +12,19 @@ import '../ssh/ssh_model.dart' show parseHex;
 /// Yerelde kalan alanlar (ModuleHost.open localOnly)
 const kSqlLocalOnly = {'filePath', 'lastUsedAt'};
 
+/// Seçilen veritabanı/veri dosyalarının kopyalandığı alt dizin (uygulama belgeler dizini altında)
+const kSqlDocsSubdir = 'SQL Master/Belgeler';
+
 class ProviderMeta {
-  const ProviderMeta({required this.id, required this.name, required this.short, required this.kind, required this.dialect, this.defaultPort, this.defaultUser, required this.color, this.fileExtensions = const [], this.mobile = true});
+  const ProviderMeta({required this.id, required this.name, required this.short, required this.kind, required this.dialect, this.defaultPort, this.defaultUser, required this.color, this.fileExtensions = const [], this.mobileAndroid = true, this.mobileIos = true});
   final String id, name, short, kind, dialect, color;
   final int? defaultPort;
   final String? defaultUser;
   final List<String> fileExtensions;
-  /// Mobil sürücüsü var mı (SQL Server ve DuckDB: henüz yok)
-  final bool mobile;
+  /// Platform başına mobil sürücü var mı (SQL Server: FreeTDS kitaplığı yalnız Android'de paketlenebiliyor)
+  final bool mobileAndroid, mobileIos;
+  /// Bu cihazda sürücü var mı
+  bool get mobile => Platform.isIOS ? mobileIos : mobileAndroid;
   bool get isFile => kind == 'file';
   Color get colorValue => parseHex(color);
 }
@@ -26,10 +32,10 @@ class ProviderMeta {
 /// Masaüstü shared/providers.ts PROVIDERS
 const kProviders = <ProviderMeta>[
   ProviderMeta(id: 'postgres', name: 'PostgreSQL', short: 'PG', kind: 'server', dialect: 'postgres', defaultPort: 5432, defaultUser: 'postgres', color: '#3b82f6'),
-  ProviderMeta(id: 'mssql', name: 'SQL Server', short: 'MSSQL', kind: 'server', dialect: 'mssql', defaultPort: 1433, defaultUser: 'sa', color: '#ef4444', mobile: false),
+  ProviderMeta(id: 'mssql', name: 'SQL Server', short: 'MSSQL', kind: 'server', dialect: 'mssql', defaultPort: 1433, defaultUser: 'sa', color: '#ef4444', mobileIos: false),
   ProviderMeta(id: 'mysql', name: 'MySQL / MariaDB', short: 'MySQL', kind: 'server', dialect: 'mysql', defaultPort: 3306, defaultUser: 'root', color: '#f97316'),
   ProviderMeta(id: 'sqlite', name: 'SQLite', short: 'SQLite', kind: 'file', dialect: 'sqlite', color: '#22d3ee', fileExtensions: ['db', 'sqlite', 'sqlite3', 'db3']),
-  ProviderMeta(id: 'duckdb', name: 'DuckDB / Dosyalar (CSV, Parquet, JSON, Excel)', short: 'DuckDB', kind: 'file', dialect: 'duckdb', color: '#fbbf24', fileExtensions: ['duckdb', 'db', 'csv', 'parquet', 'json', 'xlsx'], mobile: false),
+  ProviderMeta(id: 'duckdb', name: 'DuckDB / Dosyalar (CSV, Parquet, JSON, Excel)', short: 'DuckDB', kind: 'file', dialect: 'duckdb', color: '#fbbf24', fileExtensions: ['duckdb', 'db', 'csv', 'tsv', 'parquet', 'json', 'jsonl', 'ndjson', 'xlsx']),
 ];
 
 ProviderMeta providerMeta(String id) => kProviders.firstWhere((p) => p.id == id, orElse: () => kProviders[0]);

@@ -169,7 +169,7 @@ class _SqlConnScreenState extends State<SqlConnScreen> {
       _ => s.sqCwNotConnected,
     };
 
-    final tree = SqlTree(key: _treeKey, session: _session, onOpenTable: _openTable, onNewSql: (db) => _newSql(database: db), selectedId: null);
+    final tree = SqlTree(key: _treeKey, session: _session, onOpenTable: _openTable, onNewSql: (db) => _newSql(database: db), onOpenFile: (sql) => _newSql(sql: sql), selectedId: null);
 
     Widget content;
     if (_error != null) {

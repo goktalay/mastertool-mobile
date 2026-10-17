@@ -13,6 +13,8 @@ import '../sql_dialect.dart';
 import '../sql_grid_query.dart';
 import '../sql_lexer.dart';
 import '../sql_model.dart';
+import 'duckdb_driver.dart';
+import 'mssql_driver.dart';
 import 'mysql_driver.dart';
 import 'postgres_driver.dart';
 import 'sqlite_driver.dart';
@@ -195,6 +197,8 @@ SqlDriver createDriver(SqlConnection conn, {String? hostOverride, int? portOverr
     'postgres' => PostgresDriver(host: host, port: port, user: conn.userOrDefault, password: pw, database: conn.database, sslMode: conn.sslMode, readOnly: conn.readOnly),
     'mysql' => MysqlDriver(host: host, port: port, user: conn.userOrDefault, password: pw, database: conn.database, sslMode: conn.sslMode, readOnly: conn.readOnly),
     'sqlite' => SqliteDriver(path: conn.filePath, readOnly: conn.readOnly),
+    'duckdb' => DuckDbDriver(path: conn.filePath, readOnly: conn.readOnly),
+    'mssql' when MssqlDriver.supported => MssqlDriver(host: host, port: port, user: conn.userOrDefault, password: pw, database: conn.database, sslMode: conn.sslMode, readOnly: conn.readOnly),
     _ => throw UnsupportedProvider(conn.provider),
   };
 }
@@ -202,6 +206,9 @@ SqlDriver createDriver(SqlConnection conn, {String? hostOverride, int? portOverr
 /// Hata metni (masaüstü errors.ts eşlemesi)
 String sqlErrorText(MtStrings s, Object e) {
   if (e is UnsupportedProvider) return s.sqMobUnsupportedMobile;
+  // Sürücü mesajları zaten kullanıcıya dönük (DuckDB "Catalog Error: …", FreeTDS iletisi, yerel kitaplık uyarıları)
+  if (e is DuckDbError || e is MssqlError) return e.toString().trim();
+  if (e is ArgumentError && e.toString().toLowerCase().contains('failed to load dynamic library')) return kDuckNativeMissing;
   if (e is SshTunnelError) return e.auth ? s.sqErrSshAuth : e.message;
   if (e is SqlCancelled) return s.sqResCancelled;
   final m = e.toString();

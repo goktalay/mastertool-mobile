@@ -12,6 +12,7 @@ import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
 import '../ssh/ssh_model.dart' show kCardColors, parseHex;
+import 'drivers/duckdb_driver.dart' show kDuckExcelNote;
 import 'drivers/sql_driver.dart';
 import 'sql_model.dart';
 import 'sql_session.dart';
@@ -106,7 +107,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
     final f = r.firstOrNull;
     if (f == null) return;
     final base = await getApplicationDocumentsDirectory();
-    final dir = Directory('${base.path}/SQL Master/${'Belgeler'}');
+    final dir = Directory('${base.path}/$kSqlDocsSubdir');
     await dir.create(recursive: true);
     final target = File('${dir.path}/${f.name}');
     final sink = target.openWrite();
@@ -193,7 +194,7 @@ class _SqlFormScreenState extends State<SqlFormScreen> with SingleTickerProvider
               const SizedBox(height: 14),
               MtField(label: s.sqFormDatabase, child: TextField(controller: _db, autocorrect: false, textDirection: TextDirection.ltr, decoration: InputDecoration(hintText: s.sqFormDatabasePh))),
             ] else ...[
-              MtField(label: s.sqFormFile, hint: _provider == 'sqlite' ? s.sqFormSqliteHint : s.sqFormDuckdbHint, child: Row(children: [
+              MtField(label: s.sqFormFile, hint: _provider == 'sqlite' ? s.sqFormSqliteHint : '${s.sqFormDuckdbHint}\n$kDuckExcelNote', child: Row(children: [
                 Expanded(child: Container(
                   height: MtDim.inputH, padding: const EdgeInsets.symmetric(horizontal: 12), alignment: AlignmentDirectional.centerStart,
                   decoration: BoxDecoration(color: col.bg2, border: Border.all(color: col.border), borderRadius: BorderRadius.circular(MtDim.radiusSm)),

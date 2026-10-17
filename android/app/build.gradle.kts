@@ -10,6 +10,12 @@ plugins {
 // Yükleme anahtarı: android/key.properties (CI'da gizli değerlerden yazılır; depoya girmez). Yoksa debug anahtarıyla imzalanır.
 val keyProps = Properties().apply { val f = rootProject.file("key.properties"); if (f.exists()) load(FileInputStream(f)) }
 
+// mssql_connection bir Flutter eklentisi değil: FreeTDS .so dosyalarını pub cache'ten jniLibs olarak al
+val mssqlJni: String? = rootProject.file("../.dart_tool/package_config.json").takeIf { it.exists() }?.let { cfg ->
+    Regex("\"name\"\\s*:\\s*\"mssql_connection\"\\s*,\\s*\"rootUri\"\\s*:\\s*\"file://([^\"]+)\"").find(cfg.readText())
+        ?.groupValues?.get(1)?.let { "$it/android/src/main/jniLibs" }
+}
+
 android {
     namespace = "download.mastertool.master_tool"
     compileSdk = flutter.compileSdkVersion
@@ -33,6 +39,8 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
+
+    sourceSets { getByName("main") { if (mssqlJni != null) jniLibs.srcDir(mssqlJni) } }
 
     signingConfigs {
         if (keyProps.isNotEmpty()) {
@@ -59,6 +67,15 @@ kotlin {
     compilerOptions {
         jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
     }
+}
+
+dependencies {
+    // Convert Master OCR — ML Kit Text Recognition v2 betik modelleri (Latin modeli google_mlkit_text_recognition eklentisiyle gelir:
+    // com.google.mlkit:text-recognition:16.0.1). Modeller uygulamaya gömülüdür (bundled); Play hizmeti indirmesi gerekmez.
+    implementation("com.google.mlkit:text-recognition-chinese:16.0.1")
+    implementation("com.google.mlkit:text-recognition-devanagari:16.0.1")
+    implementation("com.google.mlkit:text-recognition-japanese:16.0.1")
+    implementation("com.google.mlkit:text-recognition-korean:16.0.1")
 }
 
 flutter {

@@ -1,26 +1,35 @@
 // "NESNELER" ağacı — masaüstü conn/tree.ts: veritabanı › şema › Tablolar/Görünümler (sayı rozeti) › tablo (~satır) › Kolonlar/
 // İndeksler; tembel yükleme, süzme kutusu, "Tümünü daralt", yenile. Tabloya dokununca veri sayfası; uzun basma: Veriyi aç ·
 // Burada yeni SQL · Adı kopyala. MySQL/SQLite'ta şema düzeyi atlanır (şema = veritabanı).
+// DuckDB: kökte "Dosyalar" düğümü — belgeler dizinindeki (ve seçili dosyanın klasöründeki) CSV/TSV/Parquet/JSON/Excel
+// dosyaları; dokununca `SELECT * FROM 'dosya' LIMIT …` ile yeni SQL sekmesi açılır.
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart' hide TextDirection;
+import 'package:path_provider/path_provider.dart';
 
 import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
+import 'drivers/duckdb_driver.dart';
 import 'drivers/sql_driver.dart';
+import 'sql_model.dart';
 import 'sql_session.dart';
 
-enum NodeKind { database, schema, folder, table, view, column, idx }
+enum NodeKind { database, schema, folder, table, view, column, idx, files, file }
 
 class TreeNode {
-  TreeNode({required this.id, required this.kind, required this.name, this.detail, this.count, required this.hasChildren, this.database, this.schema, this.table, this.folder});
+  TreeNode({required this.id, required this.kind, required this.name, this.detail, this.count, required this.hasChildren, this.database, this.schema, this.table, this.folder, this.path});
   final String id, name;
   final NodeKind kind;
   String? detail;
   int? count;
   bool hasChildren;
   final String? database, schema, table, folder;
+  /// Dosya düğümü: tam yol
+  final String? path;
   List<TreeNode>? children;
   bool expanded = false, loading = false;
   String? error;
@@ -29,11 +38,18 @@ class TreeNode {
 /// Tablo/görünüm açma isteği
 typedef OpenTable = void Function(String database, String schema, String table, String kind);
 
+/// Dosya düğümünden üretilen SQL ile yeni sekme isteği
+typedef OpenFile = void Function(String sql);
+
+/// Dosya düğümü için önizleme SQL'i
+String duckFilePreviewSql(String path, {int limit = 1000}) => 'SELECT *\nFROM ${DuckDbDriver.readerFor(path)}\nLIMIT $limit;';
+
 class SqlTree extends StatefulWidget {
-  const SqlTree({super.key, required this.session, required this.onOpenTable, required this.onNewSql, this.selectedId});
+  const SqlTree({super.key, required this.session, required this.onOpenTable, required this.onNewSql, this.onOpenFile, this.selectedId});
   final SqlSession session;
   final OpenTable onOpenTable;
   final void Function(String database) onNewSql;
+  final OpenFile? onOpenFile;
   final String? selectedId;
   @override
   State<SqlTree> createState() => SqlTreeState();
@@ -72,7 +88,11 @@ class SqlTreeState extends State<SqlTree> {
     try {
       final dbs = await d.databases();
       if (!mounted) return;
-      setState(() => _roots = [for (final db in dbs) TreeNode(id: 'db:$db', kind: NodeKind.database, name: db, hasChildren: true, database: db)]);
+      final s = MtStrings.of(context);
+      setState(() => _roots = [
+            for (final db in dbs) TreeNode(id: 'db:$db', kind: NodeKind.database, name: db, hasChildren: true, database: db),
+            if (widget.session.dialect == 'duckdb') TreeNode(id: 'files', kind: NodeKind.files, name: s.sqTreeFiles, hasChildren: true),
+          ]);
       if (_roots!.isNotEmpty) await _toggle(_roots!.first);
     } catch (e) {
       if (mounted) setState(() => _error = sqlErrorText(MtStrings.of(context), e));
@@ -130,10 +150,37 @@ class SqlTreeState extends State<SqlTree> {
           TreeNode(id: '${n.id}/f:columns', kind: NodeKind.folder, name: s.sqTreeColumns, hasChildren: true, database: n.database, schema: n.schema, table: n.name, folder: 'columns'),
           if (n.kind == NodeKind.table) TreeNode(id: '${n.id}/f:indexes', kind: NodeKind.folder, name: s.sqTreeIndexes, hasChildren: true, database: n.database, schema: n.schema, table: n.name, folder: 'indexes'),
         ];
+      case NodeKind.files:
+        final list = await _dataFiles();
+        n.count = list.length;
+        return [for (final f in list) TreeNode(id: 'file:${f.path}', kind: NodeKind.file, name: f.path.split(RegExp(r'[\\/]')).last, detail: _size(f.lengthSync()), hasChildren: false, path: f.path)];
       default:
         return const [];
     }
   }
+
+  /// Belgeler dizini + seçili veri dosyasının klasöründeki doğrudan sorgulanabilir dosyalar
+  Future<List<File>> _dataFiles() async {
+    final dirs = <String>{};
+    try {
+      dirs.add('${(await getApplicationDocumentsDirectory()).path}/$kSqlDocsSubdir');
+    } catch (_) {/* platform kanalı yok (test) */}
+    final sel = widget.session.conn.filePath.trim();
+    if (sel.isNotEmpty) dirs.add(File(sel).parent.path);
+    final out = <File>[];
+    final seen = <String>{};
+    for (final d in dirs) {
+      final dir = Directory(d);
+      if (!dir.existsSync()) continue;
+      for (final e in dir.listSync()) {
+        if (e is File && DuckDbDriver.isDataFile(e.path) && seen.add(e.path)) out.add(e);
+      }
+    }
+    out.sort((a, b) => a.path.toLowerCase().compareTo(b.path.toLowerCase()));
+    return out;
+  }
+
+  static String _size(int n) => n < 1024 ? '$n B' : n < 1024 * 1024 ? '${(n / 1024).toStringAsFixed(n < 10240 ? 1 : 0)} KB' : '${(n / (1024 * 1024)).toStringAsFixed(1)} MB';
 
   Future<List<TreeNode>> _tableFolders(String db, String schema, String baseId, MtStrings s) async {
     final list = await widget.session.driver!.tables(db, schema);
@@ -151,8 +198,10 @@ class SqlTreeState extends State<SqlTree> {
     final c = MtColors.of(context);
     Widget mi(IconData i, String t) => Row(children: [Icon(i, size: 16, color: c.text2), const SizedBox(width: 10), Text(t)]);
     final isData = n.kind == NodeKind.table || n.kind == NodeKind.view;
+    final isFile = n.kind == NodeKind.file && n.path != null;
     final r = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy), items: [
       if (isData) PopupMenuItem(value: 'data', child: mi(Icons.table_chart_outlined, s.sqCwOpenData)),
+      if (isFile && widget.onOpenFile != null) PopupMenuItem(value: 'file', child: mi(Icons.code, s.sqCwNewSqlHere)),
       if (n.database != null) PopupMenuItem(value: 'sql', child: mi(Icons.code, s.sqCwNewSqlHere)),
       PopupMenuItem(value: 'copy', child: mi(Icons.copy_outlined, s.sqCwCopyName)),
     ]);
@@ -160,8 +209,9 @@ class SqlTreeState extends State<SqlTree> {
     switch (r) {
       case 'data': widget.onOpenTable(n.database!, n.schema ?? n.database!, n.name, n.kind == NodeKind.view ? 'view' : 'table');
       case 'sql': widget.onNewSql(n.database!);
+      case 'file': widget.onOpenFile?.call(duckFilePreviewSql(n.path!));
       case 'copy':
-        await Clipboard.setData(ClipboardData(text: n.name));
+        await Clipboard.setData(ClipboardData(text: isFile ? n.path! : n.name));
         if (mounted) mtToast(context, s.sqCwCopied, type: 'ok');
     }
   }
@@ -228,14 +278,21 @@ class SqlTreeState extends State<SqlTree> {
       NodeKind.view => (Icons.table_view_outlined, c.ok),
       NodeKind.column => (Icons.view_column_outlined, c.text3),
       NodeKind.idx => (Icons.sort, c.text3),
+      NodeKind.files => (Icons.folder_open_outlined, const Color(0xFFFBBF24)),
+      NodeKind.file => (Icons.description_outlined, c.accent),
     };
     final isData = n.kind == NodeKind.table || n.kind == NodeKind.view;
+    final isFile = n.kind == NodeKind.file && n.path != null;
     final selected = widget.selectedId == n.id;
     return GestureDetector(
       onLongPressStart: (d) => _menu(n, d.globalPosition),
       onSecondaryTapDown: (d) => _menu(n, d.globalPosition),
       child: InkWell(
-        onTap: () => isData ? widget.onOpenTable(n.database!, n.schema ?? n.database!, n.name, n.kind == NodeKind.view ? 'view' : 'table') : _toggle(n),
+        onTap: () => isData
+            ? widget.onOpenTable(n.database!, n.schema ?? n.database!, n.name, n.kind == NodeKind.view ? 'view' : 'table')
+            : isFile
+                ? widget.onOpenFile?.call(duckFilePreviewSql(n.path!))
+                : _toggle(n),
         child: Container(
           color: selected ? c.accent.withValues(alpha: .12) : null,
           padding: EdgeInsetsDirectional.only(start: 6 + depth * 14.0, end: 8),
