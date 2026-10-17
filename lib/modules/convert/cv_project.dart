@@ -21,17 +21,6 @@ import 'cv_formats.dart';
 import 'cv_model.dart';
 import 'cv_text_formats.dart';
 
-// Sabit metinler (ARB'ye henüz eklenmedi; TR)
-const _tShareAllTexts = 'Tüm metinleri paylaş';
-const _tShareText = 'Metni paylaş';
-const _tDeleteText = 'Metni sil';
-const _tCancelText = 'Metin işini iptal et';
-const _tPhaseDownload = 'Konuşma modeli indiriliyor';
-const _tPhaseWav = 'Ses hazırlanıyor (16 kHz WAV)…';
-const _tPhaseRunSpeech = 'Konuşma metne çevriliyor… (süre dosya uzunluğuna bağlı)';
-const _tPhaseRunOcr = 'Metin okunuyor…';
-const _tTextsCount = 'metin';
-const _tNoTextsYet = 'Henüz metin yok.';
 const _tFmtJson = 'JSON';
 
 class CvProjectScreen extends StatefulWidget {
@@ -125,7 +114,7 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       PopupMenuItem(value: 'add', child: mi(Icons.note_add_outlined, s.cvMobAddFiles)),
       if (p.type != 'audio') PopupMenuItem(value: 'gallery', child: mi(Icons.photo_library_outlined, s.cvMobAddFromGallery)),
       PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareAllOutputs)),
-      if (_r!.textDoneCount > 0) PopupMenuItem(value: 'sharetext', child: mi(Icons.text_snippet_outlined, _tShareAllTexts)),
+      if (_r!.textDoneCount > 0) PopupMenuItem(value: 'sharetext', child: mi(Icons.text_snippet_outlined, s.cvMobShareAllTexts)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'edit', child: mi(Icons.tune, s.cvAppProjectSettings)),
       PopupMenuItem(value: 'settings', child: mi(Icons.settings_outlined, s.cvMobModuleSettings)),
@@ -145,7 +134,7 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
           if (f != null) paths.add(f);
         }
         if (!mounted) return;
-        if (paths.isEmpty) { mtToast(context, _tNoTextsYet); return; }
+        if (paths.isEmpty) { mtToast(context, s.cvMobNoTextsYet); return; }
         await _share(paths, p.name);
       case 'edit': await widget.onEditProject(context);
       case 'settings': widget.onModuleSettings(context);
@@ -170,10 +159,10 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
       if (j.status == CvStatus.done) PopupMenuItem(value: 'share', child: mi(Icons.ios_share, s.cvMobShareOutput)),
       if (j.status == CvStatus.done) PopupMenuItem(value: 'delout', child: mi(Icons.delete_outline, s.cvPjDeleteOut)),
       const PopupMenuDivider(),
-      if (tActive) PopupMenuItem(value: 'tcancel', child: mi(Icons.stop_circle_outlined, _tCancelText))
+      if (tActive) PopupMenuItem(value: 'tcancel', child: mi(Icons.stop_circle_outlined, s.cvMobCancelText))
       else PopupMenuItem(value: 'text', child: mi(isImg ? Icons.text_fields : Icons.mic_none, _textActionLabel(s, t, isImg))),
-      if (t.status == CvStatus.done) PopupMenuItem(value: 'tshare', child: mi(Icons.ios_share, _tShareText)),
-      if (t.status == CvStatus.done) PopupMenuItem(value: 'tdel', child: mi(Icons.delete_outline, _tDeleteText)),
+      if (t.status == CvStatus.done) PopupMenuItem(value: 'tshare', child: mi(Icons.ios_share, s.cvMobShareText)),
+      if (t.status == CvStatus.done) PopupMenuItem(value: 'tdel', child: mi(Icons.delete_outline, s.cvMobDeleteText)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'remove', child: mi(Icons.playlist_remove, s.cvPjUncheck, danger: true)),
     ]);
@@ -239,9 +228,9 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
 
   /// Metin işi aşaması (ilerleme bilinmez; indirmede yüzde gösterilir).
   String _phaseText(MtStrings s, CvTextJob t, bool isImg) => switch (t.phase) {
-        CvTextPhase.download => '$_tPhaseDownload… %${(t.progress * 100).round()}',
-        CvTextPhase.wav => _tPhaseWav,
-        CvTextPhase.run => isImg ? _tPhaseRunOcr : _tPhaseRunSpeech,
+        CvTextPhase.download => '${s.cvMobPhaseDownload}… %${(t.progress * 100).round()}',
+        CvTextPhase.wav => s.cvMobPhaseWav,
+        CvTextPhase.run => isImg ? s.cvMobPhaseRunOcr : s.cvMobPhaseRunSpeech,
         CvTextPhase.none => t.status == CvStatus.queued ? s.cvStQueued : '' };
 
   @override
@@ -353,7 +342,7 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
         if (r.textRunning) ...[const SizedBox(width: 12), Icon(p.type == 'image' ? Icons.text_fields : Icons.mic_none, size: 13, color: c.accent), const SizedBox(width: 4),
             Text(s.cvPjStSpeech('${r.textActiveCount + r.textQueuedCount}'), style: MtText.tiny.copyWith(color: c.text2))]
         else if (r.textDoneCount > 0) ...[const SizedBox(width: 12), Icon(Icons.text_snippet_outlined, size: 13, color: c.ok), const SizedBox(width: 4),
-            Text('${r.textDoneCount} $_tTextsCount', style: MtText.tiny.copyWith(color: c.text2))],
+            Text(s.cvMobTextsCount(r.textDoneCount), style: MtText.tiny.copyWith(color: c.text2))],
         const SizedBox(width: 12),
         Expanded(child: _bar(c, r.overall, height: 5)),
         const SizedBox(width: 8),
@@ -549,7 +538,7 @@ class _CvProjectScreenState extends State<CvProjectScreen> {
             _shareText(src.name, b.localToGlobal(Offset(0, b.size.height)));
           })),
         ],
-        if (t.status == CvStatus.done) MtButton(label: _tDeleteText, small: true, icon: Icons.delete_outline, onPressed: () => r.deleteText(src.name)),
+        if (t.status == CvStatus.done) MtButton(label: s.cvMobDeleteText, small: true, icon: Icons.delete_outline, onPressed: () => r.deleteText(src.name)),
       ]),
     ];
   }

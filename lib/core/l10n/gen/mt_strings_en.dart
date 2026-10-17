@@ -4904,11 +4904,11 @@ class MtStringsEn extends MtStrings {
 
   @override
   String get cvMobSpeechNote =>
-      'Speech to text (whisper.cpp) is not included in the mobile version; the settings are kept and applied on desktop.';
+      'Speech recognition runs on the device, offline (whisper.cpp); audio is never sent to a server. The model is downloaded once on first use (Tiny 75 MB · Base 142 MB · Small 466 MB; Wi-Fi recommended) and managed under Settings › Speech models.';
 
   @override
   String get cvMobOcrNote =>
-      'Text from images (OCR, Tesseract) is not included in the mobile version; the settings are kept and applied on desktop.';
+      'Image-to-text runs on the device (Google ML Kit); images are never sent to a server. Recognized scripts: Latin (including Turkish), Chinese, Japanese, Korean and Devanagari (Hindi). On Android the recognition model ships with the app.';
 
   @override
   String get cvMobFolderNote =>
@@ -5083,4 +5083,99 @@ class MtStringsEn extends MtStrings {
 
   @override
   String get npMobReplaceAll => 'Replace all';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'Excel (.xlsx) files require the DuckDB \"excel\" extension; if the extension cannot be loaded on this device, opening fails. CSV, Parquet and JSON need no extra setup.';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      'Could not open the Excel file: the DuckDB \"excel\" extension could not be loaded on this device. Save the file as CSV and try again.';
+
+  @override
+  String get sqMobDuckFileNotFound => 'File not found';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      'The DuckDB native library (libduckdb) could not be loaded. The app may have been built without a DuckDB binary for this platform.';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      'The SQL Server native library (FreeTDS libsybdb.so) is not bundled with the app. The mssql_connection jniLibs directory must be added to the Android build.';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      'Could not connect to SQL Server. Check the server address, port, user/password and TLS mode (see \"MssqlClient\" in the device log for details).';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'The SQL Server driver is not yet supported on iOS (the FreeTDS library is not bundled).';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      'This model is not available on mobile; the Base model is used on this device. Your choice applies on desktop.';
+
+  @override
+  String get cvMobPerWindowNote =>
+      'The mobile version does not report the detected language; this option applies on desktop.';
+
+  @override
+  String get cvMobOcrUnsupported =>
+      'Not readable on mobile (no ML Kit model); used on desktop';
+
+  @override
+  String get cvMobOcrMax => 'Up to 6 languages can be selected.';
+
+  @override
+  String get cvMobShareAllTexts => 'Share all texts';
+
+  @override
+  String get cvMobShareText => 'Share text';
+
+  @override
+  String get cvMobDeleteText => 'Delete text';
+
+  @override
+  String get cvMobCancelText => 'Cancel text job';
+
+  @override
+  String get cvMobPhaseDownload => 'Downloading speech model';
+
+  @override
+  String get cvMobPhaseWav => 'Preparing audio (16 kHz WAV)…';
+
+  @override
+  String get cvMobPhaseRunSpeech =>
+      'Transcribing speech… (time depends on file length)';
+
+  @override
+  String get cvMobPhaseRunOcr => 'Reading text…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n texts';
+  }
+
+  @override
+  String get cvMobNoTextsYet => 'No texts yet.';
+
+  @override
+  String get cvMobSpeechModels => 'Speech models';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      'Speech recognition (whisper.cpp) runs on this device; the model is downloaded on first use, and you can pre-download or delete it here. The Medium and Large v3 Turbo models are not available on mobile.';
+
+  @override
+  String get cvMobTexts => 'Texts (speech / OCR)';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      'Image-to-text runs on the device with Google ML Kit; Latin (including Turkish), Chinese, Japanese, Korean and Devanagari scripts are supported. Recognition models ship with the app; no download is needed.';
+
+  @override
+  String get npMobDocumentsRoot => 'Documents';
+
+  @override
+  String get smMobFiles => 'Files';
 }

@@ -4794,10 +4794,12 @@ class MtStringsZh extends MtStrings {
   String get cvMobNotOnMobile => '移动端不可用';
 
   @override
-  String get cvMobSpeechNote => '移动版不包含语音转文字 (whisper.cpp)；设置会保留并在桌面端生效。';
+  String get cvMobSpeechNote =>
+      '语音识别在设备上离线运行 (whisper.cpp)；音频不会发送到任何服务器。模型在首次使用时下载一次（Tiny 75 MB · Base 142 MB · Small 466 MB；建议使用 Wi-Fi），可在\"设置 › 语音模型\"中管理。';
 
   @override
-  String get cvMobOcrNote => '移动版不包含图片文字识别 (OCR, Tesseract)；设置会保留并在桌面端生效。';
+  String get cvMobOcrNote =>
+      '图片转文字在设备上运行 (Google ML Kit)；图片不会发送到任何服务器。可识别文字：拉丁字母（含土耳其语）、中文、日文、韩文和天城文（印地语）。Android 上识别模型随应用提供。';
 
   @override
   String get cvMobFolderNote => '移动端无法选择源文件夹；文件需逐个添加或从相册添加。';
@@ -4964,4 +4966,96 @@ class MtStringsZh extends MtStrings {
 
   @override
   String get npMobReplaceAll => '全部替换';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'Excel (.xlsx) 文件需要 DuckDB 的 \"excel\" 扩展；若此设备无法加载该扩展，打开将失败。CSV、Parquet 和 JSON 无需额外安装。';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      '无法打开 Excel 文件：此设备无法加载 DuckDB 的 \"excel\" 扩展。请将文件另存为 CSV 后重试。';
+
+  @override
+  String get sqMobDuckFileNotFound => '未找到文件';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      '无法加载 DuckDB 原生库 (libduckdb)。应用可能在构建时未包含此平台的 DuckDB 二进制文件。';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      '应用未打包 SQL Server 原生库 (FreeTDS libsybdb.so)。需要将 mssql_connection 的 jniLibs 目录加入 Android 构建。';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      '无法连接 SQL Server。请检查服务器地址、端口、用户名/密码和 TLS 模式（详情见设备日志中的 \"MssqlClient\"）。';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'SQL Server 驱动尚不支持 iOS（未打包 FreeTDS 库）。';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      '此模型在移动端不可用；本设备将使用 Base 模型。您的选择在桌面端生效。';
+
+  @override
+  String get cvMobPerWindowNote => '移动版不会报告检测到的语言；此选项在桌面端生效。';
+
+  @override
+  String get cvMobOcrUnsupported => '移动端无法识别（无 ML Kit 模型）；在桌面端使用';
+
+  @override
+  String get cvMobOcrMax => '最多可选择 6 种语言。';
+
+  @override
+  String get cvMobShareAllTexts => '分享全部文本';
+
+  @override
+  String get cvMobShareText => '分享文本';
+
+  @override
+  String get cvMobDeleteText => '删除文本';
+
+  @override
+  String get cvMobCancelText => '取消文本任务';
+
+  @override
+  String get cvMobPhaseDownload => '正在下载语音模型';
+
+  @override
+  String get cvMobPhaseWav => '正在准备音频（16 kHz WAV）…';
+
+  @override
+  String get cvMobPhaseRunSpeech => '正在将语音转为文字…（耗时取决于文件长度）';
+
+  @override
+  String get cvMobPhaseRunOcr => '正在识别文字…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n 个文本';
+  }
+
+  @override
+  String get cvMobNoTextsYet => '尚无文本。';
+
+  @override
+  String get cvMobSpeechModels => '语音模型';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      '语音识别 (whisper.cpp) 在此设备上运行；模型在首次使用时下载，您可在此预先下载或删除。Medium 和 Large v3 Turbo 模型在移动端不可用。';
+
+  @override
+  String get cvMobTexts => '文本（语音 / OCR）';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      '图片转文字通过 Google ML Kit 在设备上运行；支持拉丁字母（含土耳其语）、中文、日文、韩文和天城文。识别模型随应用提供，无需下载。';
+
+  @override
+  String get npMobDocumentsRoot => '文档';
+
+  @override
+  String get smMobFiles => '文件';
 }

@@ -203,12 +203,30 @@ SqlDriver createDriver(SqlConnection conn, {String? hostOverride, int? portOverr
   };
 }
 
+/// Sürücü hata kimliği (kDuck… / kMssql…) → sözlük metni; [detail] varsa yeni satırda/iki noktadan sonra eklenir.
+String? _driverCodeText(MtStrings s, String? code, String? detail) {
+  final base = switch (code) {
+    kDuckFileNotFound => s.sqMobDuckFileNotFound,
+    kDuckNativeMissing => s.sqMobDuckNativeMissing,
+    kDuckExcelUnsupported => s.sqMobDuckExcelUnsupported,
+    kMssqlNativeMissing => s.sqMobMssqlNativeMissing,
+    kMssqlConnectFailed => s.sqMobMssqlConnectFailed,
+    kMssqlIosUnsupported => s.sqMobMssqlIosUnsupported,
+    _ => null,
+  };
+  if (base == null) return null;
+  final d = detail?.trim() ?? '';
+  if (d.isEmpty) return base;
+  return code == kDuckFileNotFound ? '$base: $d' : '$base\n$d';
+}
+
 /// Hata metni (masaüstü errors.ts eşlemesi)
 String sqlErrorText(MtStrings s, Object e) {
   if (e is UnsupportedProvider) return s.sqMobUnsupportedMobile;
-  // Sürücü mesajları zaten kullanıcıya dönük (DuckDB "Catalog Error: …", FreeTDS iletisi, yerel kitaplık uyarıları)
-  if (e is DuckDbError || e is MssqlError) return e.toString().trim();
-  if (e is ArgumentError && e.toString().toLowerCase().contains('failed to load dynamic library')) return kDuckNativeMissing;
+  // Kodlu sürücü hataları sözlükten; kodsuzlar motor mesajı (DuckDB "Catalog Error: …", FreeTDS iletisi) olduğu gibi
+  if (e is DuckDbError) return _driverCodeText(s, e.code, e.detail) ?? e.message.trim();
+  if (e is MssqlError) return _driverCodeText(s, e.code, e.detail) ?? e.message.trim();
+  if (e is ArgumentError && e.toString().toLowerCase().contains('failed to load dynamic library')) return s.sqMobDuckNativeMissing;
   if (e is SshTunnelError) return e.auth ? s.sqErrSshAuth : e.message;
   if (e is SqlCancelled) return s.sqResCancelled;
   final m = e.toString();

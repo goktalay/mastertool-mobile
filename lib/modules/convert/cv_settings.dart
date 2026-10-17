@@ -17,14 +17,6 @@ import 'cv_model.dart';
 import 'cv_speech.dart';
 import 'cv_text_formats.dart';
 
-// Sabit metinler (ARB'ye henüz eklenmedi; TR)
-const _tSpeechModels = 'Konuşma modelleri';
-const _tSpeechModelsNote = 'Konuşma tanıma (whisper.cpp) bu cihazda çalışır; model ilk kullanımda indirilir, buradan önceden indirip silebilirsiniz. '
-    'Orta ve Large v3 Turbo modeller mobilde kullanılamaz.';
-const _tDelete = 'Sil';
-const _tTexts = 'Metinler (konuşma / OCR)';
-const _tOcrNote = 'Resimden metin Google ML Kit ile cihazda çalışır; Latin (Türkçe dahil), Çince, Japonca, Korece ve Devanagari betikleri desteklenir. '
-    'Tanıma modelleri uygulamayla gelir; indirme gerekmez.';
 
 class CvSettingsScreen extends StatefulWidget {
   const CvSettingsScreen({super.key, required this.engine, this.baseDir, this.models});
@@ -141,7 +133,7 @@ class _CvSettingsScreenState extends State<CvSettingsScreen> {
       trailing = Row(mainAxisSize: MainAxisSize.min, children: [
         Text(s.cvSpeechInstalled(fmtSize(m.size(key))), style: MtText.small.copyWith(color: c.ok)),
         const SizedBox(width: 10),
-        MtButton(label: _tDelete, small: true, kind: MtBtnKind.danger, icon: Icons.delete_outline, onPressed: () => m.delete(key)),
+        MtButton(label: s.commonDelete, small: true, kind: MtBtnKind.danger, icon: Icons.delete_outline, onPressed: () => m.delete(key)),
       ]);
     } else {
       trailing = MtButton(label: s.cvSpeechDownload, small: true, icon: Icons.download_outlined, onPressed: () => _download(key));
@@ -187,18 +179,18 @@ class _CvSettingsScreenState extends State<CvSettingsScreen> {
           MtField(label: s.cvMobDefaultConcurrency, hint: s.cvMobConcurrencyHint, child: MtSegment<int>(value: _conc, onChanged: (v) => setState(() => _conc = v),
               items: [for (var i = 1; i <= kMobileMaxConcurrency; i++) (i, '$i', null)])),
           const SizedBox(height: 22),
-          MtSectionTitle(_tSpeechModels),
+          MtSectionTitle(s.cvMobSpeechModels),
           const SizedBox(height: 10),
           for (final k in kMobileSpeechModels) ...[_modelRow(s, c, k), const SizedBox(height: 8)],
-          Text(_tSpeechModelsNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
+          Text(s.cvMobSpeechModelsNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
           const SizedBox(height: 10),
-          Text(_tOcrNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
+          Text(s.cvMobOcrSettingsNote, style: MtText.small.copyWith(color: c.text3, height: 1.45)),
           const SizedBox(height: 22),
           MtSectionTitle(s.cvMobStorage),
           const SizedBox(height: 10),
           storageRow(Icons.swap_horiz, s.cvPjConverted, _outSize, action: MtButton(label: s.cvAppClearOutputs, small: true, kind: MtBtnKind.danger, icon: Icons.delete_outline, busy: _busy, onPressed: _clearOutputs)),
           const SizedBox(height: 8),
-          storageRow(Icons.text_snippet_outlined, _tTexts, _textSize),
+          storageRow(Icons.text_snippet_outlined, s.cvMobTexts, _textSize),
           const SizedBox(height: 8),
           storageRow(Icons.folder_copy_outlined, s.cvMobSourceCopies, _srcSize),
           const SizedBox(height: 8),

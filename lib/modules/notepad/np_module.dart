@@ -88,7 +88,7 @@ class _NpLibraryScreenState extends State<NpLibraryScreen> {
           final c = NpConnection(id, d);
           final kindLabel = switch (c.kind) { 'ssh' => s.npKindSsh, 'ftp' => s.npKindFtp, 'local' => s.npKindLocal, _ => s.npKindFile };
           final icon = switch (c.kind) { 'ssh' => Icons.terminal, 'ftp' => Icons.dns_outlined, 'local' => Icons.folder_outlined, _ => Icons.description_outlined };
-          final sub = c.isRemote ? '${c.anonymous ? 'anonymous' : c.username}@${c.host}' : (c.localPath.isEmpty ? s.npAppNoLocalPath.split('.').first : npShortLocalPath(c.localPath, _docs));
+          final sub = c.isRemote ? '${c.anonymous ? 'anonymous' : c.username}@${c.host}' : (c.localPath.isEmpty ? s.npAppNoLocalPath.split('.').first : npShortLocalPath(c.localPath, docsRoot: _docs, label: s.npMobDocumentsRoot));
           return LibraryItem(id: id, name: c.name.isEmpty ? (c.isRemote ? c.host : kindLabel) : c.name, subtitle: sub, color: c.colorValue, icon: icon, folderId: c.folderId, tags: [
             if (c.kind == 'ssh') (Icons.lock_outline, 'SSH') else if (c.kind == 'ftp') (Icons.lock_outline, kFtpProtocols[c.protocol]?.$1.split(' ').first ?? c.protocol) else (icon, kindLabel),
             if (c.isRemote && c.rootDir.isNotEmpty) (Icons.folder_outlined, c.rootDir.length > 18 ? '…/${npBaseName(c.rootDir)}' : c.rootDir),

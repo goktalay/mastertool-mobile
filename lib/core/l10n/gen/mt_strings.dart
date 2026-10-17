@@ -8848,13 +8848,13 @@ abstract class MtStrings {
   /// No description provided for @cvMobSpeechNote.
   ///
   /// In tr, this message translates to:
-  /// **'Konuşmadan metne (whisper.cpp) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.'**
+  /// **'Konuşma tanıma cihazda, çevrimdışı çalışır (whisper.cpp); ses hiçbir sunucuya gönderilmez. Model ilk kullanımda bir kez indirilir (Çok küçük 75 MB · Temel 142 MB · Küçük 466 MB; Wi-Fi önerilir) ve Ayarlar › Konuşma modelleri bölümünden yönetilir.'**
   String get cvMobSpeechNote;
 
   /// No description provided for @cvMobOcrNote.
   ///
   /// In tr, this message translates to:
-  /// **'Resimden metin (OCR, Tesseract) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.'**
+  /// **'Resimden metin cihazda çalışır (Google ML Kit); resimler hiçbir sunucuya gönderilmez. Tanınan betikler: Latin alfabesi (Türkçe dahil), Çince, Japonca, Korece ve Devanagari (Hintçe). Android\'de tanıma modeli uygulamayla gelir.'**
   String get cvMobOcrNote;
 
   /// No description provided for @cvMobFolderNote.
@@ -9174,6 +9174,168 @@ abstract class MtStrings {
   /// In tr, this message translates to:
   /// **'Tümünü değiştir'**
   String get npMobReplaceAll;
+
+  /// No description provided for @sqMobDuckExcelNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Excel (.xlsx) dosyaları DuckDB \"excel\" eklentisini gerektirir; eklenti cihazda yüklenemiyorsa açılış hata verir. CSV, Parquet ve JSON ek kurulum istemez.'**
+  String get sqMobDuckExcelNote;
+
+  /// No description provided for @sqMobDuckExcelUnsupported.
+  ///
+  /// In tr, this message translates to:
+  /// **'Excel dosyası açılamadı: DuckDB \"excel\" eklentisi bu cihazda yüklenemedi. Dosyayı CSV olarak kaydedip tekrar deneyin.'**
+  String get sqMobDuckExcelUnsupported;
+
+  /// No description provided for @sqMobDuckFileNotFound.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosya bulunamadı'**
+  String get sqMobDuckFileNotFound;
+
+  /// No description provided for @sqMobDuckNativeMissing.
+  ///
+  /// In tr, this message translates to:
+  /// **'DuckDB yerel kitaplığı (libduckdb) yüklenemedi. Uygulama bu platform için DuckDB ikilisi olmadan derlenmiş olabilir.'**
+  String get sqMobDuckNativeMissing;
+
+  /// No description provided for @sqMobMssqlNativeMissing.
+  ///
+  /// In tr, this message translates to:
+  /// **'SQL Server yerel kitaplığı (FreeTDS libsybdb.so) uygulamaya paketlenmemiş. Android derlemesine mssql_connection jniLibs dizini eklenmeli.'**
+  String get sqMobMssqlNativeMissing;
+
+  /// No description provided for @sqMobMssqlConnectFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'SQL Server bağlantısı kurulamadı. Sunucu adresi, port, kullanıcı/parola ve TLS kipini denetleyin (ayrıntı için cihaz günlüğünde \"MssqlClient\").'**
+  String get sqMobMssqlConnectFailed;
+
+  /// No description provided for @sqMobMssqlIosUnsupported.
+  ///
+  /// In tr, this message translates to:
+  /// **'SQL Server sürücüsü iOS\'ta henüz desteklenmiyor (FreeTDS kitaplığı paketlenmiyor).'**
+  String get sqMobMssqlIosUnsupported;
+
+  /// No description provided for @cvMobSpeechModelFallback.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu model mobilde kullanılamaz; bu cihazda Temel (base) model kullanılır. Masaüstünde seçiminiz geçerlidir.'**
+  String get cvMobSpeechModelFallback;
+
+  /// No description provided for @cvMobPerWindowNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobil sürüm algılanan dili bildirmez; bu seçenek masaüstünde uygulanır.'**
+  String get cvMobPerWindowNote;
+
+  /// No description provided for @cvMobOcrUnsupported.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mobilde okunamaz (ML Kit modeli yok); masaüstünde kullanılır'**
+  String get cvMobOcrUnsupported;
+
+  /// No description provided for @cvMobOcrMax.
+  ///
+  /// In tr, this message translates to:
+  /// **'En çok 6 dil seçilebilir.'**
+  String get cvMobOcrMax;
+
+  /// No description provided for @cvMobShareAllTexts.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm metinleri paylaş'**
+  String get cvMobShareAllTexts;
+
+  /// No description provided for @cvMobShareText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metni paylaş'**
+  String get cvMobShareText;
+
+  /// No description provided for @cvMobDeleteText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metni sil'**
+  String get cvMobDeleteText;
+
+  /// No description provided for @cvMobCancelText.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin işini iptal et'**
+  String get cvMobCancelText;
+
+  /// No description provided for @cvMobPhaseDownload.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konuşma modeli indiriliyor'**
+  String get cvMobPhaseDownload;
+
+  /// No description provided for @cvMobPhaseWav.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ses hazırlanıyor (16 kHz WAV)…'**
+  String get cvMobPhaseWav;
+
+  /// No description provided for @cvMobPhaseRunSpeech.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konuşma metne çevriliyor… (süre dosya uzunluğuna bağlı)'**
+  String get cvMobPhaseRunSpeech;
+
+  /// No description provided for @cvMobPhaseRunOcr.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metin okunuyor…'**
+  String get cvMobPhaseRunOcr;
+
+  /// No description provided for @cvMobTextsCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'{n} metin'**
+  String cvMobTextsCount(int n);
+
+  /// No description provided for @cvMobNoTextsYet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz metin yok.'**
+  String get cvMobNoTextsYet;
+
+  /// No description provided for @cvMobSpeechModels.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konuşma modelleri'**
+  String get cvMobSpeechModels;
+
+  /// No description provided for @cvMobSpeechModelsNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Konuşma tanıma (whisper.cpp) bu cihazda çalışır; model ilk kullanımda indirilir, buradan önceden indirip silebilirsiniz. Orta ve Large v3 Turbo modeller mobilde kullanılamaz.'**
+  String get cvMobSpeechModelsNote;
+
+  /// No description provided for @cvMobTexts.
+  ///
+  /// In tr, this message translates to:
+  /// **'Metinler (konuşma / OCR)'**
+  String get cvMobTexts;
+
+  /// No description provided for @cvMobOcrSettingsNote.
+  ///
+  /// In tr, this message translates to:
+  /// **'Resimden metin Google ML Kit ile cihazda çalışır; Latin (Türkçe dahil), Çince, Japonca, Korece ve Devanagari betikleri desteklenir. Tanıma modelleri uygulamayla gelir; indirme gerekmez.'**
+  String get cvMobOcrSettingsNote;
+
+  /// No description provided for @npMobDocumentsRoot.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belgeler'**
+  String get npMobDocumentsRoot;
+
+  /// No description provided for @smMobFiles.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dosyalar'**
+  String get smMobFiles;
 }
 
 class _MtStringsDelegate extends LocalizationsDelegate<MtStrings> {

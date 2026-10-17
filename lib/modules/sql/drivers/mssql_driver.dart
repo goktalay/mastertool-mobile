@@ -18,16 +18,19 @@ import '../sql_dialect.dart';
 import '../sql_lexer.dart';
 import 'sql_driver.dart';
 
-// Türkçe sabit metinler (ARB'ye henüz eklenmedi)
-const kMssqlNativeMissing = 'SQL Server yerel kitaplığı (FreeTDS libsybdb.so) uygulamaya paketlenmemiş. Android derlemesine mssql_connection jniLibs dizini eklenmeli.';
-const kMssqlConnectFailed = 'SQL Server bağlantısı kurulamadı. Sunucu adresi, port, kullanıcı/parola ve TLS kipini denetleyin (ayrıntı için cihaz günlüğünde "MssqlClient").';
-const kMssqlIosUnsupported = 'SQL Server sürücüsü iOS\'ta henüz desteklenmiyor (FreeTDS kitaplığı paketlenmiyor).';
+// Hata kimlikleri (sürücü context'sizdir; UI metni sqlErrorText → s.sqMobMssql… ile çözülür)
+const kMssqlNativeMissing = 'mssql_native_missing';
+const kMssqlConnectFailed = 'mssql_connect_failed';
+const kMssqlIosUnsupported = 'mssql_ios_unsupported';
 
 final _numericType = RegExp(r'^(int|bigint|smallint|tinyint|decimal|numeric|float|real|money|smallmoney|bit)', caseSensitive: false);
 
+/// Sürücü hatası. [code] verilmişse (kMssql…) UI sözlükten çevirir, [detail] eklenir.
 class MssqlError implements Exception {
-  MssqlError(this.message);
+  MssqlError(this.message, {this.code, this.detail});
   final String message;
+  final String? code;
+  final String? detail;
   @override
   String toString() => message;
 }
@@ -57,12 +60,12 @@ class MssqlDriver implements SqlDriver {
 
   @override
   Future<void> connect() async {
-    if (!supported) throw MssqlError(Platform.isIOS ? kMssqlIosUnsupported : kMssqlNativeMissing);
+    if (!supported) { final code = Platform.isIOS ? kMssqlIosUnsupported : kMssqlNativeMissing; throw MssqlError(code, code: code); }
     // Yerel kitaplık paketlenmiş mi: MssqlClient.connect her hatayı "false" olarak yutar, ayrımı burada yapıyoruz
     try {
       DynamicLibrary.open('libsybdb.so');
     } catch (e) {
-      throw MssqlError('$kMssqlNativeMissing\n$e');
+      throw MssqlError('$kMssqlNativeMissing\n$e', code: kMssqlNativeMissing, detail: '$e');
     }
     final c = MssqlClient(
       server: '$host:$port', username: user, password: password,
@@ -71,7 +74,7 @@ class MssqlDriver implements SqlDriver {
       tdsVersion: '7.4',
     );
     final ok = await c.connect(loginTimeoutSeconds: 15);
-    if (!ok) throw MssqlError(kMssqlConnectFailed);
+    if (!ok) throw MssqlError(kMssqlConnectFailed, code: kMssqlConnectFailed);
     _c = c;
     _tls = sslMode != 'disable';
     try {

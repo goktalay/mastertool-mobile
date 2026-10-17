@@ -146,10 +146,10 @@ void main() {
       expect(npLanguageFor('/x/style.SCSS'), 'scss');
     });
     test('yerel yol kısaltma', () {
-      expect(npShortLocalPath('/data/user/0/app/files/Notepad Master/site/index.php', '/data/user/0/app/files'), 'Belgeler/Notepad Master/site/index.php');
-      expect(npShortLocalPath('/tmp/x/Notepad Master/site'), 'Belgeler/Notepad Master/site');
-      expect(npShortLocalPath('/Projeler/site', '/data/docs'), '/Projeler/site');
-      expect(npShortLocalPath('/data/docs', '/data/docs/'), 'Belgeler');
+      expect(npShortLocalPath('/data/user/0/app/files/Notepad Master/site/index.php', docsRoot: '/data/user/0/app/files', label: 'Belgeler'), 'Belgeler/Notepad Master/site/index.php');
+      expect(npShortLocalPath('/tmp/x/Notepad Master/site', label: 'Belgeler'), 'Belgeler/Notepad Master/site');
+      expect(npShortLocalPath('/Projeler/site', docsRoot: '/data/docs', label: 'Belgeler'), '/Projeler/site');
+      expect(npShortLocalPath('/data/docs', docsRoot: '/data/docs/', label: 'Belgeler'), 'Belgeler');
     });
     test('yol yardımcıları', () {
       expect(npBaseName('/a/b/c.txt'), 'c.txt');

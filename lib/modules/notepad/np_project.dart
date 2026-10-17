@@ -68,7 +68,7 @@ class _NpProjectScreenState extends State<NpProjectScreen> {
   String? _error;
   String _root = '';
   String? _docs; // belgeler kökü: yerel yollar "Belgeler/Notepad Master/…" olarak kısaltılır
-  String _short(String p) => _isRemote ? p : npShortLocalPath(p, _docs);
+  String _short(String p) => _isRemote ? p : npShortLocalPath(p, docsRoot: _docs, label: MtStrings.of(context).npMobDocumentsRoot);
   final List<NpTab> _tabs = [];
   NpTab? _active;
   bool _showTree = true;

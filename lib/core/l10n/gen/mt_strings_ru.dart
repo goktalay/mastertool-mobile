@@ -4921,11 +4921,11 @@ class MtStringsRu extends MtStrings {
 
   @override
   String get cvMobSpeechNote =>
-      'Преобразование речи в текст (whisper.cpp) недоступно в мобильной версии; настройки сохраняются и применяются на компьютере.';
+      'Распознавание речи работает на устройстве офлайн (whisper.cpp); аудио никогда не отправляется на сервер. Модель загружается один раз при первом использовании (Tiny 75 МБ · Base 142 МБ · Small 466 МБ; рекомендуется Wi-Fi) и управляется в разделе Настройки › Речевые модели.';
 
   @override
   String get cvMobOcrNote =>
-      'Распознавание текста на изображениях (OCR, Tesseract) недоступно в мобильной версии; настройки сохраняются и применяются на компьютере.';
+      'Распознавание текста на изображениях выполняется на устройстве (Google ML Kit); изображения никогда не отправляются на сервер. Распознаваемые письменности: латиница (включая турецкий), китайская, японская, корейская и деванагари (хинди). На Android модель распознавания поставляется с приложением.';
 
   @override
   String get cvMobFolderNote =>
@@ -5101,4 +5101,99 @@ class MtStringsRu extends MtStrings {
 
   @override
   String get npMobReplaceAll => 'Заменить все';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'Файлы Excel (.xlsx) требуют расширение DuckDB «excel»; если его не удаётся загрузить на этом устройстве, открытие завершится ошибкой. CSV, Parquet и JSON дополнительной установки не требуют.';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      'Не удалось открыть файл Excel: расширение DuckDB «excel» не загружается на этом устройстве. Сохраните файл в формате CSV и повторите попытку.';
+
+  @override
+  String get sqMobDuckFileNotFound => 'Файл не найден';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      'Не удалось загрузить нативную библиотеку DuckDB (libduckdb). Возможно, приложение собрано без бинарного файла DuckDB для этой платформы.';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      'Нативная библиотека SQL Server (FreeTDS libsybdb.so) не включена в приложение. В сборку Android нужно добавить каталог jniLibs из mssql_connection.';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      'Не удалось подключиться к SQL Server. Проверьте адрес сервера, порт, пользователя/пароль и режим TLS (подробности в журнале устройства под «MssqlClient»).';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'Драйвер SQL Server пока не поддерживается на iOS (библиотека FreeTDS не включена).';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      'Эта модель недоступна на мобильных устройствах; на этом устройстве используется модель Base. Ваш выбор действует на компьютере.';
+
+  @override
+  String get cvMobPerWindowNote =>
+      'Мобильная версия не сообщает распознанный язык; этот параметр действует на компьютере.';
+
+  @override
+  String get cvMobOcrUnsupported =>
+      'Недоступно на мобильных устройствах (нет модели ML Kit); используется на компьютере';
+
+  @override
+  String get cvMobOcrMax => 'Можно выбрать не более 6 языков.';
+
+  @override
+  String get cvMobShareAllTexts => 'Поделиться всеми текстами';
+
+  @override
+  String get cvMobShareText => 'Поделиться текстом';
+
+  @override
+  String get cvMobDeleteText => 'Удалить текст';
+
+  @override
+  String get cvMobCancelText => 'Отменить задание текста';
+
+  @override
+  String get cvMobPhaseDownload => 'Загрузка речевой модели';
+
+  @override
+  String get cvMobPhaseWav => 'Подготовка аудио (16 кГц WAV)…';
+
+  @override
+  String get cvMobPhaseRunSpeech =>
+      'Распознавание речи… (время зависит от длины файла)';
+
+  @override
+  String get cvMobPhaseRunOcr => 'Чтение текста…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n текстов';
+  }
+
+  @override
+  String get cvMobNoTextsYet => 'Текстов пока нет.';
+
+  @override
+  String get cvMobSpeechModels => 'Речевые модели';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      'Распознавание речи (whisper.cpp) работает на этом устройстве; модель загружается при первом использовании, здесь её можно загрузить заранее или удалить. Модели Medium и Large v3 Turbo недоступны на мобильных устройствах.';
+
+  @override
+  String get cvMobTexts => 'Тексты (речь / OCR)';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      'Распознавание текста на изображениях выполняется на устройстве с помощью Google ML Kit; поддерживаются латиница (включая турецкий), китайская, японская, корейская письменности и деванагари. Модели распознавания поставляются с приложением; загрузка не требуется.';
+
+  @override
+  String get npMobDocumentsRoot => 'Документы';
+
+  @override
+  String get smMobFiles => 'Файлы';
 }

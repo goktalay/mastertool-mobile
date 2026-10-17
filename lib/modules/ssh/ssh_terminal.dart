@@ -354,7 +354,7 @@ class _SshTerminalScreenState extends State<SshTerminalScreen> {
           ])),
         ]),
         actions: [
-          MtIconButton(icon: wide && _showFiles ? Icons.folder_open : Icons.folder_open_outlined, tooltip: s.cvPjFiles, color: wide && _showFiles ? col.accent : null, onPressed: _openFiles),
+          MtIconButton(icon: wide && _showFiles ? Icons.folder_open : Icons.folder_open_outlined, tooltip: s.smMobFiles, color: wide && _showFiles ? col.accent : null, onPressed: _openFiles),
           MtIconButton(icon: Icons.bolt_outlined, tooltip: s.smSbShortcuts, onPressed: _shortcuts),
           MtIconButton(icon: Icons.palette_outlined, tooltip: s.smPaletteTitle, onPressed: _palette),
           if (_st == _St.connected) MtIconButton(icon: Icons.cleaning_services_outlined, tooltip: s.smPaneClear, onPressed: () => _send('\x0c'))

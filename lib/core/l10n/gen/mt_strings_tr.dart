@@ -4909,11 +4909,11 @@ class MtStringsTr extends MtStrings {
 
   @override
   String get cvMobSpeechNote =>
-      'Konuşmadan metne (whisper.cpp) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.';
+      'Konuşma tanıma cihazda, çevrimdışı çalışır (whisper.cpp); ses hiçbir sunucuya gönderilmez. Model ilk kullanımda bir kez indirilir (Çok küçük 75 MB · Temel 142 MB · Küçük 466 MB; Wi-Fi önerilir) ve Ayarlar › Konuşma modelleri bölümünden yönetilir.';
 
   @override
   String get cvMobOcrNote =>
-      'Resimden metin (OCR, Tesseract) mobil sürümde yoktur; ayarlar korunur ve masaüstünde uygulanır.';
+      'Resimden metin cihazda çalışır (Google ML Kit); resimler hiçbir sunucuya gönderilmez. Tanınan betikler: Latin alfabesi (Türkçe dahil), Çince, Japonca, Korece ve Devanagari (Hintçe). Android\'de tanıma modeli uygulamayla gelir.';
 
   @override
   String get cvMobFolderNote =>
@@ -5088,4 +5088,99 @@ class MtStringsTr extends MtStrings {
 
   @override
   String get npMobReplaceAll => 'Tümünü değiştir';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'Excel (.xlsx) dosyaları DuckDB \"excel\" eklentisini gerektirir; eklenti cihazda yüklenemiyorsa açılış hata verir. CSV, Parquet ve JSON ek kurulum istemez.';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      'Excel dosyası açılamadı: DuckDB \"excel\" eklentisi bu cihazda yüklenemedi. Dosyayı CSV olarak kaydedip tekrar deneyin.';
+
+  @override
+  String get sqMobDuckFileNotFound => 'Dosya bulunamadı';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      'DuckDB yerel kitaplığı (libduckdb) yüklenemedi. Uygulama bu platform için DuckDB ikilisi olmadan derlenmiş olabilir.';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      'SQL Server yerel kitaplığı (FreeTDS libsybdb.so) uygulamaya paketlenmemiş. Android derlemesine mssql_connection jniLibs dizini eklenmeli.';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      'SQL Server bağlantısı kurulamadı. Sunucu adresi, port, kullanıcı/parola ve TLS kipini denetleyin (ayrıntı için cihaz günlüğünde \"MssqlClient\").';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'SQL Server sürücüsü iOS\'ta henüz desteklenmiyor (FreeTDS kitaplığı paketlenmiyor).';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      'Bu model mobilde kullanılamaz; bu cihazda Temel (base) model kullanılır. Masaüstünde seçiminiz geçerlidir.';
+
+  @override
+  String get cvMobPerWindowNote =>
+      'Mobil sürüm algılanan dili bildirmez; bu seçenek masaüstünde uygulanır.';
+
+  @override
+  String get cvMobOcrUnsupported =>
+      'Mobilde okunamaz (ML Kit modeli yok); masaüstünde kullanılır';
+
+  @override
+  String get cvMobOcrMax => 'En çok 6 dil seçilebilir.';
+
+  @override
+  String get cvMobShareAllTexts => 'Tüm metinleri paylaş';
+
+  @override
+  String get cvMobShareText => 'Metni paylaş';
+
+  @override
+  String get cvMobDeleteText => 'Metni sil';
+
+  @override
+  String get cvMobCancelText => 'Metin işini iptal et';
+
+  @override
+  String get cvMobPhaseDownload => 'Konuşma modeli indiriliyor';
+
+  @override
+  String get cvMobPhaseWav => 'Ses hazırlanıyor (16 kHz WAV)…';
+
+  @override
+  String get cvMobPhaseRunSpeech =>
+      'Konuşma metne çevriliyor… (süre dosya uzunluğuna bağlı)';
+
+  @override
+  String get cvMobPhaseRunOcr => 'Metin okunuyor…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n metin';
+  }
+
+  @override
+  String get cvMobNoTextsYet => 'Henüz metin yok.';
+
+  @override
+  String get cvMobSpeechModels => 'Konuşma modelleri';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      'Konuşma tanıma (whisper.cpp) bu cihazda çalışır; model ilk kullanımda indirilir, buradan önceden indirip silebilirsiniz. Orta ve Large v3 Turbo modeller mobilde kullanılamaz.';
+
+  @override
+  String get cvMobTexts => 'Metinler (konuşma / OCR)';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      'Resimden metin Google ML Kit ile cihazda çalışır; Latin (Türkçe dahil), Çince, Japonca, Korece ve Devanagari betikleri desteklenir. Tanıma modelleri uygulamayla gelir; indirme gerekmez.';
+
+  @override
+  String get npMobDocumentsRoot => 'Belgeler';
+
+  @override
+  String get smMobFiles => 'Dosyalar';
 }

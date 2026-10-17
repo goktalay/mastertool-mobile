@@ -82,7 +82,7 @@ class _SshLibraryScreenState extends State<SshLibraryScreen> {
               existing: id == null ? null : SshConnection(id, data!), folders: [for (final f in folders) SshFolder(f.$1, {'name': f.$2})], folderId: folderId)));
           return r == null ? null : (r.data, r.connect);
         },
-        extraMenu: [('files', Icons.folder_open_outlined, s.cvPjFiles), ('resetDir', Icons.restart_alt, s.smAppResetLastDir)],
+        extraMenu: [('files', Icons.folder_open_outlined, s.smMobFiles), ('resetDir', Icons.restart_alt, s.smAppResetLastDir)],
         onExtra: (ctx, key, id, data) async {
           if (key == 'files') openSshFiles(ctx, _engine!, id, data);
           if (key == 'resetDir') await _save(id, {...data, 'lastDir': ''});

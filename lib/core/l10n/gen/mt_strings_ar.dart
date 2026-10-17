@@ -4890,11 +4890,11 @@ class MtStringsAr extends MtStrings {
 
   @override
   String get cvMobSpeechNote =>
-      'تحويل الكلام إلى نص (whisper.cpp) غير متوفر في إصدار الجوال؛ تُحفظ الإعدادات وتُطبَّق على سطح المكتب.';
+      'يعمل التعرف على الكلام على الجهاز دون اتصال (whisper.cpp)؛ لا يُرسل الصوت إلى أي خادم. يُنزَّل النموذج مرة واحدة عند أول استخدام (Tiny 75 م.ب · Base 142 م.ب · Small 466 م.ب؛ يُنصح بـ Wi-Fi) ويُدار من الإعدادات › نماذج الكلام.';
 
   @override
   String get cvMobOcrNote =>
-      'استخراج النص من الصور (OCR، Tesseract) غير متوفر في إصدار الجوال؛ تُحفظ الإعدادات وتُطبَّق على سطح المكتب.';
+      'يعمل استخراج النص من الصور على الجهاز (Google ML Kit)؛ لا تُرسل الصور إلى أي خادم. الكتابات المدعومة: اللاتينية (بما فيها التركية) والصينية واليابانية والكورية والديفاناغارية (الهندية). على Android يأتي نموذج التعرف مع التطبيق.';
 
   @override
   String get cvMobFolderNote =>
@@ -5068,4 +5068,99 @@ class MtStringsAr extends MtStrings {
 
   @override
   String get npMobReplaceAll => 'استبدال الكل';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'تتطلب ملفات Excel (.xlsx) إضافة \"excel\" في DuckDB؛ إذا تعذر تحميل الإضافة على هذا الجهاز يفشل الفتح. لا تحتاج CSV وParquet وJSON إلى أي إعداد إضافي.';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      'تعذر فتح ملف Excel: لم يمكن تحميل إضافة \"excel\" في DuckDB على هذا الجهاز. احفظ الملف بصيغة CSV وحاول مرة أخرى.';
+
+  @override
+  String get sqMobDuckFileNotFound => 'الملف غير موجود';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      'تعذر تحميل مكتبة DuckDB الأصلية (libduckdb). ربما تم بناء التطبيق بدون ملف DuckDB ثنائي لهذه المنصة.';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      'مكتبة SQL Server الأصلية (FreeTDS libsybdb.so) غير مضمنة في التطبيق. يجب إضافة دليل jniLibs الخاص بـ mssql_connection إلى بناء Android.';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      'تعذر الاتصال بـ SQL Server. تحقق من عنوان الخادم والمنفذ والمستخدم/كلمة المرور ووضع TLS (التفاصيل تحت \"MssqlClient\" في سجل الجهاز).';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'مشغّل SQL Server غير مدعوم بعد على iOS (مكتبة FreeTDS غير مضمنة).';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      'هذا النموذج غير متاح على الجوال؛ يُستخدم نموذج Base على هذا الجهاز. يسري اختيارك على سطح المكتب.';
+
+  @override
+  String get cvMobPerWindowNote =>
+      'لا تُبلغ نسخة الجوال عن اللغة المكتشفة؛ يسري هذا الخيار على سطح المكتب.';
+
+  @override
+  String get cvMobOcrUnsupported =>
+      'غير قابل للقراءة على الجوال (لا يوجد نموذج ML Kit)؛ يُستخدم على سطح المكتب';
+
+  @override
+  String get cvMobOcrMax => 'يمكن اختيار 6 لغات كحد أقصى.';
+
+  @override
+  String get cvMobShareAllTexts => 'مشاركة كل النصوص';
+
+  @override
+  String get cvMobShareText => 'مشاركة النص';
+
+  @override
+  String get cvMobDeleteText => 'حذف النص';
+
+  @override
+  String get cvMobCancelText => 'إلغاء مهمة النص';
+
+  @override
+  String get cvMobPhaseDownload => 'جارٍ تنزيل نموذج الكلام';
+
+  @override
+  String get cvMobPhaseWav => 'جارٍ تجهيز الصوت (WAV بتردد 16 كيلوهرتز)…';
+
+  @override
+  String get cvMobPhaseRunSpeech =>
+      'جارٍ تحويل الكلام إلى نص… (المدة تعتمد على طول الملف)';
+
+  @override
+  String get cvMobPhaseRunOcr => 'جارٍ قراءة النص…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n نص';
+  }
+
+  @override
+  String get cvMobNoTextsYet => 'لا توجد نصوص بعد.';
+
+  @override
+  String get cvMobSpeechModels => 'نماذج الكلام';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      'يعمل التعرف على الكلام (whisper.cpp) على هذا الجهاز؛ يُنزَّل النموذج عند أول استخدام ويمكنك تنزيله مسبقاً أو حذفه من هنا. نموذجا Medium وLarge v3 Turbo غير متاحين على الجوال.';
+
+  @override
+  String get cvMobTexts => 'النصوص (كلام / OCR)';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      'يعمل استخراج النص من الصور على الجهاز عبر Google ML Kit؛ تُدعم الكتابات اللاتينية (بما فيها التركية) والصينية واليابانية والكورية والديفاناغارية. تأتي نماذج التعرف مع التطبيق؛ لا حاجة للتنزيل.';
+
+  @override
+  String get npMobDocumentsRoot => 'المستندات';
+
+  @override
+  String get smMobFiles => 'الملفات';
 }

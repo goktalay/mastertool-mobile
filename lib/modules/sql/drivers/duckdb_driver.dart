@@ -16,18 +16,19 @@ import 'sql_driver.dart';
 /// Doğrudan sorgulanabilen veri dosyaları (masaüstü FILE_EXT)
 final kDuckDataFileExt = RegExp(r'\.(csv|tsv|parquet|json|jsonl|ndjson|xlsx)$', caseSensitive: false);
 
-// Türkçe sabit metinler (ARB'ye henüz eklenmedi)
-const kDuckExcelNote = 'Excel (.xlsx) dosyaları DuckDB "excel" eklentisini gerektirir; eklenti cihazda yüklenemiyorsa açılış hata verir. CSV, Parquet ve JSON ek kurulum istemez.';
-const kDuckExcelUnsupported = 'Excel dosyası açılamadı: DuckDB "excel" eklentisi bu cihazda yüklenemedi. Dosyayı CSV olarak kaydedip tekrar deneyin.';
-const kDuckFileNotFound = 'Dosya bulunamadı';
-const kDuckNativeMissing = 'DuckDB yerel kitaplığı (libduckdb) yüklenemedi. Uygulama bu platform için DuckDB ikilisi olmadan derlenmiş olabilir.';
+// Hata kimlikleri (sürücü context'sizdir; UI metni sqlErrorText → s.sqMobDuck… ile çözülür)
+const kDuckExcelUnsupported = 'duck_excel_unsupported';
+const kDuckFileNotFound = 'duck_file_not_found';
+const kDuckNativeMissing = 'duck_native_missing';
 const _dml = {'INSERT', 'UPDATE', 'DELETE', 'MERGE', 'COPY', 'UPSERT'};
 const _systemDbs = "('system','temp')";
 
-/// Sürücü hatası: DuckDB mesajı (yığın izi olmadan)
+/// Sürücü hatası: DuckDB mesajı (yığın izi olmadan). [code] verilmişse (kDuck…) UI sözlükten çevirir, [detail] eklenir.
 class DuckDbError implements Exception {
-  DuckDbError(this.message);
+  DuckDbError(this.message, {this.code, this.detail});
   final String message;
+  final String? code;
+  final String? detail;
   @override
   String toString() => message;
 }
@@ -73,7 +74,7 @@ class DuckDbDriver implements SqlDriver {
   @override
   Future<void> connect() async {
     final p = dbPath;
-    if (p != ':memory:' && readOnly && !File(p).existsSync()) throw DuckDbError('$kDuckFileNotFound: $p');
+    if (p != ':memory:' && readOnly && !File(p).existsSync()) throw DuckDbError('$kDuckFileNotFound: $p', code: kDuckFileNotFound, detail: p);
     final settings = <String, String>{
       'access_mode': p != ':memory:' && readOnly ? 'READ_ONLY' : 'AUTOMATIC',
       'autoinstall_known_extensions': 'true',
@@ -89,7 +90,7 @@ class DuckDbDriver implements SqlDriver {
         db = await dk.duckdb.open(p, settings: {'access_mode': settings['access_mode']!});
       }
     } on ArgumentError catch (e) {
-      throw DuckDbError('$kDuckNativeMissing\n$e');
+      throw DuckDbError('$kDuckNativeMissing\n$e', code: kDuckNativeMissing, detail: '$e');
     } on dk.DuckDBException catch (e) {
       throw DuckDbError(e.message.trim());
     }
@@ -101,7 +102,7 @@ class DuckDbDriver implements SqlDriver {
         try {
           await _exec('CREATE VIEW ${quoteIdent(viewNameFor(f), dialect)} AS SELECT * FROM ${readerFor(f)}');
         } on DuckDbError catch (e) {
-          if (_isXlsx(f) && RegExp('excel|extension|read_xlsx', caseSensitive: false).hasMatch(e.message)) throw DuckDbError('$kDuckExcelUnsupported\n${e.message}');
+          if (_isXlsx(f) && RegExp('excel|extension|read_xlsx', caseSensitive: false).hasMatch(e.message)) throw DuckDbError('$kDuckExcelUnsupported\n${e.message}', code: kDuckExcelUnsupported, detail: e.message);
           rethrow;
         }
       }

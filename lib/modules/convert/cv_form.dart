@@ -13,15 +13,6 @@ import 'cv_formats.dart';
 import 'cv_model.dart';
 import 'cv_text_formats.dart';
 
-// Sabit metinler (ARB'ye henüz eklenmedi; TR)
-const _tSpeechNote = 'Konuşma tanıma cihazda, çevrimdışı çalışır (whisper.cpp); ses hiçbir sunucuya gönderilmez. Model ilk kullanımda bir kez indirilir '
-    '(Çok küçük 75 MB · Temel 142 MB · Küçük 466 MB; Wi-Fi önerilir) ve Ayarlar › Konuşma modelleri bölümünden yönetilir.';
-const _tSpeechModelFallback = 'Bu model mobilde kullanılamaz; bu cihazda Temel (base) model kullanılır. Masaüstünde seçiminiz geçerlidir.';
-const _tPerWindowMob = 'Mobil sürüm algılanan dili bildirmez; bu seçenek masaüstünde uygulanır.';
-const _tOcrNote = 'Resimden metin cihazda çalışır (Google ML Kit); resimler hiçbir sunucuya gönderilmez. Tanınan betikler: Latin alfabesi '
-    '(Türkçe dahil), Çince, Japonca, Korece ve Devanagari (Hintçe). Android\'de tanıma modeli uygulamayla gelir.';
-const _tOcrUnsupported = 'Mobilde okunamaz (ML Kit modeli yok); masaüstünde kullanılır';
-const _tOcrMax = 'En çok 6 dil seçilebilir.';
 
 class CvFormScreen extends StatefulWidget {
   const CvFormScreen({super.key, this.existing, required this.folders, this.folderId, this.settings});
@@ -292,17 +283,17 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
       const SizedBox(height: 14),
       Opacity(opacity: on ? 1 : .5, child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         _row(wide, [
-          MtField(label: s.cvPfSpeechModel, hint: mobileOk ? null : _tSpeechModelFallback,
+          MtField(label: s.cvPfSpeechModel, hint: mobileOk ? null : s.cvMobSpeechModelFallback,
               child: _select<String>(model, [for (final m in kSpeechModels) (m, kMobileSpeechModels.contains(m) ? (modelLabel[m] ?? m) : '${modelLabel[m] ?? m} — ${s.cvMobNotOnMobile}')],
                   (v) { if (v != null && kMobileSpeechModels.contains(v)) setState(() => _speech['model'] = v); })),
           MtField(label: s.cvPfSpeechLang, child: _select<String>(_speech['language'].toString(), [for (final l in kSpeechLangs) (l, l == 'auto' ? s.cvSpeechLangAuto : l.toUpperCase())],
               (v) { if (v != null) setState(() => _speech['language'] = v); })),
         ]),
         const SizedBox(height: 14),
-        Opacity(opacity: .5, child: IgnorePointer(child: MtCheck(value: _speech['perWindow'] == true, onChanged: (_) {}, label: '${s.cvPfPerWindow} · ${s.cvMobNotOnMobile}', hint: _tPerWindowMob))),
+        Opacity(opacity: .5, child: IgnorePointer(child: MtCheck(value: _speech['perWindow'] == true, onChanged: (_) {}, label: '${s.cvPfPerWindow} · ${s.cvMobNotOnMobile}', hint: s.cvMobPerWindowNote))),
       ])),
       const SizedBox(height: 14),
-      Text(_tSpeechNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
+      Text(s.cvMobSpeechNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
     ]);
   }
 
@@ -313,7 +304,7 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
     final unsupported = ocrUnsupportedIn(langs);
     void toggle(String l) {
       if (langs.contains(l)) { if (langs.length > 1) langs.remove(l); }
-      else if (langs.length >= 6) { mtToast(context, _tOcrMax, type: 'err'); return; }
+      else if (langs.length >= 6) { mtToast(context, s.cvMobOcrMax, type: 'err'); return; }
       else { langs.add(l); }
       setState(() => _ocr['languages'] = langs);
     }
@@ -322,10 +313,10 @@ class _CvFormScreenState extends State<CvFormScreen> with SingleTickerProviderSt
       const SizedBox(height: 14),
       Opacity(opacity: on ? 1 : .5, child: MtField(label: s.cvPfOcrLangs, hint: s.cvPfOcrLangsHint, child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Wrap(spacing: 6, runSpacing: 6, children: [for (final l in kOcrLangs) Opacity(opacity: kOcrUnsupportedMobile.contains(l) ? .55 : 1, child: _chip(col, l, langs.contains(l), false, () => toggle(l)))]),
-        if (unsupported.isNotEmpty) ...[const SizedBox(height: 6), Text('${unsupported.join(', ')}: $_tOcrUnsupported', style: MtText.small.copyWith(color: col.warn))],
+        if (unsupported.isNotEmpty) ...[const SizedBox(height: 6), Text('${unsupported.join(', ')}: ${s.cvMobOcrUnsupported}', style: MtText.small.copyWith(color: col.warn))],
       ]))),
       const SizedBox(height: 14),
-      Text(_tOcrNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
+      Text(s.cvMobOcrNote, style: MtText.small.copyWith(color: col.text3, height: 1.45)),
     ]);
   }
 

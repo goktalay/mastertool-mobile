@@ -4956,11 +4956,11 @@ class MtStringsDe extends MtStrings {
 
   @override
   String get cvMobSpeechNote =>
-      'Sprache-zu-Text (whisper.cpp) ist in der Mobilversion nicht enthalten; die Einstellungen bleiben erhalten und werden am Desktop angewendet.';
+      'Die Spracherkennung läuft offline auf dem Gerät (whisper.cpp); Audio wird nie an einen Server gesendet. Das Modell wird bei der ersten Nutzung einmal heruntergeladen (Tiny 75 MB · Base 142 MB · Small 466 MB; WLAN empfohlen) und unter Einstellungen › Sprachmodelle verwaltet.';
 
   @override
   String get cvMobOcrNote =>
-      'Text aus Bildern (OCR, Tesseract) ist in der Mobilversion nicht enthalten; die Einstellungen bleiben erhalten und werden am Desktop angewendet.';
+      'Text aus Bildern wird auf dem Gerät erkannt (Google ML Kit); Bilder werden nie an einen Server gesendet. Erkannte Schriften: Lateinisch (inkl. Türkisch), Chinesisch, Japanisch, Koreanisch und Devanagari (Hindi). Unter Android wird das Erkennungsmodell mit der App geliefert.';
 
   @override
   String get cvMobFolderNote =>
@@ -5136,4 +5136,99 @@ class MtStringsDe extends MtStrings {
 
   @override
   String get npMobReplaceAll => 'Alle ersetzen';
+
+  @override
+  String get sqMobDuckExcelNote =>
+      'Excel-Dateien (.xlsx) benötigen die DuckDB-Erweiterung „excel“; kann sie auf diesem Gerät nicht geladen werden, schlägt das Öffnen fehl. CSV, Parquet und JSON brauchen keine zusätzliche Einrichtung.';
+
+  @override
+  String get sqMobDuckExcelUnsupported =>
+      'Excel-Datei konnte nicht geöffnet werden: Die DuckDB-Erweiterung „excel“ konnte auf diesem Gerät nicht geladen werden. Speichern Sie die Datei als CSV und versuchen Sie es erneut.';
+
+  @override
+  String get sqMobDuckFileNotFound => 'Datei nicht gefunden';
+
+  @override
+  String get sqMobDuckNativeMissing =>
+      'Die native DuckDB-Bibliothek (libduckdb) konnte nicht geladen werden. Die App wurde möglicherweise ohne DuckDB-Binärdatei für diese Plattform gebaut.';
+
+  @override
+  String get sqMobMssqlNativeMissing =>
+      'Die native SQL-Server-Bibliothek (FreeTDS libsybdb.so) ist nicht in der App enthalten. Das jniLibs-Verzeichnis von mssql_connection muss dem Android-Build hinzugefügt werden.';
+
+  @override
+  String get sqMobMssqlConnectFailed =>
+      'Verbindung zu SQL Server fehlgeschlagen. Prüfen Sie Serveradresse, Port, Benutzer/Passwort und TLS-Modus (Details unter „MssqlClient“ im Geräteprotokoll).';
+
+  @override
+  String get sqMobMssqlIosUnsupported =>
+      'Der SQL-Server-Treiber wird unter iOS noch nicht unterstützt (die FreeTDS-Bibliothek ist nicht enthalten).';
+
+  @override
+  String get cvMobSpeechModelFallback =>
+      'Dieses Modell ist auf Mobilgeräten nicht verfügbar; auf diesem Gerät wird das Base-Modell verwendet. Ihre Auswahl gilt am Desktop.';
+
+  @override
+  String get cvMobPerWindowNote =>
+      'Die mobile Version meldet die erkannte Sprache nicht; diese Option gilt am Desktop.';
+
+  @override
+  String get cvMobOcrUnsupported =>
+      'Auf Mobilgeräten nicht lesbar (kein ML-Kit-Modell); wird am Desktop verwendet';
+
+  @override
+  String get cvMobOcrMax => 'Es können bis zu 6 Sprachen ausgewählt werden.';
+
+  @override
+  String get cvMobShareAllTexts => 'Alle Texte teilen';
+
+  @override
+  String get cvMobShareText => 'Text teilen';
+
+  @override
+  String get cvMobDeleteText => 'Text löschen';
+
+  @override
+  String get cvMobCancelText => 'Textauftrag abbrechen';
+
+  @override
+  String get cvMobPhaseDownload => 'Sprachmodell wird heruntergeladen';
+
+  @override
+  String get cvMobPhaseWav => 'Audio wird vorbereitet (16 kHz WAV)…';
+
+  @override
+  String get cvMobPhaseRunSpeech =>
+      'Sprache wird transkribiert… (Dauer hängt von der Dateilänge ab)';
+
+  @override
+  String get cvMobPhaseRunOcr => 'Text wird gelesen…';
+
+  @override
+  String cvMobTextsCount(int n) {
+    return '$n Texte';
+  }
+
+  @override
+  String get cvMobNoTextsYet => 'Noch keine Texte.';
+
+  @override
+  String get cvMobSpeechModels => 'Sprachmodelle';
+
+  @override
+  String get cvMobSpeechModelsNote =>
+      'Die Spracherkennung (whisper.cpp) läuft auf diesem Gerät; das Modell wird bei der ersten Nutzung heruntergeladen und kann hier vorab geladen oder gelöscht werden. Die Modelle Medium und Large v3 Turbo sind auf Mobilgeräten nicht verfügbar.';
+
+  @override
+  String get cvMobTexts => 'Texte (Sprache / OCR)';
+
+  @override
+  String get cvMobOcrSettingsNote =>
+      'Text aus Bildern wird auf dem Gerät mit Google ML Kit erkannt; unterstützt werden Lateinisch (inkl. Türkisch), Chinesisch, Japanisch, Koreanisch und Devanagari. Die Erkennungsmodelle werden mit der App geliefert; kein Download nötig.';
+
+  @override
+  String get npMobDocumentsRoot => 'Dokumente';
+
+  @override
+  String get smMobFiles => 'Dateien';
 }
