@@ -25,7 +25,7 @@ void main() {
 
 /// Modül kayıtları: yazıldıkça PlaceholderModule yerine gerçek modül konur.
 Map<String, MtModule> buildModules([ModuleHost? host]) => {
-      'sm': host == null ? PlaceholderModule('sm', Icons.terminal, const Color(0xFF22D3EE)) : SshModule(host),
+      'sm': host == null ? PlaceholderModule('sm', Icons.terminal, const Color(0xFF22D3EE)) : SshModule(host).registerCrossLinks(),
       'fm': host == null ? PlaceholderModule('fm', Icons.cloud_sync_outlined, const Color(0xFFF59E0B)) : FtpModule(host),
       'sq': host == null ? PlaceholderModule('sq', Icons.storage_outlined, const Color(0xFF8B5CF6)) : SqlModule(host),
       'np': host == null ? PlaceholderModule('np', Icons.edit_note, const Color(0xFF10B981)) : NotepadModule(host),

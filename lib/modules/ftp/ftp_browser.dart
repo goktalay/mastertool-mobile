@@ -31,12 +31,22 @@ class Transfer {
   bool cancel = false;
 }
 
+/// Uzak dosya sistemi üreticisi (testte sahte RemoteFs enjekte etmek için); verilmezse createRemoteFs.
+typedef RemoteFsFactory = RemoteFs Function(FtpSite site, {void Function(String fp)? onHostKey});
+
 class FtpBrowserScreen extends StatefulWidget {
-  const FtpBrowserScreen({super.key, required this.site, required this.engine, required this.onLastDir, required this.onHostKey});
+  const FtpBrowserScreen({super.key, required this.site, this.engine, required this.onLastDir, required this.onHostKey,
+      this.fsFactory, this.embedded = false, this.onClose, this.onCdHere});
   final FtpSite site;
-  final SyncEngine engine;
+  final SyncEngine? engine;
   final ValueChanged<String> onLastDir;
   final ValueChanged<String> onHostKey;
+  final RemoteFsFactory? fsFactory;
+  /// Başka bir ekranın yan paneli olarak (SSH Master "Dosyalar"): dar düzen, aktarımlar altta; onClose ile kapatma düğmesi.
+  final bool embedded;
+  final VoidCallback? onClose;
+  /// Verilirse uzun basma menüsünde "Terminalde bu klasöre git" çıkar (klasör için kendi yolu, dosya için bulunduğu klasör).
+  final ValueChanged<String>? onCdHere;
   @override
   State<FtpBrowserScreen> createState() => _FtpBrowserScreenState();
 }
@@ -55,7 +65,8 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
   @override
   void initState() {
     super.initState();
-    _connect();
+    // Sözlük (MtStrings.of) initState içinde alınamaz; bağlanma ilk kareden sonra
+    WidgetsBinding.instance.addPostFrameCallback((_) { if (mounted) _connect(); });
   }
 
   @override
@@ -64,11 +75,13 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
     super.dispose();
   }
 
+  RemoteFs _newFs({void Function(String fp)? onHostKey}) => (widget.fsFactory ?? createRemoteFs)(widget.site, onHostKey: onHostKey);
+
   Future<void> _connect() async {
     final s = MtStrings.of(context);
     setState(() { _loading = true; _error = null; _connected = false; });
     try {
-      final fs = createRemoteFs(widget.site, onHostKey: widget.onHostKey);
+      final fs = _newFs(onHostKey: widget.onHostKey);
       await fs.connect();
       _fs = fs;
       _home = await fs.pwd();
@@ -169,7 +182,7 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
     final s = MtStrings.of(context);
     RemoteFs? fs;
     try {
-      fs = createRemoteFs(widget.site); // her aktarım kendi bağlantısıyla (masaüstü gibi; gezinme kilitlenmez)
+      fs = _newFs(); // her aktarım kendi bağlantısıyla (masaüstü gibi; gezinme kilitlenmez)
       await fs.connect();
       if (t.download) {
         final sink = File(t.localPath!).openWrite();
@@ -212,6 +225,7 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
     Widget mi(IconData i, String t, {bool danger = false}) => Row(children: [Icon(i, size: 16, color: danger ? c.err : null), const SizedBox(width: 10), Text(t)]);
     final r = await showMenu<String>(context: context, position: RelativeRect.fromLTRB(pos.dx, pos.dy, pos.dx, pos.dy), items: [
       if (!e.isDir) PopupMenuItem(value: 'dl', child: mi(Icons.download, s.fmSiteDownload)),
+      if (widget.onCdHere != null) PopupMenuItem(value: 'cd', child: mi(Icons.terminal, s.smFmCdHere)),
       PopupMenuItem(value: 'ren', child: mi(Icons.drive_file_rename_outline, s.commonRename)),
       const PopupMenuDivider(),
       PopupMenuItem(value: 'del', child: mi(Icons.delete_outline, s.commonDelete, danger: true)),
@@ -221,6 +235,7 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
     try {
       switch (r) {
         case 'dl': await _download(e);
+        case 'cd': widget.onCdHere?.call(e.isDir ? fs.join(_cwd, e.name) : _cwd);
         case 'ren':
           final n = await _ask(s.commonRename, s.commonNewName, initial: e.name);
           if (n != null && n.isNotEmpty && n != e.name) { await fs.rename(fs.join(_cwd, e.name), fs.join(_cwd, n)); await _refresh(); }
@@ -276,7 +291,7 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
     final s = MtStrings.of(context);
     final c = MtColors.of(context);
     final site = widget.site;
-    final wide = MtBreak.wide(context);
+    final wide = !widget.embedded && MtBreak.wide(context);
     final active = _transfers.where((t) => t.state == TrState.active || t.state == TrState.queued).length;
     final list = Column(children: [
       // yol çubuğu
@@ -347,6 +362,7 @@ class _FtpBrowserScreenState extends State<FtpBrowserScreen> {
             if (active > 0) Positioned(right: 2, top: 2, child: Container(padding: const EdgeInsets.symmetric(horizontal: 5), decoration: BoxDecoration(color: c.accent, borderRadius: BorderRadius.circular(9)),
                 child: Text('$active', style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w700, color: MtColors.onAccent)))),
           ]),
+          if (widget.onClose != null) MtIconButton(icon: Icons.close, tooltip: s.smPaneClose, onPressed: widget.onClose),
           const SizedBox(width: 6),
         ],
       ),

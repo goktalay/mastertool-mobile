@@ -20,16 +20,18 @@ class SshFormResult {
 }
 
 class SshFormScreen extends StatefulWidget {
-  const SshFormScreen({super.key, this.existing, required this.folders, this.folderId});
+  const SshFormScreen({super.key, this.existing, required this.folders, this.folderId, this.initial});
   final SshConnection? existing;
   final List<SshFolder> folders;
   final String? folderId;
+  /// Yeni kayıtta önceden dolu alanlar (örn. IP Tools'tan gelen host/port); existing varsa yok sayılır.
+  final Map<String, dynamic>? initial;
   @override
   State<SshFormScreen> createState() => _SshFormScreenState();
 }
 
 class _SshFormScreenState extends State<SshFormScreen> {
-  late final Map<String, dynamic> d = widget.existing != null ? Map<String, dynamic>.from(widget.existing!.raw) : SshConnection.blank();
+  late final Map<String, dynamic> d = widget.existing != null ? Map<String, dynamic>.from(widget.existing!.raw) : {...SshConnection.blank(), ...?widget.initial};
   late final _name = TextEditingController(text: d['name']?.toString() ?? '');
   late final _host = TextEditingController(text: d['host']?.toString() ?? '');
   late final _port = TextEditingController(text: (d['port'] ?? 22).toString());

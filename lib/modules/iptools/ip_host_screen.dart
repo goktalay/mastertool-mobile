@@ -1,11 +1,13 @@
 // Cihaz ayrıntıları — masaüstü ayrıntı penceresi: başlık (ad ya da IP), alan listesi (IP, Ad, mDNS, MAC, Üretici, Yanıt, Durum,
 // Canlılık), "Servisler" kartları (grup simgesi + ad + port; Karşılama / Başlık / Sunucu / Sertifika / Veren / Geçerlilik sonu).
 // Her alan uzun basışla kopyalanır. Eylemler: tarayıcıda aç (web/yazıcı), adresi kopyala, SSH varsa "SSH Master'da aç"
-// (şimdilik adres panoya + toast). Geniş ekranda pencere (dialog), telefonda tam sayfa.
+// (CrossLinks.openSsh kayıtlıysa SSH Master bağlantı formu host/port dolu açılır; değilse adres panoya + toast).
+// Geniş ekranda pencere (dialog), telefonda tam sayfa.
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../core/cross_links.dart';
 import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/theme.dart';
 import '../../widgets/mt_widgets.dart';
@@ -102,6 +104,8 @@ class IpHostScreen extends StatelessWidget {
       if (web != null) MtButton(label: s.ipCtxOpenWeb, icon: Icons.open_in_new, small: true, onPressed: () => runHostAction(context, actionFor(web.group, h.ip, web.port))),
       MtButton(label: s.ipMobCopyAddress, icon: Icons.copy_outlined, small: true, onPressed: () => _copy(context, h.ip)),
       if (ssh != null) MtButton(label: s.ipMobOpenInSsh, icon: Icons.terminal, small: true, kind: MtBtnKind.primary, onPressed: () async {
+        final openSsh = CrossLinks.openSsh;
+        if (openSsh != null) return openSsh(context, host: h.ip, port: ssh.port);
         await Clipboard.setData(ClipboardData(text: h.ip));
         if (context.mounted) mtToast(context, s.ipTagCopied(h.ip), sub: s.ipMobOpenInSshNote, type: 'ok');
       }),

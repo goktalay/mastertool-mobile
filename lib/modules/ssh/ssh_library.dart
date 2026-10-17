@@ -1,4 +1,5 @@
 // SSH Master kitaplık ekranı — ortak LibraryScreen üzerine SSH uyarlaması (kartlar: ad, user@host:port, Anahtar / son klasör / palet).
+// Kart uzun basma menüsü: son klasörü sıfırla · Dosyalar (SFTP gezgini, terminal açmadan).
 import 'package:flutter/material.dart';
 
 import '../../core/account.dart';
@@ -6,9 +7,29 @@ import '../../core/l10n/gen/mt_strings.dart';
 import '../../core/module_host.dart';
 import '../../core/sync.dart';
 import '../../widgets/library_screen.dart';
+import 'ssh_files.dart';
 import 'ssh_form.dart';
 import 'ssh_model.dart';
 import 'ssh_terminal.dart';
+
+Future<void> _saveConn(SyncEngine engine, String id, Map<String, dynamic> data) async {
+  engine.library.items[id] = ('connection', data);
+  await engine.onLocalChange();
+}
+
+/// Terminali açar; "son klasör" ve host anahtarı kitaplığa geri yazılır (kitaplık kartı ve modüller arası derin bağlantı ortak).
+void openSshTerminal(BuildContext ctx, SyncEngine engine, String id, Map<String, dynamic> data, {bool rootNavigator = false}) {
+  final c = SshConnection(id, data);
+  Navigator.of(ctx, rootNavigator: rootNavigator).push(MaterialPageRoute(builder: (_) => SshTerminalScreen(conn: c, engine: engine,
+      onLastDir: (dir) => _saveConn(engine, id, {...c.raw, 'lastDir': dir}), onHostKey: (fp) => _saveConn(engine, id, {...c.raw, 'hostKey': fp}))));
+}
+
+/// SFTP dosya gezginini ayrı sayfa olarak açar (başlangıç: hatırlanan son klasör).
+void openSshFiles(BuildContext ctx, SyncEngine engine, String id, Map<String, dynamic> data) {
+  final c = SshConnection(id, data);
+  Navigator.of(ctx).push(MaterialPageRoute(builder: (_) => SshFilesPanel(conn: c, engine: engine, startDir: c.rememberLastDir ? c.lastDir : '',
+      onHostKey: (fp) => _saveConn(engine, id, {...c.raw, 'hostKey': fp}))));
+}
 
 class SshLibraryScreen extends StatefulWidget {
   const SshLibraryScreen({super.key, required this.host, required this.account});
@@ -29,16 +50,9 @@ class _SshLibraryScreenState extends State<SshLibraryScreen> {
     });
   }
 
-  Future<void> _save(String id, Map<String, dynamic> data) async {
-    _engine!.library.items[id] = ('connection', data);
-    await _engine!.onLocalChange();
-  }
+  Future<void> _save(String id, Map<String, dynamic> data) => _saveConn(_engine!, id, data);
 
-  void _open(BuildContext ctx, String id, Map<String, dynamic> data) {
-    final c = SshConnection(id, data);
-    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) => SshTerminalScreen(conn: c, engine: _engine!,
-        onLastDir: (dir) => _save(id, {...c.raw, 'lastDir': dir}), onHostKey: (fp) => _save(id, {...c.raw, 'hostKey': fp}))));
-  }
+  void _open(BuildContext ctx, String id, Map<String, dynamic> data) => openSshTerminal(ctx, _engine!, id, data);
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +82,9 @@ class _SshLibraryScreenState extends State<SshLibraryScreen> {
               existing: id == null ? null : SshConnection(id, data!), folders: [for (final f in folders) SshFolder(f.$1, {'name': f.$2})], folderId: folderId)));
           return r == null ? null : (r.data, r.connect);
         },
-        extraMenu: [('resetDir', Icons.restart_alt, s.smAppResetLastDir)],
+        extraMenu: [('files', Icons.folder_open_outlined, s.cvPjFiles), ('resetDir', Icons.restart_alt, s.smAppResetLastDir)],
         onExtra: (ctx, key, id, data) async {
+          if (key == 'files') openSshFiles(ctx, _engine!, id, data);
           if (key == 'resetDir') await _save(id, {...data, 'lastDir': ''});
         },
       ),
